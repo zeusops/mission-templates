@@ -1,5 +1,9 @@
 # Changelog
 
+## [Version 10 Hotfix 2] - 2018-05-05
+### Fixed
+- Fix forcebodybagging
+
 ## [Version 10 Hotfix] - 2018-04-25
 ### Fixed
 - Fix loading the default presets from gearBox

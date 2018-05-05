@@ -8,7 +8,7 @@ scopeName "main";
 waitUntil {!alive player;};
 
 while {true} do {
-	if (((player distance2D [-5000,-5000]) < 10) || (alive player) || (vehicle player != player)) then {
+	if (((player distance2D [-5000,-5000]) < 10) || (alive player) || (vehicle player != player) || (missionNameSpace getVariable "forceBodyBag")) then {
 		breakTo "main";
 	};
 	if (playerRespawnTime % 60 == 0) then {
