@@ -55,8 +55,9 @@ class cfgFunctions {
 			class dynamicGroupsMarkers {description = "";};
 			class gearBox {description = "";};
 			class gearHandle {description = "";};
-			class handleRespawn {description = "";};
 			class mapButtons {description = "";};
+			class respawnHandle {description = "";};
+			class respawnHandleLocal {description = "";};
 			class showFPS {description = "";};
 		};
 	};
