@@ -13792,7 +13792,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={29100,185.5,1200};
+				position[]={29600,185.5,1200.5};
 			};
 			id=9;
 			type="ModuleStrategicMapORBAT_F";
@@ -13814,7 +13814,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="missionConfigFile >> ""CfgORBAT"" >> ""ZOPS""";
+							value="missionConfigFile >> ""CfgORBAT"" >> ""RADIOS""";
 						};
 					};
 				};
@@ -13852,7 +13852,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="missionConfigFile >> ""CfgORBAT"" >> ""ZOPS""";
+							value="missionConfigFile >> ""CfgORBAT"" >> ""RADIOS""";
 						};
 					};
 				};
@@ -18660,7 +18660,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={29100,185.5,2200};
+				position[]={29600,185.5,3200};
 			};
 			id=132;
 			type="ModuleStrategicMapORBAT_F";

@@ -8,7 +8,7 @@ class EditorData
 	toggles=5;
 	class ItemIDProvider
 	{
-		nextID=55;
+		nextID=57;
 	};
 	class Camera
 	{
@@ -21,12 +21,12 @@ class EditorData
 binarizationWanted=0;
 addons[]=
 {
-	"A3_Modules_F_StrategicMap",
 	"A3_Ui_F",
 	"A3_Modules_F_Curator_Misc",
 	"A3_Characters_F",
 	"A3_Modules_F_Curator_Curator",
-	"A3_Data_F_Curator_Virtual"
+	"A3_Data_F_Curator_Virtual",
+	"A3_Modules_F_StrategicMap"
 };
 class AddonsMetaData
 {
@@ -35,36 +35,36 @@ class AddonsMetaData
 		items=5;
 		class Item0
 		{
-			className="A3_Modules_F";
-			name="Arma 3 Alpha - Scripted Modules";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item1
-		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item2
+		class Item1
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item3
+		class Item2
 		{
 			className="A3_Characters_F";
 			name="Arma 3 Alpha - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item4
+		class Item3
 		{
 			className="A3_Data_F_Curator";
 			name="Arma 3 Zeus Update - Main Configuration";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item4
+		{
+			className="A3_Modules_F";
+			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -126,99 +126,8 @@ class Mission
 	};
 	class Entities
 	{
-		items=10;
+		items=11;
 		class Item0
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={19700,119,900};
-			};
-			id=0;
-			type="ModuleStrategicMapORBAT_F";
-			atlOffset=113.32178;
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="ModuleStrategicMapORBAT_F_Path";
-					expression="_this setVariable ['Path',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="missionConfigFile >> ""CfgORBAT"" >> ""ZOPS""";
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="ModuleStrategicMapORBAT_F_Tags";
-					expression="_this setVariable ['Tags',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="";
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="ModuleStrategicMapORBAT_F_Parent";
-					expression="_this setVariable ['Parent',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="missionConfigFile >> ""CfgORBAT"" >> ""ZOPS""";
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="ModuleStrategicMapORBAT_F_Tiers";
-					expression="_this setVariable ['Tiers',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="";
-						};
-					};
-				};
-				nAttributes=4;
-			};
-		};
-		class Item1
 		{
 			dataType="Marker";
 			position[]={21200,137,900};
@@ -231,7 +140,7 @@ class Mission
 			id=1;
 			atlOffset=127.01994;
 		};
-		class Item2
+		class Item1
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -245,7 +154,7 @@ class Mission
 			type="ModuleCoverMap_F";
 			atlOffset=36.070999;
 		};
-		class Item3
+		class Item2
 		{
 			dataType="Group";
 			side="West";
@@ -562,7 +471,7 @@ class Mission
 					};
 					id=7;
 					type="B_Soldier_F";
-					atlOffset=0.010452271;
+					atlOffset=0.010451317;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -660,7 +569,7 @@ class Mission
 					};
 					id=8;
 					type="B_Soldier_F";
-					atlOffset=0.010456085;
+					atlOffset=0.010455132;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -856,7 +765,7 @@ class Mission
 					};
 					id=10;
 					type="B_Soldier_F";
-					atlOffset=0.0036849976;
+					atlOffset=0.0036840439;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -954,7 +863,7 @@ class Mission
 					};
 					id=11;
 					type="B_Soldier_F";
-					atlOffset=0.0036849976;
+					atlOffset=0.0036840439;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1345,7 +1254,7 @@ class Mission
 					};
 					id=15;
 					type="B_Soldier_F";
-					atlOffset=0.0021400452;
+					atlOffset=0.0021390915;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1443,7 +1352,7 @@ class Mission
 					};
 					id=16;
 					type="B_Soldier_F";
-					atlOffset=0.010440826;
+					atlOffset=0.010439873;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1541,7 +1450,7 @@ class Mission
 					};
 					id=17;
 					type="B_Soldier_F";
-					atlOffset=0.010440826;
+					atlOffset=0.010439873;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2031,7 +1940,7 @@ class Mission
 					};
 					id=22;
 					type="B_Soldier_F";
-					atlOffset=1.5258789e-005;
+					atlOffset=1.4305115e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2129,7 +2038,7 @@ class Mission
 					};
 					id=23;
 					type="B_Soldier_F";
-					atlOffset=1.1444092e-005;
+					atlOffset=1.0490417e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2227,7 +2136,7 @@ class Mission
 					};
 					id=24;
 					type="B_Soldier_F";
-					atlOffset=0.002155304;
+					atlOffset=0.0021533966;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2521,7 +2430,7 @@ class Mission
 					};
 					id=27;
 					type="B_Soldier_F";
-					atlOffset=0.010471344;
+					atlOffset=0.01047039;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2619,7 +2528,7 @@ class Mission
 					};
 					id=28;
 					type="B_Soldier_F";
-					atlOffset=0.010452271;
+					atlOffset=0.010451317;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2717,7 +2626,7 @@ class Mission
 					};
 					id=29;
 					type="B_Soldier_F";
-					atlOffset=0.010452271;
+					atlOffset=0.010451317;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2815,7 +2724,7 @@ class Mission
 					};
 					id=30;
 					type="B_Soldier_F";
-					atlOffset=0.0036849976;
+					atlOffset=0.0036840439;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3205,7 +3114,7 @@ class Mission
 					};
 					id=34;
 					type="B_Soldier_F";
-					atlOffset=0.010437012;
+					atlOffset=0.010436058;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3303,7 +3212,7 @@ class Mission
 					};
 					id=35;
 					type="B_Soldier_F";
-					atlOffset=0.010440826;
+					atlOffset=0.010439873;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3793,6 +3702,7 @@ class Mission
 					};
 					id=40;
 					type="B_Soldier_F";
+					atlOffset=-1.9073486e-006;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3890,6 +3800,7 @@ class Mission
 					};
 					id=41;
 					type="B_Soldier_F";
+					atlOffset=-9.5367432e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -3987,7 +3898,7 @@ class Mission
 					};
 					id=42;
 					type="B_Soldier_F";
-					atlOffset=0.0021400452;
+					atlOffset=0.0021390915;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4281,7 +4192,7 @@ class Mission
 					};
 					id=45;
 					type="B_Soldier_F";
-					atlOffset=0.010456085;
+					atlOffset=0.010455132;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4379,7 +4290,7 @@ class Mission
 					};
 					id=46;
 					type="B_Soldier_F";
-					atlOffset=0.010440826;
+					atlOffset=0.010439873;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4477,7 +4388,7 @@ class Mission
 					};
 					id=47;
 					type="B_Soldier_F";
-					atlOffset=0.010440826;
+					atlOffset=0.010439873;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4664,7 +4575,7 @@ class Mission
 			id=3;
 			atlOffset=1.5258789e-005;
 		};
-		class Item4
+		class Item3
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4774,7 +4685,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item5
+		class Item4
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4884,7 +4795,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item6
+		class Item5
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4994,7 +4905,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item7
+		class Item6
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -5008,7 +4919,7 @@ class Mission
 			type="VirtualCurator_F";
 			atlOffset=370.89633;
 		};
-		class Item8
+		class Item7
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -5022,13 +4933,195 @@ class Mission
 			type="VirtualCurator_F";
 			atlOffset=370.91379;
 		};
-		class Item9
+		class Item8
 		{
 			dataType="Marker";
 			position[]={1311,15.048576,979};
 			name="respawn";
 			type="Empty";
 			id=54;
+		};
+		class Item9
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19700,403,900};
+			};
+			id=55;
+			type="ModuleStrategicMapORBAT_F";
+			atlOffset=397.32178;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleStrategicMapORBAT_F_Path";
+					expression="_this setVariable ['Path',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="missionConfigFile >> ""CfgORBAT"" >> ""RADIOS""";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleStrategicMapORBAT_F_Tags";
+					expression="_this setVariable ['Tags',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleStrategicMapORBAT_F_Parent";
+					expression="_this setVariable ['Parent',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="missionConfigFile >> ""CfgORBAT"" >> ""RADIOS""";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleStrategicMapORBAT_F_Tiers";
+					expression="_this setVariable ['Tiers',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				nAttributes=4;
+			};
+		};
+		class Item10
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19700,399,2300};
+			};
+			id=56;
+			type="ModuleStrategicMapORBAT_F";
+			atlOffset=393.6944;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleStrategicMapORBAT_F_Path";
+					expression="_this setVariable ['Path',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="missionConfigFile >> ""CfgORBAT"" >> ""LEGEND""";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleStrategicMapORBAT_F_Tags";
+					expression="_this setVariable ['Tags',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleStrategicMapORBAT_F_Parent";
+					expression="_this setVariable ['Parent',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="missionConfigFile >> ""CfgORBAT"" >> ""LEGEND""";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleStrategicMapORBAT_F_Tiers";
+					expression="_this setVariable ['Tiers',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				nAttributes=4;
+			};
 		};
 	};
 };
