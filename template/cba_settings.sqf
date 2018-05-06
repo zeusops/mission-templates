@@ -67,7 +67,7 @@ force ace_frag_reflectionsEnabled = true;
 force ace_frag_spallEnabled = true;
 
 // ACE Goggles
-force ace_goggles_effects = 2;
+ace_goggles_effects = 0;
 ace_goggles_showInThirdPerson = false;
 
 // ACE Hearing
