@@ -1,0 +1,3 @@
+*.sqf text eol=crlf
+*.ext text eol=crlf
+*.sqm text eol=crlf
