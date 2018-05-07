@@ -1,45 +1,41 @@
 /*
-	@file_name: fn_handleRespawn.sqf
-	@file_edit: 24/10/2017
+	@file_name: fn_respawnHandle.sqf
+	@file_edit: 06/05/2018
 */
 
-scopeName "main";
-
-waitUntil {!alive player;};
-
 while {true} do {
-	if (((player distance2D [-5000,-5000]) < 10) || (alive player) || (vehicle player != player) || (missionNameSpace getVariable "forceBodyBag")) then {
-		breakTo "main";
-	};
-	if (playerRespawnTime % 60 == 0) then {
-		cutText [format["You are dead.\nRespawning with the next wave, if body bagged.\nAuto respawn in %1 minutes.", ceil(playerRespawnTime/60)], "PLAIN"];
-	};
-	sleep 1;
-};
+	// Generate respawn wave time
+	_time = 420 + (round random 60);
 
-if (!alive player) then {
-	cutText [format["You are body bagged.\nRespawning with the next wave.\nAuto respawn in %1 minutes.", ceil(playerRespawnTime/60)], "PLAIN"];
-};
-
-while {true} do {
-	if (((!isNil "respawnWaveForce") && (missionNameSpace getVariable "respawnWaveForce")) || (alive player)) then {
-		breakTo "main";
+	// Wait for time, disable, or force
+	while {_time > 0 && (missionNameSpace getVariable "respawnAllow") && !(missionNameSpace getVariable "respawnWaveForce")} do {
+		_time = _time - 1;
+		missionNameSpace setvariable ["respawnWaveTime", _time, true];
+		sleep 1;
 	};
-	if (playerRespawnTime % 60 == 0) then {
-		cutText [format["You are body bagged.\nRespawning with the next wave.\nAuto respawn in %1 minutes.", ceil(playerRespawnTime/60)], "PLAIN"];
+
+	// Wait for enable, or force
+	while {!(missionNameSpace getVariable "respawnAllow") || _time <= 0 || (missionNameSpace getVariable "respawnWaveForce")} do {
+		// Trigger wave if its allowed, or if its forced
+		if ((missionNameSpace getVariable "respawnAllow") || (missionNameSpace getVariable "respawnWaveForce")) then {
+			// Reset force-option
+			missionNameSpace setVariable ["respawnWaveForce", false, true];
+
+			//get array of all zeuses
+			private _zeuses = [];
+			{
+				if (side _x == sideLogic) then {
+					_zeuses pushback _x;
+				};
+			} foreach allPlayers;
+
+			// Notify all zeuses
+			[0, ["A respawn wave was triggered.", "PLAIN"]] remoteExec ["cutText", _zeuses];
+
+			// Trigger respawn wave
+			missionNameSpace setvariable ["respawnWave", true, true];
+			sleep 1;
+			missionNameSpace setvariable ["respawnWave", false, true];
+		};
 	};
-	sleep 1;
 };
-
-if (!alive player) then {
-	cutText ["A respawn wave has been triggered\nYou will respawn in 5 seconds.", "PLAIN"];
-	sleep 5;
-	
-	setPlayerRespawnTime 0.01;
-	sleep 1;
-	
-	setPlayerRespawnTime 900;
-	missionNameSpace setvariable ["respawnWaveForce", false, true];
-};
-
-[] spawn ZO_fnc_handleRespawn;

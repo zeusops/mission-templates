@@ -8,7 +8,7 @@ class EditorData
 	toggles=5;
 	class ItemIDProvider
 	{
-		nextID=55;
+		nextID=57;
 	};
 	class Camera
 	{
@@ -21,12 +21,12 @@ class EditorData
 binarizationWanted=0;
 addons[]=
 {
-	"A3_Modules_F_StrategicMap",
 	"A3_Ui_F",
 	"A3_Characters_F",
 	"A3_Modules_F_Curator_Misc",
 	"A3_Modules_F_Curator_Curator",
-	"A3_Data_F_Curator_Virtual"
+	"A3_Data_F_Curator_Virtual",
+	"A3_Modules_F_StrategicMap"
 };
 class AddonsMetaData
 {
@@ -35,36 +35,36 @@ class AddonsMetaData
 		items=5;
 		class Item0
 		{
-			className="A3_Modules_F";
-			name="Arma 3 Alpha - Scripted Modules";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item1
-		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item2
+		class Item1
 		{
 			className="A3_Characters_F";
 			name="Arma 3 Alpha - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item3
+		class Item2
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item4
+		class Item3
 		{
 			className="A3_Data_F_Curator";
 			name="Arma 3 Zeus Update - Main Configuration";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item4
+		{
+			className="A3_Modules_F";
+			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -74,6 +74,33 @@ randomSeed=1912248;
 class ScenarioData
 {
 	author="Dyzalonius";
+};
+class CustomAttributes
+{
+	class Category0
+	{
+		name="Scenario";
+		class Attribute0
+		{
+			property="cba_settings_hasSettingsFile";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"BOOL"
+						};
+					};
+					value=1;
+				};
+			};
+		};
+		nAttributes=1;
+	};
 };
 class Mission
 {
@@ -97,102 +124,11 @@ class Mission
 	};
 	class Entities
 	{
-		items=10;
+		items=11;
 		class Item0
 		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={9800,307.13403,500};
-			};
-			id=0;
-			type="ModuleStrategicMapORBAT_F";
-			atlOffset=318.08405;
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="ModuleStrategicMapORBAT_F_Path";
-					expression="_this setVariable ['Path',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="missionConfigFile >> ""CfgORBAT"" >> ""ZOPS""";
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="ModuleStrategicMapORBAT_F_Tags";
-					expression="_this setVariable ['Tags',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="";
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="ModuleStrategicMapORBAT_F_Parent";
-					expression="_this setVariable ['Parent',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="missionConfigFile >> ""CfgORBAT"" >> ""ZOPS""";
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="ModuleStrategicMapORBAT_F_Tiers";
-					expression="_this setVariable ['Tiers',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="";
-						};
-					};
-				};
-				nAttributes=4;
-			};
-		};
-		class Item1
-		{
 			dataType="Marker";
-			position[]={10700,18.810032,500};
+			position[]={10600,19,400};
 			name="mapButton01";
 			text=" Toggle Grass";
 			type="mil_circle";
@@ -200,9 +136,9 @@ class Mission
 			a=0.80000001;
 			b=0.80000001;
 			id=1;
-			atlOffset=48.580032;
+			atlOffset=48.669998;
 		};
-		class Item2
+		class Item1
 		{
 			dataType="Group";
 			side="West";
@@ -4580,7 +4516,7 @@ class Mission
 			};
 			id=2;
 		};
-		class Item3
+		class Item2
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4594,7 +4530,7 @@ class Mission
 			type="ModuleCoverMap_F";
 			atlOffset=253.185;
 		};
-		class Item4
+		class Item3
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4704,7 +4640,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item5
+		class Item4
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4814,7 +4750,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item6
+		class Item5
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4924,7 +4860,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item7
+		class Item6
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4938,7 +4874,7 @@ class Mission
 			type="VirtualCurator_F";
 			atlOffset=561.78003;
 		};
-		class Item8
+		class Item7
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4952,13 +4888,195 @@ class Mission
 			type="VirtualCurator_F";
 			atlOffset=561.65503;
 		};
-		class Item9
+		class Item8
 		{
 			dataType="Marker";
 			position[]={1908,5.1999998,3534};
 			name="respawn";
 			type="Empty";
 			id=54;
+		};
+		class Item9
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9900,373,400};
+			};
+			id=55;
+			type="ModuleStrategicMapORBAT_F";
+			atlOffset=366.89999;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleStrategicMapORBAT_F_Path";
+					expression="_this setVariable ['Path',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="missionConfigFile >> ""CfgORBAT"" >> ""RADIOS""";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleStrategicMapORBAT_F_Tags";
+					expression="_this setVariable ['Tags',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleStrategicMapORBAT_F_Parent";
+					expression="_this setVariable ['Parent',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="missionConfigFile >> ""CfgORBAT"" >> ""RADIOS""";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleStrategicMapORBAT_F_Tiers";
+					expression="_this setVariable ['Tiers',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				nAttributes=4;
+			};
+		};
+		class Item10
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9900,333.94998,1100};
+			};
+			id=56;
+			type="ModuleStrategicMapORBAT_F";
+			atlOffset=363.71997;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleStrategicMapORBAT_F_Path";
+					expression="_this setVariable ['Path',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="missionConfigFile >> ""CfgORBAT"" >> ""LEGEND""";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleStrategicMapORBAT_F_Tags";
+					expression="_this setVariable ['Tags',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleStrategicMapORBAT_F_Parent";
+					expression="_this setVariable ['Parent',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="missionConfigFile >> ""CfgORBAT"" >> ""LEGEND""";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleStrategicMapORBAT_F_Tiers";
+					expression="_this setVariable ['Tiers',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				nAttributes=4;
+			};
 		};
 	};
 };

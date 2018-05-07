@@ -8,7 +8,7 @@ player setPos _position;
 
 [] spawn ZO_fnc_dynamicGroupsMarkers;
 [0] spawn ZO_fnc_gearHandle;
-[] spawn ZO_fnc_handleRespawn;
+[] spawn ZO_fnc_respawnHandleLocal;
 [] spawn ZO_fnc_mapButtons;
 
 if (!isDedicated && !hasInterface && isMultiplayer) then {

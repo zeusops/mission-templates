@@ -16,7 +16,7 @@ _radio = "tf_anprc152";
 
 _backpackLeader = "tf_rt1523g_big_bwmod_tropen";
 _weaponMain = ["rhs_weap_m4a1_blockII_bk", "30Rnd_556x45_Stanag_Tracer_Red", "optic_MRCO"]; // format: [ gun, ammo, sight ]
-_weaponAR = ["rhs_weap_m249_pip_L", "rhs_200rnd_556x45_M_SAW", "rhsusf_acc_compm4"]; // format: [ gun, ammo, sight ]
+_weaponAR = ["rhs_weap_m249_pip_L", "rhs_200rnd_556x45_M_SAW", "optic_MRCO"]; // format: [ gun, ammo, sight ]
 _weaponLauncher = ["launch_MRAWS_olive_F", "MRAWS_HEAT_F", ""]; // format: [ gun, ammo, sight ]
 
 ////////////////////////////////////////////////
@@ -52,11 +52,11 @@ fn_gearLoad = {
 	if ((_loadout select 0 select 4) != (goggles player)) then {
 		player addGoggles (_loadout select 0 select 4);
 	};
-	if ((_loadout select 0 select 4) != (hmd player)) then {
+	if ((_loadout select 0 select 5) != (hmd player)) then {
 		player linkItem (_loadout select 0 select 5);
 	};
-	if ((_loadout select 0 select 4) != (binocular player)) then {
-		player linkItem (_loadout select 0 select 6);
+	if ((_loadout select 0 select 6) != (binocular player)) then {
+		player addWeapon (_loadout select 0 select 6);
 	};
 	{
 		if (!(_x in (assignedItems player))) then {
@@ -251,6 +251,7 @@ fn_gearLoadout = {
 			for "_i" from 1 to 16 do {player addItemToVest (_weaponMain select 1)};
 			player addBackpack _backpackLeader;
 			player linkItem "itemGPS";
+			player addWeapon "Binocular";
 			
 			// set to non-medic and non-engineer
 			player setVariable ["Ace_medical_medicClass", 0];
