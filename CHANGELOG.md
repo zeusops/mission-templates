@@ -1,5 +1,19 @@
 # Changelog
 
+## [Version 11] - 2018-05-07
+### Added
+- Teamleaders get binos by default.
+- Waves trigger automatically every 7 to 8 minutes.
+- Zeuses get notified when a wave is triggered.
+- Zeuses now have the options to 'FORCE RESPAWN WAVE', 'FORCE BODYBAG', and 'TOGGLE RESPAWN' (turning auto respawning and auto waves on/off).
+
+### Changed
+- Un-forced ace goggles effects, and made it none by default.
+- Autoriflemen get 2x scopes by default.
+
+### Fixed
+- Items in the bino slot now get properly saved and loaded.
+
 ## [Version 10 Hotfix 2] - 2018-05-05
 ### Fixed
 - Fix forcebodybagging
