@@ -6,4 +6,4 @@ Further instructions on how to work with the templates can be found [here](https
 
 ## Authors
 
-The templates have been created by [Dyzalonius](https://github.com/Dyzalonius) for [Zeus Operations](http://www.zeusops.com).
+The templates have been created by [Dyzalonius](https://github.com/Dyzalonius) for [Zeus Operations](https://www.zeusops.com).
