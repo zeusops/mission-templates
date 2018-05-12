@@ -1,6 +1,6 @@
 /*
 	@file_name: fn_dynamicGroupsMarkers.sqf
-	@file_edit: 04/01/17
+	@file_author: Dyzalonius
 */
 
 ////////////////////////////////////////////////

@@ -1,13 +1,13 @@
 /*
 	@file_name: fn_showFPS.sqf
-	@file_edit: 06/05/2018
+	@file_author: Dyzalonius
 */
 
-_myfpsmarker = createMarker [ format ["fpsmarker%1", _sourcestr ], [ 500, -500 - (500 * _position) ] ];
+_myfpsmarker = createMarker [ "fpsmarker", [ 500, -500 ] ];
 _myfpsmarker setMarkerType "mil_dot";
 _myfpsmarker setMarkerSize [0,0];
 
 while {true} do {
-	_myfpsmarker setMarkerText format [ "SERVER FPS: %1", ( round ( _myfps * 100.0 ) ) / 100.0];
+	_myfpsmarker setMarkerText format [ "SERVER PERFORMANCE: %1 fps", ( round ( diag_fps * 100.0 ) ) / 100.0];
 	sleep 10;
 };

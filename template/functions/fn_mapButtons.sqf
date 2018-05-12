@@ -1,6 +1,6 @@
 /*
 	@file_name: fn_mapButtons.sqf
-	@file_edit: 24/02/2018
+	@file_author: Dyzalonius
 */
 
 //spawn 00 button
@@ -36,7 +36,7 @@ missionNameSpace setVariable ["mapButtons",["mapButton01"], false]; //local
 	_marker setMarkerSizeLocal [0.8,0.8];
 	_marker setMarkerTextLocal " Force Respawn Wave";
 	_mapButtons pushback _marker;
-
+	
 	private _marker = createMarkerLocal ["mapButton04", [((getMarkerPos "mapButton01") select 0),((getMarkerPos "mapButton01") select 1)+3000]];
 	_marker setMarkerTypeLocal "mil_circle";
 	_marker setMarkerSizeLocal [0.8,0.8];
@@ -137,13 +137,13 @@ missionNameSpace setVariable ["mapButtons",["mapButton01"], false]; //local
 							"mapButton02" setMarkerTextLocal " Toggle Respawns [ENABLED]";
 						};
 					};
-
+					
 					// FORCE WAVE
 					case "mapButton03": {
 						//force respawn all bagged dead people
 						missionNameSpace setvariable ["respawnWaveForce", true, true];
 					};
-
+					
 					// FORCE BODYBAG
 					case "mapButton04": {
 						//get array of all zeuses
@@ -159,7 +159,7 @@ missionNameSpace setVariable ["mapButtons",["mapButton01"], false]; //local
 						
 						//force body bag all dead people
 						missionNameSpace setvariable ["forceBodyBag", true, true];
-
+						
 						[] spawn {
 							sleep 2;
 							missionNameSpace setvariable ["forceBodyBag", false, true];

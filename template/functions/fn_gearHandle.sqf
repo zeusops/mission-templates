@@ -1,6 +1,6 @@
 /*
 	@file_name: fn_gearHandle.sqf
-	@file_edit: 15/04/2018
+	@file_author: Dyzalonius
 */
 
 ////////////////////////////////////////////////

@@ -1,6 +1,6 @@
 /*
 	@file_name: fn_gearBox.sqf
-	@file_edit: 01/04/2018
+	@file_author: Dyzalonius
 */
 
 ////////////////////////////////////////////////

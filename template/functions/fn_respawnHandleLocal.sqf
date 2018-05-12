@@ -1,6 +1,6 @@
 /*
 	@file_name: fn_respawnHandleLocal.sqf
-	@file_edit: 06/05/2017
+	@file_author: Dyzalonius
 */
 
 ////////////////////////////////////////////////
