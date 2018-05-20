@@ -38,25 +38,53 @@ fn_gearLoad = {
 	
 	// Give all items if they dont have it already
 	if ((_loadout select 0 select 0) != (uniform player)) then {
-		player forceAddUniform (_loadout select 0 select 0);
+		if ((_loadout select 0 select 0) == "") then {
+			removeUniform player;
+		} else {
+			player forceAddUniform (_loadout select 0 select 0);
+		};
 	};
 	if ((_loadout select 0 select 1) != (vest player)) then {
-		player addVest (_loadout select 0 select 1);
+		if ((_loadout select 0 select 1) == "") then {
+			removeVest player;
+		} else {
+			player addVest (_loadout select 0 select 1);
+		};
 	};
 	if ((_loadout select 0 select 2) != (backpack player)) then {
-		player addBackpack (_loadout select 0 select 2);
+		if ((_loadout select 0 select 2) == "") then {
+			removeBackpack player;
+		} else {
+			player addBackpack (_loadout select 0 select 2);
+		};
 	};
 	if ((_loadout select 0 select 3) != (headgear player)) then {
-		player addHeadgear (_loadout select 0 select 3);
+		if ((_loadout select 0 select 3) == "") then {
+			removeHeadgear player;
+		} else {
+			player addHeadgear (_loadout select 0 select 3);
+		};
 	};
 	if ((_loadout select 0 select 4) != (goggles player)) then {
-		player addGoggles (_loadout select 0 select 4);
+		if ((_loadout select 0 select 4) == "") then {
+			removeGoggles player;
+		} else {
+			player addGoggles (_loadout select 0 select 4);
+		};
 	};
 	if ((_loadout select 0 select 5) != (hmd player)) then {
-		player linkItem (_loadout select 0 select 5);
+		if ((_loadout select 0 select 5) == "") then {
+			player unlinkItem (hmd player);
+		} else {
+			player linkItem (_loadout select 0 select 5);
+		};
 	};
 	if ((_loadout select 0 select 6) != (binocular player)) then {
-		player addWeapon (_loadout select 0 select 6);
+		if ((_loadout select 0 select 6) == "") then {
+			player removeWeapon (binocular player);
+		} else {
+			player addWeapon (_loadout select 0 select 6);
+		};
 	};
 	{
 		if (!(_x in (assignedItems player))) then {
@@ -90,10 +118,14 @@ fn_gearLoad = {
 	} foreach (_loadout select 5);
 	
 	// load primary plus attachments
-	player addWeapon (_primary select 0);
-	{
-		player addPrimaryWeaponItem _x;
-	} foreach _primary;
+	if (_primary select 0 != "") then {
+		player addWeapon (_primary select 0);
+		{
+			player addPrimaryWeaponItem _x;
+		} foreach _primary;
+	} else {
+		player removeWeapon (primaryWeapon player);
+	};
 	
 	// copy secondary info over
 	_secondary = [];
@@ -102,22 +134,30 @@ fn_gearLoad = {
 	} foreach (_loadout select 6);
 	
 	// load secondary plus attachments
-	player addWeapon (_secondary select 0);
-	{
-		player addSecondaryWeaponItem _x;
-	} foreach _secondary;
+	if (_secondary select 0 != "") then {
+		player addWeapon (_secondary select 0);
+		{
+			player addSecondaryWeaponItem _x;
+		} foreach _secondary;
+	} else {
+		player removeWeapon (secondaryWeapon player);
+	};
 	
-	// copy secondary info over
+	// copy handgun info over
 	_handgun = [];
 	{
 		_handgun pushback _x;
 	} foreach (_loadout select 7);
 	
-	// load secondary plus attachments
-	player addWeapon (_handgun select 0);
-	{
-		player addHandgunItem _x;
-	} foreach _handgun;
+	// load handgun plus attachments
+	if (_handgun select 0 != "") then {
+		player addWeapon (_handgun select 0);
+		{
+			player addHandgunItem _x;
+		} foreach _handgun;
+	} else {
+		player removeWeapon (handgunWeapon player);
+	};
 	
 	
 	

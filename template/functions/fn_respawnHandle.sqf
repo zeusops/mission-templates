@@ -21,6 +21,9 @@ while {true} do {
 			// Reset force-option
 			missionNameSpace setVariable ["respawnWaveForce", false, true];
 			
+			// Make time > 0 so it exits the loop
+			_time = _time + 1;
+			
 			//get array of all zeuses
 			private _zeuses = [];
 			{
@@ -34,7 +37,7 @@ while {true} do {
 			
 			// Trigger respawn wave
 			missionNameSpace setvariable ["respawnWave", true, true];
-			sleep 1;
+			sleep 3;
 			missionNameSpace setvariable ["respawnWave", false, true];
 		};
 	};
