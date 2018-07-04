@@ -52,13 +52,13 @@ class cfgFunctions {
 		class functions
 		{
 			file = "functions";
-			class dynamicGroupsMarkers {description = "";};
 			class gearBox {description = "";};
 			class gearHandle {description = "";};
 			class mapButtons {description = "";};
 			class respawnHandle {description = "";};
 			class respawnHandleLocal {description = "";};
 			class showFPS {description = "";};
+			class unitTracker {description = "";};
 		};
 	};
 };
@@ -81,7 +81,7 @@ class CfgORBAT
 		color[] = {0,0,0,1};
 		texture = __EVAL((__FILE__ select [0, count __FILE__ - 15]) + "files\logo");
 		description = "";
-
+		
 		class CO
 		{
 			side = "West";
@@ -136,7 +136,7 @@ class CfgORBAT
 					textShort = "A";
 					assets[] = {};
 					description = "Infantry squad of 8-15 members.<br/><br/>Freq: 81";
-
+					
 					class ASL
 					{
 						side = "West";
@@ -181,7 +181,7 @@ class CfgORBAT
 					textShort = "B";
 					assets[] = {};
 					description = "Infantry squad of 8-15 members.<br/><br/>Freq: 82";
-
+					
 					class BSL
 					{
 						side = "West";
@@ -226,7 +226,7 @@ class CfgORBAT
 					textShort = "C";
 					assets[] = {};
 					description = "Infantry squad of 8-15 members.<br/><br/>Freq: 83";
-
+					
 					class CSL
 					{
 						side = "West";

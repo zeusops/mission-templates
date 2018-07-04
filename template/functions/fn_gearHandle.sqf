@@ -290,7 +290,6 @@ fn_gearLoadout = {
 			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
 			for "_i" from 1 to 16 do {player addItemToVest (_weaponMain select 1)};
 			player addBackpack _backpackLeader;
-			player linkItem "itemGPS";
 			player addWeapon "Binocular";
 			
 			// set to non-medic and non-engineer
@@ -371,8 +370,9 @@ fn_gearStart = {
 	removeAllAssignedItems player;
 	removeGoggles player;
 	
-	player linkItem _radio;
 	player linkItem "ItemMap";
+	player linkItem "itemGPS";
+	player linkItem _radio;
 	player linkItem "ItemCompass";
 	player linkItem "ItemWatch";
 	

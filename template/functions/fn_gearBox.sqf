@@ -231,30 +231,38 @@ fn_addTeamleaderAction = {
 	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
 };
 
+fn_createBox = {
+	_position = _this;
+	
+	// Spawn ammobox
+	_object = createVehicle ["B_supplyCrate_F", _position, [], 0, "CAN_COLLIDE"];
+	
+	// Empty ammobox
+	clearWeaponCargoGlobal _object;
+	clearMagazineCargoGlobal _object;
+	clearItemCargoGlobal _object;
+	clearBackpackCargoGlobal _object;
+	
+	// Allow zeuses to move the ammobox
+	{
+		_x addCuratorEditableObjects [[_object],true];
+	} foreach allCurators;
+	
+	_object;
+};
+
 ////////////////////////////////////////////////
 //               FUNCTION LOOP                //
 ////////////////////////////////////////////////
 
-_request = (_this select 0);
-_position = position (_this select 1);
-
-// Spawn ammobox
-_object = createVehicle ["B_supplyCrate_F", _position, [], 0, "CAN_COLLIDE"];
-
-// Empty ammobox
-clearWeaponCargoGlobal _object;
-clearMagazineCargoGlobal _object;
-clearItemCargoGlobal _object;
-clearBackpackCargoGlobal _object;
-
-// Allow zeuses to move the ammobox
-{
-	_x addCuratorEditableObjects [[_object],true];
-} foreach allCurators;
+_request = _this select 0;
 
 switch (_request) do {
 	// START BOX
 	case 0: {
+		_position = position (_this select 1);
+		_object = _position call fn_createBox;
+		
 		_object call fn_addRearmAction;
 		_object call fn_addSaveAction;
 		
@@ -270,7 +278,33 @@ switch (_request) do {
 	
 	// REARM BOX
 	case 1: {
+		_position = position (_this select 1);
+		_object = _position call fn_createBox;
+		
 		_object call fn_addRearmAction;
+	};
+	
+	// START BOX EDITOR
+	case 2: {
+		_object = _this select 1;
+		
+		// Empty ammobox
+		clearWeaponCargoGlobal _object;
+		clearMagazineCargoGlobal _object;
+		clearItemCargoGlobal _object;
+		clearBackpackCargoGlobal _object;
+		
+		_object call fn_addRearmAction;
+		_object call fn_addSaveAction;
+		
+		_object call fn_addATRiflemanAction;
+		_object call fn_addAutoriflemanAction;
+		_object call fn_addEngineerAction;
+		_object call fn_addMedicAction;
+		_object call fn_addRiflemanAction;
+		_object call fn_addTeamleaderAction;
+		[_object, true] call ace_arsenal_fnc_initBox;
+		["AmmoboxInit",[_object,true]] call BIS_fnc_arsenal;
 	};
 };
 
@@ -283,3 +317,6 @@ switch (_request) do {
 
 // REARM USAGE:
 [1, player] spawn ZO_fnc_gearBox;
+
+// START BOX EDITOR USAGE:
+[2, this] spawn ZO_fnc_gearBox;

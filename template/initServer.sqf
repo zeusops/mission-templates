@@ -8,6 +8,7 @@ missionNameSpace setVariable ["respawnAllow", true, true];
 missionNameSpace setVariable ["respawnWave", false, true];
 missionNameSpace setVariable ["respawnWaveForce", false, true];
 missionNameSpace setvariable ["respawnWaveTime", 0, true];
+missionNameSpace setVariable ["unitTrackerEffects", [0, 0, 1, 1, 0, 0, 0, 0], true];
 
 [] spawn ZO_fnc_showFPS;
 [] spawn ZO_fnc_respawnHandle;
