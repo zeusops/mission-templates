@@ -286,6 +286,8 @@ switch (_request) do {
 	
 	// START BOX EDITOR
 	case 2: {
+		if (!isServer) exitWith {};
+		
 		_object = _this select 1;
 		
 		// Empty ammobox
