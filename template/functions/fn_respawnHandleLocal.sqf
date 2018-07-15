@@ -58,7 +58,7 @@ waitUntil {!alive player;};
 
 // waiting for bodybag or respawn
 while {true} do {
-	if (((player distance2D [-5000,-5000]) < 1000) || (alive player) || (vehicle player != player) || (missionNameSpace getVariable "forceBodyBag")) then {
+	if (((player distance2D [-5000,-5000]) < 7100) || (alive player) || (vehicle player != player) || (missionNameSpace getVariable "forceBodyBag")) then {
 		breakTo "main";
 	};
 	
