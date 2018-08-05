@@ -15,13 +15,35 @@ _headgear = "rhsusf_lwh_helmet_marpatd";
 _radio = "tf_anprc152";
 
 _backpackLeader = "tf_rt1523g_big_bwmod_tropen";
-_weaponMain = ["rhs_weap_m4a1_blockII_bk", "30Rnd_556x45_Stanag_Tracer_Red", "optic_MRCO"]; // format: [ gun, ammo, sight ]
-_weaponAR = ["rhs_weap_m249_pip_L", "rhs_200rnd_556x45_M_SAW", "optic_MRCO"]; // format: [ gun, ammo, sight ]
-_weaponLauncher = ["launch_MRAWS_olive_F", "MRAWS_HEAT_F", ""]; // format: [ gun, ammo, sight ]
+_weaponMain = ["rhs_weap_m16a4_carryhandle", "30Rnd_556x45_Stanag_Tracer_Red", "rhsusf_acc_ACOG"]; // format: [ gun, ammo, sight ]
+_weaponAR = ["rhs_weap_m249_pip_L", "rhs_200rnd_556x45_M_SAW", "rhsusf_acc_ACOG"]; // format: [ gun, ammo, sight ]
+_weaponLauncher = ["launch_MRAWS_olive_rail_F", "MRAWS_HEAT_F", ""]; // format: [ gun, ammo, sight ]
 
 ////////////////////////////////////////////////
 //               SUB-FUNCTIONS                //
 ////////////////////////////////////////////////
+
+fn_gearSnitch = {
+	_gearMessage = "";
+
+	{
+		if ("MineDetector" in (vestItems player + uniformItems player + backpackItems player)) then {
+			_gearMessage = _gearMessage + format["\n%1 - MINEDETECTOR", name _x];
+		};
+		if ((secondaryWeapon _x) in ["launch_MRAWS_green_F", "launch_MRAWS_olive_F", "launch_MRAWS_sand_F"]) then {
+			_gearMessage = _gearMessage + format["\n%1 - MAAWS MOD1", name _x];
+		};
+		if (!((primaryWeapon _x) in [_weaponMain select 0, _weaponAR select 0]) && (primaryWeapon _x) != "") then {
+			_gearMessage = _gearMessage + format["\n%1 - PRIMARY:\n%2", name _x, primaryWeapon _x];
+		};
+	} foreach allPlayers;
+	
+	if (_gearMessage == "") then {
+		hint "No suspicious gear";
+	} else {
+		hint _gearMessage;
+	};
+};
 
 fn_gearLoad = {
 	_loadout = missionNameSpace getVariable "playerGear";
@@ -378,10 +400,11 @@ fn_gearStart = {
 	
 	player forceAddUniform _uniform;
 	player addItemToUniform "ACE_bodyBag";
-	for "_i" from 1 to 8 do {
+	for "_i" from 1 to 5 do {
 		player addItemToUniform "ACE_morphine";
-		for "_i" from 1 to 2 do {player addItemToUniform "ACE_fieldDressing"};
+		player addItemToUniform "ACE_epinephrine";
 	};
+	for "_i" from 1 to 30 do {player addItemToUniform "ACE_fieldDressing"};
 	
 	player addVest _vest;
 	player addHeadgear _headgear;
@@ -413,5 +436,10 @@ switch (_request) do {
 	// rearm from save
 	case 3: {
 		[] call fn_gearLoad;
+	};
+	
+	// check unallowed gear
+	case 4: {
+		[] call fn_gearSnitch;
 	};
 };
