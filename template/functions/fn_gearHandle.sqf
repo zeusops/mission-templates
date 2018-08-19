@@ -15,7 +15,7 @@ _headgear = "rhsusf_lwh_helmet_marpatd";
 _radio = "tf_anprc152";
 
 _backpackLeader = "tf_rt1523g_big_bwmod_tropen";
-_weaponMain = ["rhs_weap_m16a4_carryhandle", "30Rnd_556x45_Stanag_Tracer_Red", "rhsusf_acc_ACOG"]; // format: [ gun, ammo, sight ]
+_weaponMain = ["rhs_weap_m16a4_carryhandle", "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", "rhsusf_acc_ACOG"]; // format: [ gun, ammo, sight ]
 _weaponAR = ["rhs_weap_m249_pip_L", "rhs_200rnd_556x45_M_SAW", "rhsusf_acc_ACOG"]; // format: [ gun, ammo, sight ]
 _weaponLauncher = ["launch_MRAWS_olive_rail_F", "MRAWS_HEAT_F", ""]; // format: [ gun, ammo, sight ]
 
