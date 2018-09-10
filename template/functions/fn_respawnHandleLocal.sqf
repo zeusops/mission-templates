@@ -7,15 +7,15 @@
 //               SUB-FUNCTIONS                //
 ////////////////////////////////////////////////
 
-fn_text = {
+fn_notification = {
 	switch (_this) do {
 		// waiting for bodybag or respawn /minute
 		case 0: {
 			if (playerRespawnTime % 60 == 0) then {
 				if (missionNameSpace getVariable "respawnAllow") then {
-					cutText [format["You are dead.\nRespawning with the next wave in %1 minutes, if body bagged.\nAuto respawn in %2 minutes.", ceil((missionNameSpace getVariable "respawnWaveTime")/60), ceil(playerRespawnTime/60)], "PLAIN"];
+					(format["<t font='PuristaBold' size='1.6'>You are dead.</t><br />Respawning with the next wave in %1 minutes, if body bagged.<br />Auto respawn in %2 minutes.", ceil((missionNameSpace getVariable "respawnWaveTime")/60), ceil(playerRespawnTime/60)]) spawn fn_text;
 				} else {
-					cutText ["You are dead.\nRespawning with the next wave, if body bagged.\nAuto respawn disabled.", "PLAIN"];
+					("You are dead.\nRespawning with the next wave, if body bagged.\nAuto respawn disabled.") spawn fn_text;
 				};
 			};
 		};
@@ -23,9 +23,9 @@ fn_text = {
 		// waiting for wave or respawn
 		case 1: {
 			if (missionNameSpace getVariable "respawnAllow") then {
-				cutText [format["You are body bagged.\nRespawning with the next wave in %1 minutes.\nAuto respawn in %2 minutes.", ceil((missionNameSpace getVariable "respawnWaveTime")/60), ceil(playerRespawnTime/60)], "PLAIN"];
+				(format["You are body bagged.\nRespawning with the next wave in %1 minutes.\nAuto respawn in %2 minutes.", ceil((missionNameSpace getVariable "respawnWaveTime")/60), ceil(playerRespawnTime/60)]) spawn fn_text;
 			} else {
-				cutText ["You are body bagged.\nRespawning with the next wave.\nAuto respawn disabled.", "PLAIN"];
+				("You are body bagged.\nRespawning with the next wave.\nAuto respawn disabled.") spawn fn_text;
 			};
 		};
 		
@@ -33,18 +33,22 @@ fn_text = {
 		case 2: {
 			if (playerRespawnTime % 60 == 0) then {
 				if (missionNameSpace getVariable "respawnAllow") then {
-					cutText [format["You are body bagged.\nRespawning with the next wave in %1 minutes.\nAuto respawn in %2 minutes.", ceil((missionNameSpace getVariable "respawnWaveTime")/60), ceil(playerRespawnTime/60)], "PLAIN"];
+					(format["You are body bagged.\nRespawning with the next wave in %1 minutes.\nAuto respawn in %2 minutes.", ceil((missionNameSpace getVariable "respawnWaveTime")/60), ceil(playerRespawnTime/60)]) spawn fn_text;
 				} else {
-					cutText ["You are body bagged.\nRespawning with the next wave.\nAuto respawn disabled.", "PLAIN"];
+					("You are body bagged.\nRespawning with the next wave.\nAuto respawn disabled.") spawn fn_text;
 				};
 			};
 		};
 		
 		// respawn
 		case 3: {
-			cutText ["A respawn wave has been triggered\nYou will respawn in 5 seconds.", "PLAIN"];
+			("A respawn wave has been triggered\nYou will respawn in 5 seconds.") spawn fn_text;
 		};
 	};
+};
+
+fn_text = {
+	[parseText _this, [1.1,-0.3,0.6,0.2], nil, 5, 0.5, 0] spawn BIS_fnc_textTiles;
 };
 
 ////////////////////////////////////////////////
@@ -62,13 +66,13 @@ while {true} do {
 		breakTo "main";
 	};
 	
-	0 spawn fn_text;
+	0 spawn fn_notification;
 	sleep 1;
 };
 
 // body bagged
 if (!alive player) then {
-	1 spawn fn_text;
+	1 spawn fn_notification;
 };
 
 // waiting for wave or respawn
@@ -77,13 +81,13 @@ while {true} do {
 		breakTo "main";
 	};
 	
-	2 spawn fn_text;
+	2 spawn fn_notification;
 	sleep 1;
 };
 
 // respawn
 if (!alive player) then {
-	3 spawn fn_text;
+	3 spawn fn_notification;
 	sleep 5;
 	
 	// force respawn

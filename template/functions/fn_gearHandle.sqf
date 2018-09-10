@@ -8,16 +8,17 @@
 ////////////////////////////////////////////////
 
 _uniform = "rhs_uniform_FROG01_d";
-_vest = "rhsusf_spc_patchless_radio";
-_backpack = "rhsusf_assault_eagleaiii_coy";
-_headgear = "rhsusf_lwh_helmet_marpatd";
-
+_vest = "rhsusf_spc_patchless_radio"; // give the BEST vest the players are allowed (e.g. armored vest instead of a chest rig)
+_backpack = "rhsusf_assault_eagleaiii_coy"; // give a big backpack so enough fits in (e.g. kitbag rather than assault pack)
+_headgear = "rhsusf_lwh_helmet_marpatd"; // give the BEST headgear the players are allowed (e.g. helmet instead of a cap)
 _radio = "tf_anprc152";
 
 _backpackLeader = "tf_rt1523g_big_bwmod_tropen";
-_weaponMain = ["rhs_weap_m16a4_carryhandle", "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", "rhsusf_acc_ACOG"]; // format: [ gun, ammo, sight ]
-_weaponAR = ["rhs_weap_m249_pip_L", "rhs_200rnd_556x45_M_SAW", "rhsusf_acc_ACOG"]; // format: [ gun, ammo, sight ]
-_weaponLauncher = ["launch_MRAWS_olive_rail_F", "MRAWS_HEAT_F", ""]; // format: [ gun, ammo, sight ]
+
+// weapons format: [ gun, ammo, sight ], make sure the magazine fits, and is visible in the gun
+_weaponMain = ["rhs_weap_m16a4_carryhandle", "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", "rhsusf_acc_ACOG"]; 
+_weaponAR = ["rhs_weap_m249_pip_L", "rhs_200rnd_556x45_M_SAW", "rhsusf_acc_ACOG"];
+_weaponLauncher = ["launch_MRAWS_olive_rail_F", "MRAWS_HEAT_F", ""];
 
 ////////////////////////////////////////////////
 //               SUB-FUNCTIONS                //
@@ -296,6 +297,9 @@ fn_gearLoadout = {
 			player addPrimaryWeaponItem (_weaponMain select 2);
 			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
 			for "_i" from 1 to 16 do {player addItemToVest (_weaponMain select 1)};
+			player addBackpack _backpack;
+			for "_i" from 1 to 2 do {player addItemToBackpack (_weaponAR select 1)};
+			for "_i" from 1 to 3 do {player addItemToBackpack (_weaponLauncher select 1)};
 			
 			// set to non-medic and non-engineer
 			player setVariable ["Ace_medical_medicClass", 0];
@@ -310,8 +314,12 @@ fn_gearLoadout = {
 			player addWeapon (_weaponMain select 0);
 			player addPrimaryWeaponItem (_weaponMain select 2);
 			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
+			for "_i" from 1 to 3 do {player addItemToVest "SmokeShellGreen";};
+			for "_i" from 1 to 3 do {player addItemToVest "SmokeShellBlue";};
 			for "_i" from 1 to 16 do {player addItemToVest (_weaponMain select 1)};
 			player addBackpack _backpackLeader;
+			player addItemToBackpack (_weaponLauncher select 1);
+			for "_i" from 1 to 16 do {player addItemToBackpack (_weaponMain select 1)};
 			player addWeapon "Binocular";
 			
 			// set to non-medic and non-engineer
