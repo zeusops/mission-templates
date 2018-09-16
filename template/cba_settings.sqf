@@ -185,7 +185,7 @@ force ace_medical_moveUnitsFromGroupOnUnconscious = false;
 force ace_medical_painCoefficient = 0.5;
 ace_medical_painEffectType = 0;
 force ace_medical_painIsOnlySuppressed = true;
-force ace_medical_playerDamageThreshold = 3.5;
+force ace_medical_playerDamageThreshold = 2.5;
 force ace_medical_preventInstaDeath = false;
 force ace_medical_remoteControlledAI = true;
 force ace_medical_useCondition_PAK = 0;
@@ -255,7 +255,7 @@ force ace_rearm_level = 0;
 force ace_rearm_supply = 0;
 
 // ACE Respawn
-force ace_respawn_removeDeadBodiesDisconnected = true;
+force ace_respawn_removeDeadBodiesDisconnected = false;
 force ace_respawn_savePreDeathGear = false;
 
 // ACE Scopes
