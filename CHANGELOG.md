@@ -1,6 +1,6 @@
 # Changelog
 
-## [Version 17] - 2018-16-09
+## [Version 17] - 2018-09-16
 ### Changed
 - Lowered damage threshold to 2.5.
 
@@ -19,6 +19,10 @@
 - The default loadouts (TL's get colored smokes and a filled backpack, riflemen get a filled backpack).
 - The death notifications.
 
+## [Version 15 Hotfix] - 2018-08-19
+### Added
+- Dariyah template.
+
 ## [Version 15] - 2018-08-05
 ### Added
 - A gearSnitch, which will tell the executer who has suspicious items.
@@ -26,6 +30,10 @@
 ### Changed
 - Medical system by adding ACE revive.
 - The default gear in the gearhandle.
+
+## [Version 15 Hotfix] - 2018-06-15
+### Fixed
+- Fixes to bodybagging.
 
 ## [Version 14] - 2018-07-04
 ### Added
@@ -40,7 +48,7 @@
 - Restructured `fn_unitTracker` (previously called `fn_dynamicGroupsMarkers`.
 - Everyone gets GPSes, and GPSes are required to see the unitTracker markers.
 
-## [Version 13] - 2018-06-29
+## [Version 13] - 2018-06-24
 ### Removed
 - Unnecessary file.
 
@@ -55,6 +63,17 @@
 ### Fixed
 - Waves not triggering bugs.
 - Gear loading now not properly removing and adding everything.
+
+## [Version 11 Hotfix] - 2018-05-12
+### Added
+- Lythium template.
+
+### Removed
+- Kunduz template.
+
+### Fixed
+- Hotfix `fn_showFPS.sqf`.
+
 
 ## [Version 11] - 2018-05-07
 ### Added
