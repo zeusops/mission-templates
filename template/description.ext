@@ -65,8 +65,8 @@ class cfgFunctions {
 
 class header {
 	gameType = Zeus;
-	minPlayer = 1;
-	maxPlayer = 47;
+	minPlayers = 1;
+	maxPlayers = 49;
 };
 
 class CfgORBAT
