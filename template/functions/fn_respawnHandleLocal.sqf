@@ -19,7 +19,7 @@ fn_notification = {
 				};
 			};
 		};
-		
+
 		// waiting for wave or respawn
 		case 1: {
 			if (missionNameSpace getVariable "respawnAllow") then {
@@ -28,18 +28,18 @@ fn_notification = {
 				("<t font='PuristaBold' size='1.6'>You are body bagged.</t><br />Respawning with the next wave.<br />Auto respawn disabled.") spawn fn_text;
 			};
 		};
-		
+
 		// waiting for wave or respawn /minute
 		case 2: {
 			if (playerRespawnTime % 60 == 0) then {
 				if (missionNameSpace getVariable "respawnAllow") then {
-					("format[<t font='PuristaBold' size='1.6'>You are body bagged.</t><br />Respawning with the next wave in %1 minutes.<br />Auto respawn in %2 minutes.", ceil((missionNameSpace getVariable "respawnWaveTime")/60), ceil(playerRespawnTime/60)]) spawn fn_text;
+					(format["<t font='PuristaBold' size='1.6'>You are body bagged.</t><br />Respawning with the next wave in %1 minutes.<br />Auto respawn in %2 minutes.", ceil((missionNameSpace getVariable "respawnWaveTime")/60), ceil(playerRespawnTime/60)]) spawn fn_text;
 				} else {
 					("<t font='PuristaBold' size='1.6'>You are body bagged.</t><br />Respawning with the next wave.<br />Auto respawn disabled.") spawn fn_text;
 				};
 			};
 		};
-		
+
 		// respawn
 		case 3: {
 			("A respawn wave has been triggered<br /><t font='PuristaBold' size='1.6'>You will respawn in 5 seconds.</t>") spawn fn_text;
@@ -65,7 +65,7 @@ while {true} do {
 	if (((player distance2D [-5000,-5000]) < 7100) || (alive player) || (vehicle player != player) || (missionNameSpace getVariable "forceBodyBag")) then {
 		breakTo "main";
 	};
-	
+
 	0 spawn fn_notification;
 	sleep 1;
 };
@@ -80,7 +80,7 @@ while {true} do {
 	if (((!isNil "respawnWave") && (missionNameSpace getVariable "respawnWave")) || (alive player)) then {
 		breakTo "main";
 	};
-	
+
 	2 spawn fn_notification;
 	sleep 1;
 };
@@ -89,12 +89,12 @@ while {true} do {
 if (!alive player) then {
 	3 spawn fn_notification;
 	sleep 5;
-	
+
 	// force respawn
 	setPlayerRespawnTime 0.01;
-	
+
 	sleep 1;
-	
+
 	// reset respawn timer
 	if (missionNameSpace getVariable "respawnAllow") then {
 		setPlayerRespawnTime 900;
