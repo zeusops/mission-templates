@@ -408,3 +408,6 @@ force STHud_Settings_Occlusion = false;
 force STHud_Settings_RemoveDeadViaProximity = false;
 STHud_Settings_SquadBar = false;
 STHud_Settings_TextShadow = 1;
+
+// Fire For Effect (IFA3)
+force RydFFE_Active = false;
