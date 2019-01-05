@@ -8,10 +8,7 @@
 ////////////////////////////////////////////////
 
 // all Arma 3 colors: https://community.bistudio.com/wiki/CfgMarkerColors_Arma_3
-_bluforColor = "colorBLUFOR";
-_opforColor = "colorOPFOR";
-_independantColor = "colorIndependent";
-_civilianColor = "colorCivilian";
+_color = "colorBLUFOR";
 
 ////////////////////////////////////////////////
 //               SUB-FUNCTIONS                //
@@ -19,7 +16,7 @@ _civilianColor = "colorCivilian";
 
 fn_createMarker = {
 	private _unit = _this select 0;
-	private _colors = _this select 1;
+	private _color = _this select 1;
 	private _groupMarkerAlpha = _this select 2;
 	
 	private _markername = (format["%1_%2", (_unit select 2), (_unit select 1)]);
@@ -40,17 +37,16 @@ fn_createMarker = {
 	_marker setMarkerAlphaLocal _groupMarkerAlpha;
 	_marker setMarkerTypeLocal _markerType;
 	_marker setMarkerTextLocal (_unit select 1);
-	_marker setMarkerColorLocal (_colors select ([BLUFOR,OPFOR,RESISTANCE,CIVILIAN] find (_unit select 2)));
-	if (_unit select 2 == CIVILIAN) then {_marker setMarkerColorLocal "colorCivilian"};
+	_marker setMarkerColorLocal _color;
 };
 
 fn_drawUnit = {
 	private _unit = _this select 0;
-	private _colors = _this select 1;
+	private _color = _this select 1;
 	private _alpha = _this select 2;
 	
 	if (getMarkerColor (format ["%1_%2", (_unit select 2), (_unit select 1)]) == "") then {
-		[_unit, _colors, _alpha] spawn fn_createMarker;
+		[_unit, _color, _alpha] spawn fn_createMarker;
 	} else {
 		[_unit, _alpha] spawn fn_updateMarker;
 	};
@@ -115,14 +111,14 @@ fn_unitLastPosUpdater = {
 };
 
 fn_unitTracker = {
-	private _colors = _this select 0;
+	private _color = _this select 0;
 	
 	while {true} do {
 		private _alpha = missionNamespace getVariable "unitsTrackedAlpha";
 		private _units = missionNameSpace getVariable "unitsTracked";
 		
 		{
-			[_x, _colors, _alpha] spawn fn_drawUnit;
+			[_x, _color, _alpha] spawn fn_drawUnit;
 		} foreach _units;
 		
 		sleep 0.05;
@@ -182,7 +178,6 @@ _request = _this select 0;
 switch (_request) do {
 	// update all units
 	case 0: {
-		private _colors = [_bluforColor, _opforColor, _independantColor, _civilianColor];
 		missionNameSpace setVariable ["unitsTracked", [], false];
 		missionNameSpace setVariable ["unitsTrackedLastPositions", [], false];
 		missionNameSpace setVariable ["unitsTrackedAlpha", 1, false];
@@ -190,7 +185,7 @@ switch (_request) do {
 		sleep 5;
 		
 		[] spawn fn_unitTrackerAlpha;
-		[_colors] spawn fn_unitTracker;
+		[_color] spawn fn_unitTracker;
 		[] spawn fn_unitUpdater;
 	};
 	
