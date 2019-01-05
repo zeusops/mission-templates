@@ -1,5 +1,17 @@
 # Changelog
 
+## [Version 18] - 2019-01-05
+### Changed
+- Increased epinephrine amount of default medic.
+
+### Removed
+- Colors per faction in unitTracker.
+- IFA fire for effect artillery.
+- mission.sqm's for every terrain.
+
+### Fixed
+- Respawn timer message.
+
 ## [Version 17] - 2018-09-16
 ### Changed
 - Lowered damage threshold to 2.5.
