@@ -278,7 +278,7 @@ fn_gearLoadout = {
 			player addBackpack _backpack;
 			for "_i" from 1 to 8 do {
 				player addItemToBackpack "ACE_bloodIV";
-				player addItemToBackpack "ACE_epinephrine";
+				for "_i" from 1 to 4 do {player addItemToBackpack "ACE_epinephrine"};
 				for "_i" from 1 to 4 do {player addItemToBackpack "ACE_morphine"};
 				for "_i" from 1 to 8 do {player addItemToBackpack "ACE_fieldDressing"};
 			};
