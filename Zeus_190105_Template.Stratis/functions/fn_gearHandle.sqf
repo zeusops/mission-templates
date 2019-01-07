@@ -231,7 +231,7 @@ fn_gearLoadout = {
 			
 			// set to non-medic and non-engineer
 			player setVariable ["Ace_medical_medicClass", 0];
-			player setUnitTrait ["Engineer", false];
+			player setVariable ["Ace_IsEngineer", 0];
 		};
 		
 		case "AUTORIFLEMAN": {
@@ -248,7 +248,7 @@ fn_gearLoadout = {
 			
 			// set to non-medic and non-engineer
 			player setVariable ["Ace_medical_medicClass", 0];
-			player setUnitTrait ["Engineer", false];
+			player setVariable ["Ace_IsEngineer", 0];
 		};
 		
 		case "ENGINEER": {
@@ -263,7 +263,7 @@ fn_gearLoadout = {
 			
 			// set to non-medic and engineer
 			player setVariable ["Ace_medical_medicClass", 0];
-			player setUnitTrait ["Engineer", true];
+			player setVariable ["Ace_IsEngineer", 1];
 		};
 		
 		case "MEDIC": {
@@ -285,7 +285,7 @@ fn_gearLoadout = {
 			
 			// set to medic and non-engineer
 			player setVariable ["Ace_medical_medicClass", 1];
-			player setUnitTrait ["Engineer", false];
+			player setVariable ["Ace_IsEngineer", 0];
 		};
 		
 		case "RIFLEMAN": {
@@ -298,12 +298,10 @@ fn_gearLoadout = {
 			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
 			for "_i" from 1 to 16 do {player addItemToVest (_weaponMain select 1)};
 			player addBackpack _backpack;
-			for "_i" from 1 to 2 do {player addItemToBackpack (_weaponAR select 1)};
-			for "_i" from 1 to 3 do {player addItemToBackpack (_weaponLauncher select 1)};
 			
 			// set to non-medic and non-engineer
 			player setVariable ["Ace_medical_medicClass", 0];
-			player setUnitTrait ["Engineer", false];
+			player setVariable ["Ace_IsEngineer", 0];
 		};
 		
 		case "TEAMLEADER": {
@@ -324,7 +322,7 @@ fn_gearLoadout = {
 			
 			// set to non-medic and non-engineer
 			player setVariable ["Ace_medical_medicClass", 0];
-			player setUnitTrait ["Engineer", false];
+			player setVariable ["Ace_IsEngineer", 0];
 		};
 	};
 };

@@ -1,5 +1,12 @@
 # Changelog
 
+## [Version 19] - 2019-01-07
+### Removed
+- Backpack contents of rifleman.
+
+### Fixed
+- Engineer assignment.
+
 ## [Version 18] - 2019-01-05
 ### Changed
 - Increased epinephrine amount of default medic.
