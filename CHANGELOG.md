@@ -1,5 +1,12 @@
 # Changelog
 
+## [Version 20] - 2019-03-26
+### Added
+- VCOM settings to the CBA settings
+
+### Fixed
+- The visible Zeus bug when using TFAR 1.0
+
 ## [Version 19] - 2019-01-07
 ### Removed
 - Backpack contents of rifleman.
