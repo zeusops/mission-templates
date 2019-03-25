@@ -7,6 +7,8 @@
 //             EDITABLE VARIABLES             //
 ////////////////////////////////////////////////
 
+if (side player == sideLogic) exitWith {true};
+
 _uniform = "rhs_uniform_FROG01_d";
 _vest = "rhsusf_spc_patchless_radio"; // give the BEST vest the players are allowed (e.g. armored vest instead of a chest rig)
 _backpack = "rhsusf_assault_eagleaiii_coy"; // give a big backpack so enough fits in (e.g. kitbag rather than assault pack)
