@@ -1,5 +1,9 @@
 # Changelog
 
+## [Version 21] - 2019-03-27
+### Changed
+- Updated CBA settings after VCOM update
+
 ## [Version 20] - 2019-03-26
 ### Added
 - VCOM settings to the CBA settings
