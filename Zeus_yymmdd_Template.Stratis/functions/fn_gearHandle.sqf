@@ -40,7 +40,7 @@ fn_gearSnitch = {
 			_gearMessage = _gearMessage + format["\n%1 - PRIMARY:\n%2", name _x, primaryWeapon _x];
 		};
 	} foreach allPlayers;
-	
+
 	if (_gearMessage == "") then {
 		hint "No suspicious gear";
 	} else {
@@ -50,17 +50,14 @@ fn_gearSnitch = {
 
 fn_gearLoad = {
 	_loadout = missionNameSpace getVariable "playerGear";
-	
+
 	if (_loadout isEqualTo []) exitWith {cutText ["You don't have any loadout saved!", "PLAIN"];};
-	
+
 	// remove current container contents
 	removeAllItems player;
 	{player removeMagazine _x} forEach (magazines player);
-	
-	
-	
-	
-	
+
+
 	// Give all items if they dont have it already
 	if ((_loadout select 0 select 0) != (uniform player)) then {
 		if ((_loadout select 0 select 0) == "") then {
@@ -116,32 +113,28 @@ fn_gearLoad = {
 			player linkItem _x;
 		}
 	} foreach (_loadout select 1);
-	
+
 	// load uniform contents to make sure you get the right ammunition in your weapons
 	{
 		player addItemToUniform _x;
 	} foreach (_loadout select 2);
-	
+
 	// load vest contents to make sure you get the right ammunition in your weapons
 	{
 		player addItemToVest _x;
 	} foreach (_loadout select 3);
-	
+
 	// load backpack contents to make sure you get the right ammunition in your weapons
 	{
 		player addItemToBackpack _x;
 	} foreach (_loadout select 4);
-	
-	
-	
-	
-	
+
 	// copy primary info over
 	_primary = [];
 	{
 		_primary pushback _x;
 	} foreach (_loadout select 5);
-	
+
 	// load primary plus attachments
 	if (_primary select 0 != "") then {
 		player addWeapon (_primary select 0);
@@ -151,13 +144,13 @@ fn_gearLoad = {
 	} else {
 		player removeWeapon (primaryWeapon player);
 	};
-	
+
 	// copy secondary info over
 	_secondary = [];
 	{
 		_secondary pushback _x;
 	} foreach (_loadout select 6);
-	
+
 	// load secondary plus attachments
 	if (_secondary select 0 != "") then {
 		player addWeapon (_secondary select 0);
@@ -167,13 +160,13 @@ fn_gearLoad = {
 	} else {
 		player removeWeapon (secondaryWeapon player);
 	};
-	
+
 	// copy handgun info over
 	_handgun = [];
 	{
 		_handgun pushback _x;
 	} foreach (_loadout select 7);
-	
+
 	// load handgun plus attachments
 	if (_handgun select 0 != "") then {
 		player addWeapon (_handgun select 0);
@@ -183,29 +176,22 @@ fn_gearLoad = {
 	} else {
 		player removeWeapon (handgunWeapon player);
 	};
-	
-	
-	
-	
-	
+
+
 	// remove current container contents to this time actually fill up the containers
 	removeAllItems player;
 	{player removeMagazine _x} forEach (magazines player);
-	
-	
-	
-	
-	
+
 	// load uniform contents
 	{
 		player addItemToUniform _x;
 	} foreach (_loadout select 2);
-	
+
 	// load vest contents
 	{
 		player addItemToVest _x;
 	} foreach (_loadout select 3);
-	
+
 	// load backpack contents
 	{
 		player addItemToBackpack _x;
@@ -214,11 +200,11 @@ fn_gearLoad = {
 
 fn_gearLoadout = {
 	_loadout = _this;
-	
+
 	switch (_loadout) do {
 		case "AT RIFLEMAN": {
 			[] call fn_gearStart;
-			
+
 			// give rifleman gear
 			player addItemToVest (_weaponMain select 1);
 			player addWeapon (_weaponMain select 0);
@@ -230,15 +216,15 @@ fn_gearLoadout = {
 			player addWeapon (_weaponLauncher select 0);
 			player addSecondaryWeaponItem (_weaponLauncher select 2);
 			for "_i" from 1 to 3 do {player addItemToBackpack (_weaponLauncher select 1)};
-			
+
 			// set to non-medic and non-engineer
 			player setVariable ["Ace_medical_medicClass", 0];
 			player setVariable ["Ace_IsEngineer", 0];
 		};
-		
+
 		case "AUTORIFLEMAN": {
 			[] call fn_gearStart;
-			
+
 			// give AR gear
 			player addItemToVest (_weaponAR select 1);
 			player addWeapon (_weaponAR select 0);
@@ -247,30 +233,32 @@ fn_gearLoadout = {
 			for "_i" from 1 to 8 do {player addItemToVest (_weaponAR select 1)};
 			player addBackpack _backpack;
 			for "_i" from 1 to 3 do {player addItemToBackpack (_weaponAR select 1)};
-			
+
 			// set to non-medic and non-engineer
 			player setVariable ["Ace_medical_medicClass", 0];
 			player setVariable ["Ace_IsEngineer", 0];
 		};
-		
+
 		case "ENGINEER": {
 			[] call fn_gearStart;
-			
+
 			// give rifleman gear
 			player addItemToVest (_weaponMain select 1);
 			player addWeapon (_weaponMain select 0);
 			player addPrimaryWeaponItem (_weaponMain select 2);
 			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
 			for "_i" from 1 to 16 do {player addItemToVest (_weaponMain select 1)};
-			
+			player addBackpack _backpack;
+			player addItemToBackpack "Item_ToolKit";
+
 			// set to non-medic and engineer
 			player setVariable ["Ace_medical_medicClass", 0];
 			player setVariable ["Ace_IsEngineer", 1];
 		};
-		
+
 		case "MEDIC": {
 			[] call fn_gearStart;
-			
+
 			// give medic gear
 			player addItemToVest (_weaponMain select 1);
 			player addWeapon (_weaponMain select 0);
@@ -284,15 +272,15 @@ fn_gearLoadout = {
 				for "_i" from 1 to 4 do {player addItemToBackpack "ACE_morphine"};
 				for "_i" from 1 to 8 do {player addItemToBackpack "ACE_fieldDressing"};
 			};
-			
+
 			// set to medic and non-engineer
 			player setVariable ["Ace_medical_medicClass", 1];
 			player setVariable ["Ace_IsEngineer", 0];
 		};
-		
+
 		case "RIFLEMAN": {
 			[] call fn_gearStart;
-			
+
 			// give rifleman gear
 			player addItemToVest (_weaponMain select 1);
 			player addWeapon (_weaponMain select 0);
@@ -300,15 +288,15 @@ fn_gearLoadout = {
 			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
 			for "_i" from 1 to 16 do {player addItemToVest (_weaponMain select 1)};
 			player addBackpack _backpack;
-			
+
 			// set to non-medic and non-engineer
 			player setVariable ["Ace_medical_medicClass", 0];
 			player setVariable ["Ace_IsEngineer", 0];
 		};
-		
+
 		case "TEAMLEADER": {
 			[] call fn_gearStart;
-			
+
 			// give leader gear
 			player addItemToVest (_weaponMain select 1);
 			player addWeapon (_weaponMain select 0);
@@ -321,7 +309,7 @@ fn_gearLoadout = {
 			player addItemToBackpack (_weaponLauncher select 1);
 			for "_i" from 1 to 16 do {player addItemToBackpack (_weaponMain select 1)};
 			player addWeapon "Binocular";
-			
+
 			// set to non-medic and non-engineer
 			player setVariable ["Ace_medical_medicClass", 0];
 			player setVariable ["Ace_IsEngineer", 0];
@@ -332,15 +320,15 @@ fn_gearLoadout = {
 fn_gearSave = {
 	_items = [];
 	_linkedItems = [];
-	
+
 	_uniform = [];
 	_vest = [];
 	_backpack = [];
-	
+
 	_primary = [];
 	_secondary = [];
 	_handgun = [];
-	
+
 	// save loose items
 	_items pushback (uniform player);
 	_items pushback (vest player);
@@ -349,43 +337,43 @@ fn_gearSave = {
 	_items pushback (goggles player);
 	_items pushback (hmd player);
 	_items pushback (binocular player);
-	
+
 	// save linked items
 	_linkedItems = (assignedItems player);
-	
+
 	// save uniform contents
 	{
 		_uniform pushback _x;
 	} foreach (uniformItems player);
-	
+
 	// save vest contents
 	{
 		_vest pushback _x;
 	} foreach (vestItems player);
-	
+
 	// save backpack contents
 	{
 		_backpack pushback _x;
 	} foreach (backpackItems player);
-	
+
 	// save primary plus attachments
 	_primary pushback (primaryWeapon player);
 	{
 		_primary pushback _x;
 	} foreach (primaryWeaponItems player);
-	
+
 	// save secondary plus attachments
 	_secondary pushback (secondaryWeapon player);
 	{
 		_secondary pushback _x;
 	} foreach (secondaryWeaponItems player);
-	
+
 	// save pistol plus attachments
 	_handgun pushback (handgunWeapon player);
 	{
 		_handgun pushback _x;
 	} foreach (handgunItems player);
-	
+
 	// save loadout
 	_loadout = [_items, _linkedItems, _uniform, _vest, _backpack, _primary, _secondary, _handgun];
 	missionNameSpace setVariable ["playerGear", _loadout, false];
@@ -399,13 +387,13 @@ fn_gearStart = {
 	removeHeadgear player;
 	removeAllAssignedItems player;
 	removeGoggles player;
-	
+
 	player linkItem "ItemMap";
 	player linkItem "itemGPS";
 	player linkItem _radio;
 	player linkItem "ItemCompass";
 	player linkItem "ItemWatch";
-	
+
 	player forceAddUniform _uniform;
 	player addItemToUniform "ACE_bodyBag";
 	for "_i" from 1 to 5 do {
@@ -413,7 +401,7 @@ fn_gearStart = {
 		player addItemToUniform "ACE_epinephrine";
 	};
 	for "_i" from 1 to 30 do {player addItemToUniform "ACE_fieldDressing"};
-	
+
 	player addVest _vest;
 	player addHeadgear _headgear;
 };
@@ -429,23 +417,23 @@ switch (_request) do {
 	case 0: {
 		[] call fn_gearStart;
 	};
-	
+
 	// gear loadout
 	case 1: {
 		_loadout = (_this select 1);
 		_loadout call fn_gearLoadout;
 	};
-	
+
 	// save gear
 	case 2: {
 		[] call fn_gearSave;
 	};
-	
+
 	// rearm from save
 	case 3: {
 		[] call fn_gearLoad;
 	};
-	
+
 	// check unallowed gear
 	case 4: {
 		[] call fn_gearSnitch;

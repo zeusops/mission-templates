@@ -1,15 +1,22 @@
 # Changelog
 
+## [Version 22] - 2019-04-07
+### Added
+- Backpack and a toolkit to the engineer loadout.
+
+### Changed
+- Made engineers able to repair vehicles anywhere with a toolkit.
+
 ## [Version 21] - 2019-03-27
 ### Changed
-- Updated CBA settings after VCOM update
+- Updated CBA settings after VCOM update.
 
 ## [Version 20] - 2019-03-26
 ### Added
-- VCOM settings to the CBA settings
+- VCOM settings to the CBA settings.
 
 ### Fixed
-- The visible Zeus bug when using TFAR 1.0
+- The visible Zeus bug when using TFAR 1.0.
 
 ## [Version 19] - 2019-01-07
 ### Removed
