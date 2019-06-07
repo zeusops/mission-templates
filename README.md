@@ -1,9 +1,9 @@
 # How to use these files
 
-Take your preferred mission file from `missions` folder and copy template files from `template` to the mission folder. The alternative way is to download and unpack the latest PBO from the [Google Drive](https://drive.google.com/drive/folders/0Bz0gHeKbXhWAM3c4UG92VWM0Qzg).
+Clone the repository or [download the ZIP file](https://github.com/zeusops/mission-templates/archive/master.zip). Copy template files from `Zeus_yymmdd_Template.Stratis` to the mission folder.
 
-Further instructions on how to work with the templates can be found [here](https://docs.google.com/document/d/13cg70RRwFfINgi8mzk9OfgqMrwiTkY6NRTTx97iONeQ/edit).
+See the [Zeus Guide](https://docs.google.com/document/d/1PFK__UcgmAJ1P3xBnJxeW2ow7u8bgEfM8lkpHJrLYDU/edit#heading=h.nleh2xb28ay8) for further information about the templates.
 
 ## Authors
 
-The templates have been created by [Dyzalonius](https://github.com/Dyzalonius) for [Zeus Operations](https://www.zeusops.com).
+The templates have been created by [Dyzalonius](https://github.com/Dyzalonius) and [Gehock](https://github.com/Gehock) for [Zeus Operations](https://www.zeusops.com).
