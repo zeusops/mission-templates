@@ -308,7 +308,6 @@ fn_gearLoadout = {
 			player addBackpack _backpackLeader;
 			player addItemToBackpack (_weaponLauncher select 1);
 			for "_i" from 1 to 16 do {player addItemToBackpack (_weaponMain select 1)};
-			player addWeapon "Binocular";
 
 			// set to non-medic and non-engineer
 			player setVariable ["Ace_medical_medicClass", 0];
@@ -393,6 +392,7 @@ fn_gearStart = {
 	player linkItem _radio;
 	player linkItem "ItemCompass";
 	player linkItem "ItemWatch";
+	player addWeapon "Binocular";
 
 	player forceAddUniform _uniform;
 	player addItemToUniform "ACE_bodyBag";
