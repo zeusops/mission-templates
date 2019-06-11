@@ -1,5 +1,9 @@
 # Changelog
 
+## [Version 23] - 2019-06-10
+### Changed
+- Binoculars for gearStart instead of just leader role.
+
 ## [Version 22] - 2019-04-07
 ### Added
 - Backpack and a toolkit to the engineer loadout.
