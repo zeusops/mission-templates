@@ -1,5 +1,12 @@
 # Changelog
 
+## [Version 24] - 2019-06-23
+### Added
+- New function `fn_coverMap` to replace vanilla covermap. Editable during gameplay.
+### Changed
+- Editable variables for gear, unitcolor and covermap are now in `initServer`, and editable during gameplay.
+- Autobodybag if player in group with groupId starting with `W`, `Y`, or `Z`.
+
 ## [Version 23] - 2019-06-10
 ### Changed
 - Binoculars for gearStart instead of just leader role.
@@ -113,7 +120,7 @@
 - Kunduz template.
 
 ### Fixed
-- Hotfix `fn_showFPS.sqf`.
+- Hotfix `fn_showFPS`.
 
 
 ## [Version 11] - 2018-05-07

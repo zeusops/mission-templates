@@ -4,25 +4,6 @@
 */
 
 ////////////////////////////////////////////////
-//             EDITABLE VARIABLES             //
-////////////////////////////////////////////////
-
-if (side player == sideLogic) exitWith {true};
-
-_uniform = "rhs_uniform_FROG01_d";
-_vest = "rhsusf_spc_patchless_radio"; // give the BEST vest the players are allowed (e.g. armored vest instead of a chest rig)
-_backpack = "rhsusf_assault_eagleaiii_coy"; // give a big backpack so enough fits in (e.g. kitbag rather than assault pack)
-_headgear = "rhsusf_lwh_helmet_marpatd"; // give the BEST headgear the players are allowed (e.g. helmet instead of a cap)
-_radio = "tf_anprc152";
-
-_backpackLeader = "tf_rt1523g_big_bwmod_tropen";
-
-// weapons format: [ gun, ammo, sight ], make sure the magazine fits, and is visible in the gun
-_weaponMain = ["rhs_weap_m16a4_carryhandle", "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", "rhsusf_acc_ACOG"]; 
-_weaponAR = ["rhs_weap_m249_pip_L", "rhs_200rnd_556x45_M_SAW", "rhsusf_acc_ACOG"];
-_weaponLauncher = ["launch_MRAWS_olive_rail_F", "MRAWS_HEAT_F", ""];
-
-////////////////////////////////////////////////
 //               SUB-FUNCTIONS                //
 ////////////////////////////////////////////////
 
@@ -206,16 +187,16 @@ fn_gearLoadout = {
 			[] call fn_gearStart;
 
 			// give rifleman gear
-			player addItemToVest (_weaponMain select 1);
-			player addWeapon (_weaponMain select 0);
-			player addPrimaryWeaponItem (_weaponMain select 2);
+			player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1);
+			player addWeapon ((missionNameSpace getVariable "gearWeaponMain") select 0);
+			player addPrimaryWeaponItem ((missionNameSpace getVariable "gearWeaponMain") select 2);
 			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
-			for "_i" from 1 to 16 do {player addItemToVest (_weaponMain select 1)};
-			player addBackpack _backpack;
-			player addItemToBackpack (_weaponLauncher select 1);
-			player addWeapon (_weaponLauncher select 0);
-			player addSecondaryWeaponItem (_weaponLauncher select 2);
-			for "_i" from 1 to 3 do {player addItemToBackpack (_weaponLauncher select 1)};
+			for "_i" from 1 to 16 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1)};
+			player addBackpack (missionNameSpace getVariable "gearBackpack");
+			player addItemToBackpack ((missionNameSpace getVariable "gearWeaponLauncher") select 1);
+			player addWeapon ((missionNameSpace getVariable "gearGearWeaponLauncher") select 0);
+			player addSecondaryWeaponItem ((missionNameSpace getVariable "gearWeaponLauncher") select 2);
+			for "_i" from 1 to 3 do {player addItemToBackpack ((missionNameSpace getVariable "gearWeaponLauncher") select 1)};
 
 			// set to non-medic and non-engineer
 			player setVariable ["Ace_medical_medicClass", 0];
@@ -226,13 +207,13 @@ fn_gearLoadout = {
 			[] call fn_gearStart;
 
 			// give AR gear
-			player addItemToVest (_weaponAR select 1);
-			player addWeapon (_weaponAR select 0);
-			player addPrimaryWeaponItem (_weaponAR select 2);
+			player addItemToVest ((missionNameSpace getVariable "gearWeaponAR") select 1);
+			player addWeapon ((missionNameSpace getVariable "gearWeaponAR") select 0);
+			player addPrimaryWeaponItem ((missionNameSpace getVariable "gearWeaponAR") select 2);
 			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
-			for "_i" from 1 to 8 do {player addItemToVest (_weaponAR select 1)};
-			player addBackpack _backpack;
-			for "_i" from 1 to 3 do {player addItemToBackpack (_weaponAR select 1)};
+			for "_i" from 1 to 8 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponAR") select 1)};
+			player addBackpack (missionNameSpace getVariable "gearBackpack");
+			for "_i" from 1 to 3 do {player addItemToBackpack ((missionNameSpace getVariable "gearWeaponAR") select 1)};
 
 			// set to non-medic and non-engineer
 			player setVariable ["Ace_medical_medicClass", 0];
@@ -243,12 +224,12 @@ fn_gearLoadout = {
 			[] call fn_gearStart;
 
 			// give rifleman gear
-			player addItemToVest (_weaponMain select 1);
-			player addWeapon (_weaponMain select 0);
-			player addPrimaryWeaponItem (_weaponMain select 2);
+			player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1);
+			player addWeapon ((missionNameSpace getVariable "gearWeaponMain") select 0);
+			player addPrimaryWeaponItem ((missionNameSpace getVariable "gearWeaponMain") select 2);
 			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
-			for "_i" from 1 to 16 do {player addItemToVest (_weaponMain select 1)};
-			player addBackpack _backpack;
+			for "_i" from 1 to 16 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1)};
+			player addBackpack (missionNameSpace getVariable "gearBackpack");
 			player addItemToBackpack "Item_ToolKit";
 
 			// set to non-medic and engineer
@@ -260,17 +241,17 @@ fn_gearLoadout = {
 			[] call fn_gearStart;
 
 			// give medic gear
-			player addItemToVest (_weaponMain select 1);
-			player addWeapon (_weaponMain select 0);
-			player addPrimaryWeaponItem (_weaponMain select 2);
+			player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1);
+			player addWeapon ((missionNameSpace getVariable "gearWeaponMain") select 0);
+			player addPrimaryWeaponItem ((missionNameSpace getVariable "gearWeaponMain") select 2);
 			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
-			for "_i" from 1 to 16 do {player addItemToVest (_weaponMain select 1)};
-			player addBackpack _backpack;
-			for "_i" from 1 to 8 do {
+			for "_i" from 1 to 16 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1)};
+			player addBackpack (missionNameSpace getVariable "gearBackpack");
+			for "_i" from 1 to 10 do {
 				player addItemToBackpack "ACE_bloodIV";
 				for "_i" from 1 to 4 do {player addItemToBackpack "ACE_epinephrine"};
-				for "_i" from 1 to 4 do {player addItemToBackpack "ACE_morphine"};
-				for "_i" from 1 to 8 do {player addItemToBackpack "ACE_fieldDressing"};
+				for "_i" from 1 to 3 do {player addItemToBackpack "ACE_morphine"};
+				for "_i" from 1 to 6 do {player addItemToBackpack "ACE_fieldDressing"};
 			};
 
 			// set to medic and non-engineer
@@ -282,12 +263,12 @@ fn_gearLoadout = {
 			[] call fn_gearStart;
 
 			// give rifleman gear
-			player addItemToVest (_weaponMain select 1);
-			player addWeapon (_weaponMain select 0);
-			player addPrimaryWeaponItem (_weaponMain select 2);
+			player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1);
+			player addWeapon ((missionNameSpace getVariable "gearWeaponMain") select 0);
+			player addPrimaryWeaponItem ((missionNameSpace getVariable "gearWeaponMain") select 2);
 			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
-			for "_i" from 1 to 16 do {player addItemToVest (_weaponMain select 1)};
-			player addBackpack _backpack;
+			for "_i" from 1 to 16 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1)};
+			player addBackpack (missionNameSpace getVariable "gearBackpack");
 
 			// set to non-medic and non-engineer
 			player setVariable ["Ace_medical_medicClass", 0];
@@ -298,16 +279,16 @@ fn_gearLoadout = {
 			[] call fn_gearStart;
 
 			// give leader gear
-			player addItemToVest (_weaponMain select 1);
-			player addWeapon (_weaponMain select 0);
-			player addPrimaryWeaponItem (_weaponMain select 2);
+			player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1);
+			player addWeapon ((missionNameSpace getVariable "gearWeaponMain") select 0);
+			player addPrimaryWeaponItem ((missionNameSpace getVariable "gearWeaponMain") select 2);
 			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
 			for "_i" from 1 to 3 do {player addItemToVest "SmokeShellGreen";};
 			for "_i" from 1 to 3 do {player addItemToVest "SmokeShellBlue";};
-			for "_i" from 1 to 16 do {player addItemToVest (_weaponMain select 1)};
-			player addBackpack _backpackLeader;
-			player addItemToBackpack (_weaponLauncher select 1);
-			for "_i" from 1 to 16 do {player addItemToBackpack (_weaponMain select 1)};
+			for "_i" from 1 to 16 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1)};
+			player addBackpack (missionNameSpace getVariable "gearBackpackLeader");
+			player addItemToBackpack ((missionNameSpace getVariable "gearWeaponLauncher") select 1);
+			for "_i" from 1 to 16 do {player addItemToBackpack ((missionNameSpace getVariable "gearWeaponMain") select 1)};
 
 			// set to non-medic and non-engineer
 			player setVariable ["Ace_medical_medicClass", 0];
@@ -389,12 +370,12 @@ fn_gearStart = {
 
 	player linkItem "ItemMap";
 	player linkItem "itemGPS";
-	player linkItem _radio;
+	player linkItem (missionNameSpace getVariable "gearRadio");
 	player linkItem "ItemCompass";
 	player linkItem "ItemWatch";
 	player addWeapon "Binocular";
 
-	player forceAddUniform _uniform;
+	player forceAddUniform (missionNameSpace getVariable "gearUniform");
 	player addItemToUniform "ACE_bodyBag";
 	for "_i" from 1 to 5 do {
 		player addItemToUniform "ACE_morphine";
@@ -402,13 +383,15 @@ fn_gearStart = {
 	};
 	for "_i" from 1 to 30 do {player addItemToUniform "ACE_fieldDressing"};
 
-	player addVest _vest;
-	player addHeadgear _headgear;
+	player addVest (missionNameSpace getVariable "gearVest");
+	player addHeadgear (missionNameSpace getVariable "gearHelmet");
 };
 
 ////////////////////////////////////////////////
 //               FUNCTION LOOP                //
 ////////////////////////////////////////////////
+
+if (side player == sideLogic) exitWith {true};
 
 _request = (_this select 0);
 

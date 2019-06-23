@@ -4,20 +4,12 @@
 */
 
 ////////////////////////////////////////////////
-//             EDITABLE VARIABLES             //
-////////////////////////////////////////////////
-
-// all Arma 3 colors: https://community.bistudio.com/wiki/CfgMarkerColors_Arma_3
-_color = "colorBLUFOR";
-
-////////////////////////////////////////////////
 //               SUB-FUNCTIONS                //
 ////////////////////////////////////////////////
 
 fn_createMarker = {
 	private _unit = _this select 0;
-	private _color = _this select 1;
-	private _groupMarkerAlpha = _this select 2;
+	private _groupMarkerAlpha = _this select 1;
 	
 	private _markername = (format["%1_%2", (_unit select 2), (_unit select 1)]);
 	private _marker = createMarkerLocal [_markername,(getPosVisual (_unit select 0))];
@@ -37,16 +29,15 @@ fn_createMarker = {
 	_marker setMarkerAlphaLocal _groupMarkerAlpha;
 	_marker setMarkerTypeLocal _markerType;
 	_marker setMarkerTextLocal (_unit select 1);
-	_marker setMarkerColorLocal _color;
+	_marker setMarkerColorLocal (missionNameSpace getVariable "unitColor");
 };
 
 fn_drawUnit = {
 	private _unit = _this select 0;
-	private _color = _this select 1;
 	private _alpha = _this select 2;
 	
 	if (getMarkerColor (format ["%1_%2", (_unit select 2), (_unit select 1)]) == "") then {
-		[_unit, _color, _alpha] spawn fn_createMarker;
+		[_unit, _alpha] spawn fn_createMarker;
 	} else {
 		[_unit, _alpha] spawn fn_updateMarker;
 	};
@@ -111,14 +102,12 @@ fn_unitLastPosUpdater = {
 };
 
 fn_unitTracker = {
-	private _color = _this select 0;
-	
 	while {true} do {
 		private _alpha = missionNamespace getVariable "unitsTrackedAlpha";
 		private _units = missionNameSpace getVariable "unitsTracked";
 		
 		{
-			[_x, _color, _alpha] spawn fn_drawUnit;
+			[_x, _alpha] spawn fn_drawUnit;
 		} foreach _units;
 		
 		sleep 0.05;
@@ -167,6 +156,7 @@ fn_updateMarker = {
 	
 	(format["%1_%2", (_unit select 2), (_unit select 1)]) setMarkerPosLocal _position;
 	(format["%1_%2", (_unit select 2), (_unit select 1)]) setMarkerAlphaLocal _alpha;
+	(format["%1_%2", (_unit select 2), (_unit select 1)]) setMarkerColorLocal (missionNameSpace getVariable "unitColor");
 };
 
 ////////////////////////////////////////////////
@@ -185,7 +175,7 @@ switch (_request) do {
 		sleep 5;
 		
 		[] spawn fn_unitTrackerAlpha;
-		[_color] spawn fn_unitTracker;
+		[] spawn fn_unitTracker;
 		[] spawn fn_unitUpdater;
 	};
 	

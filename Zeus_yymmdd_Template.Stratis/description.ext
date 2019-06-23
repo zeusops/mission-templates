@@ -52,6 +52,7 @@ class cfgFunctions {
 		class functions
 		{
 			file = "functions";
+			class coverMap {description = "";};
 			class gearBox {description = "";};
 			class gearHandle {description = "";};
 			class mapButtons {description = "";};
