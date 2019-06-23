@@ -1,5 +1,12 @@
 # Changelog
 
+## [Version 24 Hotfix] - 2019-06-23
+### Fixed
+- `fn_coverMap` initial placement bug.
+- `W`, `Y`, `Z` autobodybagging bug.
+### Removed
+- BIS coverMap module.
+
 ## [Version 24] - 2019-06-23
 ### Added
 - New function `fn_coverMap` to replace vanilla covermap. Editable during gameplay.

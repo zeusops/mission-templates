@@ -9,8 +9,8 @@
 
 fn_spawn = {
     _center = (_this select 0);
-    _size = (this select 1);
-    _bignumber = 100000;
+    _size = (_this select 1);
+    _bignumber = 50000;
 
     // create leftright area markers
     _mk = createMarker ["coverMapAreaLeft", [(-_bignumber + (_center select 0) - (_size select 0)), (_center select 1)]];
@@ -47,11 +47,11 @@ fn_spawn = {
     _mk setMarkerType "mil_box_noShadow";
     _mk = createMarker ["coverMapSquareBotRight", [((_center select 0) + (_size select 0)), ((_center select 1) - (_size select 1))]];
     _mk setMarkerType "mil_box_noShadow";
-}
+};
 
 fn_transform = {
     _center = (_this select 0);
-    _size = (this select 1);
+    _size = (_this select 1);
     _bignumber = 100000;
 
     // transform leftright area markers
@@ -73,7 +73,7 @@ fn_transform = {
     "coverMapSquareTopRight" setMarkerPos [((_center select 0) + (_size select 0)), ((_center select 1) + (_size select 1))];
     "coverMapSquareBotLeft" setMarkerPos [((_center select 0) - (_size select 0)), ((_center select 1) - (_size select 1))];
     "coverMapSquareBotRight" setMarkerPos [((_center select 0) + (_size select 0)), ((_center select 1) - (_size select 1))];
-}
+};
 
 ////////////////////////////////////////////////
 //               FUNCTION LOOP                //
@@ -81,8 +81,8 @@ fn_transform = {
 
 if ((getMarkerColor "coverMapAreaCenter") == "") then {
 	// init
-	this call fn_spawn;
+	_this call fn_spawn;
 } else {
 	// change location
-	this call fn_transform;
+	_this call fn_transform;
 };

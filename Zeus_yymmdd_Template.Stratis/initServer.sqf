@@ -22,7 +22,7 @@ _unitColor = "ColorBlufor";
 
 // COVERMAP
 // [center, size]
-[[1300, 2300], [1000, 1200]] spawn ZO_fnc_coverMap;
+[[4096, 4096], [4096, 4096]] spawn ZO_fnc_coverMap;
 
 ////////////////////////////////////////////////
 //        DO NOT EDIT BELOW THIS LINE         //
