@@ -1,5 +1,9 @@
 # Changelog
 
+## [Version 24 Hotfix 2] - 2019-06-23
+### Fixed
+- Units did not receive headgear because of typo.
+
 ## [Version 24 Hotfix] - 2019-06-23
 ### Fixed
 - `fn_coverMap` initial placement bug.

@@ -35,7 +35,7 @@ TF_give_microdagr_to_soldier = false;
 missionNameSpace setVariable ["gearUniform", _uniform, true];
 missionNameSpace setVariable ["gearVest", _vest, true];
 missionNameSpace setVariable ["gearBackpack", _backpack, true];
-missionNameSpace setVariable ["gearHeadger", _headgear, true];
+missionNameSpace setVariable ["gearHeadgear", _headgear, true];
 missionNameSpace setVariable ["gearRadio", _radio, true];
 missionNameSpace setVariable ["gearBackpackLeader", _backpackLeader, true];
 missionNameSpace setVariable ["gearWeaponMain", _weaponMain, true];

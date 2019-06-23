@@ -384,7 +384,7 @@ fn_gearStart = {
 	for "_i" from 1 to 30 do {player addItemToUniform "ACE_fieldDressing"};
 
 	player addVest (missionNameSpace getVariable "gearVest");
-	player addHeadgear (missionNameSpace getVariable "gearHelmet");
+	player addHeadgear (missionNameSpace getVariable "gearHeadgear");
 };
 
 ////////////////////////////////////////////////
