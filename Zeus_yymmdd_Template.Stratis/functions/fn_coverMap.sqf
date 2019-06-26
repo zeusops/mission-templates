@@ -8,9 +8,13 @@
 ////////////////////////////////////////////////
 
 fn_spawn = {
-    _center = (_this select 0);
-    _size = (_this select 1);
+    _center = (getMarkerPos "coverMapAreaCenter");
+    _size = (getMarkerSize "coverMapAreaCenter");
     _bignumber = 50000;
+
+    // edit area marker
+    "coverMapAreaCenter" setMarkerShape "RECTANGLE";
+    "coverMapAreaCenter" setMarkerBrush "Border";
 
     // create leftright area markers
     _mk = createMarker ["coverMapAreaLeft", [(-_bignumber + (_center select 0) - (_size select 0)), (_center select 1)]];
@@ -31,12 +35,6 @@ fn_spawn = {
     _mk setMarkerShape "RECTANGLE";
     _mk setMarkerBrush "SOLID";
     _mk setMarkerSize [(_size select 0), _bignumber];
-
-    // create area marker
-    _mk = createMarker ["coverMapAreaCenter", _center];
-    _mk setMarkerShape "RECTANGLE";
-    _mk setMarkerBrush "Border";
-    _mk setMarkerSize _size;
 
     // create corner markers
     _mk = createMarker ["coverMapSquareTopLeft", [((_center select 0) - (_size select 0)), ((_center select 1) + (_size select 1))]];
@@ -79,9 +77,9 @@ fn_transform = {
 //               FUNCTION LOOP                //
 ////////////////////////////////////////////////
 
-if ((getMarkerColor "coverMapAreaCenter") == "") then {
+if ((getMarkerColor "coverMapAreaLeft") == "") then {
 	// init
-	_this call fn_spawn;
+	[] call fn_spawn;
 } else {
 	// change location
 	_this call fn_transform;

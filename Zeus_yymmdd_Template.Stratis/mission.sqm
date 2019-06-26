@@ -5,14 +5,14 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=133;
+	toggles=5;
 	class ItemIDProvider
 	{
-		nextID=245;
+		nextID=246;
 	};
 	class MarkerIDProvider
 	{
-		nextID=1;
+		nextID=2;
 	};
 	class Camera
 	{
@@ -26,9 +26,8 @@ binarizationWanted=0;
 addons[]=
 {
 	"A3_Ui_F",
-	"A3_Modules_F_Curator_Misc",
-	"A3_Characters_F",
 	"A3_Modules_F_Curator_Curator",
+	"A3_Characters_F",
 	"A3_Data_F_Curator_Virtual",
 	"A3_Modules_F_StrategicMap"
 };
@@ -13786,7 +13785,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=14;
+		items=15;
 		class Item0
 		{
 			dataType="Marker";
@@ -18973,6 +18972,20 @@ class Mission
 				};
 				nAttributes=5;
 			};
+		};
+		class Item14
+		{
+			dataType="Marker";
+			position[]={4096,64.528999,4096};
+			name="coverMapAreaCenter";
+			markerType="RECTANGLE";
+			type="rectangle";
+			fillName="Border";
+			a=4096;
+			b=4096;
+			drawBorder=1;
+			id=245;
+			atlOffset=-96.650993;
 		};
 	};
 };
