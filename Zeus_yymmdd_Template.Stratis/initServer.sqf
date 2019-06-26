@@ -20,10 +20,6 @@ _weaponLauncher = ["launch_MRAWS_olive_rail_F", "MRAWS_HEAT_F", ""];
 // All colors: https://community.bistudio.com/wiki/CfgMarkerColors_Arma_3
 _unitColor = "ColorBlufor";
 
-// COVERMAP
-// [center, size]
-[] spawn ZO_fnc_coverMap;
-
 ////////////////////////////////////////////////
 //        DO NOT EDIT BELOW THIS LINE         //
 ////////////////////////////////////////////////
@@ -55,5 +51,6 @@ missionNameSpace setvariable ["respawnWaveTime", 0, true];
 missionNameSpace setvariable ["forceBodyBag", false, true];
 missionNameSpace setVariable ["unitTrackerEffects", [0, 0, 1, 1, 0, 0, 0, 0], true];
 
+[] spawn ZO_fnc_coverMap;
 [] spawn ZO_fnc_showFPS;
 [] spawn ZO_fnc_respawnHandle;

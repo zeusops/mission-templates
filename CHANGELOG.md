@@ -1,5 +1,10 @@
 # Changelog
 
+## [Version 25] - 2019-06-26
+### Changed
+- Covermap now has a marker on the map on which the covermap is based.
+- Covermap is not editable in `initServer` anymore.
+
 ## [Version 24 Hotfix 2] - 2019-06-23
 ### Fixed
 - Units did not receive headgear because of typo.
