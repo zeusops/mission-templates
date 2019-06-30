@@ -1,5 +1,9 @@
 # Changelog
 
+## [Version 25 Hotfix] - 2019-06-30
+### Fixed
+- AT Riflemen wouldn't spawn with launcher because of typo.
+
 ## [Version 25] - 2019-06-26
 ### Changed
 - Covermap now has a marker on the map on which the covermap is based.
@@ -19,9 +23,9 @@
 ## [Version 24] - 2019-06-23
 ### Added
 - New function `fn_coverMap` to replace vanilla covermap. Editable during gameplay.
+- Autobodybag if player in group with groupId starting with `W`, `Y`, or `Z`.
 ### Changed
 - Editable variables for gear, unitcolor and covermap are now in `initServer`, and editable during gameplay.
-- Autobodybag if player in group with groupId starting with `W`, `Y`, or `Z`.
 
 ## [Version 23] - 2019-06-10
 ### Changed

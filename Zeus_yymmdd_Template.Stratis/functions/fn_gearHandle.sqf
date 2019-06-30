@@ -194,7 +194,7 @@ fn_gearLoadout = {
 			for "_i" from 1 to 16 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1)};
 			player addBackpack (missionNameSpace getVariable "gearBackpack");
 			player addItemToBackpack ((missionNameSpace getVariable "gearWeaponLauncher") select 1);
-			player addWeapon ((missionNameSpace getVariable "gearGearWeaponLauncher") select 0);
+			player addWeapon ((missionNameSpace getVariable "gearWeaponLauncher") select 0);
 			player addSecondaryWeaponItem ((missionNameSpace getVariable "gearWeaponLauncher") select 2);
 			for "_i" from 1 to 3 do {player addItemToBackpack ((missionNameSpace getVariable "gearWeaponLauncher") select 1)};
 
