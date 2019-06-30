@@ -1,5 +1,9 @@
 # Changelog
 
+## [Version 26] - 2019-06-30
+### Added
+- Debug console for staff members
+
 ## [Version 25 Hotfix] - 2019-06-30
 ### Fixed
 - AT Riflemen wouldn't spawn with launcher because of typo.
