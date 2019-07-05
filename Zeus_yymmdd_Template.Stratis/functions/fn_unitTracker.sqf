@@ -34,7 +34,7 @@ fn_createMarker = {
 
 fn_drawUnit = {
 	private _unit = _this select 0;
-	private _alpha = _this select 2;
+	private _alpha = _this select 1;
 	
 	if (getMarkerColor (format ["%1_%2", (_unit select 2), (_unit select 1)]) == "") then {
 		[_unit, _alpha] spawn fn_createMarker;

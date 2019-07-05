@@ -1,5 +1,9 @@
 # Changelog
 
+## [Version 26 Hotfix] - 2019-07-05
+### Fixed
+- Typo in `fn_unitTracker` causing an error.
+
 ## [Version 26] - 2019-06-30
 ### Added
 - Debug console for staff members
