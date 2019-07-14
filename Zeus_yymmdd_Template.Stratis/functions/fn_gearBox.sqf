@@ -41,12 +41,12 @@ fn_addATRiflemanAction = {
 
 			[1, "AT RIFLEMAN"] call ZO_fnc_gearHandle;
 		},
-		/* 9 code executed on interruption */	{},
-		/* 10 arguments */						[],
-		/* 11 action duration */				1,
-		/* 12 priority */						8,
-		/* 13 remove on completion */			false,
-		/* 14 show unconscious */				false
+		/* 9 code executed on interruption */   {},
+		/* 10 arguments */                      [],
+		/* 11 action duration */                1,
+		/* 12 priority */                       8,
+		/* 13 remove on completion */           false,
+		/* 14 show unconscious */               false
 	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
 };
 
@@ -97,12 +97,12 @@ fn_addEngineerAction = {
 
 			[1, "ENGINEER"] call ZO_fnc_gearHandle;
 		},
-		/* 9 code executed on interruption */	{},
-		/* 10 arguments */						[],
-		/* 11 action duration */				1,
-		/* 12 priority */						8,
-		/* 13 remove on completion */			false,
-		/* 14 show unconscious */				false
+		/* 9 code executed on interruption */   {},
+		/* 10 arguments */                      [],
+		/* 11 action duration */                1,
+		/* 12 priority */                       8,
+		/* 13 remove on completion */           false,
+		/* 14 show unconscious */               false
 	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
 };
 
@@ -153,12 +153,12 @@ fn_addRearmAction = {
 
 			[3] call ZO_fnc_gearHandle;
 		},
-		/* 9 code executed on interruption */	{},
-		/* 10 arguments */						[],
-		/* 11 action duration */				1,
-		/* 12 priority */						10,
-		/* 13 remove on completion */			false,
-		/* 14 show unconscious */				false
+		/* 9 code executed on interruption */   {},
+		/* 10 arguments */                      [],
+		/* 11 action duration */                1,
+		/* 12 priority */                       10,
+		/* 13 remove on completion */           false,
+		/* 14 show unconscious */               false
 	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
 };
 
@@ -167,26 +167,26 @@ fn_addRiflemanAction = {
 
 	// Add the hold-action to the object
 	[
-		/* 0 object */							_object,
-		/* 1 action title */					"Load default RIFLEMAN",
-		/* 2 idle icon */						"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
-		/* 3 progress icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
-		/* 4 condition to show */				"(_this distance _target < 3)",
-		/* 5 condition for action */			"(_this distance _target < 3)",
-		/* 6 code executed on start */			{},
-		/* 7 code executed per tick */			{},
+		/* 0 object */                           _object,
+		/* 1 action title */                    "Load default RIFLEMAN",
+		/* 2 idle icon */                       "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
+		/* 3 progress icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
+		/* 4 condition to show */               "(_this distance _target < 3)",
+		/* 5 condition for action */            "(_this distance _target < 3)",
+		/* 6 code executed on start */          {},
+		/* 7 code executed per tick */          {},
 		/* 8 code executed on completion */
 		{
 			playSound "sound1";
 
 			[1, "RIFLEMAN"] call ZO_fnc_gearHandle;
 		},
-		/* 9 code executed on interruption */	{},
-		/* 10 arguments */						[],
-		/* 11 action duration */				1,
-		/* 12 priority */						8,
-		/* 13 remove on completion */			false,
-		/* 14 show unconscious */				false
+		/* 9 code executed on interruption */   {},
+		/* 10 arguments */                      [],
+		/* 11 action duration */                1,
+		/* 12 priority */                       8,
+		/* 13 remove on completion */           false,
+		/* 14 show unconscious */               false
 	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
 };
 
@@ -195,26 +195,26 @@ fn_addSaveAction = {
 
 	// Add the hold-action to the object
 	[
-		/* 0 object */							_object,
-		/* 1 action title */					"SAVE loadout for rearm",
-		/* 2 idle icon */						"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff1_ca.paa",
-		/* 3 progress icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff1_ca.paa",
-		/* 4 condition to show */				"(_this distance _target < 3)",
-		/* 5 condition for action */			"(_this distance _target < 3)",
-		/* 6 code executed on start */			{},
-		/* 7 code executed per tick */			{},
+		/* 0 object */                          _object,
+		/* 1 action title */                    "SAVE loadout for rearm",
+		/* 2 idle icon */                       "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff1_ca.paa",
+		/* 3 progress icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff1_ca.paa",
+		/* 4 condition to show */               "(_this distance _target < 3)",
+		/* 5 condition for action */            "(_this distance _target < 3)",
+		/* 6 code executed on start */          {},
+		/* 7 code executed per tick */          {},
 		/* 8 code executed on completion */
 		{
 			playSound "sound1";
 
 			[2] call ZO_fnc_gearHandle;
 		},
-		/* 9 code executed on interruption */	{},
-		/* 10 arguments */						[],
-		/* 11 action duration */				1,
-		/* 12 priority */						9,
-		/* 13 remove on completion */			false,
-		/* 14 show unconscious */				false
+		/* 9 code executed on interruption */   {},
+		/* 10 arguments */                      [],
+		/* 11 action duration */                1,
+		/* 12 priority */                       9,
+		/* 13 remove on completion */           false,
+		/* 14 show unconscious */               false
 	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
 };
 
@@ -223,26 +223,26 @@ fn_addTeamleaderAction = {
 
 	// Add the hold-action to the object
 	[
-		/* 0 object */							_object,
-		/* 1 action title */					"Load default TEAMLEADER",
-		/* 2 idle icon */						"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
-		/* 3 progress icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
-		/* 4 condition to show */				"(_this distance _target < 3)",
-		/* 5 condition for action */			"(_this distance _target < 3)",
-		/* 6 code executed on start */			{},
-		/* 7 code executed per tick */			{},
+		/* 0 object */                          _object,
+		/* 1 action title */                    "Load default TEAMLEADER",
+		/* 2 idle icon */                       "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
+		/* 3 progress icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
+		/* 4 condition to show */               "(_this distance _target < 3)",
+		/* 5 condition for action */            "(_this distance _target < 3)",
+		/* 6 code executed on start */          {},
+		/* 7 code executed per tick */          {},
 		/* 8 code executed on completion */
 		{
 			playSound "sound1";
 
 			[1, "TEAMLEADER"] call ZO_fnc_gearHandle;
 		},
-		/* 9 code executed on interruption */	{},
-		/* 10 arguments */						[],
-		/* 11 action duration */				1,
-		/* 12 priority */						8,
-		/* 13 remove on completion */			false,
-		/* 14 show unconscious */				false
+		/* 9 code executed on interruption */   {},
+		/* 10 arguments */                      [],
+		/* 11 action duration */                1,
+		/* 12 priority */                       8,
+		/* 13 remove on completion */           false,
+		/* 14 show unconscious */               false
 	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
 };
 

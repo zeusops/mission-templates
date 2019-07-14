@@ -18,9 +18,9 @@ missionNameSpace setVariable ["mapButtons",["mapButton01"], false]; //local
 [] spawn {
 	//when a zeus, give the marker, else remove it.
 	waitUntil {playerSide == sideLogic};
-	
+
 	private _mapButtons = missionNameSpace getvariable "mapButtons";
-	
+
 	private _marker = createMarkerLocal ["mapButton02", [((getMarkerPos "mapButton01") select 0),((getMarkerPos "mapButton01") select 1)+1000]];
 	_marker setMarkerTypeLocal "mil_circle";
 	_marker setMarkerSizeLocal [0.8,0.8];
@@ -30,25 +30,25 @@ missionNameSpace setVariable ["mapButtons",["mapButton01"], false]; //local
 		_marker setMarkerTextLocal " Toggle Respawns [DISABLED]";
 	};
 	_mapButtons pushback _marker;
-	
+
 	private _marker = createMarkerLocal ["mapButton03", [((getMarkerPos "mapButton01") select 0),((getMarkerPos "mapButton01") select 1)+2000]];
 	_marker setMarkerTypeLocal "mil_circle";
 	_marker setMarkerSizeLocal [0.8,0.8];
 	_marker setMarkerTextLocal " Force Respawn Wave";
 	_mapButtons pushback _marker;
-	
+
 	private _marker = createMarkerLocal ["mapButton04", [((getMarkerPos "mapButton01") select 0),((getMarkerPos "mapButton01") select 1)+3000]];
 	_marker setMarkerTypeLocal "mil_circle";
 	_marker setMarkerSizeLocal [0.8,0.8];
 	_marker setMarkerTextLocal " Force Bodybag";
 	_mapButtons pushback _marker;
-	
+
 	private _marker = createMarkerLocal ["mapButton05", (getMarkerPos "respawn")];
 	_marker setMarkerTypeLocal "mil_circle";
 	_marker setMarkerSizeLocal [0.8,0.8];
 	_marker setMarkerTextLocal " RESPAWN LOCATION";
 	_mapButtons pushback _marker;
-	
+
 	missionNameSpace setvariable ["mapButtons", _mapButtons, false];
 };
 
@@ -62,7 +62,7 @@ missionNameSpace setVariable ["mapButtons",["mapButton01"], false]; //local
 		private _posMk = nil;
 		private _mapButton05 = missionNameSpace getVariable "mapButton05";
 		private _mapButton05_user = missionNameSpace getVariable "mapButton05_user";
-		
+
 		//set posMkBool to true if clicking (roughly) on a mapButton, and posMk to that marker
 		{
 			if ((_pos select 0) > (getMarkerPos _x select 0) - _scale*300 && (_pos select 0) < (getMarkerPos _x select 0) + _scale*300 && (_pos select 1) > (getMarkerPos _x select 1) - _scale*300 && (_pos select 1) < (getMarkerPos _x select 1) + _scale*300) exitWith {
@@ -70,15 +70,15 @@ missionNameSpace setVariable ["mapButtons",["mapButton01"], false]; //local
 				_posMk = _x;
 			};
 		} foreach (missionNameSpace getVariable "mapButtons");
-		
+
 		//move mapButton05 to cursor if you are currently moving that marker
 		if (_mapButton05 == 1 && player == _mapButton05_user) then {
 			_mapButton05 = 0;
 			missionNameSpace setVariable ["mapButton05", _mapButton05, true];
-				
+
 			_mapButton05_user = objNull;
 			missionNameSpace setVariable ["mapButton05_user", _mapButton05_user, true];
-			
+
 			//get array of all zeuses
 			private _zeuses = [];
 			{
@@ -86,16 +86,16 @@ missionNameSpace setVariable ["mapButtons",["mapButton01"], false]; //local
 					_zeuses pushback _x;
 				};
 			} foreach allPlayers;
-			
+
 			//give hint to all zeuses
 			[0, ["RESPAWN POSITION has been moved.", "PLAIN"]] remoteExec ["cutText", _zeuses];
-			
+
 			//put marker down at cursor position.
 			["mapButton05", _pos] remoteExec ["setMarkerPosLocal", _zeuses];
-			
+
 			missionNameSpace setVariable ["RESPAWN_POSITION", _pos, true];
 		} else {
-		
+
 			//if clicked on a button, do whatever should happen
 			if (_posMkBool) then {
 				//show animation with 00 button
@@ -109,7 +109,7 @@ missionNameSpace setVariable ["mapButtons",["mapButton01"], false]; //local
 						sleep 0.01;
 					};
 				};
-				
+
 				//run the button specific code
 				switch (_posMk) do {
 					// TOGGLE GRASS
@@ -117,14 +117,14 @@ missionNameSpace setVariable ["mapButtons",["mapButton01"], false]; //local
 						private _mapButton01 = missionNameSpace getVariable "mapButton01";
 						_mapButton01 = [1,0] select _mapButton01;
 						missionNameSpace setVariable ["mapButton01", _mapButton01, false];
-						
+
 						if (_mapButton01 == 1) then {
 							setTerrainGrid 50;
 						} else {
 							setTerrainGrid 25;
 						};
 					};
-					
+
 					// TOGGLE RESPAWN
 					case "mapButton02": {
 						if (missionNameSpace getVariable "respawnAllow") then {
@@ -137,13 +137,13 @@ missionNameSpace setVariable ["mapButtons",["mapButton01"], false]; //local
 							"mapButton02" setMarkerTextLocal " Toggle Respawns [ENABLED]";
 						};
 					};
-					
+
 					// FORCE WAVE
 					case "mapButton03": {
 						//force respawn all bagged dead people
 						missionNameSpace setvariable ["respawnWaveForce", true, true];
 					};
-					
+
 					// FORCE BODYBAG
 					case "mapButton04": {
 						//get array of all zeuses
@@ -153,28 +153,28 @@ missionNameSpace setVariable ["mapButtons",["mapButton01"], false]; //local
 								_zeuses pushback _x;
 							};
 						} foreach allPlayers;
-						
+
 						//give hint to all zeuses
 						[0, ["Force body bagged everyone.", "PLAIN"]] remoteExec ["cutText", _zeuses];
-						
+
 						//force body bag all dead people
 						missionNameSpace setvariable ["forceBodyBag", true, true];
-						
+
 						[] spawn {
 							sleep 2;
 							missionNameSpace setvariable ["forceBodyBag", false, true];
 						};
 					};
-					
+
 					// RESPAWN LOCATION
 					case "mapButton05": {
 							if (_mapButton05 == 0 && isNull _mapButton05_user) then {
 							_mapButton05 = 1;
 							missionNameSpace setVariable ["mapButton05", _mapButton05, true];
-							
+
 							_mapButton05_user = player;
 							missionNameSpace setVariable ["mapButton05_user", _mapButton05_user, true];
-							
+
 							//get array of all zeuses
 							private _zeuses = [];
 							{
@@ -182,7 +182,7 @@ missionNameSpace setVariable ["mapButtons",["mapButton01"], false]; //local
 									_zeuses pushback _x;
 								};
 							} foreach allPlayers;
-							
+
 							//give hint to all zeuses
 							[0, ["RESPAWN POSITION is being moved.", "PLAIN"]] remoteExec ["cutText", _zeuses];
 						};
