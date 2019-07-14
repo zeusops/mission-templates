@@ -1,27 +1,34 @@
-# How to use these files
+# Zeus Operations Mission Template
 
-Clone the repository or [download the ZIP file](https://github.com/zeusops/mission-templates/archive/master.zip). Copy template files from `Zeus_yymmdd_Template.Stratis` to the mission folder.
+Arma 3 mission templates for [Zeus Operations](https://www.zeusops.com).
 
-See the [Zeus Guide](https://docs.google.com/document/d/1PFK__UcgmAJ1P3xBnJxeW2ow7u8bgEfM8lkpHJrLYDU/edit#heading=h.nleh2xb28ay8) for further information about the templates.
+The templates have been created by [Dyzalonius](https://github.com/Dyzalonius) and [Gehock](https://github.com/Gehock).
 
-## Authors
+# How To Use The Template
 
-The templates have been created by [Dyzalonius](https://github.com/Dyzalonius) and [Gehock](https://github.com/Gehock) for [Zeus Operations](https://www.zeusops.com).
+1. Clone the repository or [download the ZIP file](https://github.com/zeusops/mission-templates/archive/master.zip).
+2. Copy template files from `Zeus_yymmdd_Template.Stratis` folder to your mission folder.
+3. Copy mission items from `Zeus_yymmdd_Template.Stratis` mission to your mission file.
 
-## Useful scripts
+See the [Zeus Guide](https://docs.google.com/document/d/1PFK__UcgmAJ1P3xBnJxeW2ow7u8bgEfM8lkpHJrLYDU/edit#heading=h.nleh2xb28ay8) for in-depth information about using the templates.
 
-### The gear box (fn_gearBox.sqf)
-Execute locally in debug console while in game. Spawns a box at player (or zeus camera) location.
+# Useful Code
 
-    // Full arsenal:
+##### Spawn gear box (local exec):
     [0, player] spawn ZO_fnc_gearBox;
-
-    // Rearm box:
+##### Spawn rearm box (local exec):
     [1, player] spawn ZO_fnc_gearBox;
-
-Put down an ammo box in the editor, add following to the init field of the box.
-
-    // Full arsenal in editor:
+##### Make ammo box a gear box (ammo box init):
     [2, this] spawn ZO_fnc_gearBox;
-
-See `fn_unitTracker.sqf` for information on how to customise the unit tracker. The default settings are suitable for most of the missions.
+##### Change unit tracker color:
+    missionNameSpace setVariable ["unitColor", "newUnitColor", true];
+##### Change default gear:
+    missionNameSpace setVariable ["gearUniform", "classnameOfUniform", true];
+    missionNameSpace setVariable ["gearVest", "classnameOfVest", true];
+    missionNameSpace setVariable ["gearBackpack", "classnameOfBackpack", true];
+    missionNameSpace setVariable ["gearHeadgear", "classnameOfHeadgear", true];
+    missionNameSpace setVariable ["gearRadio", "classnameOfRadio", true];
+    missionNameSpace setVariable ["gearBackpackLeader", "classnameOfBackpackLeader", true];
+    missionNameSpace setVariable ["gearWeaponMain", ["classnameOfWeapon", "classnameOfAmmunition", "classnameOfScope"], true];
+    missionNameSpace setVariable ["gearWeaponAR", ["classnameOfWeapon", "classnameOfAmmunition", "classnameOfScope"], true];
+    missionNameSpace setVariable ["gearWeaponLauncher", ["classnameOfWeapon", "classnameOfAmmunition", "classnameOfScope"], true];
