@@ -4,6 +4,33 @@
 */
 
 ////////////////////////////////////////////////
+//                  USAGE                     //
+////////////////////////////////////////////////
+
+/*
+  // Start the unittracker for a player:
+  [0] spawn ZO_fnc_unitTracker;
+
+  // Edit effects:
+  [1, [a, b, c, d, e, f, g, h]] spawn ZO_fnc_unitTracker;
+  a: _updateInterval (lower than 0.05 has no effect)
+  b: _updateIntervalDeviation
+  c: _alphaMinimum
+  d: _alphaMaximum
+  e: _flickerOnDuration
+  f: _flickerOnDurationDeviation
+  g: _flickerOffDuration
+  h: _flickerOffDurationDeviation
+
+  // Default effects:
+  [1, [0, 0, 1, 1, 0, 0, 0, 0]] spawn ZO_fnc_unitTracker;
+
+  // Example effects:
+  [1, [2, 1.5, 0.1, 1, 4, 0.5, 0.75, 0.25]] spawn ZO_fnc_unitTracker;
+
+*/
+
+////////////////////////////////////////////////
 //               SUB-FUNCTIONS                //
 ////////////////////////////////////////////////
 
@@ -185,27 +212,3 @@ switch (_request) do {
 		missionNameSpace setVariable ["unitTrackerEffects", _effects, true];
 	};
 };
-
-////////////////////////////////////////////////
-/*          INTERESTING INFORMATION           //
-////////////////////////////////////////////////
-
-// START THE UNITTRACKER FOR A PLAYER:
-[0] spawn ZO_fnc_unitTracker;
-
-// EDIT EFFECTS:
-[1, [a, b, c, d, e, f, g, h]] spawn ZO_fnc_unitTracker;
-a: _updateInterval (lower than 0.05 has no effect)
-b: _updateIntervalDeviation
-c: _alphaMinimum
-d: _alphaMaximum
-e: _flickerOnDuration
-f: _flickerOnDurationDeviation
-g: _flickerOffDuration
-h: _flickerOffDurationDeviation
-
-// DEFAULT EFFECTS:
-[1, [0, 0, 1, 1, 0, 0, 0, 0]] spawn ZO_fnc_unitTracker;
-
-// EXAMPLE EFFECTS:
-[1, [2, 1.5, 0.1, 1, 4, 0.5, 0.75, 0.25]] spawn ZO_fnc_unitTracker;

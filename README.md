@@ -7,3 +7,21 @@ See the [Zeus Guide](https://docs.google.com/document/d/1PFK__UcgmAJ1P3xBnJxeW2o
 ## Authors
 
 The templates have been created by [Dyzalonius](https://github.com/Dyzalonius) and [Gehock](https://github.com/Gehock) for [Zeus Operations](https://www.zeusops.com).
+
+## Useful scripts
+
+### The gear box (fn_gearBox.sqf)
+Execute locally in debug console while in game. Spawns a box at player (or zeus camera) location.
+
+    // Full arsenal:
+    [0, player] spawn ZO_fnc_gearBox;
+
+    // Rearm box:
+    [1, player] spawn ZO_fnc_gearBox;
+
+Put down an ammo box in the editor, add following to the init field of the box.
+
+    // Full arsenal in editor:
+    [2, this] spawn ZO_fnc_gearBox;
+
+See `fn_unitTracker.sqf` for information on how to customise the unit tracker. The default settings are suitable for most of the missions.

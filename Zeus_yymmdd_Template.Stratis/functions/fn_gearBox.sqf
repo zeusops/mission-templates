@@ -4,6 +4,21 @@
 */
 
 ////////////////////////////////////////////////
+//                  USAGE                     //
+////////////////////////////////////////////////
+
+/*
+  // Full arsenal:
+  [0, player] spawn ZO_fnc_gearBox;
+
+  // Rearm box:
+  [1, player] spawn ZO_fnc_gearBox;
+
+  // Full arsenal in editor:
+  [2, this] spawn ZO_fnc_gearBox;
+*/
+
+////////////////////////////////////////////////
 //               SUB-FUNCTIONS                //
 ////////////////////////////////////////////////
 
@@ -309,16 +324,3 @@ switch (_request) do {
 		["AmmoboxInit",[_object,true]] call BIS_fnc_arsenal;
 	};
 };
-
-////////////////////////////////////////////////
-/*          INTERESTING INFORMATION           //
-////////////////////////////////////////////////
-
-// START USAGE:
-[0, player] spawn ZO_fnc_gearBox;
-
-// REARM USAGE:
-[1, player] spawn ZO_fnc_gearBox;
-
-// START BOX EDITOR USAGE:
-[2, this] spawn ZO_fnc_gearBox;
