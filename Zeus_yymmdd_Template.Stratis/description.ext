@@ -73,782 +73,794 @@ class header {
 
 class CfgORBAT
 {
-	class RADIOS
+	class RADIOANDLEGEND
 	{
-		side = "West";
-		type = "Unknown";
-		text = "Radio Frequencies";
-		textShort = "RADIOS";
-		assets[] = {};
-		color[] = {0,0,0,1};
-		texture = __EVAL((__FILE__ select [0, count __FILE__ - 15]) + "files\logo");
-		description = "";
-		
-		class CO
+	side = "West";
+	type = "Unknown";
+	text = "Radio and Legend";
+	textShort = "RADIO & LEGEND";
+	assets[] = {};
+	color[] = {0,0,0,1};
+	texture = __EVAL((__FILE__ select [0, count __FILE__ - 15]) + "files\logo");
+	description = "";
+
+		class RADIOS
 		{
 			side = "West";
-			color[] = {0.7,0.6,0,1};
-			size = "Company";
-			type = "Infantry";
-			text = "Company";
-			textShort = "CO";
+			type = "Unknown";
+			text = "Radio Frequencies";
+			textShort = "RADIOS";
 			assets[] = {};
-			description = "Mixed Company.<br/><br/>Freq: 79";
-			
-			class HQCO
+			color[] = {0,0,0,1};
+			texture = __EVAL((__FILE__ select [0, count __FILE__ - 15]) + "files\logo");
+			description = "";
+
+			class CO
 			{
 				side = "West";
 				color[] = {0.7,0.6,0,1};
-				size = "Fireteam";
-				type = "HQ";
-				text = "Company HQ";
-				textShort = "HQCO";
-				assets[] = {};
-				description = "HQ element stationed at base.<br/><br/>Freq: 79.1";
-			};
-			class 1PLT
-			{
-				side = "West";
-				color[] = {0.7,0.6,0,1};
-				size = "Platoon";
+				size = "Company";
 				type = "Infantry";
-				text = "1st Infantry Platoon";
-				textShort = "1PLT";
+				text = "Company";
+				textShort = "CO";
 				assets[] = {};
-				description = "Infantry platoon of 18-49 members.<br/><br/>Freq: 80";
-				
-				class HQ1PLT
+				description = "Mixed Company.<br/><br/>Freq: 79";
+
+				class HQCO
 				{
 					side = "West";
 					color[] = {0.7,0.6,0,1};
 					size = "Fireteam";
 					type = "HQ";
-					text = "1st Platoon HQ";
-					textShort = "HQ1PLT";
+					text = "Company HQ";
+					textShort = "HQCO";
 					assets[] = {};
-					description = "HQ element of 2-4 members.<br/><br/>Freq: 80.1";
+					description = "HQ element stationed at base.<br/><br/>Freq: 79.1";
 				};
-				class A
+				class 1PLT
 				{
 					side = "West";
 					color[] = {0.7,0.6,0,1};
-					size = "Squad";
+					size = "Platoon";
 					type = "Infantry";
-					text = "Alpha Squad";
-					textShort = "A";
+					text = "1st Infantry Platoon";
+					textShort = "1PLT";
 					assets[] = {};
-					description = "Infantry squad of 8-15 members.<br/><br/>Freq: 81";
-					
-					class ASL
+					description = "Infantry platoon of 18-49 members.<br/><br/>Freq: 80";
+
+					class HQ1PLT
 					{
 						side = "West";
 						color[] = {0.7,0.6,0,1};
-						size = "FireTeam";
+						size = "Fireteam";
 						type = "HQ";
-						text = "Alpha SL";
-						textShort = "ASL";
+						text = "1st Platoon HQ";
+						textShort = "HQ1PLT";
 						assets[] = {};
-						description = "HQ element of 4-5 members.<br/><br/>Freq: 81.1";
+						description = "HQ element of 2-4 members.<br/><br/>Freq: 80.1";
 					};
-					class A1
+					class A
 					{
 						side = "West";
 						color[] = {0.7,0.6,0,1};
-						size = "FireTeam";
+						size = "Squad";
 						type = "Infantry";
-						text = "Alpha 1";
-						textShort = "A1";
+						text = "Alpha Squad";
+						textShort = "A";
 						assets[] = {};
-						description = "Infantry team of 4-5 members.<br/><br/>Freq: 81.2";
+						description = "Infantry squad of 8-15 members.<br/><br/>Freq: 81";
+
+						class ASL
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "FireTeam";
+							type = "HQ";
+							text = "Alpha SL";
+							textShort = "ASL";
+							assets[] = {};
+							description = "HQ element of 4-5 members.<br/><br/>Freq: 81.1";
+						};
+						class A1
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "FireTeam";
+							type = "Infantry";
+							text = "Alpha 1";
+							textShort = "A1";
+							assets[] = {};
+							description = "Infantry team of 4-5 members.<br/><br/>Freq: 81.2";
+						};
+						class A2
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "FireTeam";
+							type = "Infantry";
+							text = "Alpha 2";
+							textShort = "A2";
+							assets[] = {};
+							description = "Infantry team of 4-5 members.<br/><br/>Freq: 81.3";
+						};
 					};
-					class A2
+					class B
 					{
 						side = "West";
 						color[] = {0.7,0.6,0,1};
-						size = "FireTeam";
+						size = "Squad";
 						type = "Infantry";
-						text = "Alpha 2";
-						textShort = "A2";
+						text = "Bravo Squad";
+						textShort = "B";
 						assets[] = {};
-						description = "Infantry team of 4-5 members.<br/><br/>Freq: 81.3";
+						description = "Infantry squad of 8-15 members.<br/><br/>Freq: 82";
+
+						class BSL
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "FireTeam";
+							type = "HQ";
+							text = "Bravo SL";
+							textShort = "BSL";
+							assets[] = {};
+							description = "HQ element of 4-5 members.<br/><br/>Freq: 82.1";
+						};
+						class B1
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "FireTeam";
+							type = "Infantry";
+							text = "Bravo 1";
+							textShort = "B1";
+							assets[] = {};
+							description = "Infantry team of 4-5 members.<br/><br/>Freq: 82.2";
+						};
+						class B2
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "FireTeam";
+							type = "Infantry";
+							text = "Bravo 2";
+							textShort = "B2";
+							assets[] = {};
+							description = "Infantry team of 4-5 members.<br/><br/>Freq: 82.3";
+						};
+					};
+					class C
+					{
+						side = "West";
+						color[] = {0.7,0.6,0,1};
+						size = "Squad";
+						type = "Infantry";
+						text = "Charlie Squad";
+						textShort = "C";
+						assets[] = {};
+						description = "Infantry squad of 8-15 members.<br/><br/>Freq: 83";
+
+						class CSL
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "FireTeam";
+							type = "HQ";
+							text = "Charlie SL";
+							textShort = "CSL";
+							assets[] = {};
+							description = "HQ element of 4-5 members.<br/><br/>Freq: 83.1";
+						};
+						class C1
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "FireTeam";
+							type = "Infantry";
+							text = "Charlie 1";
+							textShort = "C1";
+							assets[] = {};
+							description = "Infantry team of 4-5 members.<br/><br/>Freq: 83.2";
+						};
+						class C2
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "FireTeam";
+							type = "Infantry";
+							text = "Charlie 2";
+							textShort = "C2";
+							assets[] = {};
+							description = "Infantry team of 4-5 members.<br/><br/>Freq: 83.3";
+						};
 					};
 				};
-				class B
+				class Y
 				{
 					side = "West";
 					color[] = {0.7,0.6,0,1};
-					size = "Squad";
+					size = "Platoon";
+					type = "Armored";
+					text = "Yankee";
+					textShort = "Y";
+					assets[] = {};
+					description = "Armor platoon of 1-4 vehicles.<br/><br/>Freq: 84";
+
+					class Y1
+					{
+						side = "West";
+						color[] = {0.7,0.6,0,1};
+						size = "squad";
+						type = "Armored";
+						text = "Yankee 1";
+						textShort = "Y1";
+						assets[] = {};
+						description = "Vehicle crew of 2-3 members.<br/><br/>Freq: 84.1";
+					};
+					class Y2
+					{
+						side = "West";
+						color[] = {0.7,0.6,0,1};
+						size = "squad";
+						type = "Armored";
+						text = "Yankee 2";
+						textShort = "Y2";
+						assets[] = {};
+						description = "Vehicle crew of 2-3 members.<br/><br/>Freq: 84.2";
+					};
+					class Y3
+					{
+						side = "West";
+						color[] = {0.7,0.6,0,1};
+						size = "squad";
+						type = "Armored";
+						text = "Yankee 3";
+						textShort = "Y3";
+						assets[] = {};
+						description = "Vehicle crew of 2-3 members.<br/><br/>Freq: 84.3";
+					};
+					class Y4
+					{
+						side = "West";
+						color[] = {0.7,0.6,0,1};
+						size = "squad";
+						type = "Armored";
+						text = "Yankee 4";
+						textShort = "Y4";
+						assets[] = {};
+						description = "Vehicle crew of 2-3 members.<br/><br/>Freq: 84.4";
+					};
+				};
+				class Z
+				{
+					side = "West";
+					color[] = {0.7,0.6,0,1};
+					size = "Platoon";
+					type = "Helicopter";
+					text = "Zulu";
+					textShort = "Z";
+					assets[] = {};
+					description = "Helicopter flight of 1-4 aircraft.<br/><br/>Freq: 85";
+
+					class Z1
+					{
+						side = "West";
+						color[] = {0.7,0.6,0,1};
+						size = "squad";
+						type = "Helicopter";
+						text = "Zulu 1";
+						textShort = "Z1";
+						assets[] = {};
+						description = "Helicopter crew of 1-2 member(s).<br/><br/>Freq: 85.1";
+					};
+					class Z2
+					{
+						side = "West";
+						color[] = {0.7,0.6,0,1};
+						size = "squad";
+						type = "Helicopter";
+						text = "Zulu 2";
+						textShort = "Z2";
+						assets[] = {};
+						description = "Helicopter crew of 1-2 member(s).<br/><br/>Freq: 85.2";
+					};
+					class Z3
+					{
+						side = "West";
+						color[] = {0.7,0.6,0,1};
+						size = "squad";
+						type = "Helicopter";
+						text = "Zulu 3";
+						textShort = "Z3";
+						assets[] = {};
+						description = "Helicopter crew of 1-2 member(s).<br/><br/>Freq: 85.3";
+					};
+					class Z4
+					{
+						side = "West";
+						color[] = {0.7,0.6,0,1};
+						size = "squad";
+						type = "Helicopter";
+						text = "Zulu 4";
+						textShort = "Z4";
+						assets[] = {};
+						description = "Helicopter crew of 1-2 member(s).<br/><br/>Freq: 85.4";
+					};
+				};
+				class W
+				{
+					side = "West";
+					color[] = {0.7,0.6,0,1};
+					size = "Platoon";
+					type = "Fighter";
+					text = "Whiskey";
+					textShort = "W";
+					assets[] = {};
+					description = "Fixed-wing flight of 1-4 airplanes.<br/><br/>Freq: 85";
+
+					class W1
+					{
+						side = "West";
+						color[] = {0.7,0.6,0,1};
+						size = "squad";
+						type = "Fighter";
+						text = "Whisky 1";
+						textShort = "W1";
+						assets[] = {};
+						description = "Fixed-wing pilot.<br/><br/>Freq: 85.5";
+					};
+					class W2
+					{
+						side = "West";
+						color[] = {0.7,0.6,0,1};
+						size = "squad";
+						type = "Fighter";
+						text = "Whisky 2";
+						textShort = "W2";
+						assets[] = {};
+						description = "Fixed-wing pilot.<br/><br/>Freq: 85.6";
+					};
+					class W3
+					{
+						side = "West";
+						color[] = {0.7,0.6,0,1};
+						size = "squad";
+						type = "Fighter";
+						text = "Whisky 3";
+						textShort = "W3";
+						assets[] = {};
+						description = "Fixed-wing pilot.<br/><br/>Freq: 85.7";
+					};
+					class W4
+					{
+						side = "West";
+						color[] = {0.7,0.6,0,1};
+						size = "squad";
+						type = "Fighter";
+						text = "Whisky 4";
+						textShort = "W4";
+						assets[] = {};
+						description = "Fixed-wing pilot.<br/><br/>Freq: 85.8";
+					};
+				};
+			};
+		};
+
+		class LEGEND
+		{
+			side = "West";
+			type = "Unknown";
+			text = "Map legend";
+			textShort = "LEGEND";
+			assets[] = {};
+			color[] = {0,0,0,1};
+			texture = __EVAL((__FILE__ select [0, count __FILE__ - 15]) + "files\logo");
+			description = "";
+
+			class shapes
+			{
+				side = "West";
+				type = "Unknown";
+				text = "Shapes";
+				textShort = "SHAPES";
+				assets[] = {};
+				color[] = {0,0,0,1};
+				texture = __EVAL((__FILE__ select [0, count __FILE__ - 15]) + "files\logo");
+				description = "";
+
+				class shapeFriendly
+				{
+					side = "West";
+					type = "Unknown";
+					text = "Friendly";
+					textShort = "FRIENDLY";
+					assets[] = {};
+					color[] = {0,0,0,1};
+					description = "";
+				};
+
+				class shapeNeutral
+				{
+					side = "Resistance";
+					type = "Unknown";
+					text = "Neutral";
+					textShort = "NEUTRAL";
+					assets[] = {};
+					color[] = {0,0,0,1};
+					description = "";
+				};
+
+				class shapeEnemy
+				{
+					side = "East";
+					type = "Unknown";
+					text = "Enemy";
+					textShort = "ENEMY";
+					assets[] = {};
+					color[] = {0,0,0,1};
+					description = "";
+				};
+			};
+
+			class colors
+			{
+				side = "West";
+				type = "Unknown";
+				text = "Colors";
+				textShort = "COLORS";
+				assets[] = {};
+				color[] = {0,0,0,1};
+				texture = __EVAL((__FILE__ select [0, count __FILE__ - 15]) + "files\logo");
+				description = "";
+
+				class colorNoForces
+				{
+					side = "Resistance";
+					type = "Unknown";
+					text = "No forces";
+					textShort = "NO FORCES";
+					assets[] = {};
+					color[] = {0,0,0,1};
+					description = "";
+				};
+
+				class colorUnknown
+				{
+					side = "Resistance";
+					type = "Unknown";
+					text = "Unknown force";
+					textShort = "UNKNOWN FORCE";
+					assets[] = {};
+					color[] = {0.7,0.6,0,1};
+					description = "";
+				};
+
+				class colorCivilian
+				{
+					side = "Resistance";
+					type = "Unknown";
+					text = "Civilian";
+					textShort = "CIVILIAN";
+					assets[] = {};
+					color[] = {0.4,0,0.5,1};
+					description = "";
+				};
+
+				class colorAid
+				{
+					side = "Resistance";
+					type = "Unknown";
+					text = "Aid workers (e.g. IDAP)";
+					textShort = "AID WORKERS";
+					assets[] = {};
+					color[] = {1,1,1,1};
+					description = "";
+				};
+
+				class colorPolice
+				{
+					side = "Resistance";
+					type = "Unknown";
+					text = "Police force or UN";
+					textShort = "POLICE / UN";
+					assets[] = {};
+					color[] = {0,0,1,1};
+					description = "";
+				};
+
+				class colorPMC
+				{
+					side = "East";
+					type = "Unknown";
+					text = "PMC force";
+					textShort = "PMC FORCE";
+					assets[] = {};
+					color[] = {0.5,0.5,0.5,1};
+					description = "";
+				};
+
+				class colorRussian
+				{
+					side = "East";
+					type = "Unknown";
+					text = "Russian force";
+					textShort = "RUSSIAN FORCE";
+					assets[] = {};
+					color[] = {0.9,0,0,1};
+					description = "";
+				};
+
+				class colorNATO
+				{
+					side = "East";
+					type = "Unknown";
+					text = "NATO and European force";
+					textShort = "NATO";
+					assets[] = {};
+					color[] = {0,0.3,0.6,1};
+					description = "";
+				};
+
+				class colorLocal
+				{
+					side = "East";
+					type = "Unknown";
+					text = "Local defense force";
+					textShort = "LOCAL DEFENSE FORCE";
+					assets[] = {};
+					color[] = {0,0.5,0,1};
+					description = "";
+				};
+
+				class colorOther
+				{
+					side = "East";
+					type = "Unknown";
+					text = "Other force";
+					textShort = "OTHER FORCE";
+					assets[] = {};
+					color[] = {0.5,0,0,1};
+					description = "";
+				};
+			};
+
+			class icons
+			{
+				side = "West";
+				type = "Unknown";
+				text = "Icons";
+				textShort = "ICONS";
+				assets[] = {};
+				color[] = {0,0,0,1};
+				texture = __EVAL((__FILE__ select [0, count __FILE__ - 15]) + "files\logo");
+				description = "";
+
+				class iconUnknown
+				{
+					side = "East";
+					type = "Unknown";
+					text = "Unknown force";
+					textShort = "UNKNOWN";
+					assets[] = {};
+					color[] = {0,0,0,1};
+					description = "";
+				};
+
+				class iconHQ
+				{
+					side = "East";
+					type = "HQ";
+					text = "HQ element";
+					textShort = "HQ";
+					assets[] = {};
+					color[] = {0,0,0,1};
+					description = "";
+				};
+
+				class iconInfantry
+				{
+					side = "East";
 					type = "Infantry";
-					text = "Bravo Squad";
-					textShort = "B";
+					text = "Infantry";
+					textShort = "INFANTRY";
 					assets[] = {};
-					description = "Infantry squad of 8-15 members.<br/><br/>Freq: 82";
-					
-					class BSL
-					{
-						side = "West";
-						color[] = {0.7,0.6,0,1};
-						size = "FireTeam";
-						type = "HQ";
-						text = "Bravo SL";
-						textShort = "BSL";
-						assets[] = {};
-						description = "HQ element of 4-5 members.<br/><br/>Freq: 82.1";
-					};
-					class B1
-					{
-						side = "West";
-						color[] = {0.7,0.6,0,1};
-						size = "FireTeam";
-						type = "Infantry";
-						text = "Bravo 1";
-						textShort = "B1";
-						assets[] = {};
-						description = "Infantry team of 4-5 members.<br/><br/>Freq: 82.2";
-					};
-					class B2
-					{
-						side = "West";
-						color[] = {0.7,0.6,0,1};
-						size = "FireTeam";
-						type = "Infantry";
-						text = "Bravo 2";
-						textShort = "B2";
-						assets[] = {};
-						description = "Infantry team of 4-5 members.<br/><br/>Freq: 82.3";
-					};
+					color[] = {0,0,0,1};
+					description = "";
 				};
-				class C
+
+				class iconMotorizedInfantry
 				{
-					side = "West";
-					color[] = {0.7,0.6,0,1};
-					size = "Squad";
-					type = "Infantry";
-					text = "Charlie Squad";
-					textShort = "C";
+					side = "East";
+					type = "MotorizedInfantry";
+					text = "Motorized infantry";
+					textShort = "MOTORIZED";
 					assets[] = {};
-					description = "Infantry squad of 8-15 members.<br/><br/>Freq: 83";
-					
-					class CSL
-					{
-						side = "West";
-						color[] = {0.7,0.6,0,1};
-						size = "FireTeam";
-						type = "HQ";
-						text = "Charlie SL";
-						textShort = "CSL";
-						assets[] = {};
-						description = "HQ element of 4-5 members.<br/><br/>Freq: 83.1";
-					};
-					class C1
-					{
-						side = "West";
-						color[] = {0.7,0.6,0,1};
-						size = "FireTeam";
-						type = "Infantry";
-						text = "Charlie 1";
-						textShort = "C1";
-						assets[] = {};
-						description = "Infantry team of 4-5 members.<br/><br/>Freq: 83.2";
-					};
-					class C2
-					{
-						side = "West";
-						color[] = {0.7,0.6,0,1};
-						size = "FireTeam";
-						type = "Infantry";
-						text = "Charlie 2";
-						textShort = "C2";
-						assets[] = {};
-						description = "Infantry team of 4-5 members.<br/><br/>Freq: 83.3";
-					};
+					color[] = {0,0,0,1};
+					description = "";
+				};
+
+				class iconArmor
+				{
+					side = "East";
+					type = "Armored";
+					text = "Armor";
+					textShort = "ARMOR";
+					assets[] = {};
+					color[] = {0,0,0,1};
+					description = "";
+				};
+
+				class iconMechanizedInfantry
+				{
+					side = "East";
+					type = "MechanizedInfantry";
+					text = "Mechanized infantry";
+					textShort = "MECHANIZED";
+					assets[] = {};
+					color[] = {0,0,0,1};
+					description = "";
+				};
+
+				class iconHelicopter
+				{
+					side = "East";
+					type = "Helicopter";
+					text = "Rotary air";
+					textShort = "ROTARY AIR";
+					assets[] = {};
+					color[] = {0,0,0,1};
+					description = "";
+				};
+
+				class iconFighter
+				{
+					side = "East";
+					type = "Fighter";
+					text = "Fixed-wing air";
+					textShort = "FIXED-WING AIR";
+					assets[] = {};
+					color[] = {0,0,0,1};
+					description = "";
+				};
+
+				class iconArtillery
+				{
+					side = "East";
+					type = "Artillery";
+					text = "Artillery";
+					textShort = "ARTILLERY";
+					assets[] = {};
+					color[] = {0,0,0,1};
+					description = "";
+				};
+
+				class iconMortar
+				{
+					side = "East";
+					type = "Mortar";
+					text = "Mortar";
+					textShort = "MORTAR";
+					assets[] = {};
+					color[] = {0,0,0,1};
+					description = "";
+				};
+
+				class iconAntiAir
+				{
+					side = "East";
+					type = "AntiAir";
+					text = "Anti Air";
+					textShort = "ANTI AIR";
+					assets[] = {};
+					color[] = {0,0,0,1};
+					description = "";
+				};
+
+				class iconMaritime
+				{
+					side = "East";
+					type = "Maritime";
+					text = "Naval";
+					textShort = "NAVAL";
+					assets[] = {};
+					color[] = {0,0,0,1};
+					description = "";
+				};
+
+				class iconMedical
+				{
+					side = "East";
+					type = "Medical";
+					text = "Medical";
+					textShort = "MEDICAL";
+					assets[] = {};
+					color[] = {0,0,0,1};
+					description = "";
+				};
+
+				class iconInstallation
+				{
+					side = "East";
+					type = "";
+					text = "Installation";
+					textShort = "INSTALLATION";
+					assets[] = {};
+					color[] = {0,0,0,1};
+					texture = "o_installation";
+					description = "";
+				};
+
+				class iconOrdnance
+				{
+					side = "East";
+					type = "";
+					text = "Ordnance";
+					textShort = "ORDNANCE";
+					assets[] = {};
+					color[] = {0,0,0,1};
+					texture = "o_ordnance";
+					description = "";
 				};
 			};
-			class Y
-			{
-				side = "West";
-				color[] = {0.7,0.6,0,1};
-				size = "Platoon";
-				type = "Armored";
-				text = "Yankee";
-				textShort = "Y";
-				assets[] = {};
-				description = "Armor platoon of 1-4 vehicles.<br/><br/>Freq: 84";
-				
-				class Y1
-				{
-					side = "West";
-					color[] = {0.7,0.6,0,1};
-					size = "squad";
-					type = "Armored";
-					text = "Yankee 1";
-					textShort = "Y1";
-					assets[] = {};
-					description = "Vehicle crew of 2-3 members.<br/><br/>Freq: 84.1";
-				};
-				class Y2
-				{
-					side = "West";
-					color[] = {0.7,0.6,0,1};
-					size = "squad";
-					type = "Armored";
-					text = "Yankee 2";
-					textShort = "Y2";
-					assets[] = {};
-					description = "Vehicle crew of 2-3 members.<br/><br/>Freq: 84.2";
-				};
-				class Y3
-				{
-					side = "West";
-					color[] = {0.7,0.6,0,1};
-					size = "squad";
-					type = "Armored";
-					text = "Yankee 3";
-					textShort = "Y3";
-					assets[] = {};
-					description = "Vehicle crew of 2-3 members.<br/><br/>Freq: 84.3";
-				};
-				class Y4
-				{
-					side = "West";
-					color[] = {0.7,0.6,0,1};
-					size = "squad";
-					type = "Armored";
-					text = "Yankee 4";
-					textShort = "Y4";
-					assets[] = {};
-					description = "Vehicle crew of 2-3 members.<br/><br/>Freq: 84.4";
-				};
-			};
-			class Z
-			{
-				side = "West";
-				color[] = {0.7,0.6,0,1};
-				size = "Platoon";
-				type = "Helicopter";
-				text = "Zulu";
-				textShort = "Z";
-				assets[] = {};
-				description = "Helicopter flight of 1-4 aircraft.<br/><br/>Freq: 85";
-				
-				class Z1
-				{
-					side = "West";
-					color[] = {0.7,0.6,0,1};
-					size = "squad";
-					type = "Helicopter";
-					text = "Zulu 1";
-					textShort = "Z1";
-					assets[] = {};
-					description = "Helicopter crew of 1-2 member(s).<br/><br/>Freq: 85.1";
-				};
-				class Z2
-				{
-					side = "West";
-					color[] = {0.7,0.6,0,1};
-					size = "squad";
-					type = "Helicopter";
-					text = "Zulu 2";
-					textShort = "Z2";
-					assets[] = {};
-					description = "Helicopter crew of 1-2 member(s).<br/><br/>Freq: 85.2";
-				};
-				class Z3
-				{
-					side = "West";
-					color[] = {0.7,0.6,0,1};
-					size = "squad";
-					type = "Helicopter";
-					text = "Zulu 3";
-					textShort = "Z3";
-					assets[] = {};
-					description = "Helicopter crew of 1-2 member(s).<br/><br/>Freq: 85.3";
-				};
-				class Z4
-				{
-					side = "West";
-					color[] = {0.7,0.6,0,1};
-					size = "squad";
-					type = "Helicopter";
-					text = "Zulu 4";
-					textShort = "Z4";
-					assets[] = {};
-					description = "Helicopter crew of 1-2 member(s).<br/><br/>Freq: 85.4";
-				};
-			};
-			class W
-			{
-				side = "West";
-				color[] = {0.7,0.6,0,1};
-				size = "Platoon";
-				type = "Fighter";
-				text = "Whiskey";
-				textShort = "W";
-				assets[] = {};
-				description = "Fixed-wing flight of 1-4 airplanes.<br/><br/>Freq: 85";
-			
-				class W1
-				{
-					side = "West";
-					color[] = {0.7,0.6,0,1};
-					size = "squad";
-					type = "Fighter";
-					text = "Whisky 1";
-					textShort = "W1";
-					assets[] = {};
-					description = "Fixed-wing pilot.<br/><br/>Freq: 85.5";
-				};
-				class W2
-				{
-					side = "West";
-					color[] = {0.7,0.6,0,1};
-					size = "squad";
-					type = "Fighter";
-					text = "Whisky 2";
-					textShort = "W2";
-					assets[] = {};
-					description = "Fixed-wing pilot.<br/><br/>Freq: 85.6";
-				};
-				class W3
-				{
-					side = "West";
-					color[] = {0.7,0.6,0,1};
-					size = "squad";
-					type = "Fighter";
-					text = "Whisky 3";
-					textShort = "W3";
-					assets[] = {};
-					description = "Fixed-wing pilot.<br/><br/>Freq: 85.7";
-				};
-				class W4
-				{
-					side = "West";
-					color[] = {0.7,0.6,0,1};
-					size = "squad";
-					type = "Fighter";
-					text = "Whisky 4";
-					textShort = "W4";
-					assets[] = {};
-					description = "Fixed-wing pilot.<br/><br/>Freq: 85.8";
-				};
-			};
-		};
-	};
-	
-	class LEGEND
-	{
-		side = "West";
-		type = "Unknown";
-		text = "Map legend";
-		textShort = "LEGEND";
-		assets[] = {};
-		color[] = {0,0,0,1};
-		texture = __EVAL((__FILE__ select [0, count __FILE__ - 15]) + "files\logo");
-		description = "";
-		
-		class shapes
-		{
-			side = "West";
-			type = "Unknown";
-			text = "Shapes";
-			textShort = "SHAPES";
-			assets[] = {};
-			color[] = {0,0,0,1};
-			texture = __EVAL((__FILE__ select [0, count __FILE__ - 15]) + "files\logo");
-			description = "";
-			
-			class shapeFriendly
+
+			class planning
 			{
 				side = "West";
 				type = "Unknown";
-				text = "Friendly";
-				textShort = "FRIENDLY";
+				text = "Planning";
+				textShort = "PLANNING";
 				assets[] = {};
 				color[] = {0,0,0,1};
+				texture = __EVAL((__FILE__ select [0, count __FILE__ - 15]) + "files\logo");
 				description = "";
-			};
-			
-			class shapeNeutral
-			{
-				side = "Resistance";
-				type = "Unknown";
-				text = "Neutral";
-				textShort = "NEUTRAL";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				description = "";
-			};
-			
-			class shapeEnemy
-			{
-				side = "East";
-				type = "Unknown";
-				text = "Enemy";
-				textShort = "ENEMY";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				description = "";
-			};
-		};
-		
-		class colors
-		{
-			side = "West";
-			type = "Unknown";
-			text = "Colors";
-			textShort = "COLORS";
-			assets[] = {};
-			color[] = {0,0,0,1};
-			texture = __EVAL((__FILE__ select [0, count __FILE__ - 15]) + "files\logo");
-			description = "";
-			
-			class colorNoForces
-			{
-				side = "Resistance";
-				type = "Unknown";
-				text = "No forces";
-				textShort = "NO FORCES";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				description = "";
-			};
-			
-			class colorUnknown
-			{
-				side = "Resistance";
-				type = "Unknown";
-				text = "Unknown force";
-				textShort = "UNKNOWN FORCE";
-				assets[] = {};
-				color[] = {0.7,0.6,0,1};
-				description = "";
-			};
-			
-			class colorCivilian
-			{
-				side = "Resistance";
-				type = "Unknown";
-				text = "Civilian";
-				textShort = "CIVILIAN";
-				assets[] = {};
-				color[] = {0.4,0,0.5,1};
-				description = "";
-			};
-			
-			class colorAid
-			{
-				side = "Resistance";
-				type = "Unknown";
-				text = "Aid workers (e.g. IDAP)";
-				textShort = "AID WORKERS";
-				assets[] = {};
-				color[] = {1,1,1,1};
-				description = "";
-			};
-			
-			class colorPolice
-			{
-				side = "Resistance";
-				type = "Unknown";
-				text = "Police force or UN";
-				textShort = "POLICE / UN";
-				assets[] = {};
-				color[] = {0,0,1,1};
-				description = "";
-			};
-			
-			class colorPMC
-			{
-				side = "East";
-				type = "Unknown";
-				text = "PMC force";
-				textShort = "PMC FORCE";
-				assets[] = {};
-				color[] = {0.5,0.5,0.5,1};
-				description = "";
-			};
-			
-			class colorRussian
-			{
-				side = "East";
-				type = "Unknown";
-				text = "Russian force";
-				textShort = "RUSSIAN FORCE";
-				assets[] = {};
-				color[] = {0.9,0,0,1};
-				description = "";
-			};
-			
-			class colorNATO
-			{
-				side = "East";
-				type = "Unknown";
-				text = "NATO and European force";
-				textShort = "NATO";
-				assets[] = {};
-				color[] = {0,0.3,0.6,1};
-				description = "";
-			};
-			
-			class colorLocal
-			{
-				side = "East";
-				type = "Unknown";
-				text = "Local defense force";
-				textShort = "LOCAL DEFENSE FORCE";
-				assets[] = {};
-				color[] = {0,0.5,0,1};
-				description = "";
-			};
-			
-			class colorOther
-			{
-				side = "East";
-				type = "Unknown";
-				text = "Other force";
-				textShort = "OTHER FORCE";
-				assets[] = {};
-				color[] = {0.5,0,0,1};
-				description = "";
-			};
-		};
-		
-		class icons
-		{
-			side = "West";
-			type = "Unknown";
-			text = "Icons";
-			textShort = "ICONS";
-			assets[] = {};
-			color[] = {0,0,0,1};
-			texture = __EVAL((__FILE__ select [0, count __FILE__ - 15]) + "files\logo");
-			description = "";
-			
-			class iconUnknown
-			{
-				side = "East";
-				type = "Unknown";
-				text = "Unknown force";
-				textShort = "UNKNOWN";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				description = "";
-			};
-			
-			class iconHQ
-			{
-				side = "East";
-				type = "HQ";
-				text = "HQ element";
-				textShort = "HQ";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				description = "";
-			};
-			
-			class iconInfantry
-			{
-				side = "East";
-				type = "Infantry";
-				text = "Infantry";
-				textShort = "INFANTRY";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				description = "";
-			};
-			
-			class iconMotorizedInfantry
-			{
-				side = "East";
-				type = "MotorizedInfantry";
-				text = "Motorized infantry";
-				textShort = "MOTORIZED";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				description = "";
-			};
-			
-			class iconArmor
-			{
-				side = "East";
-				type = "Armored";
-				text = "Armor";
-				textShort = "ARMOR";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				description = "";
-			};
-			
-			class iconMechanizedInfantry
-			{
-				side = "East";
-				type = "MechanizedInfantry";
-				text = "Mechanized infantry";
-				textShort = "MECHANIZED";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				description = "";
-			};
-			
-			class iconHelicopter
-			{
-				side = "East";
-				type = "Helicopter";
-				text = "Rotary air";
-				textShort = "ROTARY AIR";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				description = "";
-			};
-			
-			class iconFighter
-			{
-				side = "East";
-				type = "Fighter";
-				text = "Fixed-wing air";
-				textShort = "FIXED-WING AIR";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				description = "";
-			};
-			
-			class iconArtillery
-			{
-				side = "East";
-				type = "Artillery";
-				text = "Artillery";
-				textShort = "ARTILLERY";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				description = "";
-			};
-			
-			class iconMortar
-			{
-				side = "East";
-				type = "Mortar";
-				text = "Mortar";
-				textShort = "MORTAR";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				description = "";
-			};
-			
-			class iconAntiAir
-			{
-				side = "East";
-				type = "AntiAir";
-				text = "Anti Air";
-				textShort = "ANTI AIR";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				description = "";
-			};
-			
-			class iconMaritime
-			{
-				side = "East";
-				type = "Maritime";
-				text = "Naval";
-				textShort = "NAVAL";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				description = "";
-			};
-			
-			class iconMedical
-			{
-				side = "East";
-				type = "Medical";
-				text = "Medical";
-				textShort = "MEDICAL";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				description = "";
-			};
-			
-			class iconInstallation
-			{
-				side = "East";
-				type = "";
-				text = "Installation";
-				textShort = "INSTALLATION";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				texture = "o_installation";
-				description = "";
-			};
-			
-			class iconOrdnance
-			{
-				side = "East";
-				type = "";
-				text = "Ordnance";
-				textShort = "ORDNANCE";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				texture = "o_ordnance";
-				description = "";
-			};
-		};
-		
-		class planning
-		{
-			side = "West";
-			type = "Unknown";
-			text = "Planning";
-			textShort = "PLANNING";
-			assets[] = {};
-			color[] = {0,0,0,1};
-			texture = __EVAL((__FILE__ select [0, count __FILE__ - 15]) + "files\logo");
-			description = "";
-			
-			class planWaypoint
-			{
-				side = "East";
-				type = "";
-				text = "Alpha waypoint 1";
-				textShort = "A WP1";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				texture = "hd_dot";
-				description = "";
-			};
-			
-			class planOverwatch
-			{
-				side = "East";
-				type = "";
-				text = "Overwatch 1";
-				textShort = "OW1";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				texture = "hd_objective";
-				description = "";
-			};
-			
-			class planRendevouz
-			{
-				side = "East";
-				type = "";
-				text = "Rendevouz 1";
-				textShort = "RV1";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				texture = "hd_join";
-				description = "";
-			};
-			
-			class planLZ
-			{
-				side = "East";
-				type = "";
-				text = "Landing zone Able";
-				textShort = "LZ Able";
-				assets[] = {};
-				color[] = {0,0,0,1};
-				texture = "hd_pickup";
-				description = "";
+
+				class planWaypoint
+				{
+					side = "East";
+					type = "";
+					text = "Alpha waypoint 1";
+					textShort = "A WP1";
+					assets[] = {};
+					color[] = {0,0,0,1};
+					texture = "hd_dot";
+					description = "";
+				};
+
+				class planOverwatch
+				{
+					side = "East";
+					type = "";
+					text = "Overwatch 1";
+					textShort = "OW1";
+					assets[] = {};
+					color[] = {0,0,0,1};
+					texture = "hd_objective";
+					description = "";
+				};
+
+				class planRendevouz
+				{
+					side = "East";
+					type = "";
+					text = "Rendevouz 1";
+					textShort = "RV1";
+					assets[] = {};
+					color[] = {0,0,0,1};
+					texture = "hd_join";
+					description = "";
+				};
+
+				class planLZ
+				{
+					side = "East";
+					type = "";
+					text = "Landing zone Able";
+					textShort = "LZ Able";
+					assets[] = {};
+					color[] = {0,0,0,1};
+					texture = "hd_pickup";
+					description = "";
+				};
 			};
 		};
 	};

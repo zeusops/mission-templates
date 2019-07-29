@@ -1,1 +1,1 @@
-Version 26 Hotfix
+1.27.0

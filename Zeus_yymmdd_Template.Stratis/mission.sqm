@@ -25,10 +25,10 @@ class EditorData
 binarizationWanted=0;
 addons[]=
 {
-	"A3_Ui_F",
 	"A3_Modules_F_Curator_Curator",
 	"A3_Characters_F",
 	"A3_Data_F_Curator_Virtual",
+	"A3_Ui_F",
 	"A3_Modules_F_StrategicMap"
 };
 class AddonsMetaData
@@ -38,29 +38,29 @@ class AddonsMetaData
 		items=5;
 		class Item0
 		{
-			className="A3_Ui_F";
-			name="Arma 3 - User Interface";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item1
-		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item2
+		class Item1
 		{
 			className="A3_Characters_F";
 			name="Arma 3 Alpha - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item3
+		class Item2
 		{
 			className="A3_Data_F_Curator";
 			name="Arma 3 Zeus Update - Main Configuration";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item3
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -13785,21 +13785,8 @@ class Mission
 	};
 	class Entities
 	{
-		items=15;
+		items=13;
 		class Item0
-		{
-			dataType="Marker";
-			position[]={8400,0,300};
-			name="mapButton01";
-			text=" Toggle Grass";
-			type="mil_circle";
-			colorName="ColorBlack";
-			a=0.80000001;
-			b=0.80000001;
-			id=72;
-			atlOffset=113.55;
-		};
-		class Item1
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -13909,7 +13896,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item2
+		class Item1
 		{
 			dataType="Group";
 			side="West";
@@ -18287,7 +18274,7 @@ class Mission
 			};
 			id=172;
 		};
-		class Item3
+		class Item2
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -18397,7 +18384,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item4
+		class Item3
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -18507,7 +18494,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item5
+		class Item4
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -18617,7 +18604,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item6
+		class Item5
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -18630,8 +18617,48 @@ class Mission
 			id=236;
 			type="VirtualCurator_F";
 			atlOffset=334.53;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="TFAR_freq_lr";
+					expression="if !(_value isEqualTo []) then {_value=[str _value,9,87,30,10] call tfar_fnc_parseFrequenciesInput;_this setVariable ['TFAR_freq_lr',_value,true];}";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"ARRAY"
+								};
+							};
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="TFAR_freq_sr";
+					expression="if !(_value isEqualTo []) then {_value=[str _value,8,512,30,10] call tfar_fnc_parseFrequenciesInput;_this setVariable ['TFAR_freq_sr',_value,true];}";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"ARRAY"
+								};
+							};
+						};
+					};
+				};
+				nAttributes=2;
+			};
 		};
-		class Item7
+		class Item6
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -18644,8 +18671,48 @@ class Mission
 			id=237;
 			type="VirtualCurator_F";
 			atlOffset=334.59543;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="TFAR_freq_lr";
+					expression="if !(_value isEqualTo []) then {_value=[str _value,9,87,30,10] call tfar_fnc_parseFrequenciesInput;_this setVariable ['TFAR_freq_lr',_value,true];}";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"ARRAY"
+								};
+							};
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="TFAR_freq_sr";
+					expression="if !(_value isEqualTo []) then {_value=[str _value,8,512,30,10] call tfar_fnc_parseFrequenciesInput;_this setVariable ['TFAR_freq_sr',_value,true];}";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"ARRAY"
+								};
+							};
+						};
+					};
+				};
+				nAttributes=2;
+			};
 		};
-		class Item8
+		class Item7
 		{
 			dataType="Marker";
 			position[]={1786,5.5,5612};
@@ -18653,107 +18720,15 @@ class Mission
 			type="Empty";
 			id=238;
 		};
-		class Item9
+		class Item8
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={7900,284.5,300};
-			};
-			id=239;
-			type="ModuleStrategicMapORBAT_F";
-			atlOffset=412.26999;
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="ModuleStrategicMapORBAT_F_Path";
-					expression="_this setVariable ['Path',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="missionConfigFile >> ""CfgORBAT"" >> ""RADIOS""";
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="ModuleStrategicMapORBAT_F_Tags";
-					expression="_this setVariable ['Tags',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="";
-						};
-					};
-				};
-				class Attribute2
-				{
-					property="ModuleStrategicMapORBAT_F_Parent";
-					expression="_this setVariable ['Parent',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="missionConfigFile >> ""CfgORBAT"" >> ""RADIOS""";
-						};
-					};
-				};
-				class Attribute3
-				{
-					property="ModuleStrategicMapORBAT_F_Tiers";
-					expression="_this setVariable ['Tiers',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="";
-						};
-					};
-				};
-				nAttributes=4;
-			};
-		};
-		class Item10
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={7900,295.5,900};
+				position[]={-500,-142.91,-500};
 			};
 			id=240;
 			type="ModuleStrategicMapORBAT_F";
-			atlOffset=409.56;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -18771,7 +18746,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="missionConfigFile >> ""CfgORBAT"" >> ""LEGEND""";
+							value="missionConfigFile >> ""CfgORBAT"" >> ""RADIOANDLEGEND""";
 						};
 					};
 				};
@@ -18809,7 +18784,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="missionConfigFile >> ""CfgORBAT"" >> ""LEGEND""";
+							value="";
 						};
 					};
 				};
@@ -18835,7 +18810,7 @@ class Mission
 				nAttributes=4;
 			};
 		};
-		class Item11
+		class Item9
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -18848,8 +18823,48 @@ class Mission
 			id=241;
 			type="VirtualCurator_F";
 			atlOffset=560.52002;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="TFAR_freq_lr";
+					expression="if !(_value isEqualTo []) then {_value=[str _value,9,87,30,10] call tfar_fnc_parseFrequenciesInput;_this setVariable ['TFAR_freq_lr',_value,true];}";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"ARRAY"
+								};
+							};
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="TFAR_freq_sr";
+					expression="if !(_value isEqualTo []) then {_value=[str _value,8,512,30,10] call tfar_fnc_parseFrequenciesInput;_this setVariable ['TFAR_freq_sr',_value,true];}";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"ARRAY"
+								};
+							};
+						};
+					};
+				};
+				nAttributes=2;
+			};
 		};
-		class Item12
+		class Item10
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -18862,8 +18877,48 @@ class Mission
 			id=242;
 			type="VirtualCurator_F";
 			atlOffset=560.52002;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="TFAR_freq_lr";
+					expression="if !(_value isEqualTo []) then {_value=[str _value,9,87,30,10] call tfar_fnc_parseFrequenciesInput;_this setVariable ['TFAR_freq_lr',_value,true];}";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"ARRAY"
+								};
+							};
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="TFAR_freq_sr";
+					expression="if !(_value isEqualTo []) then {_value=[str _value,8,512,30,10] call tfar_fnc_parseFrequenciesInput;_this setVariable ['TFAR_freq_sr',_value,true];}";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"ARRAY"
+								};
+							};
+						};
+					};
+				};
+				nAttributes=2;
+			};
 		};
-		class Item13
+		class Item11
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -18973,19 +19028,19 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item14
+		class Item12
 		{
 			dataType="Marker";
-			position[]={4096,64.528999,4096};
+			position[]={4000,64.528999,4000};
 			name="coverMapAreaCenter";
 			markerType="RECTANGLE";
 			type="rectangle";
 			fillName="Border";
-			a=4096;
-			b=4096;
+			a=4000;
+			b=4000;
 			drawBorder=1;
 			id=245;
-			atlOffset=-96.650993;
+			atlOffset=-64.601006;
 		};
 	};
 };

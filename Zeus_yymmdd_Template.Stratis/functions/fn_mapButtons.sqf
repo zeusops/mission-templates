@@ -3,16 +3,23 @@
 	@file_author: Dyzalonius
 */
 
-//spawn 00 button
+// spawn default buttons
 [] call {
+	private _worldSize = getnumber (configfile >> "CfgWorlds" >> worldName >> "mapSize");
+	private _mk = createMarkerLocal ["mapButton01", [_worldSize + 500, -500]];
+	_mk setMarkerTypeLocal "mil_circle";
+	_mk setMarkerSizeLocal [0.8,0.8];
+	_mk setMarkerTextLocal " Toggle Grass";
+
 	private _mk = createMarkerLocal ["mapButton00", [0,0]];
 	_mk setMarkerAlphaLocal 0;
 	_mk setMarkerTypeLocal "mil_dot_noShadow";
 	_mk setMarkerSizeLocal [2.35,2.35];
+
+	missionNameSpace setVariable ["mapButton01", 0, false]; //local
+	missionNameSpace setVariable ["mapButtons",["mapButton01"], false]; //local
 };
 
-missionNameSpace setVariable ["mapButton01", 0, false]; //local
-missionNameSpace setVariable ["mapButtons",["mapButton01"], false]; //local
 
 //spawn zeus checker
 [] spawn {
@@ -20,34 +27,35 @@ missionNameSpace setVariable ["mapButtons",["mapButton01"], false]; //local
 	waitUntil {playerSide == sideLogic};
 
 	private _mapButtons = missionNameSpace getvariable "mapButtons";
+	private _worldSize = getnumber (configfile >> "CfgWorlds" >> worldName >> "mapSize");
 
-	private _marker = createMarkerLocal ["mapButton02", [((getMarkerPos "mapButton01") select 0),((getMarkerPos "mapButton01") select 1)+1000]];
-	_marker setMarkerTypeLocal "mil_circle";
-	_marker setMarkerSizeLocal [0.8,0.8];
+	private _mk = createMarkerLocal ["mapButton02", [_worldSize + 500, 500]];
+	_mk setMarkerTypeLocal "mil_circle";
+	_mk setMarkerSizeLocal [0.8,0.8];
 	if (missionNameSpace getVariable "respawnAllow") then {
-		_marker setMarkerTextLocal " Toggle Respawns [ENABLED]";
+		_mk setMarkerTextLocal " Toggle Respawns [ENABLED]";
 	} else {
-		_marker setMarkerTextLocal " Toggle Respawns [DISABLED]";
+		_mk setMarkerTextLocal " Toggle Respawns [DISABLED]";
 	};
-	_mapButtons pushback _marker;
+	_mapButtons pushback _mk;
 
-	private _marker = createMarkerLocal ["mapButton03", [((getMarkerPos "mapButton01") select 0),((getMarkerPos "mapButton01") select 1)+2000]];
-	_marker setMarkerTypeLocal "mil_circle";
-	_marker setMarkerSizeLocal [0.8,0.8];
-	_marker setMarkerTextLocal " Force Respawn Wave";
-	_mapButtons pushback _marker;
+	private _mk = createMarkerLocal ["mapButton03", [_worldSize + 500, 1500]];
+	_mk setMarkerTypeLocal "mil_circle";
+	_mk setMarkerSizeLocal [0.8,0.8];
+	_mk setMarkerTextLocal " Force Respawn Wave";
+	_mapButtons pushback _mk;
 
-	private _marker = createMarkerLocal ["mapButton04", [((getMarkerPos "mapButton01") select 0),((getMarkerPos "mapButton01") select 1)+3000]];
-	_marker setMarkerTypeLocal "mil_circle";
-	_marker setMarkerSizeLocal [0.8,0.8];
-	_marker setMarkerTextLocal " Force Bodybag";
-	_mapButtons pushback _marker;
+	private _mk = createMarkerLocal ["mapButton04", [_worldSize + 500, 2500]];
+	_mk setMarkerTypeLocal "mil_circle";
+	_mk setMarkerSizeLocal [0.8,0.8];
+	_mk setMarkerTextLocal " Force Bodybag";
+	_mapButtons pushback _mk;
 
-	private _marker = createMarkerLocal ["mapButton05", (getMarkerPos "respawn")];
-	_marker setMarkerTypeLocal "mil_circle";
-	_marker setMarkerSizeLocal [0.8,0.8];
-	_marker setMarkerTextLocal " RESPAWN LOCATION";
-	_mapButtons pushback _marker;
+	private _mk = createMarkerLocal ["mapButton05", (getMarkerPos "respawn")];
+	_mk setMarkerTypeLocal "mil_circle";
+	_mk setMarkerSizeLocal [0.8,0.8];
+	_mk setMarkerTextLocal " RESPAWN LOCATION";
+	_mapButtons pushback _mk;
 
 	missionNameSpace setvariable ["mapButtons", _mapButtons, false];
 };

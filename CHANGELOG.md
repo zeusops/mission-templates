@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.27.0] - 2019-07-29
+### Changed
+- Merged orbats into single orbat module.
+- Toggle grass marker is now spawned by code.
+- Server performance marker is now at the same spot as orbat.
+- Default covermap size is now 4000 instead of 4096.
+
 ## [Version 26 Hotfix] - 2019-07-05
 ### Fixed
 - Typo in `fn_unitTracker` causing an error.
@@ -149,7 +156,6 @@
 
 ### Fixed
 - Hotfix `fn_showFPS`.
-
 
 ## [Version 11] - 2018-05-07
 ### Added
