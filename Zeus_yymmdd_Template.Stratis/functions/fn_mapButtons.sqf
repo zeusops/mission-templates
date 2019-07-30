@@ -6,7 +6,12 @@
 // spawn default buttons
 [] call {
 	private _worldSize = getnumber (configfile >> "CfgWorlds" >> worldName >> "mapSize");
-	private _mk = createMarkerLocal ["mapButton01", [_worldSize + 500, -500]];
+	private _pos = [-500, -1500];
+	if (_worldSize > 0 && _worldSize < 5000) then {
+		_pos = [-500, -600];
+	};
+
+	private _mk = createMarkerLocal ["mapButton01", _pos];
 	_mk setMarkerTypeLocal "mil_circle";
 	_mk setMarkerSizeLocal [0.8,0.8];
 	_mk setMarkerTextLocal " Toggle Grass";
@@ -20,7 +25,6 @@
 	missionNameSpace setVariable ["mapButtons",["mapButton01"], false]; //local
 };
 
-
 //spawn zeus checker
 [] spawn {
 	//when a zeus, give the marker, else remove it.
@@ -28,8 +32,12 @@
 
 	private _mapButtons = missionNameSpace getvariable "mapButtons";
 	private _worldSize = getnumber (configfile >> "CfgWorlds" >> worldName >> "mapSize");
+	private _spacer = -1000;
+	if (_worldSize > 0 && _worldSize < 5000) then {
+		_spacer = -100;
+	};
 
-	private _mk = createMarkerLocal ["mapButton02", [_worldSize + 500, 500]];
+	private _mk = createMarkerLocal ["mapButton02", [-500, -500 + _spacer*2]];
 	_mk setMarkerTypeLocal "mil_circle";
 	_mk setMarkerSizeLocal [0.8,0.8];
 	if (missionNameSpace getVariable "respawnAllow") then {
@@ -39,13 +47,13 @@
 	};
 	_mapButtons pushback _mk;
 
-	private _mk = createMarkerLocal ["mapButton03", [_worldSize + 500, 1500]];
+	private _mk = createMarkerLocal ["mapButton03", [-500, -500 + _spacer*3]];
 	_mk setMarkerTypeLocal "mil_circle";
 	_mk setMarkerSizeLocal [0.8,0.8];
 	_mk setMarkerTextLocal " Force Respawn Wave";
 	_mapButtons pushback _mk;
 
-	private _mk = createMarkerLocal ["mapButton04", [_worldSize + 500, 2500]];
+	private _mk = createMarkerLocal ["mapButton04", [-500, -500 + _spacer*4]];
 	_mk setMarkerTypeLocal "mil_circle";
 	_mk setMarkerSizeLocal [0.8,0.8];
 	_mk setMarkerTextLocal " Force Bodybag";

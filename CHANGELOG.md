@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.28.0] - 2019-07-30
+### Changed
+- Move map buttons to bottom left because terrain size is not always included in config.
+
 ## [1.27.0] - 2019-07-29
 ### Changed
 - Merged orbats into single orbat module.
