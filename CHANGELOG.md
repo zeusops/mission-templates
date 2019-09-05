@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.29.0] - 2019-09-05
+### Added
+- First time loading a default loadout will save that loadout.
+
+### Changed
+- Cargo size of arsenal/rearm boxes are now 4, regardless of the box used.
+- Spawning arsenal/rearm boxes uses different syntax, to facilitate zeus modules.
+
+### Removed
+- Force Respawn Wave map button for zeuses.
+- Force Bodybag map button for zeuses, replaced with a zeus module.
+- Ability to move the Respawn location on the map, replaced with a zeus module.
+- Unit tracker effects, because they were unused and made the function unnecessarily complicated.
+
+### Fixed
+- Players would receive map and/or watch on respawn, even when not present in saved loadout.
+
 ## [1.28.0] - 2019-07-30
 ### Changed
 - Move map buttons to bottom left because terrain size is not always included in config.

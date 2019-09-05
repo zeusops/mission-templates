@@ -49,7 +49,7 @@ missionNameSpace setVariable ["respawnWave", false, true];
 missionNameSpace setVariable ["respawnWaveForce", false, true];
 missionNameSpace setvariable ["respawnWaveTime", 0, true];
 missionNameSpace setvariable ["forceBodyBag", false, true];
-missionNameSpace setVariable ["unitTrackerEffects", [0, 0, 1, 1, 0, 0, 0, 0], true];
+missionNameSpace setVariable ["unitTrackerInterval", 0.1, true];
 
 [] spawn ZO_fnc_coverMap;
 [] spawn ZO_fnc_showFPS;

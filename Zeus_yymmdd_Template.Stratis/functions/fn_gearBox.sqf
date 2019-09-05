@@ -4,21 +4,6 @@
 */
 
 ////////////////////////////////////////////////
-//                  USAGE                     //
-////////////////////////////////////////////////
-
-/*
-  // Full arsenal:
-  [0, player] spawn ZO_fnc_gearBox;
-
-  // Rearm box:
-  [1, player] spawn ZO_fnc_gearBox;
-
-  // Full arsenal in editor:
-  [2, this] spawn ZO_fnc_gearBox;
-*/
-
-////////////////////////////////////////////////
 //               SUB-FUNCTIONS                //
 ////////////////////////////////////////////////
 
@@ -251,6 +236,8 @@ fn_createBox = {
 
 	// Spawn ammobox
 	_object = createVehicle ["B_supplyCrate_F", _position, [], 0, "CAN_COLLIDE"];
+	_object setDir (round random 360);
+	[_object, 4] call ace_cargo_fnc_setSize;
 
 	// Empty ammobox
 	clearWeaponCargoGlobal _object;
@@ -275,7 +262,7 @@ _request = _this select 0;
 switch (_request) do {
 	// START BOX
 	case 0: {
-		_position = position (_this select 1);
+		_position = _this select 1;
 		_object = _position call fn_createBox;
 
 		_object call fn_addRearmAction;
@@ -293,17 +280,16 @@ switch (_request) do {
 
 	// REARM BOX
 	case 1: {
-		_position = position (_this select 1);
+		_position = _this select 1;
 		_object = _position call fn_createBox;
 
 		_object call fn_addRearmAction;
 	};
 
-	// START BOX EDITOR
+	// START BOX ON OBJECT
 	case 2: {
-		if (!isServer) exitWith {};
-
 		_object = _this select 1;
+		[_object, 4] call ace_cargo_fnc_setSize;
 
 		// Empty ammobox
 		clearWeaponCargoGlobal _object;
@@ -322,5 +308,13 @@ switch (_request) do {
 		_object call fn_addTeamleaderAction;
 		[_object, true] call ace_arsenal_fnc_initBox;
 		["AmmoboxInit",[_object,true]] call BIS_fnc_arsenal;
+	};
+
+	// REARM BOX ON OBJECT
+	case 3: {
+		_object = _this select 1;
+		[_object, 4] call ace_cargo_fnc_setSize;
+
+		_object call fn_addRearmAction;
 	};
 };

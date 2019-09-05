@@ -35,24 +35,23 @@ fn_gearLoad = {
 	if (_loadout isEqualTo []) exitWith {cutText ["You don't have any loadout saved!", "PLAIN"];};
 
 	// remove current container contents
+	removeUniform player;
+	removeVest player;
+	removeHeadgear player;
+	removeGoggles player;
 	removeAllItems player;
-	{player removeMagazine _x} forEach (magazines player);
-
+	removeAllAssignedItems player;
 
 	// Give all items if they dont have it already
-	if ((_loadout select 0 select 0) != (uniform player)) then {
-		if ((_loadout select 0 select 0) == "") then {
-			removeUniform player;
-		} else {
-			player forceAddUniform (_loadout select 0 select 0);
-		};
+	if ((_loadout select 0 select 0) == "") then {
+		removeUniform player;
+	} else {
+		player forceAddUniform (_loadout select 0 select 0);
 	};
-	if ((_loadout select 0 select 1) != (vest player)) then {
-		if ((_loadout select 0 select 1) == "") then {
-			removeVest player;
-		} else {
-			player addVest (_loadout select 0 select 1);
-		};
+	if ((_loadout select 0 select 1) == "") then {
+		removeVest player;
+	} else {
+		player addVest (_loadout select 0 select 1);
 	};
 	if ((_loadout select 0 select 2) != (backpack player)) then {
 		if ((_loadout select 0 select 2) == "") then {
@@ -61,38 +60,30 @@ fn_gearLoad = {
 			player addBackpack (_loadout select 0 select 2);
 		};
 	};
-	if ((_loadout select 0 select 3) != (headgear player)) then {
-		if ((_loadout select 0 select 3) == "") then {
-			removeHeadgear player;
-		} else {
-			player addHeadgear (_loadout select 0 select 3);
-		};
+	if ((_loadout select 0 select 3) == "") then {
+		removeHeadgear player;
+	} else {
+		player addHeadgear (_loadout select 0 select 3);
 	};
-	if ((_loadout select 0 select 4) != (goggles player)) then {
-		if ((_loadout select 0 select 4) == "") then {
-			removeGoggles player;
-		} else {
-			player addGoggles (_loadout select 0 select 4);
-		};
+	if ((_loadout select 0 select 4) == "") then {
+		removeGoggles player;
+	} else {
+		player addGoggles (_loadout select 0 select 4);
 	};
-	if ((_loadout select 0 select 5) != (hmd player)) then {
-		if ((_loadout select 0 select 5) == "") then {
-			player unlinkItem (hmd player);
-		} else {
-			player linkItem (_loadout select 0 select 5);
-		};
+	if ((_loadout select 0 select 5) == "") then {
+		player unlinkItem (hmd player);
+	} else {
+		player linkItem (_loadout select 0 select 5);
 	};
-	if ((_loadout select 0 select 6) != (binocular player)) then {
-		if ((_loadout select 0 select 6) == "") then {
-			player removeWeapon (binocular player);
-		} else {
-			player addWeapon (_loadout select 0 select 6);
-		};
+	if ((_loadout select 0 select 6) == "") then {
+		player removeWeapon (binocular player);
+	} else {
+		player addWeapon (_loadout select 0 select 6);
 	};
 	{
-		if (!(_x in (assignedItems player))) then {
+		//if (!(_x in (assignedItems player))) then {
 			player linkItem _x;
-		}
+		//}
 	} foreach (_loadout select 1);
 
 	// load uniform contents to make sure you get the right ammunition in your weapons
@@ -157,7 +148,6 @@ fn_gearLoad = {
 	} else {
 		player removeWeapon (handgunWeapon player);
 	};
-
 
 	// remove current container contents to this time actually fill up the containers
 	removeAllItems player;
@@ -295,6 +285,10 @@ fn_gearLoadout = {
 			player setVariable ["Ace_IsEngineer", 0];
 		};
 	};
+
+	// Save default loadout to playerGear if it's empty
+	_loadout = missionNameSpace getVariable "playerGear";
+	if (_loadout isEqualTo []) exitWith {[] call fn_gearSave;};
 };
 
 fn_gearSave = {
