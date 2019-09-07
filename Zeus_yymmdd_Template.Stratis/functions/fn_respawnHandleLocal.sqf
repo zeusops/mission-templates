@@ -63,7 +63,7 @@ waitUntil {!alive player;};
 
 // waiting for bodybag or respawn
 while {true} do {
-	if (((player distance2D [-5000,-5000]) < 7100) || (alive player) || (vehicle player != player) || ((groupId (group player)) in _autoBodybagTeams) || (missionNameSpace getVariable "forceBodyBag")) then {
+	if (((player distance2D [-5000,-5000]) < 7100) || (alive player) || ((groupId (group player)) in _autoBodybagTeams)) then {
 		breakTo "main";
 	};
 
@@ -71,7 +71,7 @@ while {true} do {
 	sleep 1;
 };
 
-// body bagged
+// if not respawn notify bodybagged
 if (!alive player) then {
 	1 spawn fn_notification;
 };
@@ -91,16 +91,15 @@ if (!alive player) then {
 	3 spawn fn_notification;
 	sleep 5;
 
-	// force respawn
+	// respawn
 	setPlayerRespawnTime 0.01;
-
 	sleep 1;
 
 	// reset respawn timer
 	if (missionNameSpace getVariable "respawnAllow") then {
-		setPlayerRespawnTime 900;
+		setPlayerRespawnTime (missionNameSpace getVariable "respawnTime");
 	} else {
-		setPlayerRespawnTime 100020;
+		setPlayerRespawnTime (missionNameSpace getVariable "respawnTimeInfinite");
 	};
 };
 

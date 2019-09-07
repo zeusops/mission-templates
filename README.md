@@ -14,12 +14,8 @@ See the [Zeus Guide](https://docs.google.com/document/d/1PFK__UcgmAJ1P3xBnJxeW2o
 
 # Useful Code
 
-##### Spawn gear box (local exec):
-    [0, player] spawn ZO_fnc_gearBox;
-##### Spawn rearm box (local exec):
-    [1, player] spawn ZO_fnc_gearBox;
-##### Make ammo box a gear box (ammo box init):
-    [2, this] spawn ZO_fnc_gearBox;
+##### Move cover map:
+    [[_centerX, _centerY], [_radiusX, _radiusY]] call ZO_fnc_coverMap;
 ##### Change unit tracker color:
     missionNameSpace setVariable ["unitColor", "newUnitColor", true];
 ##### Change default gear:

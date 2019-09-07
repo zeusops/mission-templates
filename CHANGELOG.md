@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.30.0] - 2019-09-07
+### Added
+- Respawn position 3d marker for zeuses, marker alpha dependant on distance, but always visible.
+
+### Changed
+- Respawn position map marker not updated frequently enough.
+- Slimmed down cfgFunctions in `description.ext`.
+
+### Removed
+- Remnants of force bodybag and force respawn wave.
+
 ## [1.29.1] - 2019-09-07
 ### Fixed
 - `fn_coverMap` breaking when calling it a second time to adjust.

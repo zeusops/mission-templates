@@ -53,14 +53,29 @@
 
 	// Spawn respawn position marker
 	private _mk = createMarkerLocal ["respawnPosition", (missionNameSpace getVariable "RESPAWN_POSITION")];
-	_mk setMarkerTypeLocal "mil_circle";
-	_mk setMarkerSizeLocal [0.8,0.8];
-	_mk setMarkerTextLocal " RESPAWN LOCATION";
+	_mk setMarkerTypeLocal "mil_dot";
+	_mk setMarkerSizeLocal [0.5,0.5];
+	_mk setMarkerTextLocal "RESPAWN POSITION";
 
 	// Spawn respawn position marker updater
-	[] spawn {
-		"respawnPosition" setMarkerPosLocal (missionNameSpace getVariable "RESPAWN_POSITION");
-		sleep 10;
+	onEachFrame {
+		_respawnPos = missionNameSpace getVariable "RESPAWN_POSITION";
+		_distance = player distance _respawnPos;
+		_alpha = linearConversion [500, 1500, _distance, 1, 0.1, true];
+		drawIcon3D [
+			"",
+			[0,0,0,_alpha],
+			[_respawnPos select 0, _respawnPos select 1, 5],
+			0,
+			0,
+			direction player,
+			"RESPAWN POSITION",
+			0,
+			0.04,
+			"PuristaSemiBold",
+			"center"
+		];
+		"respawnPosition" setMarkerPosLocal _respawnPos;
 	};
 };
 
