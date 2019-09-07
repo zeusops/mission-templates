@@ -50,7 +50,7 @@ fn_spawn = {
 fn_transform = {
     _center = (_this select 0);
     _size = (_this select 1);
-    _bignumber = 100000;
+    _bignumber = 50000;
 
     // transform leftright area markers
     "coverMapAreaLeft" setMarkerPos [(-_bignumber + (_center select 0) - (_size select 0)), (_center select 1)];

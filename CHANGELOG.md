@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.29.1] - 2019-09-07
+### Fixed
+- `fn_coverMap` breaking when calling it a second time to adjust.
+
 ## [1.29.0] - 2019-09-05
 ### Added
 - First time loading a default loadout will save that loadout.
