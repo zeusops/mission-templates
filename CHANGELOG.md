@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.30.1] - 2019-09-08
+### Fixed
+- Spectator death messages not showing the correct time.
+
 ## [1.30.0] - 2019-09-07
 ### Added
 - Respawn position 3d marker for zeuses, marker alpha dependant on distance, but always visible.

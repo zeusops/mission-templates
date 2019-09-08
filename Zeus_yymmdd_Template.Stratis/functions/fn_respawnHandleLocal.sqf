@@ -13,7 +13,7 @@ fn_notification = {
 		case 0: {
 			if (playerRespawnTime % 60 == 0) then {
 				if (missionNameSpace getVariable "respawnAllow") then {
-					(format["<t font='PuristaBold' size='1.6'>You are dead.</t><br />Respawning with the next wave in %1 minutes, if body bagged.<br />Auto respawn in %2 minutes.", ceil((missionNameSpace getVariable "respawnWaveTime")/60), ceil(playerRespawnTime/60)]) spawn fn_text;
+					(format["<t font='PuristaBold' size='1.6'>You are dead.</t><br />Respawning with the next wave in %1 minutes, if body bagged.<br />Auto respawn in %2 minutes.", ceil((missionNameSpace getVariable "respawnNextWaveTime")/60), ceil(playerRespawnTime/60)]) spawn fn_text;
 				} else {
 					("<t font='PuristaBold' size='1.6'>You are dead.</t><br />Respawning with the next wave, if body bagged.<br />Auto respawn disabled.") spawn fn_text;
 				};
@@ -23,7 +23,7 @@ fn_notification = {
 		// waiting for wave or respawn
 		case 1: {
 			if (missionNameSpace getVariable "respawnAllow") then {
-				(format["<t font='PuristaBold' size='1.6'>You are body bagged.</t><br />Respawning with the next wave in %1 minutes.<br />Auto respawn in %2 minutes.", ceil((missionNameSpace getVariable "respawnWaveTime")/60), ceil(playerRespawnTime/60)]) spawn fn_text;
+				(format["<t font='PuristaBold' size='1.6'>You are body bagged.</t><br />Respawning with the next wave in %1 minutes.<br />Auto respawn in %2 minutes.", ceil((missionNameSpace getVariable "respawnNextWaveTime")/60), ceil(playerRespawnTime/60)]) spawn fn_text;
 			} else {
 				("<t font='PuristaBold' size='1.6'>You are body bagged.</t><br />Respawning with the next wave.<br />Auto respawn disabled.") spawn fn_text;
 			};
@@ -33,7 +33,7 @@ fn_notification = {
 		case 2: {
 			if (playerRespawnTime % 60 == 0) then {
 				if (missionNameSpace getVariable "respawnAllow") then {
-					(format["<t font='PuristaBold' size='1.6'>You are body bagged.</t><br />Respawning with the next wave in %1 minutes.<br />Auto respawn in %2 minutes.", ceil((missionNameSpace getVariable "respawnWaveTime")/60), ceil(playerRespawnTime/60)]) spawn fn_text;
+					(format["<t font='PuristaBold' size='1.6'>You are body bagged.</t><br />Respawning with the next wave in %1 minutes.<br />Auto respawn in %2 minutes.", ceil((missionNameSpace getVariable "respawnNextWaveTime")/60), ceil(playerRespawnTime/60)]) spawn fn_text;
 				} else {
 					("<t font='PuristaBold' size='1.6'>You are body bagged.</t><br />Respawning with the next wave.<br />Auto respawn disabled.") spawn fn_text;
 				};
