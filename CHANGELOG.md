@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.31.0] - 2019-09-14
+### Added
+- Map marker for zeuses with respawn information.
+- Line under respawn position 3d marker when close to it to show exact location.
+
+### Changed
+- Renamed `fn_mapButtons` to `fn_mapFunctionalities` and refactored the code to use sub-functions.
+
 ## [1.30.1] - 2019-09-08
 ### Fixed
 - Spectator death messages not showing the correct time.

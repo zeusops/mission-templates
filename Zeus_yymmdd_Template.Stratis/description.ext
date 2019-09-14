@@ -53,14 +53,14 @@ class cfgFunctions {
 		class functions
 		{
 			file = "functions";
-			class coverMap {};
-			class gearBox {};
-			class gearHandle {};
-			class mapButtons {};
-			class respawnHandle {};
-			class respawnHandleLocal {};
-			class showFPS {};
-			class unitTracker {};
+			class coverMap;
+			class gearBox;
+			class gearHandle;
+			class mapFunctionalities;
+			class respawnHandle;
+			class respawnHandleLocal;
+			class showFPS;
+			class unitTracker;
 		};
 	};
 };
