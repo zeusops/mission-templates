@@ -9,7 +9,7 @@ player setPos _position;
 [0] spawn ZO_fnc_unitTracker;
 [0] spawn ZO_fnc_gearHandle;
 [] spawn ZO_fnc_respawnHandleLocal;
-[] spawn ZO_fnc_mapButtons;
+[] spawn ZO_fnc_mapFunctionalities;
 
 if (!isDedicated && !hasInterface && isMultiplayer) then {
 	[] spawn ZO_fnc_showFPS;

@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.31.1] - 2019-09-15
+### Fixed
+- Renamed `fn_mapFunctionalities` but didn't change the call in initPlayerLocal.
+
 ## [1.31.0] - 2019-09-14
 ### Added
 - Map marker for zeuses with respawn information.
