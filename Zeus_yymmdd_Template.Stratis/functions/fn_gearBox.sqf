@@ -13,7 +13,7 @@ fn_addATRiflemanAction = {
 	// Add the hold-action to the object
 	[
 		/* 0 object */                      _object,
-		/* 1 action title */                "Load default AT RIFLEMAN",
+		/* 1 action title */                "Load AT RIFLEMAN",
 		/* 2 idle icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
 		/* 3 progress icon */               "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
 		/* 4 condition to show */           "(_this distance _target < 3)",
@@ -41,7 +41,7 @@ fn_addAutoriflemanAction = {
 	// Add the hold-action to the object
 	[
 		/* 0 object */                      _object,
-		/* 1 action title */                "Load default AUTORIFLEMAN",
+		/* 1 action title */                "Load AUTORIFLEMAN",
 		/* 2 idle icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
 		/* 3 progress icon */               "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
 		/* 4 condition to show */           "(_this distance _target < 3)",
@@ -69,7 +69,7 @@ fn_addEngineerAction = {
 	// Add the hold-action to the object
 	[
 		/* 0 object */                      _object,
-		/* 1 action title */                "Load default ENGINEER",
+		/* 1 action title */                "Load ENGINEER",
 		/* 2 idle icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
 		/* 3 progress icon */               "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
 		/* 4 condition to show */           "(_this distance _target < 3)",
@@ -91,13 +91,41 @@ fn_addEngineerAction = {
 	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
 };
 
+fn_addGrenadierAction = {
+	_object = _this;
+
+	// Add the hold-action to the object
+	[
+		/* 0 object */                      _object,
+		/* 1 action title */                "Load GRENADIER",
+		/* 2 idle icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
+		/* 3 progress icon */               "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
+		/* 4 condition to show */           "(_this distance _target < 3)",
+		/* 5 condition for action */        "(_this distance _target < 3)",
+		/* 6 code executed on start */      {},
+		/* 7 code executed per tick */      {},
+		/* 8 code executed on completion */
+		{
+			playSound "sound1";
+
+			[1, "GRENADIER"] call ZO_fnc_gearHandle;
+		},
+		/* 9 code executed on interruption */   {},
+		/* 10 arguments */                      [],
+		/* 11 action duration */                1,
+		/* 12 priority */                       8,
+		/* 13 remove on completion */           false,
+		/* 14 show unconscious */               false
+	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
+};
+
 fn_addMedicAction = {
 	_object = _this;
 
 	// Add the hold-action to the object
 	[
 		/* 0 object */                      _object,
-		/* 1 action title */                "Load default MEDIC",
+		/* 1 action title */                "Load MEDIC",
 		/* 2 idle icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
 		/* 3 progress icon */               "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
 		/* 4 condition to show */           "(_this distance _target < 3)",
@@ -153,7 +181,7 @@ fn_addRiflemanAction = {
 	// Add the hold-action to the object
 	[
 		/* 0 object */                           _object,
-		/* 1 action title */                    "Load default RIFLEMAN",
+		/* 1 action title */                    "Load RIFLEMAN",
 		/* 2 idle icon */                       "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
 		/* 3 progress icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
 		/* 4 condition to show */               "(_this distance _target < 3)",
@@ -209,7 +237,7 @@ fn_addTeamleaderAction = {
 	// Add the hold-action to the object
 	[
 		/* 0 object */                          _object,
-		/* 1 action title */                    "Load default TEAMLEADER",
+		/* 1 action title */                    "Load TEAMLEADER",
 		/* 2 idle icon */                       "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
 		/* 3 progress icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
 		/* 4 condition to show */               "(_this distance _target < 3)",
@@ -271,6 +299,7 @@ switch (_request) do {
 		_object call fn_addATRiflemanAction;
 		_object call fn_addAutoriflemanAction;
 		_object call fn_addEngineerAction;
+		_object call fn_addGrenadierAction;
 		_object call fn_addMedicAction;
 		_object call fn_addRiflemanAction;
 		_object call fn_addTeamleaderAction;
@@ -303,6 +332,7 @@ switch (_request) do {
 		_object call fn_addATRiflemanAction;
 		_object call fn_addAutoriflemanAction;
 		_object call fn_addEngineerAction;
+		_object call fn_addGrenadierAction;
 		_object call fn_addMedicAction;
 		_object call fn_addRiflemanAction;
 		_object call fn_addTeamleaderAction;

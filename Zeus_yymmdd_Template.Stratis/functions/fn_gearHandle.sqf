@@ -220,11 +220,29 @@ fn_gearLoadout = {
 			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
 			for "_i" from 1 to 16 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1)};
 			player addBackpack (missionNameSpace getVariable "gearBackpack");
-			player addItemToBackpack "Item_ToolKit";
+			player addItemToBackpack "ToolKit";
 
 			// set to non-medic and engineer
 			player setVariable ["Ace_medical_medicClass", 0];
 			player setVariable ["Ace_IsEngineer", 1];
+		};
+
+		case "GRENADIER": {
+			[] call fn_gearStart;
+
+			// give rifleman gear
+			player addItemToVest ((missionNameSpace getVariable "gearWeaponGrenadier") select 1);
+			player addItemToVest ((missionNameSpace getVariable "gearWeaponGrenadier") select 3);
+			player addWeapon ((missionNameSpace getVariable "gearWeaponGrenadier") select 0);
+			player addPrimaryWeaponItem ((missionNameSpace getVariable "gearWeaponGrenadier") select 2);
+			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
+			for "_i" from 1 to 16 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponGrenadier") select 1)};
+			player addBackpack (missionNameSpace getVariable "gearBackpack");
+			for "_i" from 1 to 16 do {player addItemToBackpack ((missionNameSpace getVariable "gearWeaponGrenadier") select 3)};
+
+			// set to non-medic and non-engineer
+			player setVariable ["Ace_medical_medicClass", 0];
+			player setVariable ["Ace_IsEngineer", 0];
 		};
 
 		case "MEDIC": {
@@ -259,6 +277,7 @@ fn_gearLoadout = {
 			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
 			for "_i" from 1 to 16 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1)};
 			player addBackpack (missionNameSpace getVariable "gearBackpack");
+			player addWeapon (missionNameSpace getVariable "gearWeapon1Use");
 
 			// set to non-medic and non-engineer
 			player setVariable ["Ace_medical_medicClass", 0];
@@ -277,8 +296,6 @@ fn_gearLoadout = {
 			for "_i" from 1 to 3 do {player addItemToVest "SmokeShellBlue";};
 			for "_i" from 1 to 16 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1)};
 			player addBackpack (missionNameSpace getVariable "gearBackpackLeader");
-			player addItemToBackpack ((missionNameSpace getVariable "gearWeaponLauncher") select 1);
-			for "_i" from 1 to 16 do {player addItemToBackpack ((missionNameSpace getVariable "gearWeaponMain") select 1)};
 
 			// set to non-medic and non-engineer
 			player setVariable ["Ace_medical_medicClass", 0];

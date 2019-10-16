@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.32.0] - 2019-10-16
+### Added
+- 1 Use launcher for riflemen.
+- Load grenadier option in `fn_gearBox`.
+
+### Fixed
+- Fix engineer receiving toolkit.
+
+### Removed
+- Teamleader no longer gets AT rocket or rifle ammo in their backpack.
+
 ## [1.31.1] - 2019-09-15
 ### Fixed
 - Renamed `fn_mapFunctionalities` but didn't change the call in initPlayerLocal.
