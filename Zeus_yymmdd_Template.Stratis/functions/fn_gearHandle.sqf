@@ -255,11 +255,14 @@ fn_gearLoadout = {
 			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
 			for "_i" from 1 to 16 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1)};
 			player addBackpack (missionNameSpace getVariable "gearBackpack");
+			player addItemToBackpack "ACE_personalAidKit";
 			for "_i" from 1 to 10 do {
 				player addItemToBackpack "ACE_bloodIV";
+				player addItemToBackpack "ACE_tourniquet";
 				for "_i" from 1 to 4 do {player addItemToBackpack "ACE_epinephrine"};
 				for "_i" from 1 to 3 do {player addItemToBackpack "ACE_morphine"};
 				for "_i" from 1 to 6 do {player addItemToBackpack "ACE_fieldDressing"};
+				for "_i" from 1 to 2 do {player addItemToBackpack "ACE_splint"};
 			};
 
 			// set to medic and non-engineer
@@ -391,6 +394,12 @@ fn_gearStart = {
 	for "_i" from 1 to 5 do {
 		player addItemToUniform "ACE_morphine";
 		player addItemToUniform "ACE_epinephrine";
+	};
+	for "_i" from 1 to 2 do {
+		player addItemToUniform "ACE_tourniquet";
+	};
+	for "_i" from 1 to 4 do {
+		player addItemToUniform "ACE_splint";
 	};
 	for "_i" from 1 to 30 do {player addItemToUniform "ACE_fieldDressing"};
 
