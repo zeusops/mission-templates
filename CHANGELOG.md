@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.33.0] - 2020-01-03
+### Added
+- Add new ACE medical rewrite items to the default loadouts:
+  * 2x tourniquets and 4x splints for all classes
+  * A Personal Aid Kit and extra tourniquets and splints for the medic
+
+### Fixed
+- Use a compatible box for the default AR loadout.
+
+### Changed
+- Updated CBA settings from the server
+
+    Contains the same settings file as the server, with all 'force force'
+    lines removed. The settings on the server were updated to accommodate
+    the recent ACE release v1.13.0 which included the medical rewrite.
+
 ## [1.32.0] - 2019-10-16
 ### Added
 - 1 Use launcher for riflemen.
