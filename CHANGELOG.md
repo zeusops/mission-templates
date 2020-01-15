@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.33.1] - 2020-01-16
+### Added
+- Add J. Abey to the list of debug console users
+
 ## [1.33.0] - 2020-01-03
 ### Added
 - Add new ACE medical rewrite items to the default loadouts:
