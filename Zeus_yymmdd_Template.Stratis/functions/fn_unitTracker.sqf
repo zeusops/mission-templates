@@ -26,7 +26,7 @@
 
 fn_createMarker = {
 	private _unit = _this;
-	
+
 	private _markerName = (format["%1_%2", (_unit select 2), (_unit select 1)]);
 	private _marker = createMarkerLocal [_markerName,(getPosVisual (_unit select 0))];
 	private _markerType = [_unit] call {
@@ -46,13 +46,13 @@ fn_createMarker = {
 	};
 	_marker setMarkerTypeLocal _markerType;
 	_marker setMarkerTextLocal (_unit select 1);
-	_marker setMarkerColorLocal (missionNameSpace getVariable "unitColor");
+	_marker setMarkerColorLocal (missionNameSpace getVariable "unitTrackerColor");
 };
 
 fn_drawUnit = {
 	private _unit = _this;
 	private _markerName = format ["%1_%2", (_unit select 2), (_unit select 1)];
-	
+
 	if (getMarkerColor _markerName == "") then {
 		_unit spawn fn_createMarker;
 	} else {
@@ -63,11 +63,11 @@ fn_drawUnit = {
 fn_unitTracker = {
 	while {true} do {
 		private _units = missionNameSpace getVariable "unitsTracked";
-		
+
 		{
 			_x spawn fn_drawUnit;
 		} foreach _units;
-		
+
 		_defaultInterval = 0.05;
 		_interval = missionNamespace getVariable "unitTrackerInterval";
 		if (_interval < _defaultInterval) then {
@@ -80,10 +80,10 @@ fn_unitTracker = {
 fn_unitUpdater = {
 	private _oldUnits = [];
 	private _units = [];
-	
+
 	while {true} do {
 		_units = [];
-		
+
 		{
 			if ( (side group player == side _x || side group player == sidelogic) && (["IsGroupRegistered", [_x]] call { _this call (missionNamespace getVariable ["BIS_fnc_dynamicGroups", {}]); }) && (isPlayer leader _x) && (count units _x > 0) ) then {
 				if !([(leader _x),(groupId _x),(side _x)] in _units) then {
@@ -92,9 +92,9 @@ fn_unitUpdater = {
 			};
 		} foreach allGroups;
 		missionNameSpace setVariable ["unitsTracked", _units, false];
-		
+
 		sleep 0.1;
-		
+
 		{
 			deleteMarkerLocal (format["%1_%2", (_x select 2), (_x select 1)]);
 		} foreach (_oldUnits - _units);
@@ -106,9 +106,9 @@ fn_updateMarker = {
 	private _unit = _this;
 	private _position = getPosVisual (_unit select 0);
 	private _markerName = format["%1_%2", (_unit select 2), (_unit select 1)];
-	
+
 	_markerName setMarkerPosLocal _position;
-	_markerName setMarkerColorLocal (missionNameSpace getVariable "unitColor");
+	_markerName setMarkerColorLocal (missionNameSpace getVariable "unitTrackerColor");
 };
 
 ////////////////////////////////////////////////
@@ -121,13 +121,13 @@ switch (_request) do {
 	// update all units
 	case 0: {
 		missionNameSpace setVariable ["unitsTracked", [], false];
-		
+
 		sleep 5;
-		
+
 		[] spawn fn_unitTracker;
 		[] spawn fn_unitUpdater;
 	};
-	
+
 	// set update interval
 	case 1: {
 		_interval = _this select 1;

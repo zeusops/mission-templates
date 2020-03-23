@@ -1,5 +1,38 @@
 # Changelog
 
+## [1.34.0] - 2020-03-23
+### Added
+- Add `fn_drawEditorObjects` function: Naming triggers `drawEditorObjects_` with any suffix will draw editor placed objects in trigger area on the map.
+- Add faction file system to replace gear variables in `initServer`, allowing for presets.
+- Add rail attachment slot to loadouts.
+- Add nightvision slot to loadouts and option in `initServer`.
+- Add Load marksman option to gearBox.
+- Add entrenching tool to rifleman loadout.
+- Add factions:
+    - Canadian army
+    - French army desert
+    - French army woodland
+    - German army desert
+    - German army woodland
+    - UK army
+    - US army desert
+    - US army woodland
+    - USMC desert
+    - USMC woodland
+- Add custom group management that doesn't display dead players as dead.
+
+### Changed
+- Change rearm box to only 1 rearm per box per person in `fn_gearBox`.
+- Change medical supply ratio of medic role.
+
+### Removed
+- Remove CBA_settings file.
+
+### Fixed
+- Fix `initPlayerLocal` being executed before `initServer` was finished.
+- Fix issue where saving your loadout does not specifically save the loaded ammo for every weapon.
+- Fix gearbox module code being executed for every client when placed in the editor.
+
 ## [1.33.1] - 2020-01-16
 ### Added
 - Add J. Abey to the list of debug console users

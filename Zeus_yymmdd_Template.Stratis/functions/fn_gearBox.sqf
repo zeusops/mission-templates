@@ -119,6 +119,34 @@ fn_addGrenadierAction = {
 	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
 };
 
+fn_addMarksmanAction = {
+	_object = _this;
+
+	// Add the hold-action to the object
+	[
+		/* 0 object */                           _object,
+		/* 1 action title */                    "Load MARKSMAN",
+		/* 2 idle icon */                       "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
+		/* 3 progress icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
+		/* 4 condition to show */               "(_this distance _target < 3)",
+		/* 5 condition for action */            "(_this distance _target < 3)",
+		/* 6 code executed on start */          {},
+		/* 7 code executed per tick */          {},
+		/* 8 code executed on completion */
+		{
+			playSound "sound1";
+
+			[1, "MARKSMAN"] call ZO_fnc_gearHandle;
+		},
+		/* 9 code executed on interruption */   {},
+		/* 10 arguments */                      [],
+		/* 11 action duration */                1,
+		/* 12 priority */                       8,
+		/* 13 remove on completion */           false,
+		/* 14 show unconscious */               false
+	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
+};
+
 fn_addMedicAction = {
 	_object = _this;
 
@@ -153,26 +181,58 @@ fn_addRearmAction = {
 	// Add the hold-action to the object
 	[
 		/* 0 object */                      _object,
-		/* 1 action title */                "REARM",
+		/* 1 action title */
+		{
+			switch (_this getVariable 'rearmUses') do {
+				case -1: {
+					"REARM";
+				};
+
+				case 0: {
+					(format ["REARM</t><t color='#FF0000' align='left'> (%1 uses)", (_this getVariable 'rearmUses')]);
+				};
+
+				case 1: {
+					(format ["REARM (%1 use)", (_this getVariable 'rearmUses')]);
+				};
+
+				default {
+					(format ["REARM (%1 uses)", (_this getVariable 'rearmUses')]);
+				};
+			};
+		},
 		/* 2 idle icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff1_ca.paa",
 		/* 3 progress icon */               "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff1_ca.paa",
 		/* 4 condition to show */           "(_this distance _target < 3)",
-		/* 5 condition for action */        "(_this distance _target < 3)",
+		/* 5 condition for action */        "(_this distance _target < 3) && (_target getVariable ""rearmUses"") != 0",
 		/* 6 code executed on start */      {},
 		/* 7 code executed per tick */      {},
 		/* 8 code executed on completion */
 		{
 			playSound "sound1";
 
-			[3] call ZO_fnc_gearHandle;
+			if (!((missionNameSpace getVariable "playerGear") isEqualTo [])) then {
+				if ((_target getVariable "rearmUses") != 0) then {
+					_target setVariable ["rearmUses", (_target getVariable "rearmUses") - 1, false];
+					cutText ["Rearmed", "PLAIN", 0.2];
+					[3] call ZO_fnc_gearHandle;
+				};
+			} else {
+				cutText ["You don't have any loadout saved!", "PLAIN", 0.2];
+			};
 		},
-		/* 9 code executed on interruption */   {},
+		/* 9 code executed on interruption */
+		{
+			if ((_target getVariable "rearmUses") == 0) then {
+				cutText ["Rearm has no uses left!", "PLAIN", 0.2];
+			};
+		},
 		/* 10 arguments */                      [],
 		/* 11 action duration */                1,
 		/* 12 priority */                       10,
 		/* 13 remove on completion */           false,
 		/* 14 show unconscious */               false
-	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
+	] remoteExec ["ZO_fnc_holdActionAdd",[0,-2] select isDedicated,true];
 };
 
 fn_addRiflemanAction = {
@@ -286,20 +346,22 @@ fn_createBox = {
 ////////////////////////////////////////////////
 
 _request = _this select 0;
+if (isDedicated && !isServer) exitWith {};
 
 switch (_request) do {
 	// START BOX
 	case 0: {
 		_position = _this select 1;
 		_object = _position call fn_createBox;
+		_object setVariable ["rearmUses", -1, true];
 
 		_object call fn_addRearmAction;
 		_object call fn_addSaveAction;
-
 		_object call fn_addATRiflemanAction;
 		_object call fn_addAutoriflemanAction;
 		_object call fn_addEngineerAction;
 		_object call fn_addGrenadierAction;
+		_object call fn_addMarksmanAction;
 		_object call fn_addMedicAction;
 		_object call fn_addRiflemanAction;
 		_object call fn_addTeamleaderAction;
@@ -311,6 +373,7 @@ switch (_request) do {
 	case 1: {
 		_position = _this select 1;
 		_object = _position call fn_createBox;
+		_object setVariable ["rearmUses", 1, true];
 
 		_object call fn_addRearmAction;
 	};
@@ -319,6 +382,7 @@ switch (_request) do {
 	case 2: {
 		_object = _this select 1;
 		[_object, 4] call ace_cargo_fnc_setSize;
+		_object setVariable ["rearmUses", -1, true];
 
 		// Empty ammobox
 		clearWeaponCargoGlobal _object;
@@ -328,11 +392,11 @@ switch (_request) do {
 
 		_object call fn_addRearmAction;
 		_object call fn_addSaveAction;
-
 		_object call fn_addATRiflemanAction;
 		_object call fn_addAutoriflemanAction;
 		_object call fn_addEngineerAction;
 		_object call fn_addGrenadierAction;
+		_object call fn_addMarksmanAction;
 		_object call fn_addMedicAction;
 		_object call fn_addRiflemanAction;
 		_object call fn_addTeamleaderAction;
@@ -344,6 +408,7 @@ switch (_request) do {
 	case 3: {
 		_object = _this select 1;
 		[_object, 4] call ace_cargo_fnc_setSize;
+		_object setVariable ["rearmUses", 1, true];
 
 		_object call fn_addRearmAction;
 	};

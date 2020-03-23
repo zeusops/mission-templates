@@ -5,21 +5,21 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=5;
+	toggles=517;
 	class ItemIDProvider
 	{
-		nextID=246;
+		nextID=295;
 	};
 	class MarkerIDProvider
 	{
-		nextID=2;
+		nextID=5;
 	};
 	class Camera
 	{
-		pos[]={1790.0587,18.818394,5638.4678};
-		dir[]={-0.0044167447,-0.39481795,-0.91883498};
-		up[]={-0.0018991065,0.91872042,-0.39487031};
-		aside[]={-1.0000637,8.4802997e-007,0.0048058508};
+		pos[]={1764.2212,26.940182,5620.4302};
+		dir[]={0.81668383,-0.54056722,-0.20222037};
+		up[]={0.52474242,0.84128827,-0.12993178};
+		aside[]={-0.24036269,5.523616e-007,-0.97072357};
 	};
 };
 binarizationWanted=0;
@@ -13752,7 +13752,7 @@ class CustomAttributes
 							"BOOL"
 						};
 					};
-					value=1;
+					value=0;
 				};
 			};
 		};

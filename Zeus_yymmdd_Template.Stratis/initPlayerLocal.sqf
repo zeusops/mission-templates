@@ -1,11 +1,11 @@
-["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
+["InitializePlayer", [player]] call zeusops_fnc_dynamicGroups;
 [player] join grpNull;
 player setVariable ["ACE_GForceCoef", 0];
 missionNameSpace setVariable ["playerGear", [], false];
 
-_position = missionNameSpace getVariable "RESPAWN_POSITION";
-player setPos _position;
+waitUntil { _var = missionNameSpace getVariable "initDone"; (!isNil "_var") && {missionNameSpace getVariable "initDone"} };
 
+player setPos (missionNameSpace getVariable "RESPAWN_POSITION");
 [0] spawn ZO_fnc_unitTracker;
 [0] spawn ZO_fnc_gearHandle;
 [] spawn ZO_fnc_respawnHandleLocal;

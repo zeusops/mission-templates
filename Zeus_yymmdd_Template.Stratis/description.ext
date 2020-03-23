@@ -49,8 +49,10 @@ class cfgFunctions {
 		{
 			file = "functions";
 			class coverMap;
+			class drawEditorObjects;
 			class gearBox;
 			class gearHandle;
+			class holdActionAdd;
 			class mapFunctionalities;
 			class respawnHandle;
 			class respawnHandleLocal;
