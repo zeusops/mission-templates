@@ -2,7 +2,7 @@
 //             EDITABLE VARIABLES             //
 ////////////////////////////////////////////////
 
-_faction = "ger_army_desert"; // All factions are in the factions folder, use custom to edit your own.
+_faction = "ger_army_woodland"; // All factions are in the factions folder, use custom to edit your own.
 _unitTrackerColor = "ColorBlufor"; // All colors: https://community.bistudio.com/wiki/CfgMarkerColors_Arma_3
 _nightvision = false; // Set to true if you want players to spawn with nightvision
 

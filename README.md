@@ -14,7 +14,6 @@ The templates have been created by [Dyzalonius](https://github.com/Dyzalonius) a
         2. Open the existing mission file in Eden Editor.
         3. Merge the template `mission.sqm` with the existing `mission.sqm` (file > merge, or press `'ctrl' + 'm'`).
 
-
 See the [Zeus Guide](https://docs.google.com/document/d/1PFK__UcgmAJ1P3xBnJxeW2ow7u8bgEfM8lkpHJrLYDU/edit#heading=h.nleh2xb28ay8) for in-depth information about using the templates.
 
 # Useful Code
@@ -30,6 +29,10 @@ See the [Zeus Guide](https://docs.google.com/document/d/1PFK__UcgmAJ1P3xBnJxeW2o
     missionNameSpace setVariable ["gearHeadgear", "classnameOfHeadgear", true];
     missionNameSpace setVariable ["gearRadio", "classnameOfRadio", true];
     missionNameSpace setVariable ["gearBackpackLeader", "classnameOfBackpackLeader", true];
-    missionNameSpace setVariable ["gearWeaponMain", ["classnameOfWeapon", "classnameOfAmmunition", "classnameOfScope"], true];
-    missionNameSpace setVariable ["gearWeaponAR", ["classnameOfWeapon", "classnameOfAmmunition", "classnameOfScope"], true];
-    missionNameSpace setVariable ["gearWeaponLauncher", ["classnameOfWeapon", "classnameOfAmmunition", "classnameOfScope"], true];
+    missionNameSpace setVariable ["gearNightvision", "classnameOfNightvision", true];
+    missionNameSpace setVariable ["gearWeapon1Use", "classnameOfWeapon", true];
+    missionNameSpace setVariable ["gearWeaponMain", ["classnameOfWeapon", "classnameOfAmmunition", ["classnameOfAttachment"]], true];
+    missionNameSpace setVariable ["gearWeaponAR", ["classnameOfWeapon", "classnameOfAmmunition", ["classnameOfAttachment"]], true];
+    missionNameSpace setVariable ["gearWeaponGrenadier", ["classnameOfWeapon", "classnameOfAmmunition", ["classnameOfAttachment"], "classnameOfSecondaryAmmunition"], true];
+    missionNameSpace setVariable ["gearWeaponMarksman", ["classnameOfWeapon", "classnameOfAmmunition", ["classnameOfAttachment"]], true];
+    missionNameSpace setVariable ["gearWeaponLauncher", ["classnameOfWeapon", "classnameOfAmmunition", ["classnameOfAttachment"]], true];

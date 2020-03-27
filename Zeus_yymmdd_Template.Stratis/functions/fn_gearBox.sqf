@@ -212,8 +212,11 @@ fn_addRearmAction = {
 			playSound "sound1";
 
 			if (!((missionNameSpace getVariable "playerGear") isEqualTo [])) then {
-				if ((_target getVariable "rearmUses") != 0) then {
-					_target setVariable ["rearmUses", (_target getVariable "rearmUses") - 1, false];
+				_rearmUses = (_target getVariable "rearmUses");
+				if (_rearmUses != 0) then {
+					if (_rearmUses > 0) then {
+						_target setVariable ["rearmUses", _rearmUses - 1, false];
+					};
 					cutText ["Rearmed", "PLAIN", 0.2];
 					[3] call ZO_fnc_gearHandle;
 				};

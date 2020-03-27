@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.35.0] - 2020-03-27
+### Added
+- Add factions:
+    - Latvian army
+    - Norwegian army
+    - PMC east
+    - PMC west
+    - Russian msv
+    - Sahrani liberation army
+    - United nations (Irish)
+
+### Fixed
+- Fix infinite rearm displaying negative uses after using once.
+
 ## [1.34.0] - 2020-03-23
 ### Added
 - Add `fn_drawEditorObjects` function: Naming triggers `drawEditorObjects_` with any suffix will draw editor placed objects in trigger area on the map.
