@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.35.1] - 2020-03-28
+### Changed
+- Change rifle used by usmc from M16A3 to M16A4.
+
+### Fixed
+- Fix scope used by usmc.
+
 ## [1.35.0] - 2020-03-27
 ### Added
 - Add factions:
