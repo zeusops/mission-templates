@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.36.0] - 2020-03-31
+### Removed
+- Remove PAK from medic loadout.
+
+### Fixed
+- Fix `fn_drawEditorObjects` drawing over other mapmarkers.
+
 ## [1.35.1] - 2020-03-28
 ### Changed
 - Change rifle used by usmc from M16A3 to M16A4.

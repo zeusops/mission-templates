@@ -158,7 +158,30 @@ _triggers = _missionObjects call fn_findTriggers;
 // Find objects
 _objects = [_triggers, _objectBlacklist, _missionObjects] call fn_findObjects;
 
+// Find existing map markers
+_markers = [];
+{
+    _markers pushback [_x, (getMarkerPos _x), (markerDir _x), (getMarkerSize _x), (markerText _x), (markerShape _x), (markerBrush _x), (markerType _x), (markerColor _x), (markerAlpha _x)];
+    // variable name, position, direction, size, text, shape, brush, type, color, alpha
+} foreach allMapMarkers;
+
 // Draw objects
 {
     [_x, _darkObjectWhitelist] call fn_drawObject;
 } foreach _objects;
+
+sleep 10;
+
+// Redraw existing map markers
+{
+    deleteMarker (_x select 0);
+    _marker = createMarker [(_x select 0), (_x select 1)];
+    _marker setMarkerDir (_x select 2);
+    _marker setMarkerSize (_x select 3);
+    _marker setMarkerText (_x select 4);
+    _marker setMarkerShape (_x select 5);
+    _marker setMarkerBrush (_x select 6);
+    _marker setMarkerType (_x select 7);
+    _marker setMarkerColor (_x select 8);
+    _marker setMarkerAlpha (_x select 9);
+} foreach _markers;

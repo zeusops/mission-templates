@@ -275,7 +275,6 @@ fn_gearLoadout = {
 			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
 			for "_i" from 1 to 16 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1)};
 			player addBackpack (missionNameSpace getVariable "gearBackpack");
-			player addItemToBackpack "ACE_personalAidKit";
 			for "_i" from 1 to 15 do {
 				player addItemToBackpack "ACE_salineIV";
 				player addItemToBackpack "ACE_tourniquet";
