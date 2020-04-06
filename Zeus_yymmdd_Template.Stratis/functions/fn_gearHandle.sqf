@@ -218,6 +218,7 @@ fn_gearLoadout = {
 			for "_i" from 1 to 16 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1)};
 			player addBackpack (missionNameSpace getVariable "gearBackpack");
 			player addItemToBackpack "ToolKit";
+			player addItemToBackpack "ACE_EntrenchingTool";
 
 			// set to non-medic and engineer
 			player setVariable ["Ace_medical_medicClass", 0];

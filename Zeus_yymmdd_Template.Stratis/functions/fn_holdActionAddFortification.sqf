@@ -1,6 +1,6 @@
 /*
-	@file_name: fn_holdActionAdd.sqf
-	@file_author: Jiri Wainar, modified by Dyzalonius
+	@file_name: fn_holdActionAddFortification.sqf
+	@file_author: Dyzalonius, based on fn_holdActionAdd from Jiri Wainar
 
 	Description:
 	Add a hold action. If the hold actions are not initialized yet, initialize the system first.
@@ -143,7 +143,8 @@ private _keyNameRaw = actionKeysNames ["Action",1,"Keyboard"];
 private _keyName = _keyNameRaw select [1,count _keyNameRaw - 2];
 //STR_A3_HoldKeyTo: Hold %1 to %2
 private _keyNameColored = format["<t color='#ffae00'>%1</t>",_keyName];
-private _title = _target call _titleCode;
+_fortificationArguments = [_arguments select 0, _arguments select 1, _arguments select 2, _arguments select 3, _arguments select 4];
+private _title = [_target, _fortificationArguments] call _titleCode;
 private _hint = format[localize "STR_A3_HoldKeyTo",_keyNameColored,_title];
 _hint = format["<t font='RobotoCondensedBold'>%1</t>",_hint];
 _title = format["<t color='#FFFFFF' align='left'>%1</t>        <t color='#83ffffff' align='right'>%2     </t>",_title,_keyName];
@@ -156,7 +157,7 @@ _arguments resize 10;
 _arguments = _arguments + [_target,_titleCode,_iconIdle,_iconProgress,_condShow,_condProgress,_codeStart,_codeProgress,_codeCompleted,_codeInterrupted,_duration,_removeCompleted];
 
 //[_target,_actionID,_titleCode,_icon,_textures,_frame,_showHint,_keyName] call bis_fnc_holdAction_showIcon;
-ZO_fnc_holdAction_showIcon =
+ZO_fnc_holdAction_showIconF =
 {
 	params
 	[
@@ -167,22 +168,27 @@ ZO_fnc_holdAction_showIcon =
 		["_texSet",TEXTURES_PROGRESS,[[]]],
 		["_frame",0,[123]],
 		["_showHint",false,[false]],
-		["_keyName", "",[""]]
+		["_keyName", "",[""]],
+		["_fortificationArguments", [], [[]]]
 	];
 
 	if (_icon isEqualType {}) then {
 		_icon = _target call _icon;
 	};
 
-	_title = format["<t color='#FFFFFF' align='left'>%1</t>        <t color='#83ffffff' align='right'>%2     </t>",_target call _titleCode,_keyName];
+	if (count _fortificationArguments == 0) then {
+		_fortificationArguments = ["", "", 0, 0, 0];
+	};
+
+	_title = format["<t color='#FFFFFF' align='left'>%1</t>        <t color='#83ffffff' align='right'>%2     </t>",[_target, _fortificationArguments] call _titleCode,_keyName];
 	_hint = "";
 	if (_showHint) then {
-		private _hint = format[localize "STR_A3_HoldKeyTo",format["<t color='#ffae00'>%1</t>",_keyName],_target call _titleCode];
+		private _hint = format[localize "STR_A3_HoldKeyTo",format["<t color='#ffae00'>%1</t>",_keyName],[_target, _fortificationArguments] call _titleCode];
 	};
 	_target setUserActionText [_actionID,_title,_texSet select _frame,_icon + "<br/><br/>" + _hint];
 };
 
-ZO_fnc_holdAction_animationTimerCode =
+ZO_fnc_holdAction_animationTimerCodeF =
 {
 	if (time > (missionNamespace getVariable ["bis_fnc_holdAction_animationIdleTime",-1]) && {_eval}) then
 	{
@@ -192,12 +198,15 @@ ZO_fnc_holdAction_animationTimerCode =
 		//play idle animation only when action is not in progress
 		if (!bis_fnc_holdAction_running) then
 		{
-			params["_titleCode","_iconIdle","_hint"];
+			params["_titleCode","_iconIdle","_hint","_fortificationArguments"];
 			private _keyNameRaw = actionKeysNames ["Action",1,"Keyboard"];
 			private _keyName = _keyNameRaw select [1,count _keyNameRaw - 2];
+			if (count _fortificationArguments == 0) then {
+				_fortificationArguments = ["", "", 0, 0, 0];
+			};
 
 			//idle animations always have 12 frames
-			[_originalTarget,_actionID,_titleCode,_iconIdle,TEXTURES_IDLE,bis_fnc_holdAction_animationIdleFrame,true,_keyName] call ZO_fnc_holdAction_showIcon;
+			[_originalTarget,_actionID,_titleCode,_iconIdle,TEXTURES_IDLE,bis_fnc_holdAction_animationIdleFrame,true,_keyName,_fortificationArguments] call ZO_fnc_holdAction_showIconF;
 		};
 	};
 };
@@ -207,10 +216,10 @@ private _codeInit =
 	bis_fnc_holdAction_running = true;
 
 	//check if another hold action is running, if so terminate the new hold action execution
-	if (!isNil "ZO_fnc_holdAction_scriptHandle" && {!scriptDone ZO_fnc_holdAction_scriptHandle}) exitWith {};
+	if (!isNil "ZO_fnc_holdAction_scriptHandleF" && {!scriptDone ZO_fnc_holdAction_scriptHandleF}) exitWith {};
 
 	bis_fnc_holdAction_params = _this;
-	ZO_fnc_holdAction_scriptHandle = _this spawn
+	ZO_fnc_holdAction_scriptHandleF = _this spawn
 	{
 		//unwrap arguments supplied by addAction command
 		params
@@ -230,6 +239,7 @@ private _codeInit =
 
 		//unwrap 'arguments' argument :)
 		_arguments params["_a0","_a1","_a2","_a3","_a4","_a5","_a6","_a7","_a8","_a9","_target","_titleCode","_iconIdle","_iconProgress","_condShow","_condProgress","_codeStart","_codeProgress","_codeCompleted","_codeInterrupted","_duration","_removeCompleted"];
+		_fortificationArguments = [_arguments select 0, _arguments select 1, _arguments select 2, _arguments select 3, _arguments select 4];
 
 		//retype conditions from string to code
 		private _condProgressCode = compile _condProgress;
@@ -240,7 +250,7 @@ private _codeInit =
 			sleep 0.05;
 
 			//update icon
-			[_target,_actionID,_titleCode,_iconIdle,TEXTURES_IN,_i,false,_keyName] call ZO_fnc_holdAction_showIcon;
+			[_target,_actionID,_titleCode,_iconIdle,TEXTURES_IN,_i,false,_keyName,_fortificationArguments] call ZO_fnc_holdAction_showIconF;
 		};
 
 		//execute supplied 'on start' action code
@@ -277,7 +287,7 @@ private _codeInit =
 			_frame = _frame + 1;
 
 			//update icon
-			[_target,_actionID,_titleCode,_iconProgress,TEXTURES_PROGRESS,_frame,false,_keyName] call ZO_fnc_holdAction_showIcon;
+			[_target,_actionID,_titleCode,_iconProgress,TEXTURES_PROGRESS,_frame,false,_keyName,_fortificationArguments] call ZO_fnc_holdAction_showIconF;
 
 			//execute supplied 'on progress' action code
 			[_target,_caller,_actionID,_arguments,_frame,FRAME_MAX_PROGRESS] call _codeProgress;
@@ -301,7 +311,7 @@ private _codeInit =
 		};
 
 		//reset the progress texture
-		[_target,_actionID,_titleCode,_iconIdle,TEXTURES_PROGRESS,0,false,_keyName] call ZO_fnc_holdAction_showIcon;
+		[_target,_actionID,_titleCode,_iconIdle,TEXTURES_PROGRESS,0,false,_keyName,_fortificationArguments] call ZO_fnc_holdAction_showIconF;
 
 		//enable player's action menu
 		{inGameUISetEventHandler [_x, ""]} forEach ["PrevAction", "NextAction"];
@@ -314,11 +324,13 @@ private _codeInit =
 //inject custom code to _condStart to allow for the idle animation
 if (_iconIdle isEqualType "") then
 {
-	_condShow = format["_target = _originalTarget; _eval = %1; [%2,""%3"",""%4""] call ZO_fnc_holdAction_animationTimerCode; _eval",_condShow,_titleCode,_iconIdle,_hint];
+	_fortificationArguments = [_arguments select 0, _arguments select 1, str (_arguments select 2), str (_arguments select 3), str (_arguments select 4)];
+	_condShow = format["_target = _originalTarget; _eval = %1; [%2,""%3"",""%4"",%5] call ZO_fnc_holdAction_animationTimerCodeF; _eval",_condShow,_titleCode,_iconIdle,_hint,_fortificationArguments];
 }
 else
 {
-	_condShow = format["_target = _originalTarget; _eval = %1; [%2,%3,""%4""] call ZO_fnc_holdAction_animationTimerCode; _eval",_condShow,_titleCode,_iconIdle,_hint];
+	_fortificationArguments = [_arguments select 0, _arguments select 1, str (_arguments select 2), str (_arguments select 3), str (_arguments select 4)];
+	_condShow = format["_target = _originalTarget; _eval = %1; [%2,%3,""%4"",%5] call ZO_fnc_holdAction_animationTimerCodeF; _eval",_condShow,_titleCode,_iconIdle,_hint,_fortificationArguments];
 };
 
 //add the action
@@ -332,18 +344,19 @@ private _actionID = _target addAction [_title, _codeInit, _arguments, _priority,
 		["_arguments",[],[[]]]
 	];
 	_arguments params["_a0","_a1","_a2","_a3","_a4","_a5","_a6","_a7","_a8","_a9","_target","_titleCode","_iconIdle","_iconProgress","_condShow","_condProgress","_codeStart","_codeProgress","_codeCompleted","_codeInterrupted","_duration","_removeCompleted"];
+	_fortificationArguments = [_arguments select 0, _arguments select 1, _arguments select 2, _arguments select 3, _arguments select 4];
 	private _keyNameRaw = actionKeysNames ["Action",1,"Keyboard"];
 	private _keyName = _keyNameRaw select [1,count _keyNameRaw - 2];
 
 	while {alive _target} do {
 		waitUntil { _var = _target getVariable "updateAllHoldActions"; (!isNil "_var") && {_target getVariable "updateAllHoldActions"} };
-		[_target,_actionID,_titleCode,_iconIdle,TEXTURES_PROGRESS,0,false,_keyName] call ZO_fnc_holdAction_showIcon;
+		[_target,_actionID,_titleCode,_iconIdle,TEXTURES_PROGRESS,0,false,_keyName,_fortificationArguments] call ZO_fnc_holdAction_showIconF;
 		sleep 0.1;
 		_target setVariable ["updateAllHoldActions", false, true];
 	};
 };
 
 //set the initial state to frame 0
-[_target,_actionID,_titleCode,_iconIdle,TEXTURES_IDLE,0,false,_keyName] call ZO_fnc_holdAction_showIcon;
+[_target,_actionID,_titleCode,_iconIdle,TEXTURES_IDLE,0,false,_keyName,_fortificationArguments] call ZO_fnc_holdAction_showIconF;
 
 _actionID

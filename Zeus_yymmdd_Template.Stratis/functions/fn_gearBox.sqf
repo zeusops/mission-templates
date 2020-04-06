@@ -12,14 +12,14 @@ fn_addATRiflemanAction = {
 
 	// Add the hold-action to the object
 	[
-		/* 0 object */                      _object,
-		/* 1 action title */                "Load AT RIFLEMAN",
-		/* 2 idle icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
-		/* 3 progress icon */               "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
-		/* 4 condition to show */           "(_this distance _target < 3)",
-		/* 5 condition for action */        "(_this distance _target < 3)",
-		/* 6 code executed on start */      {},
-		/* 7 code executed per tick */      {},
+		/* 0 object */                      	_object,
+		/* 1 action title */                	"Load AT RIFLEMAN",
+		/* 2 idle icon */                   	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
+		/* 3 progress icon */               	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
+		/* 4 condition to show */           	"(_this distance _target < 3)",
+		/* 5 condition for action */        	"(_this distance _target < 3)",
+		/* 6 code executed on start */      	{},
+		/* 7 code executed per tick */      	{},
 		/* 8 code executed on completion */
 		{
 			playSound "sound1";
@@ -40,26 +40,26 @@ fn_addAutoriflemanAction = {
 
 	// Add the hold-action to the object
 	[
-		/* 0 object */                      _object,
-		/* 1 action title */                "Load AUTORIFLEMAN",
-		/* 2 idle icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
-		/* 3 progress icon */               "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
-		/* 4 condition to show */           "(_this distance _target < 3)",
-		/* 5 condition for action */        "(_this distance _target < 3)",
-		/* 6 code executed on start */      {},
-		/* 7 code executed per tick */      {},
+		/* 0 object */                     	 	_object,
+		/* 1 action title */                	"Load AUTORIFLEMAN",
+		/* 2 idle icon */                   	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
+		/* 3 progress icon */               	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
+		/* 4 condition to show */           	"(_this distance _target < 3)",
+		/* 5 condition for action */        	"(_this distance _target < 3)",
+		/* 6 code executed on start */      	{},
+		/* 7 code executed per tick */      	{},
 		/* 8 code executed on completion */
 		{
 			playSound "sound1";
 
 			[1, "AUTORIFLEMAN"] call ZO_fnc_gearHandle;
 		},
-		/* 9 code executed on interruption */  {},
-		/* 10 arguments */                     [],
-		/* 11 action duration */               1,
-		/* 12 priority */                      8,
-		/* 13 remove on completion */          false,
-		/* 14 show unconscious */              false
+		/* 9 code executed on interruption */  	{},
+		/* 10 arguments */                     	[],
+		/* 11 action duration */               	1,
+		/* 12 priority */                      	8,
+		/* 13 remove on completion */          	false,
+		/* 14 show unconscious */              	false
 	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
 };
 
@@ -68,14 +68,14 @@ fn_addEngineerAction = {
 
 	// Add the hold-action to the object
 	[
-		/* 0 object */                      _object,
-		/* 1 action title */                "Load ENGINEER",
-		/* 2 idle icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
-		/* 3 progress icon */               "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
-		/* 4 condition to show */           "(_this distance _target < 3)",
-		/* 5 condition for action */        "(_this distance _target < 3)",
-		/* 6 code executed on start */      {},
-		/* 7 code executed per tick */      {},
+		/* 0 object */                      	_object,
+		/* 1 action title */                	"Load ENGINEER",
+		/* 2 idle icon */                   	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
+		/* 3 progress icon */               	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
+		/* 4 condition to show */           	"(_this distance _target < 3)",
+		/* 5 condition for action */        	"(_this distance _target < 3)",
+		/* 6 code executed on start */      	{},
+		/* 7 code executed per tick */      	{},
 		/* 8 code executed on completion */
 		{
 			playSound "sound1";
@@ -96,14 +96,14 @@ fn_addGrenadierAction = {
 
 	// Add the hold-action to the object
 	[
-		/* 0 object */                      _object,
-		/* 1 action title */                "Load GRENADIER",
-		/* 2 idle icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
-		/* 3 progress icon */               "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
-		/* 4 condition to show */           "(_this distance _target < 3)",
-		/* 5 condition for action */        "(_this distance _target < 3)",
-		/* 6 code executed on start */      {},
-		/* 7 code executed per tick */      {},
+		/* 0 object */                      	_object,
+		/* 1 action title */                	"Load GRENADIER",
+		/* 2 idle icon */                   	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
+		/* 3 progress icon */               	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
+		/* 4 condition to show */           	"(_this distance _target < 3)",
+		/* 5 condition for action */        	"(_this distance _target < 3)",
+		/* 6 code executed on start */      	{},
+		/* 7 code executed per tick */      	{},
 		/* 8 code executed on completion */
 		{
 			playSound "sound1";
@@ -126,8 +126,8 @@ fn_addMarksmanAction = {
 	[
 		/* 0 object */                           _object,
 		/* 1 action title */                    "Load MARKSMAN",
-		/* 2 idle icon */                       "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
-		/* 3 progress icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
+		/* 2 idle icon */                   	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
+		/* 3 progress icon */               	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
 		/* 4 condition to show */               "(_this distance _target < 3)",
 		/* 5 condition for action */            "(_this distance _target < 3)",
 		/* 6 code executed on start */          {},
@@ -152,26 +152,26 @@ fn_addMedicAction = {
 
 	// Add the hold-action to the object
 	[
-		/* 0 object */                      _object,
-		/* 1 action title */                "Load MEDIC",
-		/* 2 idle icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
-		/* 3 progress icon */               "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
-		/* 4 condition to show */           "(_this distance _target < 3)",
-		/* 5 condition for action */        "(_this distance _target < 3)",
-		/* 6 code executed on start */      {},
-		/* 7 code executed per tick */      {},
+		/* 0 object */                      	_object,
+		/* 1 action title */                	"Load MEDIC",
+		/* 2 idle icon */                   	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
+		/* 3 progress icon */               	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
+		/* 4 condition to show */           	"(_this distance _target < 3)",
+		/* 5 condition for action */        	"(_this distance _target < 3)",
+		/* 6 code executed on start */      	{},
+		/* 7 code executed per tick */      	{},
 		/* 8 code executed on completion */
 		{
 			playSound "sound1";
 
 			[1, "MEDIC"] call ZO_fnc_gearHandle;
 		},
-		/* 9 code executed on interruption */ {},
-		/* 10 arguments */                    [],
-		/* 11 action duration */              1,
-		/* 12 priority */                     8,
-		/* 13 remove on completion */         false,
-		/* 14 show unconscious */             false
+		/* 9 code executed on interruption */ 	{},
+		/* 10 arguments */                    	[],
+		/* 11 action duration */              	1,
+		/* 12 priority */                     	8,
+		/* 13 remove on completion */         	false,
+		/* 14 show unconscious */             	false
 	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
 };
 
@@ -180,7 +180,7 @@ fn_addRearmAction = {
 
 	// Add the hold-action to the object
 	[
-		/* 0 object */                      _object,
+		/* 0 object */                      	_object,
 		/* 1 action title */
 		{
 			switch (_this getVariable 'rearmUses') do {
@@ -201,12 +201,12 @@ fn_addRearmAction = {
 				};
 			};
 		},
-		/* 2 idle icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff1_ca.paa",
-		/* 3 progress icon */               "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff1_ca.paa",
-		/* 4 condition to show */           "(_this distance _target < 3)",
-		/* 5 condition for action */        "(_this distance _target < 3) && (_target getVariable ""rearmUses"") != 0",
-		/* 6 code executed on start */      {},
-		/* 7 code executed per tick */      {},
+		/* 2 idle icon */                   	"files\holdAction_rearm.paa",
+		/* 3 progress icon */               	"files\holdAction_rearm.paa",
+		/* 4 condition to show */           	"(_this distance _target < 3)",
+		/* 5 condition for action */        	"(_this distance _target < 3) && (_target getVariable ""rearmUses"") != 0",
+		/* 6 code executed on start */      	{},
+		/* 7 code executed per tick */      	{},
 		/* 8 code executed on completion */
 		{
 			playSound "sound1";
@@ -245,8 +245,8 @@ fn_addRiflemanAction = {
 	[
 		/* 0 object */                           _object,
 		/* 1 action title */                    "Load RIFLEMAN",
-		/* 2 idle icon */                       "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
-		/* 3 progress icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
+		/* 2 idle icon */                   	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
+		/* 3 progress icon */               	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
 		/* 4 condition to show */               "(_this distance _target < 3)",
 		/* 5 condition for action */            "(_this distance _target < 3)",
 		/* 6 code executed on start */          {},
@@ -273,8 +273,8 @@ fn_addSaveAction = {
 	[
 		/* 0 object */                          _object,
 		/* 1 action title */                    "SAVE loadout for rearm",
-		/* 2 idle icon */                       "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff1_ca.paa",
-		/* 3 progress icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff1_ca.paa",
+		/* 2 idle icon */                       "files\holdAction_save.paa",
+		/* 2 idle icon */                       "files\holdAction_save.paa",
 		/* 4 condition to show */               "(_this distance _target < 3)",
 		/* 5 condition for action */            "(_this distance _target < 3)",
 		/* 6 code executed on start */          {},
@@ -301,8 +301,8 @@ fn_addTeamleaderAction = {
 	[
 		/* 0 object */                          _object,
 		/* 1 action title */                    "Load TEAMLEADER",
-		/* 2 idle icon */                       "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
-		/* 3 progress icon */                   "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
+		/* 2 idle icon */                   	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
+		/* 3 progress icon */               	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
 		/* 4 condition to show */               "(_this distance _target < 3)",
 		/* 5 condition for action */            "(_this distance _target < 3)",
 		/* 6 code executed on start */          {},
@@ -348,8 +348,9 @@ fn_createBox = {
 //               FUNCTION LOOP                //
 ////////////////////////////////////////////////
 
-_request = _this select 0;
 if (isDedicated && !isServer) exitWith {};
+
+_request = _this select 0;
 
 switch (_request) do {
 	// START BOX

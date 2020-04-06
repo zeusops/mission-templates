@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.37.0] - 2020-04-06
+### Added
+- Add entrenching tool to engineer loadout.
+- Add custom icons for arsenal and rearm box.
+- Add `fn_fortificationBox` function: Spawning a box that allows engineers to spawn fortifications.
+
 ## [1.36.0] - 2020-03-31
 ### Removed
 - Remove PAK from medic loadout.
