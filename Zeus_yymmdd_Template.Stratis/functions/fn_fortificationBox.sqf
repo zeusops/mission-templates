@@ -43,7 +43,7 @@ fn_addConfirmAction = {
 		/* 12 priority */                       10,
 		/* 13 remove on completion */           false,
 		/* 14 show unconscious */               false
-	] remoteExec ["ZO_fnc_holdActionAdd",[0,-2] select isDedicated,true];
+	] call ZO_fnc_holdActionAdd;
 };
 
 fn_addReturnAction = {
@@ -74,7 +74,7 @@ fn_addReturnAction = {
 		/* 12 priority */                       7,
 		/* 13 remove on completion */           false,
 		/* 14 show unconscious */               false
-	] remoteExec ["ZO_fnc_holdActionAdd",[0,-2] select isDedicated,true];
+	] call ZO_fnc_holdActionAdd;
 };
 
 fn_addRotateAction = {
@@ -152,8 +152,8 @@ fn_addFortificationAction = {
 		},
 		/* 2 idle icon */                   "files\holdAction_hammer.paa",
 		/* 3 progress icon */               "files\holdAction_hammer.paa",
-		/* 4 condition to show */           "(_this distance _target < (_target getVariable ""interactionDistance"")) && ((isNil { _this getVariable ""movingObject"" }) || {(_this getVariable ""movingObject"") isEqualTo objNull})",
-		/* 5 condition for action */        "(_this distance _target < (_target getVariable ""interactionDistance"")) && (_target getVariable ""materialCount"") >= (_arguments select 2) && (_this getVariable ""Ace_IsEngineer"") == 1",
+		/* 4 condition to show */           "(_this distance _target < (_target getVariable ""interactionDistance"")) && ((_this getVariable [""movingObject"", objNull]) isEqualTo objNull)",
+		/* 5 condition for action */        "(_this distance _target < (_target getVariable ""interactionDistance"")) && (_target getVariable ""materialCount"") >= (_arguments select 2) && {_isEngineer = _this getVariable [""Ace_IsEngineer"", 0]; if (_isEngineer isEqualType false) then { _isEngineer = [0, 1] select _isEngineer; }; _isEngineer == 1}",
 		/* 6 code executed on start */      {},
 		/* 7 code executed per tick */      {},
 		/* 8 code executed on completion */
@@ -174,9 +174,13 @@ fn_addFortificationAction = {
 		},
 		/* 9 code executed on interruption */
 		{
-			if ((_caller getVariable "Ace_IsEngineer") != 1) then {
+			_isEngineer = _caller getVariable ["Ace_IsEngineer", 0];
+			if (_isEngineer isEqualType false) then {
+				_isEngineer = [0, 1] select _isEngineer;
+			};
+			if (_isEngineer != 1) then {
 				cutText ["You are not an engineer", "PLAIN", 0.2];
-			}
+			};
 		},
 		/* 10 arguments */                      [_objectClassname, _objectName, _objectCost, _objectDistance, _objectDefaultRotation],
 		/* 11 action duration */                1,
@@ -304,6 +308,11 @@ if (isDedicated && !isServer) exitWith {};
 _request = _this select 0;
 
 switch (_request) do {
+	// INITIALISATION
+	case -1: {
+
+	};
+
 	// SMALL FORTIFICATIONS
 	case 0: {
         _position = _this select 1;

@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.37.1] - 2020-04-09
+### Fixed
+- Fix Fortification box confirm and return actions appearing for every player on the caller.
+- Fix 'You are not an engineer' message not appearing if the variable has never been set.
+- Fix fn_giveObject in `fn_fortificationBox` not existing by initialising it.
+
 ## [1.37.0] - 2020-04-06
 ### Added
 - Add entrenching tool to engineer loadout.
