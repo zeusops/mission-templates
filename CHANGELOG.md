@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.38.0] - 2020-04-09
+### Added
+- A patch that fixes and extends some buggy Shacktac UI functionality:
+  * ACE medics will now properly show the medic icon next to their name
+  * Give ACE egineers the proper icon
+  * Players with single-use AT (riflemen) or AA will no longer show up as AT
+
 ## [1.37.1] - 2020-04-09
 ### Fixed
 - Fix Fortification box confirm and return actions appearing for every player on the caller.
