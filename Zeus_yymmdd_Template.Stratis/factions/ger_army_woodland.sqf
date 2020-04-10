@@ -1,5 +1,5 @@
 missionNameSpace setVariable ["gearUniform",            "Uniform_Full_FLECKTARN", true];
-missionNameSpace setVariable ["gearVest",               "vest_lite_FLECKTARN", true];
+missionNameSpace setVariable ["gearVest",               "vest_spc_rifleman_FLECKTARN", true];
 missionNameSpace setVariable ["gearBackpack",           "FLECKTARN_Kitbag", true];
 missionNameSpace setVariable ["gearHeadgear",           "helmet_lwh_FLECKTARN", true];
 missionNameSpace setVariable ["gearRadio",              "TFAR_anprc152", true];

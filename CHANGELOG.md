@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.39.0] - 2020-04-10
+### Added
+- Add factions:
+    - Czech army
+    - Israeli army
+    - Swedish army
+
+### Changed
+- Change factions gear:
+    - Canadian army vest and main weapon
+    - German army vest
+    - Latvian army vest
+    - UK army vest and main weapon
+    - United nations vest
+
+### Fixed
+- Fix fortification box removing all addactions when placing or returning.
+- Fix fortification box material count not updating for all players.
+- Fix setting players as medic or engineer wrong.
+
 ## [1.38.0] - 2020-04-09
 ### Added
 - A patch that fixes and extends some buggy Shacktac UI functionality:

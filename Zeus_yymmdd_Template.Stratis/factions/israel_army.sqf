@@ -1,0 +1,13 @@
+missionNameSpace setVariable ["gearUniform",            "Uniform_Full_OLIVE", true];
+missionNameSpace setVariable ["gearVest",               "vest_spc_rifleman_OLIVE", true];
+missionNameSpace setVariable ["gearBackpack",           "OLIVE_Kitbag", true];
+missionNameSpace setVariable ["gearHeadgear",           "helmet_lwh_OLIVE", true];
+missionNameSpace setVariable ["gearRadio",              "TFAR_anprc152", true];
+missionNameSpace setVariable ["gearBackpackLeader",     "unv_OLIVE_big_rt1523g", true];
+missionNameSpace setVariable ["gearNightvision",        "rhsusf_ANPVS_14", true];
+missionNameSpace setVariable ["gearWeapon1Use",         "rhs_weap_m136", true];
+missionNameSpace setVariable ["gearWeaponMain",         ["TAR21_Black", "rhs_mag_30Rnd_556x45_M855A1_Stanag_Pull_Tracer_Red", ["rhsusf_acc_ACOG_RMR", "rhsusf_acc_anpeq15_bk"]], true];
+missionNameSpace setVariable ["gearWeaponAR",           ["LMG_Zafir_F", "150Rnd_762x54_Box_Tracer", ["rhsusf_acc_ACOG_RMR"]], true];
+missionNameSpace setVariable ["gearWeaponGrenadier",    ["GTAR21_EGLM_Black", "UK3CB_BAF_556_30Rnd_T", ["rhsusf_acc_ACOG_RMR", "rhsusf_acc_anpeq15_bk"], "rhs_mag_M441_HE"], true];
+missionNameSpace setVariable ["gearWeaponMarksman",     ["rhs_weap_sr25", "rhsusf_20Rnd_762x51_SR25_m62_Mag", ["optic_AMS","bipod_01_F_blk"]], true];
+missionNameSpace setVariable ["gearWeaponLauncher",     ["launch_MRAWS_olive_rail_F", "MRAWS_HEAT_F", [""]], true];

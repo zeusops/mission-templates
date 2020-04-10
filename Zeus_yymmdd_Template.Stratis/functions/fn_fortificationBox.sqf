@@ -1,5 +1,5 @@
 /*
-	@file_name: fn_gearBox.sqf
+	@file_name: fn_fortificationBox.sqf
 	@file_author: Dyzalonius
 */
 
@@ -11,7 +11,7 @@ fn_addConfirmAction = {
     _object = _this;
 
     // Add the hold-action to the object
-	[
+	_actionId = [
 		/* 0 object */                      player,
 		/* 1 action title */
 		{
@@ -35,7 +35,7 @@ fn_addConfirmAction = {
             [_caller, "forceWalk", "MovingObject", false] call ace_common_fnc_statusEffect_set;
             _caller action ["SwitchWeapon", _caller, _caller, 0];
             ["ace_common_enableSimulationGlobal", [_object, true]] call CBA_fnc_serverEvent;
-            removeAllActions _caller;
+			[] call fn_removeAllMovingObjectActions;
 		},
 		/* 9 code executed on interruption */   {},
 		/* 10 arguments */                      [],
@@ -44,13 +44,30 @@ fn_addConfirmAction = {
 		/* 13 remove on completion */           false,
 		/* 14 show unconscious */               false
 	] call ZO_fnc_holdActionAdd;
+
+	// Add action id to players movingObjectActionIDs
+	_actionID call fn_addMovingObjectActionID;
+};
+
+fn_addMovingObjectActionID = {
+	_actionID = _this;
+	_actionIDs = player getVariable ["movingObjectActionIDs", []];
+	_actionIDs pushback _actionID;
+	player setVariable ["movingObjectActionIDs", _actionIDs, false];
+};
+
+fn_removeAllMovingObjectActions = {
+	_actionIDs = player getVariable ["movingObjectActionIDs", []];
+	{
+		player removeAction _x;
+	} foreach _actionIDs;
 };
 
 fn_addReturnAction = {
     _object = _this;
 
     // Add the hold-action to the object
-	[
+	_actionId = [
 		/* 0 object */                      player,
 		/* 1 action title */
 		{
@@ -75,12 +92,15 @@ fn_addReturnAction = {
 		/* 13 remove on completion */           false,
 		/* 14 show unconscious */               false
 	] call ZO_fnc_holdActionAdd;
+
+	// Add action id to players movingObjectActionIDs
+	_actionID call fn_addMovingObjectActionID;
 };
 
 fn_addRotateAction = {
     _object = _this;
 
-    player addAction [
+    _actionId = player addAction [
         "<t color='#FFFFFF' align='left'>Rotate object</t>        <t color='#83ffffff' align='right'>R     </t>",
         {
             params ["_target", "_caller", "_actionId", "_arguments"];
@@ -98,12 +118,15 @@ fn_addRotateAction = {
         "reloadMagazine", // shortcut
         "true" // condition
     ];
+
+	// Add action id to players movingObjectActionIDs
+	_actionID call fn_addMovingObjectActionID;
 };
 
 fn_addSnapAction = {
     _object = _this;
 
-    player addAction [
+    _actionId = player addAction [
         "<t color='#FFFFFF' align='left'>Toggle snap</t>        <t color='#83ffffff' align='right'>E     </t>",
         {
             params ["_target", "_caller", "_actionId", "_arguments"];
@@ -120,6 +143,9 @@ fn_addSnapAction = {
         "LeanRight", // shortcut
         "true" // condition
     ];
+
+	// Add action id to players movingObjectActionIDs
+	_actionID call fn_addMovingObjectActionID;
 };
 
 fn_addFortificationAction = {
@@ -167,7 +193,7 @@ fn_addFortificationAction = {
             _materialCount = (_target getVariable "materialCount");
 
             if (_materialCount >= _objectCost) then {
-                _target setVariable ["materialCount", _materialCount - _objectCost, false];
+                _target setVariable ["materialCount", _materialCount - _objectCost, true];
                 [_objectClassname, _objectCost, _objectDistance, _objectDefaultRotation, _target] call fn_giveObject;
                 _target setVariable ["updateAllHoldActions", true, true];
             };
@@ -249,7 +275,7 @@ fn_returnObject = {
 	_caller setVariable ["movingObjectOrigin", objNull, true];
 	_caller setVariable ["movingObjectMaterialCost", 0, true];
 	[_caller, "forceWalk", "MovingObject", false] call ace_common_fnc_statusEffect_set;
-	removeAllActions _caller;
+	[] call fn_removeAllMovingObjectActions;
 
 	if (!(_object isEqualTo objNull)) then {
 		deleteVehicle _object;
@@ -376,16 +402,23 @@ switch (_request) do {
 	// BIG FORTIFICATIONS ON EXISTING OBJECT
 	case 3: {
         _object = _this select 1;
-        _materialCount = 10;
-        _interactionDistance = 3;
+        _materialCount = 100;
+        _interactionDistance = 10;
         _object setVariable ["materialCount", _materialCount, true];
         _object setVariable ["interactionDistance", _interactionDistance, true];
 
 		// params = [_box, _className, _displayName, _cost, _distanceFromPlayer]
-		[_object, "Land_BagBunker_Small_F", "BAGBUNKER", 5, 4, 180] call fn_addFortificationAction;
+		[_object, "Land_BagBunker_Large_F", "BAGBUNKERLARGE", 20, 9, 180] call fn_addFortificationAction;
+		[_object, "Land_BagBunker_Small_F", "BAGBUNKERSMALL", 5, 4, 180] call fn_addFortificationAction;
 		[_object, "Land_BagFence_Long_F", "BAGWALL", 1, 3, 0] call fn_addFortificationAction;
 		[_object, "Land_BagFence_Round_F", "BAGWALLROUND", 1, 3, 180] call fn_addFortificationAction;
-		[_object, "Land_HBarrier_1_F", "HBARRIER", 2, 3, 90] call fn_addFortificationAction;
+		[_object, "Land_HBarrier_1_F", "HBARRIER1", 2, 3, 90] call fn_addFortificationAction;
+		[_object, "Land_HBarrier_3_F", "HBARRIER3", 6, 3, 0] call fn_addFortificationAction;
+		[_object, "Land_HBarrier_5_F", "HBARRIER5", 10, 5, 0] call fn_addFortificationAction;
+		[_object, "Land_HBarrier_Big_F", "HBARRIERLARGE", 10, 6, 0] call fn_addFortificationAction;
 		[_object, "Land_CzechHedgeHog_01_new_F", "HEDGEHOG", 1, 3, 0] call fn_addFortificationAction;
+		[_object, "Land_CncShelter_F", "CONCRETESHELTER", 4, 3, 0] call fn_addFortificationAction;
+		[_object, "Land_CncBarrierMedium_F", "CONCRETEBARRIER", 1, 3, 0] call fn_addFortificationAction;
+		[_object, "Land_Razorwire_F", "RAZORWIRE", 1, 6, 0] call fn_addFortificationAction;
 	};
 };

@@ -1,5 +1,5 @@
 missionNameSpace setVariable ["gearUniform",            "Uniform_Full_NBS", true];
-missionNameSpace setVariable ["gearVest",               "vest_lite_NBS", true];
+missionNameSpace setVariable ["gearVest",               "vest_spc_rifleman_NBS", true];
 missionNameSpace setVariable ["gearBackpack",           "NBS_Kitbag", true];
 missionNameSpace setVariable ["gearHeadgear",           "helmet_lwh_NBS", true];
 missionNameSpace setVariable ["gearRadio",              "TFAR_anprc152", true];

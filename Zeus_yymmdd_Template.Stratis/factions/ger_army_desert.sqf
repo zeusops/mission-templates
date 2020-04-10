@@ -1,5 +1,5 @@
 missionNameSpace setVariable ["gearUniform",            "Uniform_Full_TROPENTARN", true];
-missionNameSpace setVariable ["gearVest",               "rhsusf_mbav_rifleman", true];
+missionNameSpace setVariable ["gearVest",               "vest_spc_rifleman_TROPENTARN", true];
 missionNameSpace setVariable ["gearBackpack",           "TROPENTARN_Kitbag", true];
 missionNameSpace setVariable ["gearHeadgear",           "helmet_lwh_TROPENTARN", true];
 missionNameSpace setVariable ["gearRadio",              "TFAR_anprc152", true];

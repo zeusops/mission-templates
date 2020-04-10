@@ -1,5 +1,5 @@
 missionNameSpace setVariable ["gearUniform",            "Uniform_Full_CIRCA", true];
-missionNameSpace setVariable ["gearVest",               "vest_lite_CIRCA", true];
+missionNameSpace setVariable ["gearVest",               "vest_spc_rifleman_CIRCA", true];
 missionNameSpace setVariable ["gearBackpack",           "CIRCA_Kitbag", true];
 missionNameSpace setVariable ["gearHeadgear",           "helmet_lwh_CIRCA", true];
 missionNameSpace setVariable ["gearRadio",              "TFAR_anprc152", true];

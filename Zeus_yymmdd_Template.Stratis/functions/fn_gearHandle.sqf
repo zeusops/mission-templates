@@ -182,8 +182,8 @@ fn_gearLoadout = {
 			for "_i" from 1 to 3 do {player addItemToBackpack ((missionNameSpace getVariable "gearWeaponLauncher") select 1)};
 
 			// set to non-medic and non-engineer
-			player setVariable ["Ace_medical_medicClass", 0];
-			player setVariable ["Ace_IsEngineer", 0];
+			player setVariable ["Ace_medical_medicClass", 0, true];
+			player setVariable ["Ace_IsEngineer", 0, true];
 		};
 
 		case "AUTORIFLEMAN": {
@@ -201,8 +201,8 @@ fn_gearLoadout = {
 			for "_i" from 1 to 3 do {player addItemToBackpack ((missionNameSpace getVariable "gearWeaponAR") select 1)};
 
 			// set to non-medic and non-engineer
-			player setVariable ["Ace_medical_medicClass", 0];
-			player setVariable ["Ace_IsEngineer", 0];
+			player setVariable ["Ace_medical_medicClass", 0, true];
+			player setVariable ["Ace_IsEngineer", 0, true];
 		};
 
 		case "ENGINEER": {
@@ -221,8 +221,8 @@ fn_gearLoadout = {
 			player addItemToBackpack "ACE_EntrenchingTool";
 
 			// set to non-medic and engineer
-			player setVariable ["Ace_medical_medicClass", 0];
-			player setVariable ["Ace_IsEngineer", 1];
+			player setVariable ["Ace_medical_medicClass", 0, true];
+			player setVariable ["Ace_IsEngineer", 1, true];
 		};
 
 		case "GRENADIER": {
@@ -241,8 +241,8 @@ fn_gearLoadout = {
 			for "_i" from 1 to 16 do {player addItemToBackpack ((missionNameSpace getVariable "gearWeaponGrenadier") select 3)};
 
 			// set to non-medic and non-engineer
-			player setVariable ["Ace_medical_medicClass", 0];
-			player setVariable ["Ace_IsEngineer", 0];
+			player setVariable ["Ace_medical_medicClass", 0, true];
+			player setVariable ["Ace_IsEngineer", 0, true];
 		};
 
 		case "MARKSMAN": {
@@ -260,8 +260,8 @@ fn_gearLoadout = {
 			for "_i" from 1 to 3 do {player addItemToBackpack ((missionNameSpace getVariable "gearWeaponMarksman") select 1)};
 
 			// set to non-medic and non-engineer
-			player setVariable ["Ace_medical_medicClass", 0];
-			player setVariable ["Ace_IsEngineer", 0];
+			player setVariable ["Ace_medical_medicClass", 0, true];
+			player setVariable ["Ace_IsEngineer", 0, true];
 		};
 
 		case "MEDIC": {
@@ -286,8 +286,8 @@ fn_gearLoadout = {
 			};
 
 			// set to medic and non-engineer
-			player setVariable ["Ace_medical_medicClass", 1];
-			player setVariable ["Ace_IsEngineer", 0];
+			player setVariable ["Ace_medical_medicClass", 1, true];
+			player setVariable ["Ace_IsEngineer", 0, true];
 		};
 
 		case "RIFLEMAN": {
@@ -306,8 +306,8 @@ fn_gearLoadout = {
 			player addWeapon (missionNameSpace getVariable "gearWeapon1Use");
 
 			// set to non-medic and non-engineer
-			player setVariable ["Ace_medical_medicClass", 0];
-			player setVariable ["Ace_IsEngineer", 0];
+			player setVariable ["Ace_medical_medicClass", 0, true];
+			player setVariable ["Ace_IsEngineer", 0, true];
 		};
 
 		case "TEAMLEADER": {
@@ -326,8 +326,8 @@ fn_gearLoadout = {
 			player addBackpack (missionNameSpace getVariable "gearBackpackLeader");
 
 			// set to non-medic and non-engineer
-			player setVariable ["Ace_medical_medicClass", 0];
-			player setVariable ["Ace_IsEngineer", 0];
+			player setVariable ["Ace_medical_medicClass", 0, true];
+			player setVariable ["Ace_IsEngineer", 0, true];
 		};
 	};
 

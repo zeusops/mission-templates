@@ -3,7 +3,7 @@
 player setVariable ["ACE_GForceCoef", 0];
 missionNameSpace setVariable ["playerGear", [], false];
 
-waitUntil { _var = missionNameSpace getVariable "initDone"; (!isNil "_var") && {missionNameSpace getVariable "initDone"} };
+waitUntil { missionNameSpace getVariable ["initDone", false] };
 
 player setPos (missionNameSpace getVariable "RESPAWN_POSITION");
 [0] spawn ZO_fnc_unitTracker;
