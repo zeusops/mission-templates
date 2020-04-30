@@ -95,352 +95,534 @@ class CfgORBAT
 			texture = __EVAL((__FILE__ select [0, count __FILE__ - 15]) + "files\logo");
 			description = "";
 
-			class CO
+			class BN
 			{
 				side = "West";
 				color[] = {0.7,0.6,0,1};
-				size = "Company";
-				type = "Infantry";
-				text = "Company";
-				textShort = "CO";
+				size = "Battalion";
+				type = "Unknown";
+				text = "Battalion";
+				textShort = "BN";
 				assets[] = {};
-				description = "Mixed Company.<br/><br/>Freq: 79";
+				description = "Mixed Battalion.<br/><br/>Freq: 30";
 
-				class HQCO
+				class HQBN
 				{
 					side = "West";
 					color[] = {0.7,0.6,0,1};
 					size = "Fireteam";
 					type = "HQ";
-					text = "Company HQ";
-					textShort = "HQCO";
+					text = "Battalion HQ";
+					textShort = "HQBN";
 					assets[] = {};
-					description = "HQ element stationed at base.<br/><br/>Freq: 79.1";
+					description = "HQ element stationed at base.<br/><br/>Freq: 30.1";
 				};
-				class 1PLT
+
+				class CO
 				{
 					side = "West";
 					color[] = {0.7,0.6,0,1};
-					size = "Platoon";
-					type = "Infantry";
-					text = "1st Infantry Platoon";
-					textShort = "1PLT";
+					size = "Company";
+					type = "Unknown";
+					text = "Company";
+					textShort = "CO";
 					assets[] = {};
-					description = "Infantry platoon of 18-49 members.<br/><br/>Freq: 80";
+					description = "Mixed Company.<br/><br/>Freq: 40";
 
-					class HQ1PLT
+					class HQCO
 					{
 						side = "West";
 						color[] = {0.7,0.6,0,1};
 						size = "Fireteam";
 						type = "HQ";
-						text = "1st Platoon HQ";
-						textShort = "HQ1PLT";
+						text = "Company HQ";
+						textShort = "HQCO";
 						assets[] = {};
-						description = "HQ element of 2-4 members.<br/><br/>Freq: 80.1";
+						description = "HQ element of 2-4 members.<br/><br/>Freq: 40.1";
 					};
-					class A
+					class Y
 					{
 						side = "West";
 						color[] = {0.7,0.6,0,1};
-						size = "Squad";
+						size = "Platoon";
+						type = "Armored";
+						text = "Yankee";
+						textShort = "Y";
+						assets[] = {};
+						description = "Armor platoon of 1-4 vehicles.<br/><br/>Freq: 41";
+
+						class Y1
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "squad";
+							type = "Armored";
+							text = "Yankee 1";
+							textShort = "Y1";
+							assets[] = {};
+							description = "Vehicle crew of 2-3 members.<br/><br/>Freq: 41.1";
+						};
+						class Y2
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "squad";
+							type = "Armored";
+							text = "Yankee 2";
+							textShort = "Y2";
+							assets[] = {};
+							description = "Vehicle crew of 2-3 members.<br/><br/>Freq: 41.2";
+						};
+						class Y3
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "squad";
+							type = "Armored";
+							text = "Yankee 3";
+							textShort = "Y3";
+							assets[] = {};
+							description = "Vehicle crew of 2-3 members.<br/><br/>Freq: 41.3";
+						};
+						class Y4
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "squad";
+							type = "Armored";
+							text = "Yankee 4";
+							textShort = "Y4";
+							assets[] = {};
+							description = "Vehicle crew of 2-3 members.<br/><br/>Freq: 41.4";
+						};
+					};
+					class Z
+					{
+						side = "West";
+						color[] = {0.7,0.6,0,1};
+						size = "Platoon";
+						type = "Helicopter";
+						text = "Zulu";
+						textShort = "Z";
+						assets[] = {};
+						description = "Helicopter flight of 1-4 aircraft.<br/><br/>Freq: 42";
+
+						class Z1
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "squad";
+							type = "Helicopter";
+							text = "Zulu 1";
+							textShort = "Z1";
+							assets[] = {};
+							description = "Helicopter crew of 1-2 member(s).<br/><br/>Freq: 42.1";
+						};
+						class Z2
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "squad";
+							type = "Helicopter";
+							text = "Zulu 2";
+							textShort = "Z2";
+							assets[] = {};
+							description = "Helicopter crew of 1-2 member(s).<br/><br/>Freq: 42.2";
+						};
+						class Z3
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "squad";
+							type = "Helicopter";
+							text = "Zulu 3";
+							textShort = "Z3";
+							assets[] = {};
+							description = "Helicopter crew of 1-2 member(s).<br/><br/>Freq: 42.3";
+						};
+						class Z4
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "squad";
+							type = "Helicopter";
+							text = "Zulu 4";
+							textShort = "Z4";
+							assets[] = {};
+							description = "Helicopter crew of 1-2 member(s).<br/><br/>Freq: 42.4";
+						};
+					};
+					class W
+					{
+						side = "West";
+						color[] = {0.7,0.6,0,1};
+						size = "Platoon";
+						type = "Fighter";
+						text = "Whiskey";
+						textShort = "W";
+						assets[] = {};
+						description = "Fixed-wing flight of 1-4 airplanes.<br/><br/>Freq: 42";
+
+						class W1
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "squad";
+							type = "Fighter";
+							text = "Whisky 1";
+							textShort = "W1";
+							assets[] = {};
+							description = "Fixed-wing pilot.<br/><br/>Freq: 42.5";
+						};
+						class W2
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "squad";
+							type = "Fighter";
+							text = "Whisky 2";
+							textShort = "W2";
+							assets[] = {};
+							description = "Fixed-wing pilot.<br/><br/>Freq: 42.6";
+						};
+						class W3
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "squad";
+							type = "Fighter";
+							text = "Whisky 3";
+							textShort = "W3";
+							assets[] = {};
+							description = "Fixed-wing pilot.<br/><br/>Freq: 42.7";
+						};
+						class W4
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "squad";
+							type = "Fighter";
+							text = "Whisky 4";
+							textShort = "W4";
+							assets[] = {};
+							description = "Fixed-wing pilot.<br/><br/>Freq: 42.8";
+						};
+					};
+					class 1PLT
+					{
+						side = "West";
+						color[] = {0.7,0.6,0,1};
+						size = "Platoon";
 						type = "Infantry";
-						text = "Alpha Squad";
-						textShort = "A";
+						text = "1st Infantry Platoon";
+						textShort = "1PLT";
 						assets[] = {};
-						description = "Infantry squad of 8-15 members.<br/><br/>Freq: 81";
+						description = "Infantry platoon of 18-40 members.<br/><br/>Freq: 50";
 
-						class ASL
+						class HQ1PLT
 						{
 							side = "West";
 							color[] = {0.7,0.6,0,1};
-							size = "FireTeam";
+							size = "Fireteam";
 							type = "HQ";
-							text = "Alpha SL";
-							textShort = "ASL";
+							text = "1st Platoon HQ";
+							textShort = "HQ1PLT";
 							assets[] = {};
-							description = "HQ element of 4-5 members.<br/><br/>Freq: 81.1";
+							description = "HQ element of 2-4 members.<br/><br/>Freq: 50.1";
 						};
-						class A1
+						class A
 						{
 							side = "West";
 							color[] = {0.7,0.6,0,1};
-							size = "FireTeam";
+							size = "Squad";
 							type = "Infantry";
-							text = "Alpha 1";
-							textShort = "A1";
+							text = "Alpha Squad";
+							textShort = "A";
 							assets[] = {};
-							description = "Infantry team of 4-5 members.<br/><br/>Freq: 81.2";
+							description = "Infantry squad of 8-12 members.<br/><br/>Freq: 51";
+
+							class ASL
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Alpha SL";
+								textShort = "ASL";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 51.1";
+							};
+							class A1
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Alpha 1";
+								textShort = "A1";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 51.2";
+							};
+							class A2
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Alpha 2";
+								textShort = "A2";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 51.3";
+							};
 						};
-						class A2
+						class B
 						{
 							side = "West";
 							color[] = {0.7,0.6,0,1};
-							size = "FireTeam";
+							size = "Squad";
 							type = "Infantry";
-							text = "Alpha 2";
-							textShort = "A2";
+							text = "Bravo Squad";
+							textShort = "B";
 							assets[] = {};
-							description = "Infantry team of 4-5 members.<br/><br/>Freq: 81.3";
+							description = "Infantry squad of 8-12 members.<br/><br/>Freq: 52";
+
+							class BSL
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Bravo SL";
+								textShort = "BSL";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 52.1";
+							};
+							class B1
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Bravo 1";
+								textShort = "B1";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 52.2";
+							};
+							class B2
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Bravo 2";
+								textShort = "B2";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 52.3";
+							};
+						};
+						class C
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "Squad";
+							type = "Infantry";
+							text = "Charlie Squad";
+							textShort = "C";
+							assets[] = {};
+							description = "Infantry squad of 8-12 members.<br/><br/>Freq: 53";
+
+							class CSL
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Charlie SL";
+								textShort = "CSL";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 53.1";
+							};
+							class C1
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Charlie 1";
+								textShort = "C1";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 53.2";
+							};
+							class C2
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Charlie 2";
+								textShort = "C2";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 53.3";
+							};
 						};
 					};
-					class B
+					class 2PLT
 					{
 						side = "West";
 						color[] = {0.7,0.6,0,1};
-						size = "Squad";
+						size = "Platoon";
 						type = "Infantry";
-						text = "Bravo Squad";
-						textShort = "B";
+						text = "2nd Infantry Platoon";
+						textShort = "2PLT";
 						assets[] = {};
-						description = "Infantry squad of 8-15 members.<br/><br/>Freq: 82";
+						description = "Infantry platoon of 18-40 members.<br/><br/>Freq: 60";
 
-						class BSL
+						class HQ2PLT
 						{
 							side = "West";
 							color[] = {0.7,0.6,0,1};
-							size = "FireTeam";
+							size = "Fireteam";
 							type = "HQ";
-							text = "Bravo SL";
-							textShort = "BSL";
+							text = "2nd Platoon HQ";
+							textShort = "HQ2PLT";
 							assets[] = {};
-							description = "HQ element of 4-5 members.<br/><br/>Freq: 82.1";
+							description = "HQ element of 2-4 members.<br/><br/>Freq: 60.1";
 						};
-						class B1
+						class D
 						{
 							side = "West";
 							color[] = {0.7,0.6,0,1};
-							size = "FireTeam";
+							size = "Squad";
 							type = "Infantry";
-							text = "Bravo 1";
-							textShort = "B1";
+							text = "Delta Squad";
+							textShort = "D";
 							assets[] = {};
-							description = "Infantry team of 4-5 members.<br/><br/>Freq: 82.2";
+							description = "Infantry squad of 8-12 members.<br/><br/>Freq: 61";
+
+							class DSL
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Delta SL";
+								textShort = "DSL";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 61.1";
+							};
+							class D1
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Delta 1";
+								textShort = "D1";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 61.2";
+							};
+							class D2
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Delta 2";
+								textShort = "D2";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 61.3";
+							};
 						};
-						class B2
+						class E
 						{
 							side = "West";
 							color[] = {0.7,0.6,0,1};
-							size = "FireTeam";
+							size = "Squad";
 							type = "Infantry";
-							text = "Bravo 2";
-							textShort = "B2";
+							text = "Echo Squad";
+							textShort = "E";
 							assets[] = {};
-							description = "Infantry team of 4-5 members.<br/><br/>Freq: 82.3";
-						};
-					};
-					class C
-					{
-						side = "West";
-						color[] = {0.7,0.6,0,1};
-						size = "Squad";
-						type = "Infantry";
-						text = "Charlie Squad";
-						textShort = "C";
-						assets[] = {};
-						description = "Infantry squad of 8-15 members.<br/><br/>Freq: 83";
+							description = "Infantry squad of 8-12 members.<br/><br/>Freq: 62";
 
-						class CSL
-						{
-							side = "West";
-							color[] = {0.7,0.6,0,1};
-							size = "FireTeam";
-							type = "HQ";
-							text = "Charlie SL";
-							textShort = "CSL";
-							assets[] = {};
-							description = "HQ element of 4-5 members.<br/><br/>Freq: 83.1";
+							class ESL
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Echo SL";
+								textShort = "ESL";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 62.1";
+							};
+							class E1
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Echo 1";
+								textShort = "E1";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 62.2";
+							};
+							class E2
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Echo 2";
+								textShort = "E2";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 62.3";
+							};
 						};
-						class C1
+						class F
 						{
 							side = "West";
 							color[] = {0.7,0.6,0,1};
-							size = "FireTeam";
+							size = "Squad";
 							type = "Infantry";
-							text = "Charlie 1";
-							textShort = "C1";
+							text = "Foxtrot Squad";
+							textShort = "F";
 							assets[] = {};
-							description = "Infantry team of 4-5 members.<br/><br/>Freq: 83.2";
+							description = "Infantry squad of 8-12 members.<br/><br/>Freq: 63";
+
+							class FSL
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Foxtrot SL";
+								textShort = "FSL";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 63.1";
+							};
+							class F1
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Foxtrot 1";
+								textShort = "F1";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 63.2";
+							};
+							class F2
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Foxtrot 2";
+								textShort = "F2";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 63.3";
+							};
 						};
-						class C2
-						{
-							side = "West";
-							color[] = {0.7,0.6,0,1};
-							size = "FireTeam";
-							type = "Infantry";
-							text = "Charlie 2";
-							textShort = "C2";
-							assets[] = {};
-							description = "Infantry team of 4-5 members.<br/><br/>Freq: 83.3";
-						};
-					};
-				};
-				class Y
-				{
-					side = "West";
-					color[] = {0.7,0.6,0,1};
-					size = "Platoon";
-					type = "Armored";
-					text = "Yankee";
-					textShort = "Y";
-					assets[] = {};
-					description = "Armor platoon of 1-4 vehicles.<br/><br/>Freq: 84";
-
-					class Y1
-					{
-						side = "West";
-						color[] = {0.7,0.6,0,1};
-						size = "squad";
-						type = "Armored";
-						text = "Yankee 1";
-						textShort = "Y1";
-						assets[] = {};
-						description = "Vehicle crew of 2-3 members.<br/><br/>Freq: 84.1";
-					};
-					class Y2
-					{
-						side = "West";
-						color[] = {0.7,0.6,0,1};
-						size = "squad";
-						type = "Armored";
-						text = "Yankee 2";
-						textShort = "Y2";
-						assets[] = {};
-						description = "Vehicle crew of 2-3 members.<br/><br/>Freq: 84.2";
-					};
-					class Y3
-					{
-						side = "West";
-						color[] = {0.7,0.6,0,1};
-						size = "squad";
-						type = "Armored";
-						text = "Yankee 3";
-						textShort = "Y3";
-						assets[] = {};
-						description = "Vehicle crew of 2-3 members.<br/><br/>Freq: 84.3";
-					};
-					class Y4
-					{
-						side = "West";
-						color[] = {0.7,0.6,0,1};
-						size = "squad";
-						type = "Armored";
-						text = "Yankee 4";
-						textShort = "Y4";
-						assets[] = {};
-						description = "Vehicle crew of 2-3 members.<br/><br/>Freq: 84.4";
-					};
-				};
-				class Z
-				{
-					side = "West";
-					color[] = {0.7,0.6,0,1};
-					size = "Platoon";
-					type = "Helicopter";
-					text = "Zulu";
-					textShort = "Z";
-					assets[] = {};
-					description = "Helicopter flight of 1-4 aircraft.<br/><br/>Freq: 85";
-
-					class Z1
-					{
-						side = "West";
-						color[] = {0.7,0.6,0,1};
-						size = "squad";
-						type = "Helicopter";
-						text = "Zulu 1";
-						textShort = "Z1";
-						assets[] = {};
-						description = "Helicopter crew of 1-2 member(s).<br/><br/>Freq: 85.1";
-					};
-					class Z2
-					{
-						side = "West";
-						color[] = {0.7,0.6,0,1};
-						size = "squad";
-						type = "Helicopter";
-						text = "Zulu 2";
-						textShort = "Z2";
-						assets[] = {};
-						description = "Helicopter crew of 1-2 member(s).<br/><br/>Freq: 85.2";
-					};
-					class Z3
-					{
-						side = "West";
-						color[] = {0.7,0.6,0,1};
-						size = "squad";
-						type = "Helicopter";
-						text = "Zulu 3";
-						textShort = "Z3";
-						assets[] = {};
-						description = "Helicopter crew of 1-2 member(s).<br/><br/>Freq: 85.3";
-					};
-					class Z4
-					{
-						side = "West";
-						color[] = {0.7,0.6,0,1};
-						size = "squad";
-						type = "Helicopter";
-						text = "Zulu 4";
-						textShort = "Z4";
-						assets[] = {};
-						description = "Helicopter crew of 1-2 member(s).<br/><br/>Freq: 85.4";
-					};
-				};
-				class W
-				{
-					side = "West";
-					color[] = {0.7,0.6,0,1};
-					size = "Platoon";
-					type = "Fighter";
-					text = "Whiskey";
-					textShort = "W";
-					assets[] = {};
-					description = "Fixed-wing flight of 1-4 airplanes.<br/><br/>Freq: 85";
-
-					class W1
-					{
-						side = "West";
-						color[] = {0.7,0.6,0,1};
-						size = "squad";
-						type = "Fighter";
-						text = "Whisky 1";
-						textShort = "W1";
-						assets[] = {};
-						description = "Fixed-wing pilot.<br/><br/>Freq: 85.5";
-					};
-					class W2
-					{
-						side = "West";
-						color[] = {0.7,0.6,0,1};
-						size = "squad";
-						type = "Fighter";
-						text = "Whisky 2";
-						textShort = "W2";
-						assets[] = {};
-						description = "Fixed-wing pilot.<br/><br/>Freq: 85.6";
-					};
-					class W3
-					{
-						side = "West";
-						color[] = {0.7,0.6,0,1};
-						size = "squad";
-						type = "Fighter";
-						text = "Whisky 3";
-						textShort = "W3";
-						assets[] = {};
-						description = "Fixed-wing pilot.<br/><br/>Freq: 85.7";
-					};
-					class W4
-					{
-						side = "West";
-						color[] = {0.7,0.6,0,1};
-						size = "squad";
-						type = "Fighter";
-						text = "Whisky 4";
-						textShort = "W4";
-						assets[] = {};
-						description = "Fixed-wing pilot.<br/><br/>Freq: 85.8";
 					};
 				};
 			};

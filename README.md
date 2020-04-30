@@ -21,7 +21,15 @@ See the [Zeus Guide](https://docs.google.com/document/d/1PFK__UcgmAJ1P3xBnJxeW2o
 ##### Move cover map:
     [[_centerX, _centerY], [_radiusX, _radiusY]] call ZO_fnc_coverMap;
 ##### Change unit tracker color:
-    missionNameSpace setVariable ["unitColor", "newUnitColor", true];
+    missionNameSpace setVariable ["unitTrackerColor", "newUnitColor", true];
+##### Change unit tracker tracked elements:
+    missionNameSpace setVariable ["unitTrackerInfantry", ((missionNameSpace setVariable "unitTrackerInfantry") + ["nameOfTrackedElement"]), true];
+    missionNameSpace setVariable ["unitTrackerHQ", ((missionNameSpace setVariable "unitTrackerHQ") + ["nameOfTrackedElement"]), true];
+    missionNameSpace setVariable ["unitTrackerAir", ((missionNameSpace setVariable "unitTrackerAir") + ["nameOfTrackedElement"]), true];
+    missionNameSpace setVariable ["unitTrackerArmor", ((missionNameSpace setVariable "unitTrackerArmor") + ["nameOfTrackedElement"]), true];
+    missionNameSpace setVariable ["unitTrackerPlane", ((missionNameSpace setVariable "unitTrackerPlane") + ["nameOfTrackedElement"]), true];
+    missionNameSpace setVariable ["unitTrackerMotorized", ((missionNameSpace setVariable "unitTrackerMotorized") + ["nameOfTrackedElement"]), true];
+    missionNameSpace setVariable ["unitTrackerNaval", ((missionNameSpace setVariable "unitTrackerNaval") + ["nameOfTrackedElement"]), true];
 ##### Change default gear:
     missionNameSpace setVariable ["gearUniform", "classnameOfUniform", true];
     missionNameSpace setVariable ["gearVest", "classnameOfVest", true];

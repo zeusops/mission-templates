@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.40.0] - 2020-04-30
+### Added
+- Add 35 more player slots (total: 80).
+- Add variables for unit tracker tracked elements.
+- Add new company structure to unit tracker tracked elements.
+
+### Changed
+- Change ORBAT to be up to date with new company structure.
+
 ## [1.39.0] - 2020-04-10
 ### Added
 - Add factions:
