@@ -95,6 +95,15 @@ if (!alive player) then {
 	setPlayerRespawnTime 0.01;
 	sleep 1;
 
+	// Get all zeuses and notify
+	private _zulus = [];
+ 	{
+  		if ((groupId _x) in (missionNameSpace getVariable "respawnMessageGroups")) then {
+   			_zulus = _zulus + (units _x);
+  		};
+ 		} foreach allGroups;
+ 	[0, ["<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><t shadowColor='#444444'>A player respawned</t>", "PLAIN", 0.2, true, true]] remoteExec ["cutText", _zulus];
+
 	// reset respawn timer
 	if (missionNameSpace getVariable "respawnAllow") then {
 		setPlayerRespawnTime (missionNameSpace getVariable "respawnTime");

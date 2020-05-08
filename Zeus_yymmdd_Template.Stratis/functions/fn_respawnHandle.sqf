@@ -25,7 +25,7 @@ while {true} do {
 			_zeuses pushback _x;
 		};
 	} foreach allPlayers;
-	[0, ["A respawn wave was triggered.", "PLAIN"]] remoteExec ["cutText", _zeuses];
+ 	[0, ["<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><t shadowColor='#444444'>A respawn wave was triggered</t>", "PLAIN", 0.2, true, true]] remoteExec ["cutText", _zeuses];
 
 	// Trigger respawn wave
 	missionNameSpace setvariable ["respawnWave", true, true];

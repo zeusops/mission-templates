@@ -388,6 +388,7 @@ switch (_request) do {
         _object = _this select 1;
         _materialCount = 10;
         _interactionDistance = 3;
+		[_object, 4] call ace_cargo_fnc_setSize;
         _object setVariable ["materialCount", _materialCount, true];
         _object setVariable ["interactionDistance", _interactionDistance, true];
 

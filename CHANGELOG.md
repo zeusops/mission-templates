@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.41.0] - 2020-05-08
+### Added
+- Add notifying an array of groups when a player respawns.
+
+### Changed
+- Change ORBAT by adding a fourth squad to each platoon.
+- Change cargo size of small fortification boxes placed with the module to 4.
+- Change position, shadow color, and time length of zeus respawn wave notification.
+
 ## [1.40.0] - 2020-04-30
 ### Added
 - Add 35 more player slots (total: 80).

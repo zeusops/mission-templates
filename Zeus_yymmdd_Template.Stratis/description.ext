@@ -465,6 +465,51 @@ class CfgORBAT
 								description = "Infantry team of 4 members.<br/><br/>Freq: 53.3";
 							};
 						};
+						class D
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "Squad";
+							type = "Infantry";
+							text = "Delta Squad";
+							textShort = "D";
+							assets[] = {};
+							description = "Infantry squad of 8-12 members.<br/><br/>Freq: 54";
+
+							class DSL
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Delta SL";
+								textShort = "DSL";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 54.1";
+							};
+							class D1
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Delta 1";
+								textShort = "D1";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 54.2";
+							};
+							class D2
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Delta 2";
+								textShort = "D2";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 54.3";
+							};
+						};
 					};
 					class 2PLT
 					{
@@ -488,51 +533,6 @@ class CfgORBAT
 							assets[] = {};
 							description = "HQ element of 2-4 members.<br/><br/>Freq: 60.1";
 						};
-						class D
-						{
-							side = "West";
-							color[] = {0.7,0.6,0,1};
-							size = "Squad";
-							type = "Infantry";
-							text = "Delta Squad";
-							textShort = "D";
-							assets[] = {};
-							description = "Infantry squad of 8-12 members.<br/><br/>Freq: 61";
-
-							class DSL
-							{
-								side = "West";
-								color[] = {0.7,0.6,0,1};
-								size = "FireTeam";
-								type = "Infantry";
-								text = "Delta SL";
-								textShort = "DSL";
-								assets[] = {};
-								description = "Infantry team of 4 members.<br/><br/>Freq: 61.1";
-							};
-							class D1
-							{
-								side = "West";
-								color[] = {0.7,0.6,0,1};
-								size = "FireTeam";
-								type = "Infantry";
-								text = "Delta 1";
-								textShort = "D1";
-								assets[] = {};
-								description = "Infantry team of 4 members.<br/><br/>Freq: 61.2";
-							};
-							class D2
-							{
-								side = "West";
-								color[] = {0.7,0.6,0,1};
-								size = "FireTeam";
-								type = "Infantry";
-								text = "Delta 2";
-								textShort = "D2";
-								assets[] = {};
-								description = "Infantry team of 4 members.<br/><br/>Freq: 61.3";
-							};
-						};
 						class E
 						{
 							side = "West";
@@ -542,7 +542,7 @@ class CfgORBAT
 							text = "Echo Squad";
 							textShort = "E";
 							assets[] = {};
-							description = "Infantry squad of 8-12 members.<br/><br/>Freq: 62";
+							description = "Infantry squad of 8-12 members.<br/><br/>Freq: 61";
 
 							class ESL
 							{
@@ -553,7 +553,7 @@ class CfgORBAT
 								text = "Echo SL";
 								textShort = "ESL";
 								assets[] = {};
-								description = "Infantry team of 4 members.<br/><br/>Freq: 62.1";
+								description = "Infantry team of 4 members.<br/><br/>Freq: 61.1";
 							};
 							class E1
 							{
@@ -564,7 +564,7 @@ class CfgORBAT
 								text = "Echo 1";
 								textShort = "E1";
 								assets[] = {};
-								description = "Infantry team of 4 members.<br/><br/>Freq: 62.2";
+								description = "Infantry team of 4 members.<br/><br/>Freq: 61.2";
 							};
 							class E2
 							{
@@ -575,7 +575,7 @@ class CfgORBAT
 								text = "Echo 2";
 								textShort = "E2";
 								assets[] = {};
-								description = "Infantry team of 4 members.<br/><br/>Freq: 62.3";
+								description = "Infantry team of 4 members.<br/><br/>Freq: 61.3";
 							};
 						};
 						class F
@@ -587,7 +587,7 @@ class CfgORBAT
 							text = "Foxtrot Squad";
 							textShort = "F";
 							assets[] = {};
-							description = "Infantry squad of 8-12 members.<br/><br/>Freq: 63";
+							description = "Infantry squad of 8-12 members.<br/><br/>Freq: 62";
 
 							class FSL
 							{
@@ -598,7 +598,7 @@ class CfgORBAT
 								text = "Foxtrot SL";
 								textShort = "FSL";
 								assets[] = {};
-								description = "Infantry team of 4 members.<br/><br/>Freq: 63.1";
+								description = "Infantry team of 4 members.<br/><br/>Freq: 62.1";
 							};
 							class F1
 							{
@@ -609,7 +609,7 @@ class CfgORBAT
 								text = "Foxtrot 1";
 								textShort = "F1";
 								assets[] = {};
-								description = "Infantry team of 4 members.<br/><br/>Freq: 63.2";
+								description = "Infantry team of 4 members.<br/><br/>Freq: 62.2";
 							};
 							class F2
 							{
@@ -620,7 +620,97 @@ class CfgORBAT
 								text = "Foxtrot 2";
 								textShort = "F2";
 								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 62.3";
+							};
+						};
+						class G
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "Squad";
+							type = "Infantry";
+							text = "Golf Squad";
+							textShort = "G";
+							assets[] = {};
+							description = "Infantry squad of 8-12 members.<br/><br/>Freq: 63";
+
+							class GSL
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Golf SL";
+								textShort = "GSL";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 63.1";
+							};
+							class G1
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Golf 1";
+								textShort = "G1";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 63.2";
+							};
+							class G2
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Golf 2";
+								textShort = "G2";
+								assets[] = {};
 								description = "Infantry team of 4 members.<br/><br/>Freq: 63.3";
+							};
+						};
+						class H
+						{
+							side = "West";
+							color[] = {0.7,0.6,0,1};
+							size = "Squad";
+							type = "Infantry";
+							text = "Hotel Squad";
+							textShort = "H";
+							assets[] = {};
+							description = "Infantry squad of 8-12 members.<br/><br/>Freq: 64";
+
+							class HSL
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Hotel SL";
+								textShort = "HSL";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 64.1";
+							};
+							class H1
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Hotel 1";
+								textShort = "H1";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 64.2";
+							};
+							class H2
+							{
+								side = "West";
+								color[] = {0.7,0.6,0,1};
+								size = "FireTeam";
+								type = "Infantry";
+								text = "Hotel 2";
+								textShort = "H2";
+								assets[] = {};
+								description = "Infantry team of 4 members.<br/><br/>Freq: 64.3";
 							};
 						};
 					};

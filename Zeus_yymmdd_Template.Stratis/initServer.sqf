@@ -24,6 +24,7 @@ missionNameSpace setvariable ["respawnTimeInfinite", 100000, true];
 missionNameSpace setVariable ["respawnWave", false, true];
 missionNameSpace setvariable ["respawnWaveTime", 480, true];
 missionNameSpace setVariable ["respawnNextWaveTime", 0, true];
+missionNameSpace setVariable ["respawnMessageGroups", ["Z1","Z2","Z3","Z4","Z5","Z6","Z7","Z8","Z9","Z10","V1","V2","V3","V4","V5","V6","V7","V8","V9","V10"], true];
 missionNameSpace setVariable ["unitTrackerInfantry", ["A","ASL","A1","A2","B","BSL","B1","B2","C","CSL","C1","C2","D","DSL","D1","D2","E","ESL","E1","E2","F","FSL","F1","F2","G","GSL","G1","G2","H","HSL","H1","H2"], true];
 missionNameSpace setVariable ["unitTrackerHQ", ["HQCO","HQ1PLT","HQ2PLT"], true];
 missionNameSpace setVariable ["unitTrackerAir", ["Z1","Z2","Z3","Z4","Z5","Z6","Z7","Z8","Z9","Z10"], true];
