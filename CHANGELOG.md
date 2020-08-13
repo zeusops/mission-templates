@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.43.0] - 2020-08-14
+### Added
+- Enabled CBA Target Debugging
+
 ## [1.42.1] - 2020-08-13
 ### Changed
 - Changed vanilla smoke grenades to BAF smoke grenades.
