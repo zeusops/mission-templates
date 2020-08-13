@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.42.0] - 2020-06-13
+### Added
+- Add earplugs to default loadout.
+
+### Changed
+- Change 4x scopes in default factions to 3x or lower.
+- Change amount of splints a player receives in default loadout.
+
+### Fixed
+- Fix some factions being broken because of a missing bracket.
+- Fix making an object a rearm box adding the action twice instead of resetting the uses.
+- Fix launcher scope not being added properly in gearHandle.
+
 ## [1.41.0] - 2020-05-08
 ### Added
 - Add notifying an array of groups when a player respawns.

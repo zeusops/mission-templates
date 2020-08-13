@@ -177,7 +177,7 @@ fn_gearLoadout = {
 			player addItemToBackpack ((missionNameSpace getVariable "gearWeaponLauncher") select 1);
 			player addWeapon ((missionNameSpace getVariable "gearWeaponLauncher") select 0);
 			{
-				player addPrimaryWeaponItem _x;
+				player addSecondaryWeaponItem _x;
 			} foreach ((missionNameSpace getVariable "gearWeaponLauncher") select 2);
 			for "_i" from 1 to 3 do {player addItemToBackpack ((missionNameSpace getVariable "gearWeaponLauncher") select 1)};
 
@@ -422,15 +422,14 @@ fn_gearStart = {
 
 	player forceAddUniform (missionNameSpace getVariable "gearUniform");
 	player addItemToUniform "ACE_bodyBag";
+	player addItemToUniform "ACE_EarPlugs";
 	for "_i" from 1 to 5 do {
 		player addItemToUniform "ACE_morphine";
 		player addItemToUniform "ACE_epinephrine";
+		player addItemToUniform "ACE_splint";
 	};
 	for "_i" from 1 to 2 do {
 		player addItemToUniform "ACE_tourniquet";
-	};
-	for "_i" from 1 to 4 do {
-		player addItemToUniform "ACE_splint";
 	};
 	for "_i" from 1 to 30 do {player addItemToUniform "ACE_fieldDressing"};
 
