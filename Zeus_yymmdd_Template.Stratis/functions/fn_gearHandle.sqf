@@ -171,7 +171,7 @@ fn_gearLoadout = {
 			{
 				player addPrimaryWeaponItem _x;
 			} foreach ((missionNameSpace getVariable "gearWeaponMain") select 2);
-			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
+			for "_i" from 1 to 3 do {player addItemToVest "UK3CB_BAF_SmokeShell";};
 			for "_i" from 1 to 16 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1)};
 			player addBackpack (missionNameSpace getVariable "gearBackpack");
 			player addItemToBackpack ((missionNameSpace getVariable "gearWeaponLauncher") select 1);
@@ -195,7 +195,7 @@ fn_gearLoadout = {
 			{
 				player addPrimaryWeaponItem _x;
 			} foreach ((missionNameSpace getVariable "gearWeaponAR") select 2);
-			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
+			for "_i" from 1 to 3 do {player addItemToVest "UK3CB_BAF_SmokeShell";};
 			for "_i" from 1 to 8 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponAR") select 1)};
 			player addBackpack (missionNameSpace getVariable "gearBackpack");
 			for "_i" from 1 to 3 do {player addItemToBackpack ((missionNameSpace getVariable "gearWeaponAR") select 1)};
@@ -214,7 +214,7 @@ fn_gearLoadout = {
 			{
 				player addPrimaryWeaponItem _x;
 			} foreach ((missionNameSpace getVariable "gearWeaponMain") select 2);
-			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
+			for "_i" from 1 to 3 do {player addItemToVest "UK3CB_BAF_SmokeShell";};
 			for "_i" from 1 to 16 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1)};
 			player addBackpack (missionNameSpace getVariable "gearBackpack");
 			player addItemToBackpack "ToolKit";
@@ -235,7 +235,7 @@ fn_gearLoadout = {
 			{
 				player addPrimaryWeaponItem _x;
 			} foreach ((missionNameSpace getVariable "gearWeaponGrenadier") select 2);
-			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
+			for "_i" from 1 to 3 do {player addItemToVest "UK3CB_BAF_SmokeShell";};
 			for "_i" from 1 to 16 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponGrenadier") select 1)};
 			player addBackpack (missionNameSpace getVariable "gearBackpack");
 			for "_i" from 1 to 16 do {player addItemToBackpack ((missionNameSpace getVariable "gearWeaponGrenadier") select 3)};
@@ -254,7 +254,7 @@ fn_gearLoadout = {
 			{
 				player addPrimaryWeaponItem _x;
 			} foreach ((missionNameSpace getVariable "gearWeaponMarksman") select 2);
-			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
+			for "_i" from 1 to 3 do {player addItemToVest "UK3CB_BAF_SmokeShell";};
 			for "_i" from 1 to 8 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponMarksman") select 1)};
 			player addBackpack (missionNameSpace getVariable "gearBackpack");
 			for "_i" from 1 to 3 do {player addItemToBackpack ((missionNameSpace getVariable "gearWeaponMarksman") select 1)};
@@ -273,7 +273,7 @@ fn_gearLoadout = {
 			{
 				player addPrimaryWeaponItem _x;
 			} foreach ((missionNameSpace getVariable "gearWeaponMain") select 2);
-			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
+			for "_i" from 1 to 3 do {player addItemToVest "UK3CB_BAF_SmokeShell";};
 			for "_i" from 1 to 16 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1)};
 			player addBackpack (missionNameSpace getVariable "gearBackpack");
 			for "_i" from 1 to 15 do {
@@ -299,7 +299,7 @@ fn_gearLoadout = {
 			{
 				player addPrimaryWeaponItem _x;
 			} foreach ((missionNameSpace getVariable "gearWeaponMain") select 2);
-			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
+			for "_i" from 1 to 3 do {player addItemToVest "UK3CB_BAF_SmokeShell";};
 			for "_i" from 1 to 16 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1)};
 			player addBackpack (missionNameSpace getVariable "gearBackpack");
 			player addItemToBackpack "ACE_EntrenchingTool";
@@ -319,9 +319,9 @@ fn_gearLoadout = {
 			{
 				player addPrimaryWeaponItem _x;
 			} foreach ((missionNameSpace getVariable "gearWeaponMain") select 2);
-			for "_i" from 1 to 3 do {player addItemToVest "SmokeShell";};
-			for "_i" from 1 to 3 do {player addItemToVest "SmokeShellGreen";};
-			for "_i" from 1 to 3 do {player addItemToVest "SmokeShellBlue";};
+			for "_i" from 1 to 3 do {player addItemToVest "UK3CB_BAF_SmokeShell";};
+			for "_i" from 1 to 3 do {player addItemToVest "UK3CB_BAF_SmokeShellGreen";};
+			for "_i" from 1 to 3 do {player addItemToVest "UK3CB_BAF_SmokeShellBlue";};
 			for "_i" from 1 to 16 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1)};
 			player addBackpack (missionNameSpace getVariable "gearBackpackLeader");
 
