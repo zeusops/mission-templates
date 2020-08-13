@@ -1,6 +1,10 @@
 # Changelog
 
-## [1.42.0] - 2020-06-13
+## [1.42.1] - 2020-08-13
+### Changed
+- Changed vanilla smoke grenades to BAF smoke grenades.
+
+## [1.42.0] - 2020-08-13
 ### Added
 - Add earplugs to default loadout.
 
