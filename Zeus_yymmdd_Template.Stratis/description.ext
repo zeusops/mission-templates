@@ -62,6 +62,7 @@ class cfgFunctions {
 			class showFPS;
 			class sthudPatch;
 			class unitTracker;
+			class fuelConsumption;
 		};
 	};
 };

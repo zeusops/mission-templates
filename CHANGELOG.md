@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.45.0] - 2020-12-04
+### Added
+- Added fuel consumption function that increase the consumption rates of select vehicles
+
 ## [1.44.0] - 2020-11-20
 ### Added
 - Heal players when rearming
