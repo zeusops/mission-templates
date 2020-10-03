@@ -1,5 +1,5 @@
 /*
-	@file_name: Fuel_Consumption.sqf
+	@file_name: fn_fuelConsumption.sqf
 	@file_author: Kasteelharry & Gehock
 
 	Description:
@@ -11,27 +11,33 @@
 
 	Example:
 	When calling from  the vehicle init, mid mission or in the editor:
-	nul=[_this, rateOfLeak] remoteExec ["ZO_fnc_fuelConsumption",2];
+	[_this, rateOfLeak] remoteExec ["ZO_fnc_fuelConsumption", 2];
 
 	When calling from the debug console:
-	nul=[nameOfVehicle, rateOfLeak] spawn ZO_fnc_fuelConsumption;
+	[nameOfVehicle, rateOfLeak] spawn ZO_fnc_fuelConsumption;
 
 	Returns:
 	Nothing.
 */
 
 
-fn_fuelDecr = {
-	_unit = _this select 0;
-	_unit setVariable ["running", true, true];
+fn_fuelDecrease = {
+	if (isServer) exitWith {};
+
+	_vehicle = _this select 0;
 	_rate = _this select 1;
-	if isServer exitWith{};
-	while {alive _unit} do {
-		waitUntil {(isEngineOn _unit)};
-		_fuel = fuel _unit;
+	_vehicle setVariable ["zo_fuel_scriptRunning", true, true];
+
+	while {alive _vehicle} do {
+		waitUntil {isEngineOn _vehicle};
+		_fuel = fuel _vehicle;
 		_newFuel = (_fuel - _rate);
-		if (not local _unit) exitWith {_unit setVariable ["running", false, true];};
-		_unit setFuel _newFuel;
+		// Vehicle locality changed because another player got in the driver's seat
+		// -> transferring execution to them
+		if (!local _vehicle) exitWith {
+			_vehicle setVariable ["zo_fuel_scriptRunning", false, true];
+		};
+		_vehicle setFuel _newFuel;
 		sleep 1;
 	};
 };
@@ -39,24 +45,22 @@ fn_fuelDecr = {
 
 if !isServer exitwith{};
 
+fn_startLoop = {
+	_vehicle = _this select 0;
+	_rate = _this select 1;
+	_vehicle setVariable ["zo_fuel_scriptRunning", false, true];
+	while {alive _vehicle} do {
+		// Pause until the vehicle gets transferred away from the server
+		waitUntil {!local _vehicle};
+		// owner = last driver of the vehicle
+		_owner = owner _vehicle;
+		if (_owner != 2) then {
+			_vehicle setVariable ["zo_fuel_scriptRunning", true, true];
+			[_vehicle, _rate] remoteExec ["fn_fuelDecrease", _owner];
+		};
+		waitUntil {isNull _vehicle or !(alive _vehicle ) or !(_vehicle getVariable ["zo_fuel_scriptRunning", false])};
+	};
+};
 _unit = _this select 0;
 _rate = _this select 1;
-
-fn_startLoop = {
-	
-	_unit = _this select 0;
-	_rate = _this select 1;
-	_unit setVariable ["running", false, true];
-	_owner = owner _unit;
-	while {alive _unit} do {
-		waitUntil {not local _unit};
-		_owner = owner _unit;
-		if (_owner != 2) then {
-			_unit setVariable ["running", true, true];
-			[_unit, _rate] remoteExec ["fn_fuelDecr", _owner];
-		};
-		waitUntil { isNull _unit or !(alive _unit) or !(_unit getVariable ["running", false])};
-	};
-
-};
 [_unit, _rate] spawn fn_startLoop;
