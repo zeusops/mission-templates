@@ -1,8 +1,8 @@
 # Changelog
 
-## [1.45.0] - 2020-12-04
+## [1.45.0] - 2020-12-02
 ### Added
-- Added fuel consumption function that increase the consumption rates of select vehicles
+- Added a fuel consumption function that can be used to increase the consumption rates of selected vehicles
 
 ## [1.44.0] - 2020-11-20
 ### Added
