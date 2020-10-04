@@ -44,3 +44,14 @@ See the [Zeus Guide](https://docs.google.com/document/d/1PFK__UcgmAJ1P3xBnJxeW2o
     missionNameSpace setVariable ["gearWeaponGrenadier", ["classnameOfWeapon", "classnameOfAmmunition", ["classnameOfAttachment"], "classnameOfSecondaryAmmunition"], true];
     missionNameSpace setVariable ["gearWeaponMarksman", ["classnameOfWeapon", "classnameOfAmmunition", ["classnameOfAttachment"]], true];
     missionNameSpace setVariable ["gearWeaponLauncher", ["classnameOfWeapon", "classnameOfAmmunition", ["classnameOfAttachment"]], true];
+
+#### Set Fuel consumption
+
+```sqf
+// When calling from the 3den Editor Object Init or
+// When using the init mid operation make sure the execution mode is set to Global:
+[_this, rateOfLeak] spawn ZO_fnc_fuelConsumption;
+
+// When calling from the debug console:
+[nameOfVehicle, rateOfLeak] spawn ZO_fnc_fuelConsumption;
+```
