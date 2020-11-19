@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.44.0] - 2020-11-20
+### Added
+- Heal players when rearming
+
 ## [1.43.0] - 2020-08-14
 ### Added
 - Enabled CBA Target Debugging

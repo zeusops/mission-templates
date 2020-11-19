@@ -219,6 +219,7 @@ fn_addRearmAction = {
 					};
 					cutText ["Rearmed", "PLAIN", 0.2];
 					[3] call ZO_fnc_gearHandle;
+					["ace_medical_treatment_fullHealLocal", [_caller], _caller] call CBA_fnc_targetEvent;
 				};
 			} else {
 				cutText ["You don't have any loadout saved!", "PLAIN", 0.2];
