@@ -4,6 +4,8 @@ Arma 3 mission templates for [Zeus Operations](https://www.zeusops.com).
 
 The templates have been created by [Dyzalonius](https://github.com/Dyzalonius) and [Gehock](https://github.com/Gehock).
 
+The [load screen images](loadscreens) have been created by S. Holm.
+
 # How To Use The Template
 
 1. Clone the repository or [download the ZIP file](https://github.com/zeusops/mission-templates/archive/master.zip).
