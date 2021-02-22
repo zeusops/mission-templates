@@ -37,3 +37,8 @@ missionNameSpace setVariable ["unitTrackerNaval", ["U1","U2","U3","U4","U5","U6"
 [] spawn ZO_fnc_showFPS;
 [] spawn ZO_fnc_respawnHandle;
 missionNameSpace setVariable ["initDone", true, true];
+
+[getMarkerPos "marker_0", 1.5, 25, 25] call cbrn_fnc_createZone;
+[getMarkerPos "marker_1", 2.5, 25, 25] call cbrn_fnc_createZone;
+[getMarkerPos "marker_2", 3.5, 25, 25] call cbrn_fnc_createZone;
+[getMarkerPos "zone_hill", 4.9, 25, 25] call cbrn_fnc_createZone;

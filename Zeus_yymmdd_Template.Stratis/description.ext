@@ -79,6 +79,7 @@ class cfgFunctions {
 			class sthudPatch;
 			class unitTracker;
 			class fuelConsumption;
+			class cbrn;
 		};
 	};
 };
