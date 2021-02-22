@@ -78,6 +78,7 @@ class cfgFunctions {
 			class showFPS;
 			class unitTracker;
 			class fuelConsumption;
+			class cbrn;
 		};
 	};
 };
