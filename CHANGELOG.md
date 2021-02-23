@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.46.0] - 2021-02-23
+### Changed
+- Change respawn to use an invisible helipad instead of an invisible marker
+
 ## [1.45.0] - 2020-12-02
 ### Added
 - Added a fuel consumption function that can be used to increase the consumption rates of selected vehicles
