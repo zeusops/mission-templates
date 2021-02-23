@@ -17,7 +17,7 @@ _handle = execVM format["factions\%1.sqf", _faction];
 missionNameSpace setVariable ["gearGiveNightvision", _nightvision, true];
 missionNameSpace setVariable ["unitTrackerColor", _unitTrackerColor, true];
 missionNameSpace setVariable ["unitTrackerInterval", 0.1, true];
-missionNameSpace setVariable ["RESPAWN_POSITION", getMarkerPos "respawn", true];
+missionNameSpace setVariable ["RESPAWN_POSITION", getPosASL respawn, true];
 missionNameSpace setVariable ["respawnAllow", true, true];
 missionNameSpace setvariable ["respawnTime", 900, true];
 missionNameSpace setvariable ["respawnTimeInfinite", 100000, true];

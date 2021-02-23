@@ -5,7 +5,7 @@ missionNameSpace setVariable ["playerGear", [], false];
 
 waitUntil { missionNameSpace getVariable ["initDone", false] };
 
-player setPos (missionNameSpace getVariable "RESPAWN_POSITION");
+player setPosASL (missionNameSpace getVariable "RESPAWN_POSITION");
 [0] spawn ZO_fnc_unitTracker;
 [0] spawn ZO_fnc_gearHandle;
 [] spawn ZO_fnc_respawnHandleLocal;

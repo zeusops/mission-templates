@@ -1,5 +1,5 @@
 _position = missionNameSpace getVariable "RESPAWN_POSITION";
-player setPos _position;
+player setPosASL _position;
 
 if ((missionNameSpace getVariable "playerGear") isEqualTo []) then {
 	[0] spawn ZO_fnc_gearHandle;
