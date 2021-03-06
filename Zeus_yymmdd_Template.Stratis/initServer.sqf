@@ -5,6 +5,7 @@
 _faction = "ger_army_woodland"; // All factions are in the factions folder, use custom to edit your own.
 _unitTrackerColor = "ColorBlufor"; // All colors: https://community.bistudio.com/wiki/CfgMarkerColors_Arma_3
 _nightvision = false; // Set to true if you want players to spawn with nightvision
+_tank_refill_count = 1;  // Set the number of refills available on a single station. -1 = unlimited
 
 ////////////////////////////////////////////////
 //        DO NOT EDIT BELOW THIS LINE         //
@@ -16,6 +17,7 @@ TF_give_microdagr_to_soldier = false;
 _handle = execVM format["factions\%1.sqf", _faction];
 missionNameSpace setVariable ["gearGiveNightvision", _nightvision, true];
 missionNameSpace setVariable ["unitTrackerColor", _unitTrackerColor, true];
+missionNameSpace setVariable ["tankRefillCount", _tank_refill_count, true];
 missionNameSpace setVariable ["unitTrackerInterval", 0.1, true];
 missionNameSpace setVariable ["RESPAWN_POSITION", getPosASL respawn, true];
 missionNameSpace setVariable ["respawnAllow", true, true];
