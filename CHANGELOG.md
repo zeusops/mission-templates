@@ -3,6 +3,8 @@
 ## [1.46.0] - 2021-02-23
 ### Changed
 - Change respawn to use an invisible helipad instead of an invisible marker
+  - This allows setting the respawn location somewhere else than ground level (on aircraft carriers, inside buildings)
+  - This version is required if playing with the ZEUSOPS mod version v1.12.0-a4 (2021-02-23) or later, moving the respawn mid-mission will not work in older template versions after the mod update.
 
 ## [1.45.0] - 2020-12-02
 ### Added
