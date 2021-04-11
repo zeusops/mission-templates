@@ -15,6 +15,7 @@ fn_fill_tank = {
 
 
 fn_add_fill_action = {
+	if (!isServer) exitWith {};
 	[
 		/* 0 object */                          _this,
 		/* 1 action title */                    "fill tank",
