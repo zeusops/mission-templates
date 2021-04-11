@@ -1,23 +1,32 @@
 cbrn_maxDamage = 100; // how much damage before death, 50% starts internal contamination
-cbrn_backpacks = ["B_SCBA_01_F"];
-cbrn_suits = ["U_C_CBRN_Suit_01_Blue_F",
+cbrn_backpacks = [
+    "B_SCBA_01_F",
+    "rhs_rk_sht_30_emr",
+    "UK3CB_TKA_O_B_RIF_Khk_Radio",
+    "OLIVE_B_RadioBag_01",
+    "clf_Olive_prc117g_co",
+    "unv_olive_big_rt1523g",
+    "rhs_rd54_emr1",
+    "rhs_rd54_vest_emr1",
+    "rhs_rk_sht_30_emr",
+    "rhs_rk_sht_30_emr_engineer_empty",
+    "rhs_rk_sht_30_olive",
+    "rhs_rk_sht_30_olive_engineer_empty"
+];
+cbrn_suits = [
+    "U_C_CBRN_Suit_01_Blue_F",
     "U_B_CBRN_Suit_01_MTP_F",
     "U_B_CBRN_Suit_01_Tropic_F",
     "U_C_CBRN_Suit_01_White_F",
     "U_B_CBRN_Suit_01_Wdl_F",
     "U_I_CBRN_Suit_01_AAF_F",
-    "U_I_E_CBRN_Suit_01_EAF_F"];
-cbrn_masks = ["G_AirPurifyingRespirator_02_black_F",
-    "G_AirPurifyingRespirator_02_olive_F",
-    "G_AirPurifyingRespirator_02_sand_F",
-    "G_AirPurifyingRespirator_01_F",
-    "G_RegulatorMask_F",
-    "GP21_GasmaskPS",
-    "GP5Filter_RaspiratorPS",
-    "GP7_RaspiratorPS",
-    "SE_M17",
-    "Hamster_PS",
-    "SE_S10"];
+    "U_I_E_CBRN_Suit_01_EAF_F",
+    "U_CBRN_B_blue",
+    "UK3CB_ADC_C_Pants_U_20",
+    "U_CBRN_C_blue",
+    "U_CBRN_B_blue"
+];
+cbrn_masks = ["G_CBRN_A"];
 cbrn_threatMeteritem = "ACE_microDAGR";
 cbrn_maxOxygenTime = 60 * 30;
 
