@@ -31,9 +31,24 @@ wreckManagerMode = 3;
 minPlayerDistance = 50;
 saving = 0;
 
+class RscTitles {
+	#include "scripts\cbrn\rsctitles.hpp"
+}
+
+class Extended_PreInit_EventHandlers {
+	class cbrn_preInit {
+		init = "[] call compile preProcessFileLineNumbers 'scripts\cbrn\XEH_PreInit.sqf'";
+	};
+};
+
+class Extended_InitPost_EventHandlers {
+	#include "scripts\cbrn\XEH_InitPost_eh.hpp"
+};
+
 class CfgSounds
 {
 	sounds[] = {};
+	#include "scripts\cbrn\sounds\sounds.hpp"
 	class sound1
 	{
 		name = "sound1";
@@ -43,6 +58,7 @@ class CfgSounds
 };
 
 class cfgFunctions {
+	#include "scripts\cbrn\funcs.hpp"
 	class zeusoperations
 	{
 		tag = "ZO";
