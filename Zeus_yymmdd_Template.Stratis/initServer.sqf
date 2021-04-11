@@ -2,7 +2,7 @@
 //             EDITABLE VARIABLES             //
 ////////////////////////////////////////////////
 
-_faction = "ger_army_woodland"; // All factions are in the factions folder, use custom to edit your own.
+_faction = "custom"; // All factions are in the factions folder, use custom to edit your own.
 _unitTrackerColor = "ColorBlufor"; // All colors: https://community.bistudio.com/wiki/CfgMarkerColors_Arma_3
 _nightvision = false; // Set to true if you want players to spawn with nightvision
 _tank_refill_count = 1;  // Set the number of refills available on a single station. -1 = unlimited
@@ -40,7 +40,7 @@ missionNameSpace setVariable ["unitTrackerNaval", ["U1","U2","U3","U4","U5","U6"
 [] spawn ZO_fnc_respawnHandle;
 missionNameSpace setVariable ["initDone", true, true];
 
-[getMarkerPos "marker_0", 1.5, 25, 25] call cbrn_fnc_createZone;
-[getMarkerPos "marker_1", 2.5, 25, 25] call cbrn_fnc_createZone;
+[getMarkerPos "marker_0", 1.5, 75, 25] call cbrn_fnc_createZone;
+[getMarkerPos "marker_1", 2.5, 75, 35] call cbrn_fnc_createZone;
 [getMarkerPos "marker_2", 3.5, 25, 25] call cbrn_fnc_createZone;
-[getMarkerPos "zone_hill", 4.9, 25, 25] call cbrn_fnc_createZone;
+[getMarkerPos "marker_4", 2.5, 25, 25] call cbrn_fnc_createZone;

@@ -362,16 +362,16 @@ switch (_request) do {
 
 		_object call fn_addRearmAction;
 		_object call fn_addSaveAction;
-		_object call fn_addATRiflemanAction;
-		_object call fn_addAutoriflemanAction;
+		// _object call fn_addATRiflemanAction;
+		// _object call fn_addAutoriflemanAction;
 		_object call fn_addEngineerAction;
-		_object call fn_addGrenadierAction;
-		_object call fn_addMarksmanAction;
+		// _object call fn_addGrenadierAction;
+		// _object call fn_addMarksmanAction;
 		_object call fn_addMedicAction;
-		_object call fn_addRiflemanAction;
+		// _object call fn_addRiflemanAction;
 		_object call fn_addTeamleaderAction;
-		[_object, true] call ace_arsenal_fnc_initBox;
-		["AmmoboxInit",[_object,true]] call BIS_fnc_arsenal;
+		// [_object, true] call ace_arsenal_fnc_initBox;
+		// ["AmmoboxInit",[_object,true]] call BIS_fnc_arsenal;
 	};
 
 	// REARM BOX
@@ -397,16 +397,16 @@ switch (_request) do {
 
 		_object call fn_addRearmAction;
 		_object call fn_addSaveAction;
-		_object call fn_addATRiflemanAction;
-		_object call fn_addAutoriflemanAction;
+		// _object call fn_addATRiflemanAction;
+		// _object call fn_addAutoriflemanAction;
 		_object call fn_addEngineerAction;
-		_object call fn_addGrenadierAction;
-		_object call fn_addMarksmanAction;
+		// _object call fn_addGrenadierAction;
+		// _object call fn_addMarksmanAction;
 		_object call fn_addMedicAction;
-		_object call fn_addRiflemanAction;
+		// _object call fn_addRiflemanAction;
 		_object call fn_addTeamleaderAction;
-		[_object, true] call ace_arsenal_fnc_initBox;
-		["AmmoboxInit",[_object,true]] call BIS_fnc_arsenal;
+		// [_object, true] call ace_arsenal_fnc_initBox;
+		// ["AmmoboxInit",[_object,true]] call BIS_fnc_arsenal;
 	};
 
 	// REARM BOX ON OBJECT

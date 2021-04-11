@@ -4,8 +4,8 @@
 
 onLoadMission = "Zeus Operations";
 loadScreen = "files\ZEUSOPS_TAKISTAN.jpg";
-onLoadName = "Operation Name";
-author = "Zeus Name";
+onLoadName = "Operation Megatone";
+author = "Jeepers";
 
 ////////////////////////////////////////////////
 //        DO NOT EDIT BELOW THIS LINE         //
