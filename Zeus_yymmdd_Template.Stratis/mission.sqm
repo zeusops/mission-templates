@@ -8,7 +8,7 @@ class EditorData
 	toggles=525;
 	class ItemIDProvider
 	{
-		nextID=435;
+		nextID=436;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1768.5341,13.56041,5613.4229};
-		dir[]={0.9039036,-0.42732313,-0.02034444};
-		up[]={0.4272249,0.90409249,-0.0096157538};
-		aside[]={-0.022503363,-2.3173197e-007,-0.99977201};
+		pos[]={399.65771,491.78003,71.813377};
+		dir[]={0.011267954,-0.82072496,0.57123077};
+		up[]={0.016186401,0.57130724,0.82057244};
+		aside[]={0.99981374,4.1757943e-008,-0.019722126};
 	};
 };
 binarizationWanted=0;
-sourceName="Zeus_yymmdd_template-git";
+sourceName="Zeus_yymmdd_Template";
 addons[]=
 {
 	"A3_Modules_F_Curator_Curator",
@@ -13801,7 +13801,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=14;
+		items=18;
 		class Item0
 		{
 			dataType="Logic";
@@ -22480,6 +22480,58 @@ class Mission
 			};
 			id=434;
 			type="zeusops_ModuleSpawnArsenalBox";
+		};
+		class Item14
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={400,471.26001,100};
+			};
+			name="HC1";
+			isPlayable=1;
+			id=435;
+			type="HeadlessClient_F";
+			atlOffset=600;
+		};
+		class Item15
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={400,471.26001,100};
+			};
+			name="HC2";
+			isPlayable=1;
+			id=436;
+			type="HeadlessClient_F";
+			atlOffset=600;
+		};
+		class Item16
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={400,471.26001,100};
+			};
+			name="HC3";
+			isPlayable=1;
+			id=437;
+			type="HeadlessClient_F";
+			atlOffset=600;
+		};
+		class Item17
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={400,471.26001,100};
+			};
+			name="HC4";
+			isPlayable=1;
+			id=438;
+			type="HeadlessClient_F";
+			atlOffset=600;
 		};
 	};
 };
