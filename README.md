@@ -6,7 +6,7 @@ The templates have been created by [Dyzalonius](https://github.com/Dyzalonius) a
 
 The [load screen images](loadscreens) have been created by S. Holm.
 
-# How To Use The Template
+## How To Use The Template
 
 1. Clone the repository or [download the ZIP file](https://github.com/zeusops/mission-templates/archive/master.zip).
 2. Copy template files from `Zeus_yymmdd_Template.Stratis` folder to your mission folder.
@@ -18,7 +18,11 @@ The [load screen images](loadscreens) have been created by S. Holm.
 
 See the [Zeus Guide](https://docs.google.com/document/d/1PFK__UcgmAJ1P3xBnJxeW2ow7u8bgEfM8lkpHJrLYDU/edit#heading=h.nleh2xb28ay8) for in-depth information about using the templates.
 
-# Useful Code
+## Limited arsenal faction templates
+
+See [limited-arsenal-howto.md](limited-arsenal-howto.md) for info on how to set up a limited arsenal.
+
+## Useful Code
 
 ##### Move cover map:
     [[_centerX, _centerY], [_radiusX, _radiusY]] call ZO_fnc_coverMap;

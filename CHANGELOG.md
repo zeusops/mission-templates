@@ -1,6 +1,9 @@
 # Changelog
 
 ## Unreleased
+### Added
+- A global flag to disable full arsenals
+- Limited arsenal faction templates by Jeepers
 ### Fixed
 - A script error when adding a rearm to an existing object
 
