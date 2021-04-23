@@ -7,13 +7,27 @@
 //               SUB-FUNCTIONS                //
 ////////////////////////////////////////////////
 
-fn_addATRiflemanAction = {
-	_object = _this;
+fn_addAllActions = {
+	_this call fn_addRearmAction;
+	_this call fn_addSaveAction;
+	[_this, "AT RIFLEMAN"]  call fn_addLoadoutAction;
+	[_this, "AUTORIFLEMAN"] call fn_addLoadoutAction;
+	[_this, "ENGINEER"]     call fn_addLoadoutAction;
+	[_this, "GRENADIER"]    call fn_addLoadoutAction;
+	[_this, "MARKSMAN"]     call fn_addLoadoutAction;
+	[_this, "MEDIC"]        call fn_addLoadoutAction;
+	[_this, "RIFLEMAN"]     call fn_addLoadoutAction;
+	[_this, "TEAMLEADER"]   call fn_addLoadoutAction;
+};
+
+fn_addLoadoutAction = {
+	params ["_object", "_type"];
+
 
 	// Add the hold-action to the object
 	[
 		/* 0 object */                      	_object,
-		/* 1 action title */                	"Load AT RIFLEMAN",
+		/* 1 action title */                	format ["Load %1", _type],
 		/* 2 idle icon */                   	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
 		/* 3 progress icon */               	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
 		/* 4 condition to show */           	"(_this distance _target < 3)",
@@ -22,156 +36,16 @@ fn_addATRiflemanAction = {
 		/* 7 code executed per tick */      	{},
 		/* 8 code executed on completion */
 		{
+			_type = param [3] # 0;
 			playSound "sound1";
-
-			[1, "AT RIFLEMAN"] call ZO_fnc_gearHandle;
+			[1, _type] call ZO_fnc_gearHandle;
 		},
 		/* 9 code executed on interruption */   {},
-		/* 10 arguments */                      [],
+		/* 10 arguments */                      [_type],
 		/* 11 action duration */                1,
 		/* 12 priority */                       8,
 		/* 13 remove on completion */           false,
 		/* 14 show unconscious */               false
-	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
-};
-
-fn_addAutoriflemanAction = {
-	_object = _this;
-
-	// Add the hold-action to the object
-	[
-		/* 0 object */                     	 	_object,
-		/* 1 action title */                	"Load AUTORIFLEMAN",
-		/* 2 idle icon */                   	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
-		/* 3 progress icon */               	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
-		/* 4 condition to show */           	"(_this distance _target < 3)",
-		/* 5 condition for action */        	"(_this distance _target < 3)",
-		/* 6 code executed on start */      	{},
-		/* 7 code executed per tick */      	{},
-		/* 8 code executed on completion */
-		{
-			playSound "sound1";
-
-			[1, "AUTORIFLEMAN"] call ZO_fnc_gearHandle;
-		},
-		/* 9 code executed on interruption */  	{},
-		/* 10 arguments */                     	[],
-		/* 11 action duration */               	1,
-		/* 12 priority */                      	8,
-		/* 13 remove on completion */          	false,
-		/* 14 show unconscious */              	false
-	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
-};
-
-fn_addEngineerAction = {
-	_object = _this;
-
-	// Add the hold-action to the object
-	[
-		/* 0 object */                      	_object,
-		/* 1 action title */                	"Load ENGINEER",
-		/* 2 idle icon */                   	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
-		/* 3 progress icon */               	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
-		/* 4 condition to show */           	"(_this distance _target < 3)",
-		/* 5 condition for action */        	"(_this distance _target < 3)",
-		/* 6 code executed on start */      	{},
-		/* 7 code executed per tick */      	{},
-		/* 8 code executed on completion */
-		{
-			playSound "sound1";
-
-			[1, "ENGINEER"] call ZO_fnc_gearHandle;
-		},
-		/* 9 code executed on interruption */   {},
-		/* 10 arguments */                      [],
-		/* 11 action duration */                1,
-		/* 12 priority */                       8,
-		/* 13 remove on completion */           false,
-		/* 14 show unconscious */               false
-	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
-};
-
-fn_addGrenadierAction = {
-	_object = _this;
-
-	// Add the hold-action to the object
-	[
-		/* 0 object */                      	_object,
-		/* 1 action title */                	"Load GRENADIER",
-		/* 2 idle icon */                   	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
-		/* 3 progress icon */               	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
-		/* 4 condition to show */           	"(_this distance _target < 3)",
-		/* 5 condition for action */        	"(_this distance _target < 3)",
-		/* 6 code executed on start */      	{},
-		/* 7 code executed per tick */      	{},
-		/* 8 code executed on completion */
-		{
-			playSound "sound1";
-
-			[1, "GRENADIER"] call ZO_fnc_gearHandle;
-		},
-		/* 9 code executed on interruption */   {},
-		/* 10 arguments */                      [],
-		/* 11 action duration */                1,
-		/* 12 priority */                       8,
-		/* 13 remove on completion */           false,
-		/* 14 show unconscious */               false
-	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
-};
-
-fn_addMarksmanAction = {
-	_object = _this;
-
-	// Add the hold-action to the object
-	[
-		/* 0 object */                           _object,
-		/* 1 action title */                    "Load MARKSMAN",
-		/* 2 idle icon */                   	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
-		/* 3 progress icon */               	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
-		/* 4 condition to show */               "(_this distance _target < 3)",
-		/* 5 condition for action */            "(_this distance _target < 3)",
-		/* 6 code executed on start */          {},
-		/* 7 code executed per tick */          {},
-		/* 8 code executed on completion */
-		{
-			playSound "sound1";
-
-			[1, "MARKSMAN"] call ZO_fnc_gearHandle;
-		},
-		/* 9 code executed on interruption */   {},
-		/* 10 arguments */                      [],
-		/* 11 action duration */                1,
-		/* 12 priority */                       8,
-		/* 13 remove on completion */           false,
-		/* 14 show unconscious */               false
-	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
-};
-
-fn_addMedicAction = {
-	_object = _this;
-
-	// Add the hold-action to the object
-	[
-		/* 0 object */                      	_object,
-		/* 1 action title */                	"Load MEDIC",
-		/* 2 idle icon */                   	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
-		/* 3 progress icon */               	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
-		/* 4 condition to show */           	"(_this distance _target < 3)",
-		/* 5 condition for action */        	"(_this distance _target < 3)",
-		/* 6 code executed on start */      	{},
-		/* 7 code executed per tick */      	{},
-		/* 8 code executed on completion */
-		{
-			playSound "sound1";
-
-			[1, "MEDIC"] call ZO_fnc_gearHandle;
-		},
-		/* 9 code executed on interruption */ 	{},
-		/* 10 arguments */                    	[],
-		/* 11 action duration */              	1,
-		/* 12 priority */                     	8,
-		/* 13 remove on completion */         	false,
-		/* 14 show unconscious */             	false
 	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
 };
 
@@ -239,34 +113,6 @@ fn_addRearmAction = {
 	] remoteExec ["ZO_fnc_holdActionAdd",[0,-2] select isDedicated,true];
 };
 
-fn_addRiflemanAction = {
-	_object = _this;
-
-	// Add the hold-action to the object
-	[
-		/* 0 object */                           _object,
-		/* 1 action title */                    "Load RIFLEMAN",
-		/* 2 idle icon */                   	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
-		/* 3 progress icon */               	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
-		/* 4 condition to show */               "(_this distance _target < 3)",
-		/* 5 condition for action */            "(_this distance _target < 3)",
-		/* 6 code executed on start */          {},
-		/* 7 code executed per tick */          {},
-		/* 8 code executed on completion */
-		{
-			playSound "sound1";
-
-			[1, "RIFLEMAN"] call ZO_fnc_gearHandle;
-		},
-		/* 9 code executed on interruption */   {},
-		/* 10 arguments */                      [],
-		/* 11 action duration */                1,
-		/* 12 priority */                       8,
-		/* 13 remove on completion */           false,
-		/* 14 show unconscious */               false
-	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
-};
-
 fn_addSaveAction = {
 	_object = _this;
 
@@ -295,34 +141,6 @@ fn_addSaveAction = {
 	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
 };
 
-fn_addTeamleaderAction = {
-	_object = _this;
-
-	// Add the hold-action to the object
-	[
-		/* 0 object */                          _object,
-		/* 1 action title */                    "Load TEAMLEADER",
-		/* 2 idle icon */                   	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
-		/* 3 progress icon */               	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloadDevice_ca.paa",
-		/* 4 condition to show */               "(_this distance _target < 3)",
-		/* 5 condition for action */            "(_this distance _target < 3)",
-		/* 6 code executed on start */          {},
-		/* 7 code executed per tick */          {},
-		/* 8 code executed on completion */
-		{
-			playSound "sound1";
-
-			[1, "TEAMLEADER"] call ZO_fnc_gearHandle;
-		},
-		/* 9 code executed on interruption */   {},
-		/* 10 arguments */                      [],
-		/* 11 action duration */                1,
-		/* 12 priority */                       8,
-		/* 13 remove on completion */           false,
-		/* 14 show unconscious */               false
-	] remoteExec ["BIS_fnc_holdActionAdd",[0,-2] select isDedicated,true];
-};
-
 fn_createBox = {
 	_position = _this;
 
@@ -331,18 +149,21 @@ fn_createBox = {
 	_object setDir (round random 360);
 	[_object, 4] call ace_cargo_fnc_setSize;
 
-	// Empty ammobox
-	clearWeaponCargoGlobal _object;
-	clearMagazineCargoGlobal _object;
-	clearItemCargoGlobal _object;
-	clearBackpackCargoGlobal _object;
-
 	// Allow zeuses to move the ammobox
 	{
 		_x addCuratorEditableObjects [[_object],true];
 	} foreach allCurators;
 
 	_object;
+};
+
+fn_clearCargo = {
+	_object = _this;
+
+	clearWeaponCargoGlobal _object;
+	clearMagazineCargoGlobal _object;
+	clearItemCargoGlobal _object;
+	clearBackpackCargoGlobal _object;
 };
 
 ////////////////////////////////////////////////
@@ -360,16 +181,8 @@ switch (_request) do {
 		_object = _position call fn_createBox;
 		_object setVariable ["rearmUses", -1, true];
 
-		_object call fn_addRearmAction;
-		_object call fn_addSaveAction;
-		_object call fn_addATRiflemanAction;
-		_object call fn_addAutoriflemanAction;
-		_object call fn_addEngineerAction;
-		_object call fn_addGrenadierAction;
-		_object call fn_addMarksmanAction;
-		_object call fn_addMedicAction;
-		_object call fn_addRiflemanAction;
-		_object call fn_addTeamleaderAction;
+		_object call fn_clearCargo;
+		_object call fn_addAllActions;
 		[_object, true] call ace_arsenal_fnc_initBox;
 		["AmmoboxInit",[_object,true]] call BIS_fnc_arsenal;
 	};
@@ -380,6 +193,7 @@ switch (_request) do {
 		_object = _position call fn_createBox;
 		_object setVariable ["rearmUses", 1, true];
 
+		_object call fn_clearCargo;
 		_object call fn_addRearmAction;
 	};
 
@@ -389,22 +203,8 @@ switch (_request) do {
 		[_object, 4] call ace_cargo_fnc_setSize;
 		_object setVariable ["rearmUses", -1, true];
 
-		// Empty ammobox
-		clearWeaponCargoGlobal _object;
-		clearMagazineCargoGlobal _object;
-		clearItemCargoGlobal _object;
-		clearBackpackCargoGlobal _object;
-
-		_object call fn_addRearmAction;
-		_object call fn_addSaveAction;
-		_object call fn_addATRiflemanAction;
-		_object call fn_addAutoriflemanAction;
-		_object call fn_addEngineerAction;
-		_object call fn_addGrenadierAction;
-		_object call fn_addMarksmanAction;
-		_object call fn_addMedicAction;
-		_object call fn_addRiflemanAction;
-		_object call fn_addTeamleaderAction;
+		_object call fn_clearCargo;
+		_object call fn_addAllActions;
 		[_object, true] call ace_arsenal_fnc_initBox;
 		["AmmoboxInit",[_object,true]] call BIS_fnc_arsenal;
 	};
@@ -417,6 +217,12 @@ switch (_request) do {
 		_alreadyRearmObject = !isNil {_object getVariable "rearmUses"};
 
 		_object setVariable ["rearmUses", 1, true];
+		// TODO: - Figure out if cleaning the inventory is actually desired
+		//         when applied to an existing object
+		//       - Update zeusopsmod and make the module use case 1 instead of
+		//         this one
+		_object call fn_clearCargo;
+
 
 		if (!_alreadyRearmObject) then {
 			_object call fn_addRearmAction;
