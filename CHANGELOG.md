@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+### Fixed
+- A script error when adding a rearm to an existing object
+
 ## [1.46.0] - 2021-02-23
 ### Changed
 - Change respawn to use an invisible helipad instead of an invisible marker

@@ -414,7 +414,7 @@ switch (_request) do {
 		_object = _this select 1;
 		[_object, 4] call ace_cargo_fnc_setSize;
 
-		_alreadyRearmObject = (_object getVariable ["rearmUses", false]);
+		_alreadyRearmObject = !isNil {_object getVariable "rearmUses"};
 
 		_object setVariable ["rearmUses", 1, true];
 
