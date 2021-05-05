@@ -11,4 +11,3 @@ player setPosASL (missionNameSpace getVariable "RESPAWN_POSITION");
 [] spawn ZO_fnc_respawnHandleLocal;
 [] spawn ZO_fnc_mapFunctionalities;
 [-1] spawn ZO_fnc_fortificationBox;
-[] spawn ZO_fnc_sthudPatch;
