@@ -17,3 +17,8 @@
 4. Copy the content of the file to the clipboard and click `Object: ACE Arsenal` > `Import`:
 
    ![import](docs/arsenal-import.png)
+5. Edit `initServer.sqf` and set `_fullArsenal = false`.
+
+   **NOTE:** This will disable Full Arsenals on **all boxes** placed using the
+   zeusops modules. You will need to manually use the ACE Arsenal module on a
+   box if you want to create a separate full arsenal during a mission.

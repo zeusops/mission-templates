@@ -1,8 +1,8 @@
 # Changelog
 
-## Unreleased
+## [1.47.0] - 2021-05-05
 ### Added
-- A global flag to disable full arsenals
+- A global flag to disable full arsenals. See [limited-arsenal-howto.md](limited-arsenal-howto.md) for details.
 - Limited arsenal faction templates by Jeepers
 ### Fixed
 - A script error when adding a rearm to an existing object
