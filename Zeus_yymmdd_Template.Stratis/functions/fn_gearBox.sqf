@@ -166,6 +166,15 @@ fn_clearCargo = {
 	clearBackpackCargoGlobal _object;
 };
 
+fn_addArsenal = {
+	_object = _this;
+
+	if (missionNameSpace getVariable ["fullArsenal", false]) then {
+		[_object, true] call ace_arsenal_fnc_initBox;
+		["AmmoboxInit", [_object, true]] call BIS_fnc_arsenal;
+	};
+};
+
 ////////////////////////////////////////////////
 //               FUNCTION LOOP                //
 ////////////////////////////////////////////////
@@ -183,8 +192,7 @@ switch (_request) do {
 
 		_object call fn_clearCargo;
 		_object call fn_addAllActions;
-		[_object, true] call ace_arsenal_fnc_initBox;
-		["AmmoboxInit",[_object,true]] call BIS_fnc_arsenal;
+		_object call fn_addArsenal;
 	};
 
 	// REARM BOX
@@ -205,8 +213,7 @@ switch (_request) do {
 
 		_object call fn_clearCargo;
 		_object call fn_addAllActions;
-		[_object, true] call ace_arsenal_fnc_initBox;
-		["AmmoboxInit",[_object,true]] call BIS_fnc_arsenal;
+		_object call fn_addArsenal;
 	};
 
 	// REARM BOX ON OBJECT
