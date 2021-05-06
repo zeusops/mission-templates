@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.47.1] - 2021-05-06
+### Fixed
+- Removed a leftover reference to `sthudPatch` that prevented the mission launch.
+
 ## [1.47.0] - 2021-05-05
 ### Added
 - A global flag to disable full arsenals. See [limited-arsenal-howto.md](limited-arsenal-howto.md) for details.
