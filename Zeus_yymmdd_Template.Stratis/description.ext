@@ -60,7 +60,6 @@ class cfgFunctions {
 			class respawnHandle;
 			class respawnHandleLocal;
 			class showFPS;
-			class sthudPatch;
 			class unitTracker;
 			class fuelConsumption;
 		};
