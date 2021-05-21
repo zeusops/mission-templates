@@ -3,7 +3,7 @@
 ////////////////////////////////////////////////
 
 _faction = "ger_army_woodland"; // All factions are in the factions folder, use custom to edit your own.
-_unitTrackerColor = "ColorBlufor"; // All colors: https://community.bistudio.com/wiki/CfgMarkerColors_Arma_3
+_unitTrackerColor = "ColorBlufor"; // All colors: https://community.bistudio.com/wiki/Arma_3:_CfgMarkerColors
 _nightvision = false; // Set to true if you want players to spawn with nightvision
 _fullArsenal = true;  // Set to false if you've manually set up a limited arsenal in the editor
 
