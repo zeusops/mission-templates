@@ -1,0 +1,13 @@
+missionNameSpace setVariable ["gearUniform",            "UK3CB_ANA_B_U_CombatUniform_01_WDL", true];
+missionNameSpace setVariable ["gearVest",               "UK3CB_ANA_B_V_RFL_Vest_WDL_01", true];
+missionNameSpace setVariable ["gearBackpack",           "UK3CB_CW_US_B_LATE_B_RIF_03", true];
+missionNameSpace setVariable ["gearHeadgear",           "UK3CB_ANA_B_B_RIF", true];
+missionNameSpace setVariable ["gearRadio",              "TFAR_anprc152", true];
+missionNameSpace setVariable ["gearBackpackLeader",     "UK3CB_ANA_B_B_RIF_Radio", true];
+missionNameSpace setVariable ["gearNightvision",        "rhsusf_ANPVS_14", true];
+missionNameSpace setVariable ["gearWeapon1Use",         "rhs_weap_rpg18", true];
+missionNameSpace setVariable ["gearWeaponMain",         ["UK3CB_M16A2", "UK3CB_M16_30rnd_556x45", ["", ""]], true];
+missionNameSpace setVariable ["gearWeaponAR",           ["rhs_weap_m249", "rhsusf_200rnd_556x45_M855_box", ["", ""]], true];
+missionNameSpace setVariable ["gearWeaponGrenadier",    ["UK3CB_M16A2_UGL", "UK3CB_M16_30rnd_556x45", ["", ""], "rhs_mag_M441_HE"], true];
+missionNameSpace setVariable ["gearWeaponMarksman",     ["UK3CB_SVD_OLD", "rhs_10Rnd_762x54mmR_7N1", ["rhs_acc_pso1m2"]], true];
+missionNameSpace setVariable ["gearWeaponLauncher",     ["rhs_weap_rpg7", "rhs_rpg7_PG7VL_mag", [""]], true];
