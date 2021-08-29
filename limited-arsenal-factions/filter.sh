@@ -24,7 +24,7 @@ while read line; do
         echo "$previous_line",
     fi
     class=$(echo $line | sed 's/,//')
-    if ! grep -q "$line" "$BLANK"; then
+    if ! grep -q "$class" "$BLANK"; then
         previous_line="$class"
     else
         previous_line=""

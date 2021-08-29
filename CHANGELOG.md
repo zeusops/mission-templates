@@ -1,5 +1,9 @@
 # Changelog
 
+## [Unreleased]
+### Added
+- Added new bandanas from Leshen's bandanas and 3CB.
+
 ## [1.47.1] - 2021-05-06
 ### Fixed
 - Removed a leftover reference to `sthudPatch` that prevented the mission launch.
