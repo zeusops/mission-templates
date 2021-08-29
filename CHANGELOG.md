@@ -3,6 +3,15 @@
 ## [Unreleased]
 ### Added
 - Added new bandanas from Leshen's bandanas and 3CB.
+- New unit tracker markers:
+  - Lima (logistics): maintenance
+  - X-Ray: UAV
+  - Thunder: artillery
+  - Hotel (FOB team): service
+  - Golf (heavy support: dedicated AT, MMG etc): support
+  - RTO/FAC/JTAC: recon
+### Changed
+- Kilo, Lima and HQ will now also receive respawn wave notifications
 
 ## [1.47.1] - 2021-05-06
 ### Fixed

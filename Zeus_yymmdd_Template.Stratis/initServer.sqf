@@ -26,14 +26,26 @@ missionNameSpace setvariable ["respawnTimeInfinite", 100000, true];
 missionNameSpace setVariable ["respawnWave", false, true];
 missionNameSpace setvariable ["respawnWaveTime", 480, true];
 missionNameSpace setVariable ["respawnNextWaveTime", 0, true];
-missionNameSpace setVariable ["respawnMessageGroups", ["Z1","Z2","Z3","Z4","Z5","Z6","Z7","Z8","Z9","Z10","V1","V2","V3","V4","V5","V6","V7","V8","V9","V10"], true];
-missionNameSpace setVariable ["unitTrackerInfantry", ["A","ASL","A1","A2","B","BSL","B1","B2","C","CSL","C1","C2","D","DSL","D1","D2","E","ESL","E1","E2","F","FSL","F1","F2","G","GSL","G1","G2","H","HSL","H1","H2"], true];
+
+_air = ["Z","Zulu","Z1","Z2","Z3","Z4","Z5","Z6","Z7","Z8","Z9","Z10","K","Kilo","K1","K2","K3","K4","K5","K6","K7","K8","K9","K10"]
+_motorized = ["V","Victor","V1","V2","V3","V4","V5","V6","V7","V8","V9","V10"]
+_maintenance = ["L","Lima","L1","L2","L3","L4","L5","L6","L7","L8","L9","L10"]
+missionNameSpace setVariable ["respawnMessageGroups", ["HQCO","HQ1PLT","HQ2PLT"] + _air + _motorized + _maintenance, true];
+
+missionNameSpace setVariable ["unitTrackerInfantry", ["ALPHA","Alpha","A","ASL","A1","A2","BRAVO","Bravo","B","BSL","B1","B2","CHARLIE","Charlie","C","CSL","C1","C2","DELTA","Delta","D","DSL","D1","D2","ECHO","Echo","E","ESL","E1","E2","FOXTROT","Foxtrot","F","FSL","F1","F2","GOLF","Golf","G","GSL","G1","G2","HOTEL","Hotel","H","HSL","H1","H2"], true];
 missionNameSpace setVariable ["unitTrackerHQ", ["HQCO","HQ1PLT","HQ2PLT"], true];
-missionNameSpace setVariable ["unitTrackerAir", ["Z1","Z2","Z3","Z4","Z5","Z6","Z7","Z8","Z9","Z10"], true];
-missionNameSpace setVariable ["unitTrackerArmor", ["Y1","Y2","Y3","Y4","Y5","Y6","Y7","Y8","Y9","Y10"], true];
-missionNameSpace setVariable ["unitTrackerPlane", ["W1","W2","W3","W4","W5","W6","W7","W8","W9","W10"], true];
-missionNameSpace setVariable ["unitTrackerMotorized", ["V1","V2","V3","V4","V5","V6","V7","V8","V9","V10"], true];
-missionNameSpace setVariable ["unitTrackerNaval", ["U1","U2","U3","U4","U5","U6","U7","U8","U9","U10"], true];
+missionNameSpace setVariable ["unitTrackerAir", _air, true];
+missionNameSpace setVariable ["unitTrackerArmor", ["Y","Yankee","Y1","Y2","Y3","Y4","Y5","Y6","Y7","Y8","Y9","Y10"], true];
+missionNameSpace setVariable ["unitTrackerPlane", ["W","Whiskey","W1","W2","W3","W4","W5","W6","W7","W8","W9","W10"], true];
+missionNameSpace setVariable ["unitTrackerMotorized", _motorized, true];
+missionNameSpace setVariable ["unitTrackerNaval", ["U","Uniform","U1","U2","U3","U4","U5","U6","U7","U8","U9","U10"], true];
+missionNameSpace setVariable ["unitTrackerMaintenance", _maintenance, true];
+missionNameSpace setVariable ["unitTrackerUAV", ["X","X-RAY","X-Ray","X1","X2","X3","X4","X5","X6","X7","X8","X9","X10"], true];
+missionNameSpace setVariable ["unitTrackerArtillery", ["T","Thunder","T1","T2","T3","T4","T5","T6","T7","T8","T9","T10"], true];
+missionNameSpace setVariable ["unitTrackerFOB", ["H","Hotel","H1","H2","H3","H4","H5","H6","H7","H8","H9","H10"], true];
+missionNameSpace setVariable ["unitTrackerSupport", ["G","Golf","G1","G2","G3","G4","G5","G6","G7","G8","G9","G10"], true];
+missionNameSpace setVariable ["unitTrackerRecon", ["RTO", "FAC", "JTAC"], true];
+
 [] spawn ZO_fnc_drawEditorObjects;
 [] spawn ZO_fnc_coverMap;
 [] spawn ZO_fnc_showFPS;
