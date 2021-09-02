@@ -44,6 +44,11 @@ fn_notification = {
 		case "waverespawn": {
 			("A respawn wave has been triggered<br /><t font='PuristaBold' size='1.6'>You will respawn in 5 seconds.</t>") spawn fn_text;
 		};
+
+		// respawn automatically
+		case "autorespawn": {
+			("Respawning automatically<br /><t font='PuristaBold' size='1.6'>You will respawn in 5 seconds.</t>") spawn fn_text;
+		};
 	};
 };
 
@@ -64,6 +69,13 @@ waitUntil {!alive player;};
 while {true} do {
 	_autoBodybagTeams = missionNameSpace getVariable "autoBodybagTeams";
 	if (((player distance2D [-5000,-5000]) < 7100) || (alive player) || ((groupId (group player)) in _autoBodybagTeams)) then {
+		breakTo "main";
+	};
+	// Respawning automatically -> show notification and exit
+	if (playerRespawnTime <= 5) then {
+		"autorespawn" spawn fn_notification;
+		sleep 6;
+
 		breakTo "main";
 	};
 
