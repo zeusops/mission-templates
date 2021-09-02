@@ -10,8 +10,17 @@
   - Hotel (FOB team): service
   - Golf (heavy support: dedicated AT, MMG etc): support
   - RTO/FAC/JTAC: recon
+- Players receive a notification when respawning without a bodybag
+- New factions:
+  - Afghan Army by M. Aneirin
+  - Hellenic Army, Egyptian Army by S. Pixy
+
 ### Changed
 - Kilo, Lima and HQ will now also receive respawn wave notifications
+- Assets are now notified also when a player respawns without a bodybag (previously only waves)
+- Assets that are notified about respawns can be defined in `initServer.sqf`
+### Fixed
+- Respawn screen notifications are less likely to go off-screen on small resolutions
 
 ## [1.47.1] - 2021-05-06
 ### Fixed
