@@ -55,7 +55,13 @@ fn_notification = {
 };
 
 fn_text = {
-	[parseText _this, [1.1,-0.3,0.6,0.2], nil, 5, 0.5, 0] spawn BIS_fnc_textTiles;
+	[
+		parseText _this,
+		[0.65 * (safeZoneW + safeZoneX),
+		0.8 * safeZoneY,
+		0.6, 0.2
+	], nil, 5, 0.5, 0] spawn BIS_fnc_textTiles;
+};
 };
 
 ////////////////////////////////////////////////
