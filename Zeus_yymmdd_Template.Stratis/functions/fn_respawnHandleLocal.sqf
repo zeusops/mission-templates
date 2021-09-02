@@ -62,6 +62,16 @@ fn_text = {
 		0.6, 0.2
 	], nil, 5, 0.5, 0] spawn BIS_fnc_textTiles;
 };
+
+fn_notify_assets = {
+	// Get all assets and notify
+	private _assets = [];
+	{
+		if ((groupId _x) in (missionNameSpace getVariable "respawnMessageGroups")) then {
+			_assets append (units _x);
+		};
+	} foreach allGroups;
+	[0, ["<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><t shadowColor='#444444'>A player respawned</t>", "PLAIN", 0.2, true, true]] remoteExec ["cutText", _assets];
 };
 
 ////////////////////////////////////////////////
@@ -91,6 +101,7 @@ while {true} do {
 		"autorespawn" spawn fn_notification;
 		sleep 6;
 
+		[] spawn fn_notify_assets;
 		breakTo "main";
 	};
 
@@ -116,20 +127,11 @@ while {true} do {
 // respawn
 if (!alive player) then {
 	"waverespawn" spawn fn_notification;
+	setPlayerRespawnTime 4;
 	sleep 5;
 
-	// respawn
-	setPlayerRespawnTime 0.01;
-	sleep 1;
-
-	// Get all zeuses and notify
-	private _zulus = [];
- 	{
-  		if ((groupId _x) in (missionNameSpace getVariable "respawnMessageGroups")) then {
-   			_zulus = _zulus + (units _x);
-  		};
- 		} foreach allGroups;
- 	[0, ["<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><t shadowColor='#444444'>A player respawned</t>", "PLAIN", 0.2, true, true]] remoteExec ["cutText", _zulus];
+	// Get all assets and notify
+	[] spawn fn_notify_assets;
 
 };
 
