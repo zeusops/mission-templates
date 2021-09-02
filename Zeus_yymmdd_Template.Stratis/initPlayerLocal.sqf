@@ -4,6 +4,7 @@ player setVariable ["ACE_GForceCoef", 0];
 missionNameSpace setVariable ["playerGear", [], false];
 
 waitUntil { missionNameSpace getVariable ["initDone", false] };
+setPlayerRespawnTime (missionNameSpace getVariable "respawnTime");
 
 player setPosASL (missionNameSpace getVariable "RESPAWN_POSITION");
 [0] spawn ZO_fnc_unitTracker;
