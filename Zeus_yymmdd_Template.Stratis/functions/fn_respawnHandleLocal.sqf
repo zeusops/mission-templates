@@ -10,7 +10,7 @@
 fn_notification = {
 	switch (_this) do {
 		// waiting for bodybag or respawn /minute
-		case 0: {
+		case "bodybagwait": {
 			if (playerRespawnTime % 60 == 0) then {
 				if (missionNameSpace getVariable "respawnAllow") then {
 					(format["<t font='PuristaBold' size='1.6'>You are dead.</t><br />Respawning with the next wave in %1 minutes, if body bagged.<br />Auto respawn in %2 minutes.", ceil((missionNameSpace getVariable "respawnNextWaveTime")/60), ceil(playerRespawnTime/60)]) spawn fn_text;
@@ -21,7 +21,7 @@ fn_notification = {
 		};
 
 		// waiting for wave or respawn
-		case 1: {
+		case "bodybagged": {
 			if (missionNameSpace getVariable "respawnAllow") then {
 				(format["<t font='PuristaBold' size='1.6'>You are body bagged.</t><br />Respawning with the next wave in %1 minutes.<br />Auto respawn in %2 minutes.", ceil((missionNameSpace getVariable "respawnNextWaveTime")/60), ceil(playerRespawnTime/60)]) spawn fn_text;
 			} else {
@@ -30,7 +30,7 @@ fn_notification = {
 		};
 
 		// waiting for wave or respawn /minute
-		case 2: {
+		case "wavewait": {
 			if (playerRespawnTime % 60 == 0) then {
 				if (missionNameSpace getVariable "respawnAllow") then {
 					(format["<t font='PuristaBold' size='1.6'>You are body bagged.</t><br />Respawning with the next wave in %1 minutes.<br />Auto respawn in %2 minutes.", ceil((missionNameSpace getVariable "respawnNextWaveTime")/60), ceil(playerRespawnTime/60)]) spawn fn_text;
@@ -40,8 +40,8 @@ fn_notification = {
 			};
 		};
 
-		// respawn
-		case 3: {
+		// respawn with wave
+		case "waverespawn": {
 			("A respawn wave has been triggered<br /><t font='PuristaBold' size='1.6'>You will respawn in 5 seconds.</t>") spawn fn_text;
 		};
 	};
@@ -67,13 +67,13 @@ while {true} do {
 		breakTo "main";
 	};
 
-	0 spawn fn_notification;
+	"bodybagwait" spawn fn_notification;
 	sleep 1;
 };
 
 // if not respawn notify bodybagged
 if (!alive player) then {
-	1 spawn fn_notification;
+	"bodybagged" spawn fn_notification;
 };
 
 // waiting for wave or respawn
@@ -82,13 +82,13 @@ while {true} do {
 		breakTo "main";
 	};
 
-	2 spawn fn_notification;
+	"wavewait" spawn fn_notification;
 	sleep 1;
 };
 
 // respawn
 if (!alive player) then {
-	3 spawn fn_notification;
+	"waverespawn" spawn fn_notification;
 	sleep 5;
 
 	// respawn
