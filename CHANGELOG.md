@@ -2,7 +2,7 @@
 
 ## [1.48.0] - 2021-09-03
 ### Added
-- Added new bandanas from Leshen's bandanas and 3CB.
+- Added new bandanas from Leshen's bandanas and 3CB to the limited arsenal templates
 - New unit tracker markers:
   - Lima (logistics): maintenance
   - X-Ray: UAV
