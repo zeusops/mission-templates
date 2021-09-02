@@ -56,13 +56,13 @@ fn_text = {
 ////////////////////////////////////////////////
 
 scopeName "main";
-_autoBodybagTeams = ["W1","W2","W3","W4","W5","W6","Y1","Y2","Y3","Y4","Y5","Y6","Z1","Z2","Z3","Z4","Z5","Z6"];
 
 // waiting for death
 waitUntil {!alive player;};
 
 // waiting for bodybag or respawn
 while {true} do {
+	_autoBodybagTeams = missionNameSpace getVariable "autoBodybagTeams";
 	if (((player distance2D [-5000,-5000]) < 7100) || (alive player) || ((groupId (group player)) in _autoBodybagTeams)) then {
 		breakTo "main";
 	};
