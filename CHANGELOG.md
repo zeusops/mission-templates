@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [1.48.0] - 2021-09-03
 ### Added
 - Added new bandanas from Leshen's bandanas and 3CB.
 - New unit tracker markers:
