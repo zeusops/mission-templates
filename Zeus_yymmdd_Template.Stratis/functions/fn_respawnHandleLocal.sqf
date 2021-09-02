@@ -70,6 +70,13 @@ fn_text = {
 
 scopeName "main";
 
+// Reset respawn timer
+if (missionNameSpace getVariable "respawnAllow") then {
+	setPlayerRespawnTime (missionNameSpace getVariable "respawnTime");
+} else {
+	setPlayerRespawnTime (missionNameSpace getVariable "respawnTimeInfinite");
+};
+
 // waiting for death
 waitUntil {!alive player;};
 
@@ -124,12 +131,6 @@ if (!alive player) then {
  		} foreach allGroups;
  	[0, ["<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><t shadowColor='#444444'>A player respawned</t>", "PLAIN", 0.2, true, true]] remoteExec ["cutText", _zulus];
 
-	// reset respawn timer
-	if (missionNameSpace getVariable "respawnAllow") then {
-		setPlayerRespawnTime (missionNameSpace getVariable "respawnTime");
-	} else {
-		setPlayerRespawnTime (missionNameSpace getVariable "respawnTimeInfinite");
-	};
 };
 
 // restart
