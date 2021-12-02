@@ -22567,7 +22567,7 @@ class Mission
 									"STRING"
 								};
 							};
-							value="";
+							value="UAV";
 						};
 					};
 				};
