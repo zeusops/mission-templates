@@ -8,7 +8,7 @@ class EditorData
 	toggles=525;
 	class ItemIDProvider
 	{
-		nextID=435;
+		nextID=450;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1768.5341,13.56041,5613.4229};
-		dir[]={0.9039036,-0.42732313,-0.02034444};
-		up[]={0.4272249,0.90409249,-0.0096157538};
-		aside[]={-0.022503363,-2.3173197e-007,-0.99977201};
+		pos[]={1739.0304,21.554165,5610.5742};
+		dir[]={0.87905419,-0.46718985,0.095190585};
+		up[]={0.46448308,0.8841517,0.050297648};
+		aside[]={0.10765995,-1.4936086e-007,-0.99421638};
 	};
 };
 binarizationWanted=0;
-sourceName="Zeus_yymmdd_template-git";
+sourceName="Zeus_yymmdd_Template";
 addons[]=
 {
 	"A3_Modules_F_Curator_Curator",
@@ -32,13 +32,14 @@ addons[]=
 	"A3_Modules_F_StrategicMap",
 	"A3_Ui_F",
 	"A3_Structures_F_Mil_Helipads",
-	"zeusops_addon"
+	"zeusops_addon",
+	"Werthles_WHK"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=7;
+		items=8;
 		class Item0
 		{
 			className="A3_Modules_F_Curator";
@@ -86,6 +87,11 @@ class AddonsMetaData
 			className="zeusops_addon";
 			name="zeusops_addon";
 			author="Zeus Operations";
+		};
+		class Item7
+		{
+			className="Werthles_WHK";
+			name="Werthles_WHK";
 		};
 	};
 };
@@ -13801,7 +13807,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=14;
+		items=19;
 		class Item0
 		{
 			dataType="Logic";
@@ -22480,6 +22486,302 @@ class Mission
 			};
 			id=434;
 			type="zeusops_ModuleSpawnArsenalBox";
+		};
+		class Item14
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={100,-109.17,300};
+			};
+			name="HC1";
+			isPlayable=1;
+			id=444;
+			type="HeadlessClient_F";
+			atlOffset=13.82;
+		};
+		class Item15
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={200,-121,300};
+			};
+			name="HC2";
+			isPlayable=1;
+			id=445;
+			type="HeadlessClient_F";
+			atlOffset=6.5999985;
+		};
+		class Item16
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={300,-127.02,300};
+			};
+			name="HC3";
+			isPlayable=1;
+			id=446;
+			type="HeadlessClient_F";
+			atlOffset=1.4199982;
+		};
+		class Item17
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={400,-118.85,300};
+			};
+			name="HC4";
+			isPlayable=1;
+			id=447;
+			type="HeadlessClient_F";
+			atlOffset=2.2799988;
+		};
+		class Item18
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={500,-117.50001,300};
+				angles[]={0.14645058,0,0.0074874624};
+			};
+			id=448;
+			type="Werthles_moduleWHM";
+			atlOffset=0.21999359;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="Werthles_moduleWHM_Ignores";
+					expression="_this setVariable ['Ignores',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="Werthles_moduleWHM_Debug";
+					expression="_this setVariable ['Debug',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="Werthles_moduleWHM_UseServer";
+					expression="_this setVariable ['UseServer',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="Werthles_moduleWHM_Wait";
+					expression="_this setVariable ['Wait',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=30;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="Werthles_moduleWHM_NoDebug";
+					expression="_this setVariable ['NoDebug',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute5
+				{
+					property="Werthles_moduleWHM_Advanced";
+					expression="_this setVariable ['Advanced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute6
+				{
+					property="Werthles_moduleWHM_Units";
+					expression="_this setVariable ['Units',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="1";
+						};
+					};
+				};
+				class Attribute7
+				{
+					property="Werthles_moduleWHM_Pause";
+					expression="_this setVariable ['Pause',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				class Attribute8
+				{
+					property="Werthles_moduleWHM_Delay";
+					expression="_this setVariable ['Delay',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=30;
+						};
+					};
+				};
+				class Attribute9
+				{
+					property="Werthles_moduleWHM_DebugOnly";
+					expression="_this setVariable ['DebugOnly',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute10
+				{
+					property="Werthles_moduleWHM_Repeating";
+					expression="_this setVariable ['Repeating',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute11
+				{
+					property="Werthles_moduleWHM_Report";
+					expression="_this setVariable ['Report',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=12;
+			};
 		};
 	};
 };
