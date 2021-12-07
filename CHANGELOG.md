@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.49.1] - 2021-12-07
+### Changed
+- Debug console: Added Zuzu, removed Abey
+
 ## [1.49.0] - 2021-11-02
 ### Added
 - Werthers' Headless Modules
