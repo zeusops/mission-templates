@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.49.2] - 2022-02-13
+### Changed
+- Updated limited arsenal templates
+  - Re-added Leshen's Bandanas after class name changes
+  - Removed ACE_DeadManSwitch
+  - Removed Stealth Balaclavas
+- For full changes, check the diff of `00-blank.txt`
+
 ## [1.49.1] - 2021-12-07
 ### Changed
 - Debug console: Added Zuzu, removed Abey
