@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.49.3] - 2022-05-06
+### Added
+- Added various modules regarding Drongo's Air, configured by S. Pixy
+  - **Exclude aircraft**: Only really relevant if someone uses a drone and even then more of just a double check to help people avoid getting confused over whether they should just use a UAV terminal or the drongos UI. Simply sync to drone placed in Eden editor.
+  - **Restrict users**: Have set the minimum rank to colonel. Basically means that unless a player is assigned the rank of colonel in settings, drongos air will not pop up as an option for the player base.
+  - **Hide Radar Hints**: Hides system chat messages in relation to enemy positions.
+  - **Hide all communication from aircraft**: Removes system chat messages informing of friendly AI planes movements etc.
+
 ## [1.49.2] - 2022-02-13
 ### Changed
 - Updated limited arsenal templates

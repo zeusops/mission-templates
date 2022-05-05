@@ -8,7 +8,7 @@ class EditorData
 	toggles=525;
 	class ItemIDProvider
 	{
-		nextID=450;
+		nextID=469;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1739.0304,21.554165,5610.5742};
-		dir[]={0.87905419,-0.46718985,0.095190585};
-		up[]={0.46448308,0.8841517,0.050297648};
-		aside[]={0.10765995,-1.4936086e-007,-0.99421638};
+		pos[]={1812.5,55.5,5339.5};
+		dir[]={-3.3010459e-005,-0.70710683,0.70710683};
+		up[]={-3.3010459e-005,0.70710677,0.70710677};
+		aside[]={0.99999994,0,4.6683654e-005};
 	};
 };
 binarizationWanted=0;
@@ -33,13 +33,15 @@ addons[]=
 	"A3_Ui_F",
 	"A3_Structures_F_Mil_Helipads",
 	"zeusops_addon",
-	"Werthles_WHK"
+	"Werthles_WHK",
+	"DrongosAirOps",
+	"Desert"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=8;
+		items=10;
 		class Item0
 		{
 			className="A3_Modules_F_Curator";
@@ -92,6 +94,17 @@ class AddonsMetaData
 		{
 			className="Werthles_WHK";
 			name="Werthles_WHK";
+		};
+		class Item8
+		{
+			className="DrongosAirOps";
+			name="Drongo's Air Ops";
+			author="Drongo";
+		};
+		class Item9
+		{
+			className="Desert";
+			name="Desert";
 		};
 	};
 };
@@ -13807,7 +13820,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=19;
+		items=25;
 		class Item0
 		{
 			dataType="Logic";
@@ -22492,64 +22505,64 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={100,-109.17,300};
+				position[]={100,-109.17001,300};
 			};
 			name="HC1";
 			isPlayable=1;
 			id=444;
 			type="HeadlessClient_F";
-			atlOffset=13.82;
+			atlOffset=13.819984;
 		};
 		class Item15
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={200,-121,300};
+				position[]={200,-121.00003,300};
 			};
 			name="HC2";
 			isPlayable=1;
 			id=445;
 			type="HeadlessClient_F";
-			atlOffset=6.5999985;
+			atlOffset=6.599968;
 		};
 		class Item16
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={300,-127.02,300};
+				position[]={300,-127.01999,300};
 			};
 			name="HC3";
 			isPlayable=1;
 			id=446;
 			type="HeadlessClient_F";
-			atlOffset=1.4199982;
+			atlOffset=1.4200134;
 		};
 		class Item17
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={400,-118.85,300};
+				position[]={400,-118.85001,300};
 			};
 			name="HC4";
 			isPlayable=1;
 			id=447;
 			type="HeadlessClient_F";
-			atlOffset=2.2799988;
+			atlOffset=2.2799911;
 		};
 		class Item18
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={500,-117.50001,300};
+				position[]={500,-117.50003,300};
 				angles[]={0.14645058,0,0.0074874624};
 			};
 			id=448;
 			type="Werthles_moduleWHM";
-			atlOffset=0.21999359;
+			atlOffset=0.2199707;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -22782,6 +22795,95 @@ class Mission
 				};
 				nAttributes=12;
 			};
+		};
+		class Item19
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={600,-0.13000488,100};
+			};
+			id=450;
+			type="DAO_RestrictUsers";
+			atlOffset=130;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="DAO_RestrictUsers_DAO_MinRank";
+					expression="_this setVariable ['DAO_MinRank',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="COLONEL";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item20
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={700,0.83999634,100};
+			};
+			id=451;
+			type="DAO_NoComms";
+			atlOffset=130;
+		};
+		class Item21
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={800,-1.3000183,100};
+			};
+			id=460;
+			type="DAO_RadarHintOff";
+			atlOffset=129.99998;
+		};
+		class Item22
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={100,-2.8600159,400};
+			};
+			id=456;
+			type="DAO_Exclude";
+			atlOffset=129.99998;
+		};
+		class Item23
+		{
+			dataType="Comment";
+			class PositionInfo
+			{
+				position[]={120,0,400};
+			};
+			description="Sync this module to drones to hide the unnecessary Drongo's UI from drone operators";
+			id=467;
+			atlOffset=134.41;
+		};
+		class Item24
+		{
+			dataType="Comment";
+			class PositionInfo
+			{
+				position[]={620,0,100};
+			};
+			description="Note: Unless a player is assigned the rank of colonel in settings, the Drongo's Air UI will not show up for them.";
+			id=468;
+			atlOffset=129.67999;
 		};
 	};
 };
