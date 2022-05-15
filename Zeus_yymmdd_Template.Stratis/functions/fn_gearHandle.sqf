@@ -163,7 +163,7 @@ fn_gearLoadout = {
 
 	switch (_loadout) do {
 		case "AT RIFLEMAN": {
-			[] call fn_gearStart;
+			["", ""] call fn_gearStart;
 
 			// give rifleman gear
 			player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1);
@@ -187,7 +187,7 @@ fn_gearLoadout = {
 		};
 
 		case "AUTORIFLEMAN": {
-			[] call fn_gearStart;
+			["", ""] call fn_gearStart;
 
 			// give AR gear
 			player addItemToVest ((missionNameSpace getVariable "gearWeaponAR") select 1);
@@ -206,7 +206,7 @@ fn_gearLoadout = {
 		};
 
 		case "ENGINEER": {
-			[] call fn_gearStart;
+			["gearVestEngineer", ""] call fn_gearStart;
 
 			// give rifleman gear
 			player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1);
@@ -226,7 +226,7 @@ fn_gearLoadout = {
 		};
 
 		case "GRENADIER": {
-			[] call fn_gearStart;
+			["gearVestGrenadier", ""] call fn_gearStart;
 
 			// give rifleman gear
 			player addItemToVest ((missionNameSpace getVariable "gearWeaponGrenadier") select 1);
@@ -246,7 +246,7 @@ fn_gearLoadout = {
 		};
 
 		case "MARKSMAN": {
-			[] call fn_gearStart;
+			["", ""] call fn_gearStart;
 
 			// give marksman gear
 			player addItemToVest ((missionNameSpace getVariable "gearWeaponMarksman") select 1);
@@ -265,7 +265,7 @@ fn_gearLoadout = {
 		};
 
 		case "MEDIC": {
-			[] call fn_gearStart;
+			["", ""] call fn_gearStart;
 
 			// give medic gear
 			player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1);
@@ -291,7 +291,7 @@ fn_gearLoadout = {
 		};
 
 		case "RIFLEMAN": {
-			[] call fn_gearStart;
+			["", ""] call fn_gearStart;
 
 			// give rifleman gear
 			player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1);
@@ -311,7 +311,7 @@ fn_gearLoadout = {
 		};
 
 		case "TEAMLEADER": {
-			[] call fn_gearStart;
+			["", ""] call fn_gearStart;
 
 			// give leader gear
 			player addItemToVest ((missionNameSpace getVariable "gearWeaponMain") select 1);
@@ -328,6 +328,26 @@ fn_gearLoadout = {
 			// set to non-medic and non-engineer
 			player setVariable ["Ace_medical_medicClass", 0, true];
 			player setVariable ["Ace_IsEngineer", 0, true];
+		};
+
+		case "VEHICLE CREW": {
+			["gearVestCrewman", "gearHeadgearCrewman"] call fn_gearStart;
+
+			// give rifleman gear
+			player addItemToVest ((missionNameSpace getVariable "gearWeaponCompact") select 1);
+			player addWeapon ((missionNameSpace getVariable "gearWeaponCompact") select 0);
+			{
+				player addPrimaryWeaponItem _x;
+			} foreach ((missionNameSpace getVariable "gearWeaponCompact") select 2);
+			for "_i" from 1 to 3 do {player addItemToVest "UK3CB_BAF_SmokeShell";};
+			for "_i" from 1 to 16 do {player addItemToVest ((missionNameSpace getVariable "gearWeaponCompact") select 1)};
+			player addBackpack (missionNameSpace getVariable "gearBackpack");
+			player addItemToBackpack "ToolKit";
+			player addItemToBackpack "ACE_EntrenchingTool";
+
+			// set to non-medic and engineer
+			player setVariable ["Ace_medical_medicClass", 0, true];
+			player setVariable ["Ace_IsEngineer", 1, true];
 		};
 	};
 
@@ -402,6 +422,26 @@ fn_gearSave = {
 };
 
 fn_gearStart = {
+	/*
+	* Assign uniform, vest, headgear and default supplies to the player
+	*
+	* Arguments:
+	* 0: Variable name for vest, empty string for default <STRING>
+	* 1: Variable name for headgear, empty string for default <STRING>
+	*
+	* Return Value:
+	* Nothing.
+	*
+	* Example:
+	* ["gearVestEngineer", ""] call fn_gearStart
+	*
+	* Public: No
+	*/
+
+	params ["_vest", "_headgear"];
+	private _vest = if (_vest == "") then { "gearVest"; } else { _vest; };
+	private _headgear = if (_headgear == "") then { "gearHeadgear"; } else { _headgear; };
+
 	removeAllWeapons player;
 	removeUniform player;
 	removeVest player;
@@ -433,8 +473,8 @@ fn_gearStart = {
 	};
 	for "_i" from 1 to 30 do {player addItemToUniform "ACE_fieldDressing"};
 
-	player addVest (missionNameSpace getVariable "gearVest");
-	player addHeadgear (missionNameSpace getVariable "gearHeadgear");
+	player addVest (missionNameSpace getVariable _vest);
+	player addHeadgear (missionNameSpace getVariable _headgear);
 };
 
 ////////////////////////////////////////////////
@@ -448,7 +488,7 @@ _request = (_this select 0);
 switch (_request) do {
 	// gear start
 	case 0: {
-		[] call fn_gearStart;
+		["", ""] call fn_gearStart;
 	};
 
 	// gear loadout
