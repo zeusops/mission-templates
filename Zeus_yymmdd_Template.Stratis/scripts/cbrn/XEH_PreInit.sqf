@@ -38,7 +38,7 @@ cbrn_lastBeep = -1;
 cbrn_beepVolume = 2;
 cbrn_beep = true;
 ["cbrn_createZone", {
-    params ["_pos", "_threatLevel", "_size", "_falloffArea"];
+    params ["_pos", "_threatLevel", "_size", "_falloffArea", "_height"];
     private _trg = createTrigger ["EmptyDetector", _pos, false];
     _trg setVariable ["cbrn_zone", true];
     _trg enableDynamicSimulation false;
@@ -46,6 +46,7 @@ cbrn_beep = true;
     _trg setVariable ["cbrn_threatLevel", _threatLevel];
     _trg setVariable ["cbrn_size", _size];
     _trg setVariable ["cbrn_falloffArea", _falloffArea];
+    _trg setVariable ["cbrn_height", _height];
     private _radius = _size + _falloffArea;
     _trg setTriggerArea [_radius, _radius, 0, false, _radius];
     _trg setTriggerActivation ["ANYPLAYER", "PRESENT", true];

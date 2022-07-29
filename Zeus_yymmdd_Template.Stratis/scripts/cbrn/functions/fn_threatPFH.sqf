@@ -10,9 +10,11 @@ if (alive _player && {!(_zones isEqualTo [])}) then {
     private _threatLevel = 0;
     private _falloffArea = 0;
     private _dist = 0;
+    private _height = 0;
     {
+        _height = _x getVariable ["cbrn_height", 10];
         _threatLevel = _x getVariable ["cbrn_threatLevel", 0];
-        if (_max < _threatLevel) then {
+        if (getPosATL player select 2 < _height && _max < _threatLevel) then {
             _size = _x getVariable ["cbrn_size", 0];
             _dist = _player distance2D _x;
             if( _dist > _size) then {
