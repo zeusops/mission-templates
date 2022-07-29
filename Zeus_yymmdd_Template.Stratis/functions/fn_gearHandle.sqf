@@ -435,6 +435,7 @@ fn_gearStart = {
 
 	player addVest (missionNameSpace getVariable "gearVest");
 	player addHeadgear (missionNameSpace getVariable "gearHeadgear");
+	player addGoggles (missionNameSpace getVariable "gearGoggles");
 };
 
 ////////////////////////////////////////////////
