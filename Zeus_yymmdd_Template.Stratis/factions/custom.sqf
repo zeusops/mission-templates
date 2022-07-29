@@ -18,6 +18,7 @@ _weaponAR = ["rhs_weap_m249_pip_L", "rhsusf_200Rnd_556x45_mixed_box", ["rhsusf_a
 _weaponGrenadier = ["rhs_weap_m4a1_carryhandle_m203", "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", ["rhsusf_acc_ACOG", "rhsusf_acc_anpeq15a"], "rhs_mag_M441_HE"];
 _weaponMarksman = ["rhs_weap_m14ebrri", "rhsusf_20Rnd_762x51_m62_Mag", ["optic_AMS", "rhsusf_acc_anpeq15_bk"]];
 _weaponLauncher = ["launch_MRAWS_olive_rail_F", "MRAWS_HEAT_F", [""]];
+_goggles = "G_CBRN_A";
 
 ////////////////////////////////////////////////
 //        DO NOT EDIT BELOW THIS LINE         //
@@ -36,3 +37,4 @@ missionNameSpace setVariable ["gearWeaponAR", _weaponAR, true];
 missionNameSpace setVariable ["gearWeaponGrenadier", _weaponGrenadier, true];
 missionNameSpace setVariable ["gearWeaponMarksman", _weaponMarksman, true];
 missionNameSpace setVariable ["gearWeaponLauncher", _weaponLauncher, true];
+missionNameSpace setVariable ["gearGoggles", _goggles, true];
