@@ -60,7 +60,7 @@ missionNameSpace setVariable ["autoBodybagTeams", _plane + _armor + _air + _moto
 [] spawn ZO_fnc_respawnHandle;
 missionNameSpace setVariable ["initDone", true, true];
 
-[getMarkerPos "Zone_1", 1.5, 10, 1] call cbrn_fnc_createZone;
-[getMarkerPos "Zone_2", 2.5, 10, 1] call cbrn_fnc_createZone;
-[getMarkerPos "Zone_3", 3.5, 10, 1] call cbrn_fnc_createZone;
-[getMarkerPos "Zone_4", 4.5, 10, 1] call cbrn_fnc_createZone;
+[getMarkerPos "Zone_1", 1.5, 10, 1, 5] call cbrn_fnc_createZone;
+[getMarkerPos "Zone_2", 2.5, 10, 1, 10] call cbrn_fnc_createZone;
+[getMarkerPos "Zone_3", 3.5, 10, 1, 15] call cbrn_fnc_createZone;
+[getMarkerPos "Zone_4", 4.5, 10, 1, 20] call cbrn_fnc_createZone;
