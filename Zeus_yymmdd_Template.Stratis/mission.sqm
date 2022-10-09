@@ -33,15 +33,13 @@ addons[]=
 	"A3_Ui_F",
 	"A3_Structures_F_Mil_Helipads",
 	"zeusops_addon",
-	"Werthles_WHK",
-	"DrongosAirOps",
-	"Desert"
+	"Werthles_WHK"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=10;
+		items=8;
 		class Item0
 		{
 			className="A3_Modules_F_Curator";
@@ -94,17 +92,6 @@ class AddonsMetaData
 		{
 			className="Werthles_WHK";
 			name="Werthles_WHK";
-		};
-		class Item8
-		{
-			className="DrongosAirOps";
-			name="Drongo's Air Ops";
-			author="Drongo";
-		};
-		class Item9
-		{
-			className="Desert";
-			name="Desert";
 		};
 	};
 };
@@ -13820,7 +13807,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=25;
+		items=19;
 		class Item0
 		{
 			dataType="Logic";
@@ -22795,95 +22782,6 @@ class Mission
 				};
 				nAttributes=12;
 			};
-		};
-		class Item19
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={600,-0.13000488,100};
-			};
-			id=450;
-			type="DAO_RestrictUsers";
-			atlOffset=130;
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="DAO_RestrictUsers_DAO_MinRank";
-					expression="_this setVariable ['DAO_MinRank',_value,true];";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"STRING"
-								};
-							};
-							value="COLONEL";
-						};
-					};
-				};
-				nAttributes=1;
-			};
-		};
-		class Item20
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={700,0.83999634,100};
-			};
-			id=451;
-			type="DAO_NoComms";
-			atlOffset=130;
-		};
-		class Item21
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={800,-1.3000183,100};
-			};
-			id=460;
-			type="DAO_RadarHintOff";
-			atlOffset=129.99998;
-		};
-		class Item22
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={100,-2.8600159,400};
-			};
-			id=456;
-			type="DAO_Exclude";
-			atlOffset=129.99998;
-		};
-		class Item23
-		{
-			dataType="Comment";
-			class PositionInfo
-			{
-				position[]={120,0,400};
-			};
-			description="Sync this module to drones to hide the unnecessary Drongo's UI from drone operators";
-			id=467;
-			atlOffset=134.41;
-		};
-		class Item24
-		{
-			dataType="Comment";
-			class PositionInfo
-			{
-				position[]={620,0,100};
-			};
-			description="Note: Unless a player is assigned the rank of colonel in settings, the Drongo's Air UI will not show up for them.";
-			id=468;
-			atlOffset=129.67999;
 		};
 	};
 };
