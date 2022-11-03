@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.50.0] - 2022-11-03
+### Removed
+- Removed Drongo's Air modules
+
 ## [1.49.3] - 2022-05-06
 ### Added
 - Added various modules regarding Drongo's Air, configured by S. Pixy
