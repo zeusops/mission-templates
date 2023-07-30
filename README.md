@@ -1,6 +1,6 @@
-# Zeus Operations Mission Template
+# Zeusops Mission Template
 
-Arma 3 mission templates for [Zeus Operations](https://www.zeusops.com).
+Arma 3 mission templates for [Zeusops](https://www.zeusops.com).
 
 The templates have been created by [Dyzalonius](https://github.com/Dyzalonius) and [Gehock](https://github.com/Gehock).
 
@@ -23,6 +23,10 @@ See the [wiki](https://github.com/zeusops/mission-templates/wiki/Map-classnames)
 ## Limited arsenal faction templates
 
 See [limited-arsenal-howto.md](limited-arsenal-howto.md) for info on how to set up a limited arsenal.
+
+## CBRN template
+
+See the [feature/cbrn](https://github.com/zeusops/mission-templates/tree/feature/cbrn) branch for a CBRN version of the template. The template is based on [diwako_cbrn](https://github.com/diwako/diwako_cbrn/releases) v1.1.0, with modifications by Jeepers and Gehock.
 
 ## Useful Code
 
