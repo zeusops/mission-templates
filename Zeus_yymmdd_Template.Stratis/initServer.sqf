@@ -2,7 +2,7 @@
 //             EDITABLE VARIABLES             //
 ////////////////////////////////////////////////
 
-_faction = "ger_army_woodland"; // All factions are in the factions folder, use custom to edit your own.
+_faction = "custom"; // All factions are in the factions folder, use custom to edit your own.
 _unitTrackerColor = "ColorBlufor"; // All colors: https://community.bistudio.com/wiki/Arma_3:_CfgMarkerColors
 _nightvision = false; // Set to true if you want players to spawn with nightvision
 _fullArsenal = true;  // Set to false if you've manually set up a limited arsenal in the editor
@@ -61,7 +61,9 @@ missionNameSpace setVariable ["autoBodybagTeams", _plane + _armor + _air + _moto
 missionNameSpace setVariable ["initDone", true, true];
 
 // Zones can optionally be activated via a variable (see disable_zone_addAction.sqf):
-[getMarkerPos "Zone_1", 1.5, 10, 1, 5, "cbrn_zone_1_active"] call cbrn_fnc_createZone;
-[getMarkerPos "Zone_2", 2.5, 10, 1, 10, "cbrn_zone_2_active"] call cbrn_fnc_createZone;
-[getMarkerPos "Zone_3", 3.5, 10, 1, 15] call cbrn_fnc_createZone;
-[getMarkerPos "Zone_4", 4.5, 10, 1, 20] call cbrn_fnc_createZone;
+// [getMarkerPos "Zone_1", 1.5, 10, 1, 5, "cbrn_zone_1_active"] call cbrn_fnc_createZone;
+
+[getMarkerPos "Zone_1", 1.5, 10, 1] call cbrn_fnc_createZone;
+[getMarkerPos "Zone_2", 1.5, 10, 1] call cbrn_fnc_createZone;
+[getMarkerPos "Zone_3", 1.5, 10, 1] call cbrn_fnc_createZone;
+[getMarkerPos "Zone_4", 1.5, 10, 1] call cbrn_fnc_createZone;
