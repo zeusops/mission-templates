@@ -62,9 +62,9 @@ class cfgFunctions {
 			class respawnHandleLocal;
 			class showFPS;
 			class spectator;
-			class sthudPatch;
 			class tag;
 			class unitTracker;
+			class fuelConsumption;
 		};
 	};
 };

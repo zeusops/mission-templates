@@ -33,14 +33,14 @@ fn_enterZeus = {
 
 	// Spawn respawn position marker updater
 	onEachFrame {
-		_respawnPos = missionNameSpace getVariable "RESPAWN_POSITION";
+		_respawnPos = ASLToAGL (missionNameSpace getVariable "RESPAWN_POSITION");
 		_distance = player distance _respawnPos;
 		_alphaIcon = linearConversion [500, 1500, _distance, 1, 0.1, true];
 		_alphaLine = linearConversion [50, 500, _distance, 1, 0, true];
 		drawIcon3D [
 			"",
 			[0,0,0,_alphaIcon],
-			[_respawnPos select 0, _respawnPos select 1, 5],
+			[_respawnPos select 0, _respawnPos select 1, (_respawnPos select 2) + 5],
 			0,
 			0,
 			direction player,
@@ -50,7 +50,7 @@ fn_enterZeus = {
 			"PuristaSemiBold",
 			"center"
 		];
-		drawLine3D [[_respawnPos select 0, _respawnPos select 1, 0], [_respawnPos select 0, _respawnPos select 1, 4], [0,0,0,_alphaLine]];
+		drawLine3D [[_respawnPos select 0, _respawnPos select 1, _respawnPos select 2], [_respawnPos select 0, _respawnPos select 1, (_respawnPos select 2) + 4], [0,0,0,_alphaLine]];
 		"respawnPosition" setMarkerPosLocal _respawnPos;
 		if (missionNameSpace getVariable "respawnAllow") then {
 			"zeusInfo" setMarkerTextLocal format ["        RESPAWN Enabled - Next wave: %1s", missionNameSpace getVariable "respawnNextWaveTime"];

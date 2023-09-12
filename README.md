@@ -4,7 +4,9 @@ Arma 3 mission templates for [Zeus Operations](https://www.zeusops.com).
 
 The templates have been created by [Dyzalonius](https://github.com/Dyzalonius) and [Gehock](https://github.com/Gehock).
 
-# How To Use The Template
+The [load screen images](loadscreens) have been created by S. Holm.
+
+## How To Use The Template
 
 1. Clone the repository or [download the ZIP file](https://github.com/zeusops/mission-templates/archive/master.zip).
 2. Copy template files from `Zeus_yymmdd_Template.Stratis` folder to your mission folder.
@@ -16,7 +18,13 @@ The templates have been created by [Dyzalonius](https://github.com/Dyzalonius) a
 
 See the [Zeus Guide](https://docs.google.com/document/d/1PFK__UcgmAJ1P3xBnJxeW2ow7u8bgEfM8lkpHJrLYDU/edit#heading=h.nleh2xb28ay8) for in-depth information about using the templates.
 
-# Useful Code
+See the [wiki](https://github.com/zeusops/mission-templates/wiki/Map-classnames) for a list of map class names.
+
+## Limited arsenal faction templates
+
+See [limited-arsenal-howto.md](limited-arsenal-howto.md) for info on how to set up a limited arsenal.
+
+## Useful Code
 
 ##### Move cover map:
     [[_centerX, _centerY], [_radiusX, _radiusY]] call ZO_fnc_coverMap;
@@ -44,3 +52,14 @@ See the [Zeus Guide](https://docs.google.com/document/d/1PFK__UcgmAJ1P3xBnJxeW2o
     missionNameSpace setVariable ["gearWeaponGrenadier", ["classnameOfWeapon", "classnameOfAmmunition", ["classnameOfAttachment"], "classnameOfSecondaryAmmunition"], true];
     missionNameSpace setVariable ["gearWeaponMarksman", ["classnameOfWeapon", "classnameOfAmmunition", ["classnameOfAttachment"]], true];
     missionNameSpace setVariable ["gearWeaponLauncher", ["classnameOfWeapon", "classnameOfAmmunition", ["classnameOfAttachment"]], true];
+
+#### Set Fuel consumption
+
+```sqf
+// When calling from the 3den Editor Object Init or
+// When using the init mid operation make sure the execution mode is set to Global:
+[_this, rateOfLeak] spawn ZO_fnc_fuelConsumption;
+
+// When calling from the debug console:
+[nameOfVehicle, rateOfLeak] spawn ZO_fnc_fuelConsumption;
+```

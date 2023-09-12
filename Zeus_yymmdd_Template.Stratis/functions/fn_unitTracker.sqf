@@ -41,6 +41,12 @@ fn_createMarker = {
 		if ((_unit select 1) in (missionNameSpace getVariable "unitTrackerPlane")) then {_type = "plane";};
 		if ((_unit select 1) in (missionNameSpace getVariable "unitTrackerMotorized")) then {_type = "motor_inf";};
 		if ((_unit select 1) in (missionNameSpace getVariable "unitTrackerNaval")) then {_type = "naval";};
+		if ((_unit select 1) in (missionNameSpace getVariable "unitTrackerMaintenance")) then {_type = "maint";};
+		if ((_unit select 1) in (missionNameSpace getVariable "unitTrackerUAV")) then {_type = "uav";};
+		if ((_unit select 1) in (missionNameSpace getVariable "unitTrackerArtillery")) then {_type = "art";};
+		if ((_unit select 1) in (missionNameSpace getVariable "unitTrackerFOB")) then {_type = "service";};
+		if ((_unit select 1) in (missionNameSpace getVariable "unitTrackerSupport")) then {_type = "support";};
+		if ((_unit select 1) in (missionNameSpace getVariable "unitTrackerRecon")) then {_type = "recon";};
 		_markerType = _prefix + _type;
 		_markerType;
 	};

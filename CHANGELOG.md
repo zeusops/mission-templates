@@ -1,5 +1,55 @@
 # Changelog
 
+## [1.48.0] - 2021-09-03
+### Added
+- Added new bandanas from Leshen's bandanas and 3CB.
+- New unit tracker markers:
+  - Lima (logistics): maintenance
+  - X-Ray: UAV
+  - Thunder: artillery
+  - Hotel (FOB team): service
+  - Golf (heavy support: dedicated AT, MMG etc): support
+  - RTO/FAC/JTAC: recon
+- Players receive a notification when respawning without a bodybag
+- New factions:
+  - Afghan Army by M. Aneirin
+  - Hellenic Army, Egyptian Army by S. Pixy
+
+### Changed
+- Kilo, Lima and HQ will now also receive respawn wave notifications
+- Assets are now notified also when a player respawns without a bodybag (previously only waves)
+- Assets that are notified about respawns can be defined in `initServer.sqf`
+### Fixed
+- Respawn screen notifications are less likely to go off-screen on small resolutions
+
+## [1.47.1] - 2021-05-06
+### Fixed
+- Removed a leftover reference to `sthudPatch` that prevented the mission launch.
+
+## [1.47.0] - 2021-05-05
+### Added
+- A global flag to disable full arsenals. See [limited-arsenal-howto.md](limited-arsenal-howto.md) for details.
+- Limited arsenal faction templates by Jeepers
+### Fixed
+- A script error when adding a rearm to an existing object
+
+### Removed
+- Shacktac UI patch
+
+## [1.46.0] - 2021-02-23
+### Changed
+- Change respawn to use an invisible helipad instead of an invisible marker
+  - This allows setting the respawn location somewhere else than ground level (on aircraft carriers, inside buildings)
+  - This version is required if playing with the ZEUSOPS mod version v1.12.0-a4 (2021-02-23) or later, moving the respawn mid-mission will not work in older template versions after the mod update.
+
+## [1.45.0] - 2020-12-02
+### Added
+- Added a fuel consumption function that can be used to increase the consumption rates of selected vehicles
+
+## [1.44.0] - 2020-11-20
+### Added
+- Heal players when rearming
+
 ## [1.43.0] - 2020-08-14
 ### Added
 - Enabled CBA Target Debugging
