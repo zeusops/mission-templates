@@ -35,5 +35,5 @@ missionNameSpace setVariable ["unitTrackerNaval", ["U1","U2","U3","U4","U5","U6"
 [] spawn ZO_fnc_drawEditorObjects;
 [] spawn ZO_fnc_coverMap;
 [] spawn ZO_fnc_showFPS;
-[] spawn ZO_fnc_respawnHandle;
+//[] spawn ZO_fnc_respawnHandle;
 missionNameSpace setVariable ["initDone", true, true];

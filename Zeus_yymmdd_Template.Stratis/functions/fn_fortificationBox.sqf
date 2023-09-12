@@ -32,7 +32,7 @@ fn_addConfirmAction = {
             _caller setVariable ["movingObjectOrigin", objNull, true];
             _caller setVariable ["movingObjectMaterialCost", 0, true];
             _object setVariable ["moving", false, true];
-            [_caller, "forceWalk", "MovingObject", false] call ace_common_fnc_statusEffect_set;
+            //[_caller, "forceWalk", "MovingObject", false] call ace_common_fnc_statusEffect_set;
             _caller action ["SwitchWeapon", _caller, _caller, 0];
             ["ace_common_enableSimulationGlobal", [_object, true]] call CBA_fnc_serverEvent;
 			[] call fn_removeAllMovingObjectActions;
@@ -253,7 +253,7 @@ fn_giveObject = {
     _unit setVariable ["movingObjectOrigin", _box, true];
 
     // prevent the placing unit from running
-    [_unit, "forceWalk", "MovingObject", true] call ace_common_fnc_statusEffect_set;
+    //[_unit, "forceWalk", "MovingObject", true] call ace_common_fnc_statusEffect_set;
 
     // Prevent collisions with object
     ["ace_common_enableSimulationGlobal", [_object, false]] call CBA_fnc_serverEvent;
@@ -274,7 +274,7 @@ fn_returnObject = {
 	_caller setVariable ["movingObject", objNull, true];
 	_caller setVariable ["movingObjectOrigin", objNull, true];
 	_caller setVariable ["movingObjectMaterialCost", 0, true];
-	[_caller, "forceWalk", "MovingObject", false] call ace_common_fnc_statusEffect_set;
+	//[_caller, "forceWalk", "MovingObject", false] call ace_common_fnc_statusEffect_set;
 	[] call fn_removeAllMovingObjectActions;
 
 	if (!(_object isEqualTo objNull)) then {
@@ -361,7 +361,7 @@ switch (_request) do {
 	// BIG FORTIFICATIONS
 	case 1: {
         _position = _this select 1;
-        _materialCount = 100;
+        _materialCount = 500;
         _interactionDistance = 5;
         _object = [_position, "B_Slingload_01_Cargo_F"] call fn_createBox;
 		_object setDir (round random 360);
@@ -377,6 +377,7 @@ switch (_request) do {
 		[_object, "Land_HBarrier_3_F", "HBARRIER3", 6, 3, 0] call fn_addFortificationAction;
 		[_object, "Land_HBarrier_5_F", "HBARRIER5", 10, 5, 0] call fn_addFortificationAction;
 		[_object, "Land_HBarrier_Big_F", "HBARRIERLARGE", 10, 6, 0] call fn_addFortificationAction;
+		[_object, "Land_HBarrierTower_F", "HBARRIERTOWER", 10, 5, 0] call fn_addFortificationAction;
 		[_object, "Land_CzechHedgeHog_01_new_F", "HEDGEHOG", 1, 3, 0] call fn_addFortificationAction;
 		[_object, "Land_CncShelter_F", "CONCRETESHELTER", 4, 3, 0] call fn_addFortificationAction;
 		[_object, "Land_CncBarrierMedium_F", "CONCRETEBARRIER", 1, 3, 0] call fn_addFortificationAction;
@@ -409,17 +410,47 @@ switch (_request) do {
         _object setVariable ["interactionDistance", _interactionDistance, true];
 
 		// params = [_box, _className, _displayName, _cost, _distanceFromPlayer]
-		[_object, "Land_BagBunker_Large_F", "BAGBUNKERLARGE", 20, 9, 180] call fn_addFortificationAction;
-		[_object, "Land_BagBunker_Small_F", "BAGBUNKERSMALL", 5, 4, 180] call fn_addFortificationAction;
+		[_object, "Land_BagBunker_Large_F", "BAGBUNKERLARGE", 1, 9, 180] call fn_addFortificationAction;
+		[_object, "Land_BagBunker_Small_F", "BAGBUNKERSMALL", 1, 4, 180] call fn_addFortificationAction;
 		[_object, "Land_BagFence_Long_F", "BAGWALL", 1, 3, 0] call fn_addFortificationAction;
 		[_object, "Land_BagFence_Round_F", "BAGWALLROUND", 1, 3, 180] call fn_addFortificationAction;
-		[_object, "Land_HBarrier_1_F", "HBARRIER1", 2, 3, 90] call fn_addFortificationAction;
-		[_object, "Land_HBarrier_3_F", "HBARRIER3", 6, 3, 0] call fn_addFortificationAction;
-		[_object, "Land_HBarrier_5_F", "HBARRIER5", 10, 5, 0] call fn_addFortificationAction;
-		[_object, "Land_HBarrier_Big_F", "HBARRIERLARGE", 10, 6, 0] call fn_addFortificationAction;
+		[_object, "Land_HBarrier_1_F", "HBARRIER1", 1, 3, 90] call fn_addFortificationAction;
+		[_object, "Land_HBarrier_3_F", "HBARRIER3", 1, 3, 0] call fn_addFortificationAction;
+		[_object, "Land_HBarrier_5_F", "HBARRIER5", 1, 5, 0] call fn_addFortificationAction;
+		[_object, "Land_HBarrier_Big_F", "HBARRIERLARGE", 1, 6, 0] call fn_addFortificationAction;
+		[_object, "Land_HBarrierTower_F", "HBARRIERTOWER", 1, 10, 0] call fn_addFortificationAction;
 		[_object, "Land_CzechHedgeHog_01_new_F", "HEDGEHOG", 1, 3, 0] call fn_addFortificationAction;
-		[_object, "Land_CncShelter_F", "CONCRETESHELTER", 4, 3, 0] call fn_addFortificationAction;
+		[_object, "Land_CncShelter_F", "CONCRETESHELTER", 1, 3, 0] call fn_addFortificationAction;
 		[_object, "Land_CncBarrierMedium_F", "CONCRETEBARRIER", 1, 3, 0] call fn_addFortificationAction;
 		[_object, "Land_Razorwire_F", "RAZORWIRE", 1, 6, 0] call fn_addFortificationAction;
+	};
+
+	// CUSTOM FORITICATIONS ON EXISTING OBJECT
+	case 4: {
+        _object = _this select 1;
+        _materialCount = 500;
+        _interactionDistance = 3;
+		[_object, 4] call ace_cargo_fnc_setSize;
+        _object setVariable ["materialCount", _materialCount, true];
+        _object setVariable ["interactionDistance", _interactionDistance, true];
+
+		// params = [_box, _className, _displayName, _cost, _distanceFromPlayer]
+		[_object, "Land_Bargate_F", "BARGATE", 1, 3, 0] call fn_addFortificationAction;
+		[_object, "Land_PartyTent_01_F", "PARTYTENT", 1, 10, 0] call fn_addFortificationAction;
+		[_object, "Land_Cargo20_Military_Green_F", "CARGOBOXMED", 1, 10, 0] call fn_addFortificationAction;
+		[_object, "Land_Cargo10_Military_Green_F", "CARGOBOXSMALL", 1, 10, 0] call fn_addFortificationAction;
+		[_object, "Land_Pallet_Milboxes_F", "AMMOPALLET", 1, 3, 0] call fn_addFortificationAction;
+		[_object, "Land_Paperbox_open_full_f", "AMMOBOX", 1, 3, 0] call fn_addFortificationAction;
+		[_object, "Land_GarbageContainer_Closed_f", "GARBCONTAINER", 1, 3, 0] call fn_addFortificationAction;
+		[_object, "Land_Waterbarrel_f", "WATERBARREL", 1, 3, 0] call fn_addFortificationAction;
+		[_object, "Land_PortableGenerator_01_f", "GENERATOR", 1, 3, 0] call fn_addFortificationAction;
+		[_object, "Land_Stretcher_01_olive_f", "STRETCHER", 1, 3, 0] call fn_addFortificationAction;
+		[_object, "PlasticBarrier_02_grey_f", "PLASTICBARRIER", 1, 3, 0] call fn_addFortificationAction;
+		[_object, "rhsusf_props_scepterMFC_OD", "JERRYCAN", 1, 3, 0] call fn_addFortificationAction;
+		[_object, "Land_ToolTrolley_02_f", "TOOLTROLLEY", 1, 3, 0] call fn_addFortificationAction;
+		[_object, "SatelliteAntenna_01_Olive_F", "SATELLITE", 1, 3, 0] call fn_addFortificationAction;
+		[_object, "Land_TripodScreen_01_large_f", "SCREEN", 1, 3, 180] call fn_addFortificationAction;
+		[_object, "Land_Sink_f", "SINK", 1, 3, 0] call fn_addFortificationAction;
+		[_object, "Roadcone", "ROADCONE", 1, 3, 0] call fn_addFortificationAction;
 	};
 };

@@ -14,10 +14,9 @@ author = "Zeus Name";
 onLoadMissionTime = 0;
 respawn = 3;
 respawnButton = 0;
-respawnDelay = 900;
+respawnDelay = 5;
 respawnDialog = 0;
 respawnOnStart = -1;
-respawnTemplates[] = {"Spectator"};
 disabledAI = 1;
 briefing = 0;
 debriefing = 0;
@@ -49,18 +48,22 @@ class cfgFunctions {
 		class functions
 		{
 			file = "functions";
+			class bindVehicle;
 			class coverMap;
 			class drawEditorObjects;
 			class fortificationBox;
 			class gearBox;
 			class gearHandle;
+			class godMode;
 			class holdActionAdd;
 			class holdActionAddFortification;
 			class mapFunctionalities;
 			class respawnHandle;
 			class respawnHandleLocal;
 			class showFPS;
+			class spectator;
 			class sthudPatch;
+			class tag;
 			class unitTracker;
 		};
 	};
