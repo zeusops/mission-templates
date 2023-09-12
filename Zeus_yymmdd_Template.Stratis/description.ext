@@ -3,9 +3,9 @@
 ////////////////////////////////////////////////
 
 onLoadMission = "Zeus Operations";
-loadScreen = "files\unknown.jpg";
-onLoadName = "SEVEN YEAR ANNIVERSARY";
-author = "your guy, your pal, Miller. 'Oh him!' Yeah him";
+loadScreen = "files\terry.jpg";
+onLoadName = "ANNIVERSARY";
+author = "Lots of loads...i mean dudues";
 
 ////////////////////////////////////////////////
 //        DO NOT EDIT BELOW THIS LINE         //
@@ -61,7 +61,7 @@ class cfgFunctions {
 			class respawnHandle;
 			class respawnHandleLocal;
 			class spectator;
-			class tag;
+			class showFPS;
 			class unitTracker;
 			class tag;
 			class fuelConsumption;
