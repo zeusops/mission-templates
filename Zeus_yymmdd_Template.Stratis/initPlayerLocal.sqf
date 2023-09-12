@@ -12,3 +12,7 @@ player setPosASL (missionNameSpace getVariable "RESPAWN_POSITION");
 [] spawn ZO_fnc_respawnHandleLocal;
 [] spawn ZO_fnc_mapFunctionalities;
 [-1] spawn ZO_fnc_fortificationBox;
+
+
+//Angel - 2023-08-10: Add TTT INIT from old mission
+//"INIT" spawn ZO_fnc_TTT;

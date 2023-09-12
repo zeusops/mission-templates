@@ -7,6 +7,12 @@ _unitTrackerColor = "ColorBlufor"; // All colors: https://community.bistudio.com
 _nightvision = false; // Set to true if you want players to spawn with nightvision
 _fullArsenal = true;  // Set to false if you've manually set up a limited arsenal in the editor
 
+//Angel 2023-08-10 Added TTT config
+// TTT
+//_traitorRate = 0.3;
+//_timePreparing = 30;
+//_timeBeforeOvertime = 300;
+
 ////////////////////////////////////////////////
 //        DO NOT EDIT BELOW THIS LINE         //
 ////////////////////////////////////////////////
@@ -51,6 +57,17 @@ missionNameSpace setVariable ["unitTrackerSupport", ["G","Golf","G1","G2","G3","
 missionNameSpace setVariable ["unitTrackerRecon", ["RTO", "FAC", "JTAC"], true];
 
 missionNameSpace setVariable ["autoBodybagTeams", _plane + _armor + _air + _motorized + _maintenance + _naval + _artillery, true];
+
+//Angel 2023-08-10 Added TTT config
+// TTT
+//missionNameSpace setVariable ["TTT_traitorRate", _traitorRate, true];
+//missionNameSpace setVariable ["TTT_timeLimitStarting", 5, true];
+//missionNameSpace setVariable ["TTT_timeLimitPreparing", _timePreparing, true];
+//missionNameSpace setVariable ["TTT_timeLimit", _timeBeforeOvertime, true];
+//missionNameSpace setVariable ["TTT_timeLimitEnding", 5, true];
+//missionNameSpace setVariable ["TTT_timeLeft", _timeBeforeOvertime, true];
+//missionNameSpace setVariable ["TTT_gameOngoing", false, true];
+//missionNameSpace setVariable ["TTT_overtime", false, true];
 
 [] spawn ZO_fnc_drawEditorObjects;
 [] spawn ZO_fnc_coverMap;

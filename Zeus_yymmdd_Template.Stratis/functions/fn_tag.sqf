@@ -8,8 +8,10 @@
 ////////////////////////////////////////////////
 
 fn_tag = {
+  if (!(player getVariable ["isTagger", false])) exitWith {
     _taggedPlayer = _this;
     ["tagged"] remoteExec ["ZO_fnc_tag", [_taggedPlayer]];
+  };
 };
 
 fn_untag = {
@@ -29,22 +31,26 @@ fn_tagged = {
 };
 
 fn_untagged = {
-    // Save uniform and uniform items
-    _uniform = uniform player;
-    _uniformItems = [];
-    {
+	if(missionNameSpace getVariable "Tag_isContagionMode") exitWith {
+		hint "Contagion Mode";
+	}
+	hint "Not in Contagion Mode";
+	// Save uniform and uniform items
+	_uniform = uniform player;
+	_uniformItems = [];
+	{
 		_uniformItems pushback _x;
 	} foreach (uniformItems player);
 
-    // Re-add and refill uniform
-    removeUniform player;
-    player forceAddUniform _uniform;
-    {
-        player addItemToUniform _x;
-    } foreach _uniformItems;
+	// Re-add and refill uniform
+	removeUniform player;
+	player forceAddUniform _uniform;
+	{
+		player addItemToUniform _x;
+	} foreach _uniformItems;
 
-    player setVariable ["isTagger", false, false];
-    [] spawn fn_showUntagged;
+	player setVariable ["isTagger", false, false];
+	[] spawn fn_showUntagged;
 };
 
 fn_handleTagger = {
@@ -53,7 +59,7 @@ fn_handleTagger = {
     {
         {
             if ((player distance _x) < 2) exitWith {
-                player call fn_untagged;
+                // player call fn_untagged;
                 _x call fn_tag;
             };
         } foreach (allUnits - [player]);
@@ -124,10 +130,44 @@ fn_showUntagged = {
     "colorCorrections" ppEffectCommit 0.3;
 };
 
+//Angel tag 2023-09-05
+fn_pickTagger = {
+	// Fetch alive players
+	_playersUnmarked = [];
+	{
+		if (alive _x) then { _playersUnmarked pushback _x; };
+		_x call fn_untag;
+	} foreach allPlayers;
+
+
+	// Select tagger
+	_playersUnmarkedCount = count _playersUnmarked;
+	_playerTagger = (_playersUnmarked deleteAt (round random (_playersUnmarkedCount - 1)));
+	
+
+	missionNameSpace setVariable ["Tag_playersUnmarked", _playersUnmarked, true];
+	missionNameSpace setVariable ["Tag_playerTagger", _playerTagger, true];
+	missionNameSpace setVariable ["Tag_isContagionMode", true, true];
+	
+	_playerTagger call fn_tag;
+};
+
 ////////////////////////////////////////////////
 //               FUNCTION LOOP                //
 ////////////////////////////////////////////////
 
+switch (_this) do {
+	case "START": {
+		[] call {
+			// Exit if game is already ongoing or init has not been called
+			if ((missionNameSpace getVariable "Tag_gameOngoing")) exitWith {
+				hint "Tag game is already ongoing";
+			};
+			missionNameSpace setVariable ["Tag_gameOngoing", true, true];
+			[] call fn_pickTagger;
+		};
+	};
+}
 _request = _this select 0;
 
 switch (_request) do {
@@ -149,5 +189,7 @@ switch (_request) do {
     // Locally called by player that gets untagged
     case "untagged": {
         [] call fn_untagged;
-    }
+		
+    };	
+	
 }
