@@ -9,5 +9,6 @@ setPlayerRespawnTime (missionNameSpace getVariable "respawnTime");
 player setPosASL (missionNameSpace getVariable "RESPAWN_POSITION");
 [0] spawn ZO_fnc_unitTracker;
 [0] spawn ZO_fnc_gearHandle;
+[] spawn ZO_fnc_respawnHandleLocal;
 [] spawn ZO_fnc_mapFunctionalities;
 [-1] spawn ZO_fnc_fortificationBox;

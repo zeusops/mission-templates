@@ -55,5 +55,5 @@ missionNameSpace setVariable ["autoBodybagTeams", _plane + _armor + _air + _moto
 [] spawn ZO_fnc_drawEditorObjects;
 [] spawn ZO_fnc_coverMap;
 [] spawn ZO_fnc_showFPS;
-//[] spawn ZO_fnc_respawnHandle;
+[] spawn ZO_fnc_respawnHandle;
 missionNameSpace setVariable ["initDone", true, true];

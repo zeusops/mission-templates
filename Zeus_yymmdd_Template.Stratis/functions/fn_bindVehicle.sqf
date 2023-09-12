@@ -35,11 +35,15 @@ fn_addBindAction = {
             if (_vehicleClassname isEqualTo "") then {
                 hint "No vehicle found to bind to";
             } else {
-                hint format ["Bound to vehicle\n%1", _vehicleClassname];
-            };
-
-			player setVariable ["BoundVehicle", _vehicle, false];
-			player setVariable ["BoundVehicleClassname", _vehicleClassname, false];
+				if (_vehicle getVariable ["isBound", false]) then {
+					hint "Vehicle is already bound to someone else";
+				} else {
+					hint format ["Bound to vehicle\n%1", _vehicleClassname];
+					player setVariable ["BoundVehicle", _vehicle, false];
+					player setVariable ["BoundVehicleClassname", _vehicleClassname, false];
+					_vehicle setVariable ["isBound", true, true];
+				}
+			}
 		},
 		/* 9 code executed on interruption */   {},
 		/* 10 arguments */                      [],
@@ -142,7 +146,7 @@ switch (_request) do {
         deleteVehicle (player getVariable ["BoundVehicle", objNull]);
 
         // Spawn and set new vehicle
-        _newVehicle = createVehicle [_type, _position];
+        _newVehicle = createVehicle [_type, _position, [], 0, "CAN_COLLIDE"];
 		_newVehicle setDir (getDir player);
         player setVariable ["BoundVehicle", _newVehicle, false];
     };

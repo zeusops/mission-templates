@@ -13,21 +13,23 @@ fn_drawObject = {
     boundingBoxReal _object params["_mins", "_maxs"];
     _mins params[ "_minX", "_minY" ];
     _maxs params[ "_maxX", "_maxY" ];
-    _maxY = 1;
 
     _marker1 = createMarker [_object call BIS_fnc_netId, getPosATL _object];
     _marker1 setMarkerShape "RECTANGLE";
     _marker1 setMarkerSize [_maxX, _maxY];
     _marker1 setMarkerDir getDir _object;
     _marker1 setMarkerBrush "SolidFull";
-    _marker1 setMarkerColor "ColorBlack";
+    _marker1 setMarkerColor "ColorGrey";
 
-    _marker2 = createMarker [format["%1-1", _object call BIS_fnc_netId], getPosATL _object];
-    _marker2 setMarkerShape "RECTANGLE";
-    _marker2 setMarkerSize [_maxX, _maxY];
-    _marker2 setMarkerDir getDir _object;
-    _marker2 setMarkerBrush "Solid";
-    _marker2 setMarkerColor "ColorGrey";
+    if ((typeOf _x) in _darkObjectWhitelist) then {
+        _marker1 setMarkerColor "ColorBlack";
+        _marker2 = createMarker [format["%1-1", _object call BIS_fnc_netId], getPosATL _object];
+        _marker2 setMarkerShape "RECTANGLE";
+        _marker2 setMarkerSize [_maxX, _maxY];
+        _marker2 setMarkerDir getDir _object;
+        _marker2 setMarkerBrush "Solid";
+        _marker2 setMarkerColor "ColorGrey";
+    };
 };
 
 fn_findObjects = {
@@ -80,10 +82,7 @@ fn_getObjectBlackList = {
         "CamoNet_OPFOR_Curator_F",
         "CamoNet_OPFOR_F",
         "CamoNet_OPFOR_open_Curator_F",
-        "CamoNet_OPFOR_open_F",
-        "PlasticBarrier_03_blue_f",
-        "PlasticBarrier_03_orange_f",
-        "EntranceGate_EP1"
+        "CamoNet_OPFOR_open_F"
     ];
 
     _objectBlacklist;
@@ -125,9 +124,7 @@ fn_getDarkObjectWhiteList = {
         "Land_Mil_WallBig_Gate_F",
         "Land_Mil_WiredFence_F",
         "Land_Mil_WiredFence_Gate_F",
-        "Land_Mil_WiredFenceD_F",
-        "Land_PlasticBarrier_01_line_x6_f",
-        "Land_PlasticBarrier_01_line_x4_f"
+        "Land_Mil_WiredFenceD_F"
     ];
 
     _darkObjectWhitelist;

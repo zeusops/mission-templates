@@ -3,9 +3,9 @@
 ////////////////////////////////////////////////
 
 onLoadMission = "Zeus Operations";
-loadScreen = "files\ZEUSOPS_TAKISTAN.jpg";
-onLoadName = "Operation Name";
-author = "Zeus Name";
+loadScreen = "files\unknown.jpg";
+onLoadName = "SEVEN YEAR ANNIVERSARY";
+author = "your guy, your pal, Miller. 'Oh him!' Yeah him";
 
 ////////////////////////////////////////////////
 //        DO NOT EDIT BELOW THIS LINE         //
@@ -26,7 +26,7 @@ joinUnassigned = 0;
 enableDebugConsole[] = {"76561198025275728", "76561198054576688", "76561198024756265", "76561198072916152", "76561198072165049"};
 enableTargetDebug = 1;
 corpseManagerMode = 3;
-wreckManagerMode = 3;
+wreckManagerMode = 0;
 minPlayerDistance = 50;
 saving = 0;
 
@@ -60,10 +60,10 @@ class cfgFunctions {
 			class mapFunctionalities;
 			class respawnHandle;
 			class respawnHandleLocal;
-			class showFPS;
 			class spectator;
 			class tag;
 			class unitTracker;
+			class tag;
 			class fuelConsumption;
 		};
 	};

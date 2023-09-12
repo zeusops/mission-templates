@@ -181,6 +181,8 @@ fn_addArsenal = {
 
 if (isDedicated && !isServer) exitWith {};
 
+waitUntil {missionNameSpace getVariable ["initDone", false];};
+
 _request = _this select 0;
 
 switch (_request) do {

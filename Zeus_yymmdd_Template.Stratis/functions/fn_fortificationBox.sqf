@@ -39,7 +39,7 @@ fn_addConfirmAction = {
 		},
 		/* 9 code executed on interruption */   {},
 		/* 10 arguments */                      [],
-		/* 11 action duration */                1,
+		/* 11 action duration */                0.5,
 		/* 12 priority */                       10,
 		/* 13 remove on completion */           false,
 		/* 14 show unconscious */               false
@@ -87,7 +87,7 @@ fn_addReturnAction = {
 		},
 		/* 9 code executed on interruption */   {},
 		/* 10 arguments */                      [],
-		/* 11 action duration */                1,
+		/* 11 action duration */                0.5,
 		/* 12 priority */                       7,
 		/* 13 remove on completion */           false,
 		/* 14 show unconscious */               false
@@ -209,7 +209,7 @@ fn_addFortificationAction = {
 			};
 		},
 		/* 10 arguments */                      [_objectClassname, _objectName, _objectCost, _objectDistance, _objectDefaultRotation],
-		/* 11 action duration */                1,
+		/* 11 action duration */                0.5,
 		/* 12 priority */                       10,
 		/* 13 remove on completion */           false,
 		/* 14 show unconscious */               false
@@ -342,7 +342,7 @@ switch (_request) do {
 	// SMALL FORTIFICATIONS
 	case 0: {
         _position = _this select 1;
-        _materialCount = 10;
+        _materialCount = 5000;
         _interactionDistance = 3;
         _object = [_position, "CargoNet_01_box_f"] call fn_createBox;
 		[_object, 4] call ace_cargo_fnc_setSize;
@@ -361,7 +361,7 @@ switch (_request) do {
 	// BIG FORTIFICATIONS
 	case 1: {
         _position = _this select 1;
-        _materialCount = 500;
+        _materialCount = 5000;
         _interactionDistance = 5;
         _object = [_position, "B_Slingload_01_Cargo_F"] call fn_createBox;
 		_object setDir (round random 360);
@@ -377,7 +377,6 @@ switch (_request) do {
 		[_object, "Land_HBarrier_3_F", "HBARRIER3", 6, 3, 0] call fn_addFortificationAction;
 		[_object, "Land_HBarrier_5_F", "HBARRIER5", 10, 5, 0] call fn_addFortificationAction;
 		[_object, "Land_HBarrier_Big_F", "HBARRIERLARGE", 10, 6, 0] call fn_addFortificationAction;
-		[_object, "Land_HBarrierTower_F", "HBARRIERTOWER", 10, 5, 0] call fn_addFortificationAction;
 		[_object, "Land_CzechHedgeHog_01_new_F", "HEDGEHOG", 1, 3, 0] call fn_addFortificationAction;
 		[_object, "Land_CncShelter_F", "CONCRETESHELTER", 4, 3, 0] call fn_addFortificationAction;
 		[_object, "Land_CncBarrierMedium_F", "CONCRETEBARRIER", 1, 3, 0] call fn_addFortificationAction;
@@ -387,7 +386,7 @@ switch (_request) do {
 	// SMALL FORTIFICATIONS ON EXISTING OBJECT
 	case 2: {
         _object = _this select 1;
-        _materialCount = 10;
+        _materialCount = 5000;
         _interactionDistance = 3;
 		[_object, 4] call ace_cargo_fnc_setSize;
         _object setVariable ["materialCount", _materialCount, true];
@@ -404,23 +403,22 @@ switch (_request) do {
 	// BIG FORTIFICATIONS ON EXISTING OBJECT
 	case 3: {
         _object = _this select 1;
-        _materialCount = 100;
+        _materialCount = 5000;
         _interactionDistance = 10;
         _object setVariable ["materialCount", _materialCount, true];
         _object setVariable ["interactionDistance", _interactionDistance, true];
 
 		// params = [_box, _className, _displayName, _cost, _distanceFromPlayer]
-		[_object, "Land_BagBunker_Large_F", "BAGBUNKERLARGE", 1, 9, 180] call fn_addFortificationAction;
-		[_object, "Land_BagBunker_Small_F", "BAGBUNKERSMALL", 1, 4, 180] call fn_addFortificationAction;
+		[_object, "Land_BagBunker_Large_F", "BAGBUNKERLARGE", 20, 9, 180] call fn_addFortificationAction;
+		[_object, "Land_BagBunker_Small_F", "BAGBUNKERSMALL", 5, 4, 180] call fn_addFortificationAction;
 		[_object, "Land_BagFence_Long_F", "BAGWALL", 1, 3, 0] call fn_addFortificationAction;
 		[_object, "Land_BagFence_Round_F", "BAGWALLROUND", 1, 3, 180] call fn_addFortificationAction;
-		[_object, "Land_HBarrier_1_F", "HBARRIER1", 1, 3, 90] call fn_addFortificationAction;
-		[_object, "Land_HBarrier_3_F", "HBARRIER3", 1, 3, 0] call fn_addFortificationAction;
-		[_object, "Land_HBarrier_5_F", "HBARRIER5", 1, 5, 0] call fn_addFortificationAction;
-		[_object, "Land_HBarrier_Big_F", "HBARRIERLARGE", 1, 6, 0] call fn_addFortificationAction;
-		[_object, "Land_HBarrierTower_F", "HBARRIERTOWER", 1, 10, 0] call fn_addFortificationAction;
+		[_object, "Land_HBarrier_1_F", "HBARRIER1", 2, 3, 90] call fn_addFortificationAction;
+		[_object, "Land_HBarrier_3_F", "HBARRIER3", 6, 3, 0] call fn_addFortificationAction;
+		[_object, "Land_HBarrier_5_F", "HBARRIER5", 10, 5, 0] call fn_addFortificationAction;
+		[_object, "Land_HBarrier_Big_F", "HBARRIERLARGE", 10, 6, 0] call fn_addFortificationAction;
 		[_object, "Land_CzechHedgeHog_01_new_F", "HEDGEHOG", 1, 3, 0] call fn_addFortificationAction;
-		[_object, "Land_CncShelter_F", "CONCRETESHELTER", 1, 3, 0] call fn_addFortificationAction;
+		[_object, "Land_CncShelter_F", "CONCRETESHELTER", 4, 3, 0] call fn_addFortificationAction;
 		[_object, "Land_CncBarrierMedium_F", "CONCRETEBARRIER", 1, 3, 0] call fn_addFortificationAction;
 		[_object, "Land_Razorwire_F", "RAZORWIRE", 1, 6, 0] call fn_addFortificationAction;
 	};
@@ -428,7 +426,7 @@ switch (_request) do {
 	// CUSTOM FORITICATIONS ON EXISTING OBJECT
 	case 4: {
         _object = _this select 1;
-        _materialCount = 500;
+        _materialCount = 5000;
         _interactionDistance = 3;
 		[_object, 4] call ace_cargo_fnc_setSize;
         _object setVariable ["materialCount", _materialCount, true];
