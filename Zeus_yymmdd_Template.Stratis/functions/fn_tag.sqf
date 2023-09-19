@@ -33,7 +33,7 @@ fn_tagged = {
 fn_untagged = {
 	if(missionNameSpace getVariable "Tag_isContagionMode") exitWith {
 		hint "Contagion Mode";
-	}
+	};
 	hint "Not in Contagion Mode";
 	// Save uniform and uniform items
 	_uniform = uniform player;
@@ -167,7 +167,7 @@ switch (_this) do {
 			[] call fn_pickTagger;
 		};
 	};
-}
+};
 _request = _this select 0;
 
 switch (_request) do {
@@ -192,4 +192,4 @@ switch (_request) do {
 		
     };	
 	
-}
+};
