@@ -118,7 +118,7 @@ fn_resetColour = {
     "colorCorrections" ppEffectEnable true;
     "colorCorrections" ppEffectAdjust [1, 1, 0, [0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 1], [0.0, 0.0, 0.0, 0.0]];
     "colorCorrections" ppEffectCommit 0.3;
-}
+};
 
 fn_showTagged = {
     "colorCorrections" ppEffectEnable true;
