@@ -66,7 +66,7 @@ fn_handleTagger = {
             if ((player distance _x) < 2) exitWith {
                 _x call fn_tag_other;
                 // Only untag self if not in contagion mode
-                if (!(missionName getVariable ["Tag_isContagionMode", false])) then {
+                if (!(missionNamespace getVariable ["Tag_isContagionMode", false])) then {
                     player call fn_untag_self;
                 };
             };
