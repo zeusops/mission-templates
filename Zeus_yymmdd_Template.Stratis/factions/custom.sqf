@@ -6,18 +6,18 @@
 // Give best allowed vest, backpack, and helmet that players are allowed (e.g. armored vest instead of chest rig).
 // Give tracer/mixed ammo if possible.
 _uniform = "rhs_uniform_cu_ocp";
-_vest = "rhsusf_spcs_ocp_rifleman_alt";
-_backpack = "B_Kitbag_tan";
-_headgear = "rhsusf_ach_helmet_ocp";
+_vest = "";
+_backpack = "";
+_headgear = "";
 _radio = "TFAR_anprc152";
 _backpackLeader = "TFAR_rt1523g_big_rhs";
 _nightvision = "rhsusf_ANPVS_14";
-_weapon1Use = "rhs_weap_m136";
-_weaponMain = ["rhs_weap_m4a1_carryhandle", "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", ["rhsusf_acc_ACOG", "rhsusf_acc_anpeq15_bk"]];
-_weaponAR = ["rhs_weap_m249_pip_L", "rhsusf_200Rnd_556x45_mixed_box", ["rhsusf_acc_ELCAN", "rhsusf_acc_anpeq15a"]];
-_weaponGrenadier = ["rhs_weap_m4a1_carryhandle_m203", "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", ["rhsusf_acc_ACOG", "rhsusf_acc_anpeq15a"], "rhs_mag_M441_HE"];
-_weaponMarksman = ["rhs_weap_m14ebrri", "rhsusf_20Rnd_762x51_m62_Mag", ["optic_AMS", "rhsusf_acc_anpeq15_bk"]];
-_weaponLauncher = ["launch_MRAWS_olive_rail_F", "MRAWS_HEAT_F", [""]];
+_weapon1Use = "";
+_weaponMain = ["", "", ["", ""]];
+_weaponAR = ["", "", ["", ""]];
+_weaponGrenadier = ["", "", ["", ""], ""];
+_weaponMarksman = ["", "", ["", ""]];
+_weaponLauncher = ["", "", [""]];
 
 ////////////////////////////////////////////////
 //        DO NOT EDIT BELOW THIS LINE         //
