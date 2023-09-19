@@ -106,6 +106,12 @@ fn_playerGearLock = {
 	};
 };
 
+fn_resetColour = {
+    "colorCorrections" ppEffectEnable true;
+    "colorCorrections" ppEffectAdjust [1, 1, 0, [0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 1], [0.0, 0.0, 0.0, 0.0]];
+    "colorCorrections" ppEffectCommit 0.3;
+}
+
 fn_showTagged = {
     "colorCorrections" ppEffectEnable true;
     "colorCorrections" ppEffectAdjust [0.9, 0.9, 0, [0.0, 0.0, 0.0, 0.0], [1, 0, 0, 0.75], [0.9, 0.9, 0.9, 0.0]];
@@ -113,9 +119,8 @@ fn_showTagged = {
 
     sleep 0.5;
 
-    "colorCorrections" ppEffectEnable true;
-    "colorCorrections" ppEffectAdjust [1, 1, 0, [0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 1], [0.0, 0.0, 0.0, 0.0]];
-    "colorCorrections" ppEffectCommit 0.3;
+    call fn_resetColour;
+
 };
 
 fn_showUntagged = {
@@ -125,9 +130,7 @@ fn_showUntagged = {
 
     sleep 0.5;
 
-    "colorCorrections" ppEffectEnable true;
-    "colorCorrections" ppEffectAdjust [1, 1, 0, [0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 1], [0.0, 0.0, 0.0, 0.0]];
-    "colorCorrections" ppEffectCommit 0.3;
+    call fn_resetColour;
 };
 
 //Angel tag 2023-09-05
