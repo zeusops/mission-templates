@@ -8,10 +8,8 @@
 ////////////////////////////////////////////////
 
 fn_tag_other = {
-    if (!(player getVariable ["isTagger", false])) exitWith {
-        _taggedPlayer = _this;
-        ["tag_self"] remoteExec ["ZO_fnc_tag", [_taggedPlayer]];
-    };
+    _taggedPlayer = _this;
+    ["tag_self"] remoteExec ["ZO_fnc_tag", [_taggedPlayer]];
 };
 
 fn_untag_other = {
@@ -20,6 +18,8 @@ fn_untag_other = {
 };
 
 fn_tag_self = {
+    if (player getVariable ["isTagger", false]) exitWith {};
+
     if (uniform player == "") then {
         player forceAddUniform (missionNameSpace getVariable "gearUniform");
     };
