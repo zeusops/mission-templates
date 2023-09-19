@@ -166,9 +166,9 @@ fn_pickTagger = {
 fn_endGame = {
     // acknowledge game over
     _winner = (missionNamespace getVariable ["Tag_playersUnmarked", ["missingno"]]) select 0;
-    hint (parseText (
-        format["<t font='PuristaBold' size='1.6' align='left'>Game Over! %s is the winner</t>", _winner]
-    ));
+    [
+        parseText (format["<t font='PuristaBold' size='1.6' align='left'>Game Over! %s is the winner</t>", _winner])
+    ] remoteExec ["hint", [0,-2] select isDedicated, true];
     missionNameSpace setVariable ["Tag_gameOngoing", false, true];
 };
 
