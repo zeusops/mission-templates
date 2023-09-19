@@ -7,19 +7,19 @@
 //               SUB-FUNCTIONS                //
 ////////////////////////////////////////////////
 
-fn_tag = {
-  if (!(player getVariable ["isTagger", false])) exitWith {
-    _taggedPlayer = _this;
-    ["tagged"] remoteExec ["ZO_fnc_tag", [_taggedPlayer]];
-  };
+fn_tag_other = {
+    if (!(player getVariable ["isTagger", false])) exitWith {
+        _taggedPlayer = _this;
+        ["tag_self"] remoteExec ["ZO_fnc_tag", [_taggedPlayer]];
+    };
 };
 
-fn_untag = {
+fn_untag_other = {
     _untaggedPlayer = _this;
-    ["untagged"] remoteExec ["ZO_fnc_tag", [_untaggedPlayer]];
+    ["untag_self"] remoteExec ["ZO_fnc_tag", [_untaggedPlayer]];
 };
 
-fn_tagged = {
+fn_tag_self = {
     if (uniform player == "") then {
         player forceAddUniform (missionNameSpace getVariable "gearUniform");
     };
@@ -30,7 +30,7 @@ fn_tagged = {
     [] spawn fn_handleTagger;
 };
 
-fn_untagged = {
+fn_untag_self = {
 	if(missionNameSpace getVariable "Tag_isContagionMode") exitWith {
 		hint "Contagion Mode";
 	};
@@ -59,8 +59,8 @@ fn_handleTagger = {
     {
         {
             if ((player distance _x) < 2) exitWith {
-                player call fn_untagged;
-                _x call fn_tag;
+                player call fn_untag_self;
+                _x call fn_tag_other;
             };
         } foreach (allUnits - [player]);
         sleep 0.1;
@@ -136,7 +136,7 @@ fn_pickTagger = {
 	_playersUnmarked = [];
 	{
 		if (alive _x) then { _playersUnmarked pushback _x; };
-		_x call fn_untag;
+		_x call fn_untag_other;
 	} foreach allPlayers;
 
 
@@ -149,7 +149,7 @@ fn_pickTagger = {
 	missionNameSpace setVariable ["Tag_playerTagger", _playerTagger, true];
 	missionNameSpace setVariable ["Tag_isContagionMode", true, true];
 
-	_playerTagger call fn_tag;
+	_playerTagger call fn_tag_other;
 };
 
 fn_endGame = {
@@ -178,24 +178,24 @@ switch (_this) do {
 _request = _this select 0;
 
 switch (_request) do {
-    case "tag": {
+    case "tag_other": {
         _player = _this select 1;
-        _player call fn_tag;
+        _player call fn_tag_other;
     };
 
-    case "untag": {
+    case "untag_other": {
         _player = _this select 1;
-        _player call fn_untag;
+        _player call fn_untag_other;
     };
 
     // Locally called by player that gets tagged
-    case "tagged": {
-        [] call fn_tagged;
+    case "tag_self": {
+        [] call fn_tag_self;
     };
 
     // Locally called by player that gets untagged
-    case "untagged": {
-        [] call fn_untagged;
+    case "untag_self": {
+        [] call fn_untag_self;
 
     };
 
