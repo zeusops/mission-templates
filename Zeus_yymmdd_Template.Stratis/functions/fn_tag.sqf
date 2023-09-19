@@ -25,6 +25,11 @@ fn_tag_self = {
     };
     [player, "#(rgb,8,8,3)color(0.3,0,0,1)"] remoteExec ["fn_setTexture", [0,-2] select isDedicated, true];
     player setVariable ["isTagger", true, false];
+
+    _all_untagged = missionNamespace getVariable ["Tag_playersUnmarked", []] - [player];
+
+    missionNamespace setVariable ["Tag_playersUnmarked", _all_untagged, true];
+
     [] spawn fn_showTagged;
     [] spawn fn_playerGearLock;
     [] spawn fn_handleTagger;
