@@ -156,12 +156,24 @@ fn_pickTagger = {
 };
 
 fn_endGame = {
-	// acknowledge game over
-		hintSilent (parseText (
-		"<t font='PuristaBold' size='1.6' align='left'>Game Over!</t>",
-	]));
-
+    // acknowledge game over
+    _winner = (missionNamespace getVariable ["Tag_playersUnmarked", ["missingno"]]) select 0;
+    hint (parseText (
+        format["<t font='PuristaBold' size='1.6' align='left'>Game Over! %s is the winner</t>", _winner]
+    ));
+    missionNameSpace setVariable ["Tag_gameOngoing", false, true];
 };
+
+fn_checkEndGame = {
+    while {missionNameSpace getVariable "Tag_gameOngoing"} do {
+        sleep 1;
+        _all_untagged = missionNamespace getVariable ["Tag_playersUnmarked", []];
+        if (count _all_untagged <= 1) exitWith {
+            [] spawn fn_endGame;
+        };
+    };
+};
+
 ////////////////////////////////////////////////
 //               FUNCTION LOOP                //
 ////////////////////////////////////////////////
@@ -175,6 +187,7 @@ switch (_this) do {
 			};
 			missionNameSpace setVariable ["Tag_gameOngoing", true, true];
 			[] call fn_pickTagger;
+			[] spawn fn_checkEndGame;
 		};
 	};
 };
