@@ -22,8 +22,22 @@ briefing = 0;
 debriefing = 0;
 disableChannels[] = {{0,false,true},{1,false,true},{2,true,true},{3,false,true},{4,true,true},{5,true,true},{6,false,true}};
 joinUnassigned = 0;
-// Gehock, CapryCorn, dyzalonius, MasterCraftyMonster, Jordan
-enableDebugConsole[] = {"76561198025275728", "76561198162041701", "76561198064936083", "76561198081101914", "76561198054576688", "76561198024756265", "76561198072916152", "76561198072165049"};
+enableDebugConsole[] = {
+  // Gehock
+  "76561198025275728",
+  // Angel
+  "76561198162041701",
+  // Toll
+  "76561198064936083",
+  // Riqe
+  "76561198081101914",
+  // Capry
+  "76561198054576688",
+  // Miller
+  "76561198024756265",
+  // Jib
+  "76561198009490537"
+};
 enableTargetDebug = 1;
 corpseManagerMode = 3;
 wreckManagerMode = 0;
