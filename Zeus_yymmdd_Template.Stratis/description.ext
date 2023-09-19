@@ -3,9 +3,9 @@
 ////////////////////////////////////////////////
 
 onLoadMission = "Zeus Operations";
-loadScreen = "files\terry.jpg";
+loadScreen = "files\Z4.jpg";
 onLoadName = "ANNIVERSARY";
-author = "Lots of loads...i mean dudues";
+author = "Art by Asimov, Games by Angel and JIBY!";
 
 ////////////////////////////////////////////////
 //        DO NOT EDIT BELOW THIS LINE         //
