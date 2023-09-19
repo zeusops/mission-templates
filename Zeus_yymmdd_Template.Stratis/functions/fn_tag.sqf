@@ -59,7 +59,7 @@ fn_handleTagger = {
     {
         {
             if ((player distance _x) < 2) exitWith {
-                // player call fn_untagged;
+                player call fn_untagged;
                 _x call fn_tag;
             };
         } foreach (allUnits - [player]);
@@ -143,15 +143,22 @@ fn_pickTagger = {
 	// Select tagger
 	_playersUnmarkedCount = count _playersUnmarked;
 	_playerTagger = (_playersUnmarked deleteAt (round random (_playersUnmarkedCount - 1)));
-	
+
 
 	missionNameSpace setVariable ["Tag_playersUnmarked", _playersUnmarked, true];
 	missionNameSpace setVariable ["Tag_playerTagger", _playerTagger, true];
 	missionNameSpace setVariable ["Tag_isContagionMode", true, true];
-	
+
 	_playerTagger call fn_tag;
 };
 
+fn_endGame = {
+	// acknowledge game over
+		hintSilent (parseText (
+		"<t font='PuristaBold' size='1.6' align='left'>Game Over!</t>",
+	]));
+
+};
 ////////////////////////////////////////////////
 //               FUNCTION LOOP                //
 ////////////////////////////////////////////////
@@ -189,7 +196,7 @@ switch (_request) do {
     // Locally called by player that gets untagged
     case "untagged": {
         [] call fn_untagged;
-		
-    };	
-	
+
+    };
+
 };
