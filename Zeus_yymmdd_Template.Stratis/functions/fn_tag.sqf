@@ -146,11 +146,14 @@ fn_showUntagged = {
 //Angel tag 2023-09-05
 fn_pickTagger = {
 	// Fetch alive players
+	_mode = missionNamespace getVariable ["Tag_isContagionMode", false];
+	missionNamespace setVariable ["Tag_isContagionMode", false, true];
 	_playersUnmarked = [];
 	{
 		if (alive _x) then { _playersUnmarked pushback name _x; };
 		_x call fn_untag_other;
 	} foreach allPlayers;
+	missionNamespace setVariable ["Tag_isContagionMode", _mode, true];
 
 	// Select tagger
 	_playersUnmarkedCount = count _playersUnmarked;
