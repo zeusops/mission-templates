@@ -1,6 +1,6 @@
 /*
-	@file_name: fn_godMode.sqf
-	@file_author: Dyzalonius
+    @file_name: fn_godMode.sqf
+    @file_author: Dyzalonius
 */
 
 ////////////////////////////////////////////////

@@ -1,6 +1,6 @@
 /*
-	@file_name: fn_tag.sqf
-	@file_author: Dyzalonius
+    @file_name: fn_tag.sqf
+    @file_author: Dyzalonius
 */
 
 ////////////////////////////////////////////////
@@ -38,32 +38,32 @@ fn_tag_self = {
 };
 
 fn_untag_self = {
-	// TODO: move the hint elsewhere
-	if(missionNameSpace getVariable "Tag_isContagionMode") exitWith {
-		hint "Contagion Mode";
-	};
-	hint "Not in Contagion Mode";
-	// Save uniform and uniform items
-	_uniform = uniform player;
-	_uniformItems = [];
-	{
-		_uniformItems pushback _x;
-	} foreach (uniformItems player);
+    // TODO: move the hint elsewhere
+    if(missionNameSpace getVariable "Tag_isContagionMode") exitWith {
+        hint "Contagion Mode";
+    };
+    hint "Not in Contagion Mode";
+    // Save uniform and uniform items
+    _uniform = uniform player;
+    _uniformItems = [];
+    {
+        _uniformItems pushback _x;
+    } foreach (uniformItems player);
 
-	// Re-add and refill uniform
-	removeUniform player;
-	player forceAddUniform _uniform;
-	{
-		player addItemToUniform _x;
-	} foreach _uniformItems;
+    // Re-add and refill uniform
+    removeUniform player;
+    player forceAddUniform _uniform;
+    {
+        player addItemToUniform _x;
+    } foreach _uniformItems;
 
-	player setVariable ["isTagger", false, false];
-	[] spawn fn_showUntagged;
+    player setVariable ["isTagger", false, false];
+    [] spawn fn_showUntagged;
 };
 
 fn_handleTagger = {
     sleep 1;
-	while {player getVariable ["isTagger", false]} do
+    while {player getVariable ["isTagger", false]} do
     {
         {
             if ((player distance _x) < 2) exitWith {
@@ -83,38 +83,38 @@ fn_setTexture = {
 };
 
 fn_playerGearLock = {
-	_controls = [];
-	{
-		_controls pushback _x
-	} foreach [
-		6331, // uniform
-		6381, // vest
-		6191 // backpack
-		//6240, // helmet
-		//6211, // map
-		//6212, // compass
-		//6213, // clock
-		//6214 // radio
-		//6216 // goggles
-		//610 // weapon
-		//633 // items in uniform
-		//638 // items in vest
-		//6192 // items in backpack
-		//621 // scope
-		//632 // items on ground
-	];
+    _controls = [];
+    {
+        _controls pushback _x
+    } foreach [
+        6331, // uniform
+        6381, // vest
+        6191 // backpack
+        //6240, // helmet
+        //6211, // map
+        //6212, // compass
+        //6213, // clock
+        //6214 // radio
+        //6216 // goggles
+        //610 // weapon
+        //633 // items in uniform
+        //638 // items in vest
+        //6192 // items in backpack
+        //621 // scope
+        //632 // items on ground
+    ];
 
-	while {player getVariable ["isTagger", false]} do
-	{
-		while {!(isNull (findDisplay 602))} Do
-		{
-			{
-				ctrlEnable [_x, false];
-			} foreach _controls;
-		};
+    while {player getVariable ["isTagger", false]} do
+    {
+        while {!(isNull (findDisplay 602))} Do
+        {
+            {
+                ctrlEnable [_x, false];
+            } foreach _controls;
+        };
 
-		waitUntil {!(isNull (findDisplay 602));};
-	};
+        waitUntil {!(isNull (findDisplay 602));};
+    };
 };
 
 fn_resetColour = {
@@ -146,24 +146,24 @@ fn_showUntagged = {
 
 //Angel tag 2023-09-05
 fn_pickTagger = {
-	// Fetch alive players
-	_mode = missionNamespace getVariable ["Tag_isContagionMode", false];
-	missionNamespace setVariable ["Tag_isContagionMode", false, true];
-	_playersUnmarked = [];
-	{
-		if (alive _x) then { _playersUnmarked pushback name _x; };
-		_x call fn_untag_other;
-	} foreach allPlayers;
-	missionNamespace setVariable ["Tag_isContagionMode", _mode, true];
+    // Fetch alive players
+    _mode = missionNamespace getVariable ["Tag_isContagionMode", false];
+    missionNamespace setVariable ["Tag_isContagionMode", false, true];
+    _playersUnmarked = [];
+    {
+        if (alive _x) then { _playersUnmarked pushback name _x; };
+        _x call fn_untag_other;
+    } foreach allPlayers;
+    missionNamespace setVariable ["Tag_isContagionMode", _mode, true];
 
-	// Select tagger
-	_playersUnmarkedCount = count _playersUnmarked;
-	_playerTagger = (_playersUnmarked deleteAt (round random (_playersUnmarkedCount - 1)));
+    // Select tagger
+    _playersUnmarkedCount = count _playersUnmarked;
+    _playerTagger = (_playersUnmarked deleteAt (round random (_playersUnmarkedCount - 1)));
 
-	missionNameSpace setVariable ["Tag_playersUnmarked", _playersUnmarked, true];
+    missionNameSpace setVariable ["Tag_playersUnmarked", _playersUnmarked, true];
 
     // TODO: why doesn't this run correctly?
-	_playerTagger call fn_tag_other;
+    _playerTagger call fn_tag_other;
 };
 
 fn_endGame = {

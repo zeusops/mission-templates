@@ -1,6 +1,6 @@
 /*
-	@file_name: fn_coverMap.sqf
-	@file_author: Dyzalonius
+    @file_name: fn_coverMap.sqf
+    @file_author: Dyzalonius
 */
 
 ////////////////////////////////////////////////
@@ -78,9 +78,9 @@ fn_transform = {
 ////////////////////////////////////////////////
 
 if ((getMarkerColor "coverMapAreaLeft") == "") then {
-	// init
-	[] call fn_spawn;
+    // init
+    [] call fn_spawn;
 } else {
-	// change location
-	_this call fn_transform;
+    // change location
+    _this call fn_transform;
 };
