@@ -188,7 +188,7 @@ fn_checkEndGame = {
 //               FUNCTION LOOP                //
 ////////////////////////////////////////////////
 
-switch (_request) do {
+switch (_this) do {
     case "START": {
         [] call {
             // Exit if game is already ongoing or init has not been called
