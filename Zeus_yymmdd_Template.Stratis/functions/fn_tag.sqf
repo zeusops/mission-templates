@@ -172,7 +172,7 @@ fn_endGame = {
 };
 
 fn_checkEndGame = {
-    while {missionNameSpace getVariable "Tag_gameOngoing"} do {
+    while {missionNameSpace getVariable ["Tag_gameOngoing", false]} do {
         sleep 1;
         _all_untagged = missionNamespace getVariable ["Tag_playersUnmarked", []];
         if (count _all_untagged <= 1) exitWith {
