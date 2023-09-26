@@ -9,6 +9,7 @@
 
 fn_tag_other = {
     _taggedPlayer = _this;
+    // TODO: call fn_* directly instead of calling ZO_fnc_tag
     "tag_self" remoteExec ["ZO_fnc_tag", [_taggedPlayer]];
 };
 
@@ -161,6 +162,7 @@ fn_pickTagger = {
 
 	missionNameSpace setVariable ["Tag_playersUnmarked", _playersUnmarked, true];
 
+    // TODO: why doesn't this run correctly?
 	_playerTagger call fn_tag_other;
 };
 
