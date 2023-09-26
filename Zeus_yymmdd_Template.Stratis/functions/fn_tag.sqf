@@ -193,7 +193,7 @@ switch (_this) do {
     case "START": {
         [] call {
             // Exit if game is already ongoing or init has not been called
-            if (missionNameSpace getVariable "Tag_gameOngoing") exitWith {
+            if (missionNameSpace getVariable ["Tag_gameOngoing", false]) exitWith {
                 hint "Tag game is already ongoing";
             };
             missionNameSpace setVariable ["Tag_gameOngoing", true, true];
