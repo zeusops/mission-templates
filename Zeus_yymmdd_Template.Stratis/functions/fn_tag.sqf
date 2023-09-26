@@ -26,7 +26,8 @@ fn_tag_self = {
     [player, "#(rgb,8,8,3)color(0.3,0,0,1)"] remoteExec ["fn_setTexture", [0,-2] select isDedicated, true];
     player setVariable ["isTagger", true, false];
 
-    _all_untagged = missionNamespace getVariable ["Tag_playersUnmarked", []] - [player];
+
+    _all_untagged = missionNamespace getVariable ["Tag_playersUnmarked", []] - [name player];
 
     missionNamespace setVariable ["Tag_playersUnmarked", _all_untagged, true];
 
@@ -147,19 +148,15 @@ fn_pickTagger = {
 	// Fetch alive players
 	_playersUnmarked = [];
 	{
-		if (alive _x) then { _playersUnmarked pushback _x; };
+		if (alive _x) then { _playersUnmarked pushback name _x; };
 		_x call fn_untag_other;
 	} foreach allPlayers;
-
 
 	// Select tagger
 	_playersUnmarkedCount = count _playersUnmarked;
 	_playerTagger = (_playersUnmarked deleteAt (round random (_playersUnmarkedCount - 1)));
 
-
 	missionNameSpace setVariable ["Tag_playersUnmarked", _playersUnmarked, true];
-	// FIXME: move elsewhere
-	missionNameSpace setVariable ["Tag_isContagionMode", true, true];
 
 	_playerTagger call fn_tag_other;
 };
@@ -168,8 +165,7 @@ fn_endGame = {
     // acknowledge game over
     _winner = (missionNamespace getVariable ["Tag_playersUnmarked", ["missingno"]]) select 0;
     [
-        // FIXME: Doesn't get the name correctly ("Error: No vehicle")
-        parseText (format["<t font='PuristaBold' size='1.6' align='left'>Game Over! %1 is the winner</t>", name _winner])
+        parseText (format["<t font='PuristaBold' size='1.6' align='left'>Game Over! %s is the winner</t>", _winner])
     ] remoteExec ["hint", [0,-2] select isDedicated, true];
     missionNameSpace setVariable ["Tag_gameOngoing", false, true];
     // TODO: untag all players, reset uniform colours

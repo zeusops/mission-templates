@@ -13,6 +13,9 @@ _fullArsenal = true;  // Set to false if you've manually set up a limited arsena
 //_timePreparing = 30;
 //_timeBeforeOvertime = 300;
 
+// Angel 2023-09-26 Added Tag config
+missionNameSpace setVariable ["Tag_isContagionMode", true, true];
+
 ////////////////////////////////////////////////
 //        DO NOT EDIT BELOW THIS LINE         //
 ////////////////////////////////////////////////
