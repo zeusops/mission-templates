@@ -9,12 +9,12 @@
 
 fn_tag_other = {
     _taggedPlayer = _this;
-    ["tag_self"] remoteExec ["ZO_fnc_tag", [_taggedPlayer]];
+    "tag_self" remoteExec ["ZO_fnc_tag", [_taggedPlayer]];
 };
 
 fn_untag_other = {
     _untaggedPlayer = _this;
-    ["untag_self"] remoteExec ["ZO_fnc_tag", [_untaggedPlayer]];
+    "untag_self" remoteExec ["ZO_fnc_tag", [_untaggedPlayer]];
 };
 
 fn_tag_self = {
@@ -185,22 +185,19 @@ fn_checkEndGame = {
 //               FUNCTION LOOP                //
 ////////////////////////////////////////////////
 
-switch (_this) do {
-	case "START": {
-		[] call {
-			// Exit if game is already ongoing or init has not been called
-			if (missionNameSpace getVariable "Tag_gameOngoing") exitWith {
-				hint "Tag game is already ongoing";
-			};
-			missionNameSpace setVariable ["Tag_gameOngoing", true, true];
-			[] call fn_pickTagger;
-			[] spawn fn_checkEndGame;
-		};
-	};
-};
-_request = _this select 0;
-
 switch (_request) do {
+    case "START": {
+        [] call {
+            // Exit if game is already ongoing or init has not been called
+            if (missionNameSpace getVariable "Tag_gameOngoing") exitWith {
+                hint "Tag game is already ongoing";
+            };
+            missionNameSpace setVariable ["Tag_gameOngoing", true, true];
+            [] call fn_pickTagger;
+            [] spawn fn_checkEndGame;
+        };
+    };
+
     case "tag_other": {
         _player = _this select 1;
         _player call fn_tag_other;
