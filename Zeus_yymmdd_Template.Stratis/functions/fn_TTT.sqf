@@ -1290,7 +1290,7 @@ switch (_this) do {
 
             [] spawn fn_gameTextStarting;
             waitUntil {missionNamespace getVariable ["TTT_startingDone", false]};
-            [] spawn fn_playerGearStart;
+            [] remoteExec ["fn_playerGearStart", allPlayers];
             { deleteVehicle _x; } forEach allDead;
             [] spawn fn_lootSpawner;
             [] call fn_makeTeams;
