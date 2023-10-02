@@ -8,10 +8,12 @@
 ////////////////////////////////////////////////
 
 fn_hint = {
+    diag_log "DEBUG fn_hint";
     hintSilent ( _this);
 };
 
 fn_startingText = {
+    diag_log "DEBUG fn_startingText";
     hintSilent (parseText (format[
         "<t font='PuristaBold' size='1.6' align='left'>Starting: %1</t>",
         _this
@@ -19,6 +21,7 @@ fn_startingText = {
 };
 
 fn_preparingText = {
+    diag_log "DEBUG fn_preparingText";
     hintSilent (parseText (format[
         "<t font='PuristaBold' size='1.6' align='left'>You are </t><t font='PuristaBold' size='1.6' align='left' color='#999999'>UNKNOWN</t><br />
         <br />
@@ -32,6 +35,7 @@ fn_preparingText = {
 };
 
 fn_innocentText = {
+    diag_log "DEBUG fn_innocentText";
     hintSilent (parseText (format[
         "<t font='PuristaBold' size='1.6' align='left'>You are </t><t font='PuristaBold' size='1.6' align='left' color='#88ff88'>INNOCENT</t><br />
         <br />
@@ -46,6 +50,7 @@ fn_innocentText = {
 };
 
 fn_innocentText2 = {
+    diag_log "DEBUG fn_innocentText2";
     hintSilent (parseText (format[
         "<t font='PuristaBold' size='1.6' align='left'>You are </t><t font='PuristaBold' size='1.6' align='left' color='#88ff88'>INNOCENT</t><br />
         <br />
@@ -59,6 +64,7 @@ fn_innocentText2 = {
 };
 
 fn_detectiveText = {
+    diag_log "DEBUG fn_detectiveText";
     hintSilent (parseText (format[
         "<t font='PuristaBold' size='1.6' align='left'>You are the </t><t font='PuristaBold' size='1.6' align='left' color='#8888ff'>DETECTIVE</t><br />
         <br />
@@ -73,6 +79,7 @@ fn_detectiveText = {
 };
 
 fn_detectiveText2 = {
+    diag_log "DEBUG fn_detectiveText2";
     hintSilent (parseText (format[
         "<t font='PuristaBold' size='1.6' align='left'>You are </t><t font='PuristaBold' size='1.6' align='left' color='#8888ff'>DETECTIVE</t><br />
         <br />
@@ -86,6 +93,7 @@ fn_detectiveText2 = {
 };
 
 fn_traitorText = {
+    diag_log "DEBUG fn_traitorText";
     hintSilent (parseText (format[
         "<t font='PuristaBold' size='1.6' align='left'>You are a </t><t font='PuristaBold' size='1.6' color='#ff8888' align='left'>TRAITOR</t><br />
         <br />
@@ -104,6 +112,7 @@ fn_traitorText = {
 };
 
 fn_traitorText2 = {
+    diag_log "DEBUG fn_traitorText2";
     hintSilent (parseText (format[
         "<t font='PuristaBold' size='1.6' align='left'>You are a </t><t font='PuristaBold' size='1.6' color='#ff8888' align='left'>TRAITOR</t><br />
         <br />
@@ -120,6 +129,7 @@ fn_traitorText2 = {
 };
 
 fn_endingText = {
+    diag_log "DEBUG fn_endingText";
     hintSilent (parseText (format[
         "<t font='PuristaBold' size='1.6' align='left'>Ending: %1</t>",
         _this
@@ -127,14 +137,17 @@ fn_endingText = {
 };
 
 fn_endGameTextT = {
+    diag_log "DEBUG fn_endGameTextT";
     titleText ["<t font='PuristaBold' size='6' color='#ff8888'>Traitors win</t><br/><t font='PuristaBold' size='2' color='#ffffff'>All innocents are dead</t></br>", "PLAIN", -1, false, true]; titleFadeOut (missionNamespace getVariable "TTT_timeLimitEnding");
 };
 
 fn_endGameTextI = {
+    diag_log "DEBUG fn_endGameTextI";
     titleText ["<t font='PuristaBold' size='6' color='#88ff88'>Innocents win</t><br/><t font='PuristaBold' size='2' color='#ffffff'>All traitors are dead</t></br>", "PLAIN", -1, false, true]; titleFadeOut (missionNamespace getVariable "TTT_timeLimitEnding");
 };
 
 fn_gameTextStarting = {
+    diag_log "DEBUG fn_gameTextStarting";
     // EG
     _time = (missionNamespace getVariable "TTT_timeLimitStarting");
     while {_time > 0} do {
@@ -148,6 +161,7 @@ fn_gameTextStarting = {
 };
 
 fn_gameTextPreparing = {
+    diag_log "DEBUG fn_gameTextPreparing";
     // EG
     _time = (missionNamespace getVariable "TTT_timeLimitPreparing");
     while {_time > 0} do {
@@ -161,6 +175,7 @@ fn_gameTextPreparing = {
 };
 
 fn_gameTextEnding = {
+    diag_log "DEBUG fn_gameTextEnding";
     // EG
     _time = (missionNamespace getVariable "TTT_timeLimitEnding");
     while {_time >= 0} do {
@@ -173,6 +188,7 @@ fn_gameTextEnding = {
 };
 
 fn_gameText = {
+    diag_log "DEBUG fn_gameText";
     _time = (missionNamespace getVariable "TTT_timeLimit");
 
     while {_time > 0 && (missionNamespace getVariable "TTT_gameOngoing")} do {
@@ -223,6 +239,7 @@ fn_gameText = {
 };
 
 fn_handleGame = {
+    diag_log "DEBUG fn_handleGame";
     _innocents = (missionNamespace getVariable "TTT_innocents");
     _detective = (missionNamespace getVariable "TTT_detective");
     _traitors = (missionNamespace getVariable "TTT_traitors");
@@ -259,6 +276,7 @@ fn_handleGame = {
 };
 
 fn_lootSpawner = {
+    diag_log "DEBUG fn_lootSpawner";
     _objects = nearestObjects [(getMarkerPos "coverMapAreaCenter"), ["Static"], 150];
     _buildings = [];
     _lootPositions = [];
@@ -339,6 +357,7 @@ fn_lootSpawner = {
 };
 
 fn_makeTeams = {
+    diag_log "DEBUG fn_makeTeams";
     // Fetch alive players
     _innocents = [];
     {
@@ -365,6 +384,7 @@ fn_makeTeams = {
 };
 
 fn_playerHandleRespawn = {
+    diag_log "DEBUG fn_playerHandleRespawn";
     // waiting for death
     while {alive player} do {
         _pos = position player;
@@ -400,6 +420,7 @@ fn_playerHandleRespawn = {
 };
 
 fn_playerGearLock = {
+    diag_log "DEBUG fn_playerGearLock";
     _controls = [];
     {
         _controls pushback _x
@@ -435,10 +456,12 @@ fn_playerGearLock = {
 };
 
 fn_playerHandleCoverMap = {
+    // diag_log "DEBUG fn_playerHandleCoverMap";
     _center = (getMarkerPos "coverMapAreaCenter");
     _size = (getMarkerSize "coverMapAreaCenter");
 
     fn_inCoverMap = {
+    diag_log "DEBUG fn_inCoverMap";
         (((_this select 0) >= ((_center select 0) - (_size select 0))) &&
         ((_this select 0) <= ((_center select 0) + (_size select 0))) &&
         ((_this select 1) >= ((_center select 1) - (_size select 1))) &&
@@ -948,6 +971,7 @@ fn_playerHandleCoverMap = {
 };
 
 fn_playerSpawn = {
+    diag_log "DEBUG fn_playerSpawn";
     player allowDamage true;
     player setPosASL (missionNamespace getVariable "RESPAWN_POSITION"); // Move to spawn
     "INNOCENT" remoteExec ["fn_playerUnitTracker", allPlayers];
@@ -955,6 +979,7 @@ fn_playerSpawn = {
 };
 
 fn_playerGearStart = {
+    diag_log "DEBUG fn_playerGearStart";
     removeAllWeapons player;
     removeUniform player;
     removeVest player;
@@ -978,6 +1003,7 @@ fn_playerGearStart = {
 };
 
 fn_playerUnitTracker = {
+    diag_log "DEBUG fn_playerUnitTracker";
     switch (_this) do {
         case "WAITING": {
             missionNamespace setVariable ["TTT_role", "WAITING", false];
@@ -1272,6 +1298,7 @@ fn_playerUnitTracker = {
 };
 
 fn_setTexture = {
+    diag_log "DEBUG fn_setTexture";
     (_this select 0) setObjectTexture [0, (_this select 1)];
 };
 
