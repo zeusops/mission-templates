@@ -135,6 +135,7 @@ fn_endGameTextI = {
 };
 
 fn_gameTextStarting = {
+    // EG
     _time = (missionNamespace getVariable "TTT_timeLimitStarting");
     while {_time > 0} do {
         _timeString = ([((_time)/60)+.01,"HH:MM"] call BIS_fnc_timetostring);
@@ -147,6 +148,7 @@ fn_gameTextStarting = {
 };
 
 fn_gameTextPreparing = {
+    // EG
     _time = (missionNamespace getVariable "TTT_timeLimitPreparing");
     while {_time > 0} do {
         _timeString = ([((_time)/60)+.01,"HH:MM"] call BIS_fnc_timetostring);
@@ -159,6 +161,7 @@ fn_gameTextPreparing = {
 };
 
 fn_gameTextEnding = {
+    // EG
     _time = (missionNamespace getVariable "TTT_timeLimitEnding");
     while {_time >= 0} do {
         _timeString = ([((_time)/60)+.01,"HH:MM"] call BIS_fnc_timetostring);
@@ -346,14 +349,14 @@ fn_makeTeams = {
     _traitors = [];
     for "_i" from 1 to (round((count _innocents) * (missionNamespace getVariable "TTT_traitorRate"))) do {
         _innocentsLeft = count _innocents;
-        _traitors pushback (_innocents deleteAt (round random (_innocentsLeft - 1)));
+        _traitors pushback (_innocents deleteAt 1);
     };
 
     // Select detective
     _detective = objNull;
     if (count _innocents > 0) then {
         _innocentsLeft = count _innocents;
-        _detective = (_innocents deleteAt (round random (_innocentsLeft - 1)));
+        _detective = (_innocents deleteAt 1);
     };
 
     missionNamespace setVariable ["TTT_innocents", _innocents, true];
