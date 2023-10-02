@@ -1283,13 +1283,13 @@ switch (_this) do {
                 hint "TTT game is already ongoing";
             };
             missionNameSpace setVariable ["TTT_gameOngoing", true, true];
-            [] call fn_gameTextStarting;
+            [] spawn fn_gameTextStarting;
             [] spawn fn_playerGearStart;
             { deleteVehicle _x; } forEach allDead;
             [] spawn fn_lootSpawner;
             [] call fn_makeTeams;
             [] remoteExec ["fn_playerSpawn", allPlayers];
-            [] call fn_gameTextPreparing;
+            [] spawn fn_gameTextPreparing;
             [] spawn fn_handleGame;
             [] spawn fn_gameText;
         };
