@@ -127,15 +127,15 @@ fn_endingText = {
 };
 
 fn_endGameTextT = {
-    titleText ["<t font='PuristaBold' size='6' color='#ff8888'>Traitors win</t><br/><t font='PuristaBold' size='2' color='#ffffff'>All innocents are dead</t></br>", "PLAIN", -1, false, true]; titleFadeOut (missionNameSpace getVariable "TTT_timeLimitEnding");
+    titleText ["<t font='PuristaBold' size='6' color='#ff8888'>Traitors win</t><br/><t font='PuristaBold' size='2' color='#ffffff'>All innocents are dead</t></br>", "PLAIN", -1, false, true]; titleFadeOut (missionNamespace getVariable "TTT_timeLimitEnding");
 };
 
 fn_endGameTextI = {
-    titleText ["<t font='PuristaBold' size='6' color='#88ff88'>Innocents win</t><br/><t font='PuristaBold' size='2' color='#ffffff'>All traitors are dead</t></br>", "PLAIN", -1, false, true]; titleFadeOut (missionNameSpace getVariable "TTT_timeLimitEnding");
+    titleText ["<t font='PuristaBold' size='6' color='#88ff88'>Innocents win</t><br/><t font='PuristaBold' size='2' color='#ffffff'>All traitors are dead</t></br>", "PLAIN", -1, false, true]; titleFadeOut (missionNamespace getVariable "TTT_timeLimitEnding");
 };
 
 fn_gameTextStarting = {
-    _time = (missionNameSpace getVariable "TTT_timeLimitStarting");
+    _time = (missionNamespace getVariable "TTT_timeLimitStarting");
     while {_time > 0} do {
         _timeString = ([((_time)/60)+.01,"HH:MM"] call BIS_fnc_timetostring);
         _timeString remoteExec ["fn_startingText", allPlayers];
@@ -147,7 +147,7 @@ fn_gameTextStarting = {
 };
 
 fn_gameTextPreparing = {
-    _time = (missionNameSpace getVariable "TTT_timeLimitPreparing");
+    _time = (missionNamespace getVariable "TTT_timeLimitPreparing");
     while {_time > 0} do {
         _timeString = ([((_time)/60)+.01,"HH:MM"] call BIS_fnc_timetostring);
         _timeString remoteExec ["fn_preparingText", allPlayers];
@@ -159,7 +159,7 @@ fn_gameTextPreparing = {
 };
 
 fn_gameTextEnding = {
-    _time = (missionNameSpace getVariable "TTT_timeLimitEnding");
+    _time = (missionNamespace getVariable "TTT_timeLimitEnding");
     while {_time >= 0} do {
         _timeString = ([((_time)/60)+.01,"HH:MM"] call BIS_fnc_timetostring);
         _timeString remoteExec ["fn_endingText", allPlayers];
@@ -170,13 +170,13 @@ fn_gameTextEnding = {
 };
 
 fn_gameText = {
-    _time = (missionNameSpace getVariable "TTT_timeLimit");
+    _time = (missionNamespace getVariable "TTT_timeLimit");
 
-    while {_time > 0 && (missionNameSpace getVariable "TTT_gameOngoing")} do {
+    while {_time > 0 && (missionNamespace getVariable "TTT_gameOngoing")} do {
         _timeString = ([((_time)/60)+.01,"HH:MM"] call BIS_fnc_timetostring);
-        _innocents = (missionNameSpace getVariable "TTT_innocents");
-        _detective = (missionNameSpace getVariable "TTT_detective");
-        _traitors = (missionNameSpace getVariable "TTT_traitors");
+        _innocents = (missionNamespace getVariable "TTT_innocents");
+        _detective = (missionNamespace getVariable "TTT_detective");
+        _traitors = (missionNamespace getVariable "TTT_traitors");
         _timeString remoteExec ["fn_innocentText", _innocents];
         _timeString remoteExec ["fn_detectiveText", _detective];
         _traitorString = " ";
@@ -189,21 +189,21 @@ fn_gameText = {
         } foreach _traitors;
         [_timeString, _traitorString] remoteExec ["fn_traitorText", _traitors];
 
-        _time = (missionNameSpace getVariable "TTT_timeLeft") - 1;
-        missionNameSpace setVariable ["TTT_timeLeft", _time, true];
+        _time = (missionNamespace getVariable "TTT_timeLeft") - 1;
+        missionNamespace setVariable ["TTT_timeLeft", _time, true];
         sleep 1;
     };
 
     // Start overtime if timelimit reached
     if (_time <= 0) then {
-        missionNameSpace setVariable ["TTT_overtime", true, true];
+        missionNamespace setVariable ["TTT_overtime", true, true];
         "OVERTIME" remoteExec ["fn_playerUnitTracker", allPlayers];
     };
 
-    while {(missionNameSpace getVariable "TTT_gameOngoing") && (missionNameSpace getVariable "TTT_overtime")} do {
-        _innocents = (missionNameSpace getVariable "TTT_innocents");
-        _traitors = (missionNameSpace getVariable "TTT_traitors");
-        _detective = (missionNameSpace getVariable "TTT_detective");
+    while {(missionNamespace getVariable "TTT_gameOngoing") && (missionNamespace getVariable "TTT_overtime")} do {
+        _innocents = (missionNamespace getVariable "TTT_innocents");
+        _traitors = (missionNamespace getVariable "TTT_traitors");
+        _detective = (missionNamespace getVariable "TTT_detective");
         [] remoteExec ["fn_innocentText2", _innocents];
         [] remoteExec ["fn_detectiveText2", _detective];
         _traitorString = " ";
@@ -220,18 +220,18 @@ fn_gameText = {
 };
 
 fn_handleGame = {
-    _innocents = (missionNameSpace getVariable "TTT_innocents");
-    _detective = (missionNameSpace getVariable "TTT_detective");
-    _traitors = (missionNameSpace getVariable "TTT_traitors");
+    _innocents = (missionNamespace getVariable "TTT_innocents");
+    _detective = (missionNamespace getVariable "TTT_detective");
+    _traitors = (missionNamespace getVariable "TTT_traitors");
 
     "INNOCENT" remoteExec ["fn_playerUnitTracker", _innocents];
     "DETECTIVE" remoteExec ["fn_playerUnitTracker", _detective];
     "TRAITOR" remoteExec ["fn_playerUnitTracker", _traitors];
 
-    while {(missionNameSpace getVariable "TTT_gameOngoing")} do {
-        _innocents = (missionNameSpace getVariable "TTT_innocents");
-        _detective = (missionNameSpace getVariable "TTT_detective");
-        _traitors = (missionNameSpace getVariable "TTT_traitors");
+    while {(missionNamespace getVariable "TTT_gameOngoing")} do {
+        _innocents = (missionNamespace getVariable "TTT_innocents");
+        _detective = (missionNamespace getVariable "TTT_detective");
+        _traitors = (missionNamespace getVariable "TTT_traitors");
 
         [_detective, "#(rgb,8,8,3)color(0,0.1,0.2,1)"] remoteExec ["fn_setTexture"];
 
@@ -239,14 +239,14 @@ fn_handleGame = {
         if (_innocents findIf {alive _x} == -1 && !alive _detective) then {
             [] spawn fn_gameTextEnding;
             [] remoteExec ["fn_endGameTextT", allPlayers];
-            missionNameSpace setVariable ["TTT_gameOngoing", false, true];
+            missionNamespace setVariable ["TTT_gameOngoing", false, true];
             "STOP" call ZO_fnc_TTT;
         } else {
             // end if all traitors dead
             if (_traitors findIf {alive _x} == -1) then {
                 [] spawn fn_gameTextEnding;
                 [] remoteExec ["fn_endGameTextI", allPlayers];
-                missionNameSpace setVariable ["TTT_gameOngoing", false, true];
+                missionNamespace setVariable ["TTT_gameOngoing", false, true];
                 "STOP" call ZO_fnc_TTT;
             };
         };
@@ -332,7 +332,7 @@ fn_lootSpawner = {
         _lootDrops pushback _lootDrop;
     } foreach _lootPositions;
 
-    missionNameSpace setVariable ["TTT_lootDrops", _lootDrops, true];
+    missionNamespace setVariable ["TTT_lootDrops", _lootDrops, true];
 };
 
 fn_makeTeams = {
@@ -344,7 +344,7 @@ fn_makeTeams = {
 
     // Select traitors from the innocents
     _traitors = [];
-    for "_i" from 1 to (round((count _innocents) * (missionNameSpace getVariable "TTT_traitorRate"))) do {
+    for "_i" from 1 to (round((count _innocents) * (missionNamespace getVariable "TTT_traitorRate"))) do {
         _innocentsLeft = count _innocents;
         _traitors pushback (_innocents deleteAt (round random (_innocentsLeft - 1)));
     };
@@ -356,9 +356,9 @@ fn_makeTeams = {
         _detective = (_innocents deleteAt (round random (_innocentsLeft - 1)));
     };
 
-    missionNameSpace setVariable ["TTT_innocents", _innocents, true];
-    missionNameSpace setVariable ["TTT_traitors", _traitors, true];
-    missionNameSpace setVariable ["TTT_detective", _detective, true];
+    missionNamespace setVariable ["TTT_innocents", _innocents, true];
+    missionNamespace setVariable ["TTT_traitors", _traitors, true];
+    missionNamespace setVariable ["TTT_detective", _detective, true];
 };
 
 fn_playerHandleRespawn = {
@@ -388,10 +388,10 @@ fn_playerHandleRespawn = {
     "colorCorrections" ppEffectAdjust [1, 1, 0, [0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 1], [0.0, 0.0, 0.0, 0.0]];
     "colorCorrections" ppEffectCommit 0.5;
 
-    if (player in (missionNameSpace getVariable "TTT_traitors")) then {
+    if (player in (missionNamespace getVariable "TTT_traitors")) then {
         [player, "#(rgb,8,8,3)color(0.3,0,0,1)"] remoteExec ["fn_setTexture"];
     };
-    if (player in (missionNameSpace getVariable "TTT_innocents")) then {
+    if (player in (missionNamespace getVariable "TTT_innocents")) then {
         [player, "#(rgb,8,8,3)color(0,0.2,0,1)"] remoteExec ["fn_setTexture"];
     };
 };
@@ -946,9 +946,9 @@ fn_playerHandleCoverMap = {
 
 fn_playerSpawn = {
     player allowDamage true;
-    player setPosASL (missionNameSpace getVariable "RESPAWN_POSITION"); // Move to spawn
+    player setPosASL (missionNamespace getVariable "RESPAWN_POSITION"); // Move to spawn
     "INNOCENT" remoteExec ["fn_playerUnitTracker", allPlayers];
-    (missionNameSpace getVariable "respawnTimeInfinite") remoteExec ["setPlayerRespawnTime", allPlayers];
+    (missionNamespace getVariable "respawnTimeInfinite") remoteExec ["setPlayerRespawnTime", allPlayers];
 };
 
 fn_playerGearStart = {
@@ -961,14 +961,14 @@ fn_playerGearStart = {
     removeGoggles player;
 
     player linkItem "itemGPS";
-    player linkItem (missionNameSpace getVariable "gearRadio");
+    player linkItem (missionNamespace getVariable "gearRadio");
     player linkItem "ItemCompass";
     player addWeapon "Binocular";
 
-    player forceAddUniform (missionNameSpace getVariable "gearUniform");
-    player addVest (missionNameSpace getVariable "gearVest");
-    player addHeadgear (missionNameSpace getVariable "gearHeadgear");
-    player addBackpack (missionNameSpace getVariable "gearBackpack");
+    player forceAddUniform (missionNamespace getVariable "gearUniform");
+    player addVest (missionNamespace getVariable "gearVest");
+    player addHeadgear (missionNamespace getVariable "gearHeadgear");
+    player addBackpack (missionNamespace getVariable "gearBackpack");
     player addItemToBackpack "Medikit";
 
     player setdamage 0;
@@ -977,7 +977,7 @@ fn_playerGearStart = {
 fn_playerUnitTracker = {
     switch (_this) do {
         case "WAITING": {
-            missionNameSpace setVariable ["TTT_role", "WAITING", false];
+            missionNamespace setVariable ["TTT_role", "WAITING", false];
             [] spawn {
                 // Spawn or update markers
                 onEachFrame {
@@ -998,7 +998,7 @@ fn_playerUnitTracker = {
                     [] spawn fn_playerHandleCoverMap;
                 };
 
-                waitUntil {((missionNameSpace getVariable "TTT_role") != "WAITING" || (missionNameSpace getVariable "TTT_overtime"))};
+                waitUntil {((missionNamespace getVariable "TTT_role") != "WAITING" || (missionNamespace getVariable "TTT_overtime"))};
 
                 // Delete markers
                 onEachFrame {[] spawn fn_playerHandleCoverMap;};
@@ -1009,7 +1009,7 @@ fn_playerUnitTracker = {
         };
 
         case "INNOCENT": {
-            missionNameSpace setVariable ["TTT_role", "INNOCENT", false];
+            missionNamespace setVariable ["TTT_role", "INNOCENT", false];
             [] spawn {
                 // Spawn or update markers
                 onEachFrame {
@@ -1031,7 +1031,7 @@ fn_playerUnitTracker = {
                     [] spawn fn_playerHandleCoverMap;
                 };
 
-                waitUntil {((missionNameSpace getVariable "TTT_role") != "INNOCENT" || (missionNameSpace getVariable "TTT_overtime"))};
+                waitUntil {((missionNamespace getVariable "TTT_role") != "INNOCENT" || (missionNamespace getVariable "TTT_overtime"))};
 
                 // Delete markers
                 onEachFrame {[] spawn fn_playerHandleCoverMap;};
@@ -1040,7 +1040,7 @@ fn_playerUnitTracker = {
         };
 
         case "DETECTIVE": {
-            missionNameSpace setVariable ["TTT_role", "DETECTIVE", false];
+            missionNamespace setVariable ["TTT_role", "DETECTIVE", false];
             [] spawn {
                 // Spawn or update markers
                 onEachFrame {
@@ -1062,7 +1062,7 @@ fn_playerUnitTracker = {
                     [] spawn fn_playerHandleCoverMap;
                 };
 
-                waitUntil {((missionNameSpace getVariable "TTT_role") != "DETECTIVE" || (missionNameSpace getVariable "TTT_overtime"))};
+                waitUntil {((missionNamespace getVariable "TTT_role") != "DETECTIVE" || (missionNamespace getVariable "TTT_overtime"))};
 
                 // Delete markers
                 onEachFrame {[] spawn fn_playerHandleCoverMap;};
@@ -1071,11 +1071,11 @@ fn_playerUnitTracker = {
         };
 
         case "TRAITOR": {
-            missionNameSpace setVariable ["TTT_role", "TRAITOR", false];
+            missionNamespace setVariable ["TTT_role", "TRAITOR", false];
             [] spawn {
                 // Spawn or update markers
                 onEachFrame {
-                    _traitors = missionNameSpace getVariable "TTT_traitors";
+                    _traitors = missionNamespace getVariable "TTT_traitors";
                     {
                         _markerName = (format ["%1_T", _x]);
                         if (getMarkerColor _markerName == "") then {
@@ -1115,7 +1115,7 @@ fn_playerUnitTracker = {
                     [] spawn fn_playerHandleCoverMap;
                 };
 
-                waitUntil {((missionNameSpace getVariable "TTT_role") != "TRAITOR" || (missionNameSpace getVariable "TTT_overtime"));};
+                waitUntil {((missionNamespace getVariable "TTT_role") != "TRAITOR" || (missionNamespace getVariable "TTT_overtime"));};
 
                 // Delete markers
                 onEachFrame {[] spawn fn_playerHandleCoverMap;};
@@ -1129,9 +1129,9 @@ fn_playerUnitTracker = {
             [] spawn {
                 // Spawn or update markers
                 onEachFrame {
-                    _innocents = missionNameSpace getVariable "TTT_innocents";
-                    _traitors = missionNameSpace getVariable "TTT_traitors";
-                    _detective = missionNameSpace getVariable "TTT_detective";
+                    _innocents = missionNamespace getVariable "TTT_innocents";
+                    _traitors = missionNamespace getVariable "TTT_traitors";
+                    _detective = missionNamespace getVariable "TTT_detective";
                     {
                         _markerName = (format ["%1_IO", _x]);
                         if (getMarkerColor _markerName == "") then {
@@ -1250,7 +1250,7 @@ fn_playerUnitTracker = {
                     [] spawn fn_playerHandleCoverMap;
                 };
 
-                waitUntil {(((missionNameSpace getVariable "TTT_role") != "INNOCENT" && (missionNameSpace getVariable "TTT_role") != "DETECTIVE" && (missionNameSpace getVariable "TTT_role") != "TRAITOR") || !(missionNameSpace getVariable "TTT_overtime"));};
+                waitUntil {(((missionNamespace getVariable "TTT_role") != "INNOCENT" && (missionNamespace getVariable "TTT_role") != "DETECTIVE" && (missionNamespace getVariable "TTT_role") != "TRAITOR") || !(missionNamespace getVariable "TTT_overtime"));};
 
                 // Delete markers
                 onEachFrame {[] spawn fn_playerHandleCoverMap;};
@@ -1281,10 +1281,10 @@ switch (_this) do {
     case "START": {
         [] spawn {
             // Exit if game is already ongoing or init has not been called
-            if ((missionNameSpace getVariable "TTT_gameOngoing")) exitWith {
+            if ((missionNamespace getVariable "TTT_gameOngoing")) exitWith {
                 hint "TTT game is already ongoing";
             };
-            missionNameSpace setVariable ["TTT_gameOngoing", true, true];
+            missionNamespace setVariable ["TTT_gameOngoing", true, true];
             missionNamespace setVariable ["TTT_startingDone", false];
             missionNamespace setVariable ["TTT_preparingDone", false];
 
@@ -1305,8 +1305,8 @@ switch (_this) do {
     // End game
     case "STOP": {
         [] call {
-            missionNameSpace setVariable ["TTT_overtime", false, true];
-            missionNameSpace setVariable ["TTT_timeLeft", missionNameSpace getVariable "TTT_timeLimit", true];
+            missionNamespace setVariable ["TTT_overtime", false, true];
+            missionNamespace setVariable ["TTT_timeLeft", missionNamespace getVariable "TTT_timeLimit", true];
 
             // Delete loot
             {
@@ -1315,9 +1315,9 @@ switch (_this) do {
                 clearItemCargoGlobal _x;
                 clearBackpackCargoGlobal _x;
                 deleteVehicle _x;
-            } foreach (missionNameSpace getVariable "TTT_lootDrops");
+            } foreach (missionNamespace getVariable "TTT_lootDrops");
             { deleteVehicle _x; } forEach nearestObjects [[4200,4150],["WeaponHolder","GroundWeaponHolder"],160];
-            missionNameSpace setVariable ["TTT_lootDrops", [], true];
+            missionNamespace setVariable ["TTT_lootDrops", [], true];
 
             // Respawn dead players
             sleep 5;
@@ -1331,7 +1331,7 @@ switch (_this) do {
                 };
             } foreach allPlayers;
             "SPAWN" remoteExec ["ZO_fnc_TTT", _alivePlayers];
-            missionNameSpace setvariable ["respawnWave", false, true];
+            missionNamespace setvariable ["respawnWave", false, true];
         };
     };
 
@@ -1340,7 +1340,7 @@ switch (_this) do {
         [player] join grpNull; // Leave group
         player allowDamage false;
         player enableStamina false;
-        player setPosASL (missionNameSpace getVariable "RESPAWN_POSITION"); // Move to spawn
+        player setPosASL (missionNamespace getVariable "RESPAWN_POSITION"); // Move to spawn
         "WAITING" spawn fn_playerUnitTracker; // Reinitialize unitTracker
         [] spawn fn_playerHandleRespawn; // Handle respawn
         [] spawn fn_playerGearStart; // Gear start
@@ -1352,7 +1352,7 @@ switch (_this) do {
 
         waitUntil {!alive player};
 
-        if (!(missionNameSpace getVariable "TTT_gameOngoing")) then {
+        if (!(missionNamespace getVariable "TTT_gameOngoing")) then {
             // respawn
             setPlayerRespawnTime 0.1;
             sleep 1;
