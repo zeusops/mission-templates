@@ -136,6 +136,7 @@ fn_endGameTextI = {
 
 fn_gameTextStarting = {
     _time = (missionNameSpace getVariable "TTT_timeLimitStarting");
+    missionNamespace setVariable ["TTT_startingDone", false];
     while {_time > 0} do {
         _timeString = ([((_time)/60)+.01,"HH:MM"] call BIS_fnc_timetostring);
         _timeString remoteExec ["fn_startingText", allPlayers];
@@ -143,10 +144,12 @@ fn_gameTextStarting = {
         _time = _time - 1;
         sleep 1;
     };
+    missionNamespace setVariable ["TTT_startingDone", true];
 };
 
 fn_gameTextPreparing = {
     _time = (missionNameSpace getVariable "TTT_timeLimitPreparing");
+    missionNamespace setVariable ["TTT_preparingDone", false];
     while {_time > 0} do {
         _timeString = ([((_time)/60)+.01,"HH:MM"] call BIS_fnc_timetostring);
         _timeString remoteExec ["fn_preparingText", allPlayers];
@@ -154,6 +157,7 @@ fn_gameTextPreparing = {
         _time = _time - 1;
         sleep 1;
     };
+    missionNamespace setVariable ["TTT_preparingDone", true];
 };
 
 fn_gameTextEnding = {
@@ -1277,19 +1281,21 @@ fn_setTexture = {
 switch (_this) do {
     // Start game
     case "START": {
-        [] call {
+        [] spawn {
             // Exit if game is already ongoing or init has not been called
             if ((missionNameSpace getVariable "TTT_gameOngoing")) exitWith {
                 hint "TTT game is already ongoing";
             };
             missionNameSpace setVariable ["TTT_gameOngoing", true, true];
             [] spawn fn_gameTextStarting;
+            waitUntil {missionNamespace getVariable ["TTT_startingDone", false]};
             [] spawn fn_playerGearStart;
             { deleteVehicle _x; } forEach allDead;
             [] spawn fn_lootSpawner;
             [] call fn_makeTeams;
             [] remoteExec ["fn_playerSpawn", allPlayers];
             [] spawn fn_gameTextPreparing;
+            waitUntil {missionNamespace getVariable ["TTT_preparingDone", false]};
             [] spawn fn_handleGame;
             [] spawn fn_gameText;
         };
