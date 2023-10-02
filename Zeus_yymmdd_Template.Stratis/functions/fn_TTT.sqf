@@ -136,7 +136,6 @@ fn_endGameTextI = {
 
 fn_gameTextStarting = {
     _time = (missionNameSpace getVariable "TTT_timeLimitStarting");
-    missionNamespace setVariable ["TTT_startingDone", false];
     while {_time > 0} do {
         _timeString = ([((_time)/60)+.01,"HH:MM"] call BIS_fnc_timetostring);
         _timeString remoteExec ["fn_startingText", allPlayers];
@@ -149,7 +148,6 @@ fn_gameTextStarting = {
 
 fn_gameTextPreparing = {
     _time = (missionNameSpace getVariable "TTT_timeLimitPreparing");
-    missionNamespace setVariable ["TTT_preparingDone", false];
     while {_time > 0} do {
         _timeString = ([((_time)/60)+.01,"HH:MM"] call BIS_fnc_timetostring);
         _timeString remoteExec ["fn_preparingText", allPlayers];
@@ -1287,6 +1285,9 @@ switch (_this) do {
                 hint "TTT game is already ongoing";
             };
             missionNameSpace setVariable ["TTT_gameOngoing", true, true];
+            missionNamespace setVariable ["TTT_startingDone", false];
+            missionNamespace setVariable ["TTT_preparingDone", false];
+
             [] spawn fn_gameTextStarting;
             waitUntil {missionNamespace getVariable ["TTT_startingDone", false]};
             [] spawn fn_playerGearStart;
