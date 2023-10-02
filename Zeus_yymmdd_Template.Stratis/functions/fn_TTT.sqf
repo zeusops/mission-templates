@@ -1298,7 +1298,7 @@ fn_playerUnitTracker = {
 };
 
 fn_setTexture = {
-    diag_log "DEBUG fn_setTexture";
+    // diag_log "DEBUG fn_setTexture";
     (_this select 0) setObjectTexture [0, (_this select 1)];
 };
 
