@@ -3,7 +3,7 @@
 ////////////////////////////////////////////////
 
 onLoadMission = "Zeus Operations";
-loadScreen = "files\Z4.jpg";
+loadScreen = "files\asd.jpg";
 onLoadName = "ANNIVERSARY";
 author = "Art by Asimov, Games by Angel and JIBY!";
 
@@ -36,7 +36,9 @@ enableDebugConsole[] = {
   // Miller
   "76561198024756265",
   // Jib
-  "76561198009490537"
+  "76561198009490537",
+  // Zuzu
+  "76561197987452978"
 };
 enableTargetDebug = 1;
 corpseManagerMode = 3;

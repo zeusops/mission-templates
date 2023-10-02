@@ -8,4 +8,4 @@ if ((missionNameSpace getVariable "playerGear") isEqualTo []) then {
 };
 
 //Angel - 2023-08-10 Add TTT spawn INIT
-//"SPAWN" call ZO_fnc_TTT;
+"SPAWN" call ZO_fnc_TTT;

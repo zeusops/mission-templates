@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////////////
-//DeRap: Zeus_yymmdd_tag11.zargabad\mission.sqm
+//DeRap: mission.sqm
 //Produced from mikero's Dos Tools Dll version 7.46
 //https://bytex.market/products/item/weodpphdknnzm70o0h8q/Mikero%27s%20Dos%20Tools
-//'now' is Wed Sep 27 00:01:26 2023 : 'file' last modified on Tue Sep 26 15:30:03 2023
+//'now' is Tue Oct 17 19:54:07 2023 : 'file' last modified on Tue Oct 17 19:53:43 2023
 ////////////////////////////////////////////////////////////////////
 
 #define _ARMA_
@@ -17,23 +17,23 @@ class EditorData
 	toggles = 1;
 	class ItemIDProvider
 	{
-		nextID = 102;
+		nextID = 101;
 	};
 	class Camera
 	{
-		pos[] = {4226.08,46.701164,4185.2295};
-		dir[] = {-0.29537195,-0.51997656,-0.801501};
-		up[] = {-0.17980349,0.85417813,-0.48790202};
-		aside[] = {-0.93832165,4.284084e-08,0.3457931};
+		pos[] = {4217.8584,26.048489,4140.9023};
+		dir[] = {0.13506083,-0.47350425,0.8703749};
+		up[] = {0.07260728,0.8807915,0.46790436};
+		aside[] = {0.9881735,-7.450581e-09,-0.15334028};
 	};
 };
-sourceName = "Zeus_yymmdd_tag8";
-addons[] = {"A3_Modules_F_Curator_Curator","A3_Characters_F","A3_Data_F_Curator_Virtual","A3_Modules_F_StrategicMap","A3_Structures_F_Mil_Helipads","zeusops_addon","Werthles_WHK","A3_Structures_F_Bootcamp_Civ_Camping","CUP_Buildings_Config","A3_Ui_F"};
+sourceName = "Zeus_231000";
+addons[] = {"A3_Modules_F_Curator_Curator","A3_Characters_F","A3_Data_F_Curator_Virtual","A3_Modules_F_StrategicMap","A3_Structures_F_Mil_Helipads","zeusops_addon","Werthles_WHK","A3_Structures_F_Bootcamp_Civ_Camping","A3_Ui_F"};
 class AddonsMetaData
 {
 	class List
 	{
-		items = 10;
+		items = 9;
 		class Item0
 		{
 			className = "A3_Modules_F_Curator";
@@ -89,11 +89,6 @@ class AddonsMetaData
 		};
 		class Item8
 		{
-			className = "CUP_Buildings_Config";
-			name = "CUP_Buildings_Config";
-		};
-		class Item9
-		{
 			className = "A3_Ui_F";
 			name = "Arma 3 - User Interface";
 			author = "Bohemia Interactive";
@@ -129,7 +124,7 @@ class Mission
 	};
 	class Entities
 	{
-		items = 21;
+		items = 20;
 		class Item0
 		{
 			dataType = "Logic";
@@ -6915,55 +6910,8 @@ class Mission
 		};
 		class Item19
 		{
-			dataType = "Object";
-			class PositionInfo
-			{
-				position[] = {4216.005,21.855658,4146.84};
-			};
-			side = "Empty";
-			class Attributes
-			{
-				disableSimulation = 1;
-				dynamicSimulation = 1;
-			};
-			id = 100;
-			type = "Land_Podesta_10";
-			atlOffset = 4.9362755;
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property = "allowDamage";
-					expression = "_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							singleType = "BOOL";
-							value = 0;
-						};
-					};
-				};
-				class Attribute1
-				{
-					property = "hideObject";
-					expression = "if !(is3DEN) then {_this hideobjectglobal _value;};";
-					class Value
-					{
-						class data
-						{
-							singleType = "BOOL";
-							value = 1;
-						};
-					};
-				};
-				nAttributes = 2;
-			};
-		};
-		class Item20
-		{
 			dataType = "Marker";
-			position[] = {4200.258,17.0,4160.5264};
+			position[] = {4200.742,16.962122,4158.6514};
 			name = "coverMapAreaCenter";
 			markerType = "RECTANGLE";
 			type = "rectangle";
@@ -6972,7 +6920,8 @@ class Mission
 			b = 238.43222;
 			angle = 0.080534734;
 			drawBorder = 1;
-			id = 101;
+			id = 100;
+			atlOffset = -0.037878036;
 		};
 	};
 };

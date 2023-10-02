@@ -9,9 +9,9 @@ _fullArsenal = true;  // Set to false if you've manually set up a limited arsena
 
 //Angel 2023-08-10 Added TTT config
 // TTT
-//_traitorRate = 0.3;
-//_timePreparing = 30;
-//_timeBeforeOvertime = 300;
+_traitorRate = 0.3;
+_timePreparing = 30;
+_timeBeforeOvertime = 300;
 
 // Angel 2023-09-26 Added Tag config
 missionNameSpace setVariable ["Tag_isContagionMode", true, true];
@@ -63,14 +63,14 @@ missionNameSpace setVariable ["autoBodybagTeams", _plane + _armor + _air + _moto
 
 //Angel 2023-08-10 Added TTT config
 // TTT
-//missionNameSpace setVariable ["TTT_traitorRate", _traitorRate, true];
-//missionNameSpace setVariable ["TTT_timeLimitStarting", 5, true];
-//missionNameSpace setVariable ["TTT_timeLimitPreparing", _timePreparing, true];
-//missionNameSpace setVariable ["TTT_timeLimit", _timeBeforeOvertime, true];
-//missionNameSpace setVariable ["TTT_timeLimitEnding", 5, true];
-//missionNameSpace setVariable ["TTT_timeLeft", _timeBeforeOvertime, true];
-//missionNameSpace setVariable ["TTT_gameOngoing", false, true];
-//missionNameSpace setVariable ["TTT_overtime", false, true];
+missionNameSpace setVariable ["TTT_traitorRate", _traitorRate, true];
+missionNameSpace setVariable ["TTT_timeLimitStarting", 5, true];
+missionNameSpace setVariable ["TTT_timeLimitPreparing", _timePreparing, true];
+missionNameSpace setVariable ["TTT_timeLimit", _timeBeforeOvertime, true];
+missionNameSpace setVariable ["TTT_timeLimitEnding", 5, true];
+missionNameSpace setVariable ["TTT_timeLeft", _timeBeforeOvertime, true];
+missionNameSpace setVariable ["TTT_gameOngoing", false, true];
+missionNameSpace setVariable ["TTT_overtime", false, true];
 
 [] spawn ZO_fnc_drawEditorObjects;
 [] spawn ZO_fnc_coverMap;
