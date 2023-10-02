@@ -1,5 +1,8 @@
 #!/bin/bash
 set -euo pipefail
+
+map=${1:-Stratis}
+
 for x in makepbo.linux makepbo makepbo.exe; do
   if command -v $x &> /dev/null; then
     cmd=$x
@@ -9,4 +12,4 @@ if [ -z "${cmd:-}" ]; then
   >&2 echo makepbo not found
   exit 1
 fi
-$cmd -N Zeus_yymmdd_Template.Stratis Zeus_yymmdd_Template-$(git describe).Stratis
+$cmd -N Zeus_yymmdd_Template.Stratis Zeus_yymmdd_Template-$(git describe).$map
