@@ -944,7 +944,7 @@ fn_playerHandleCoverMap = {
 
 fn_playerSpawn = {
     player allowDamage true;
-    player setPos (missionNameSpace getVariable "RESPAWN_POSITION"); // Move to spawn
+    player setPosASL (missionNameSpace getVariable "RESPAWN_POSITION"); // Move to spawn
     "INNOCENT" remoteExec ["fn_playerUnitTracker", allPlayers];
     (missionNameSpace getVariable "respawnTimeInfinite") remoteExec ["setPlayerRespawnTime", allPlayers];
 };
@@ -1333,7 +1333,7 @@ switch (_this) do {
         [player] join grpNull; // Leave group
         player allowDamage false;
         player enableStamina false;
-        player setPos (missionNameSpace getVariable "RESPAWN_POSITION"); // Move to spawn
+        player setPosASL (missionNameSpace getVariable "RESPAWN_POSITION"); // Move to spawn
         "WAITING" spawn fn_playerUnitTracker; // Reinitialize unitTracker
         [] spawn fn_playerHandleRespawn; // Handle respawn
         [] spawn fn_playerGearStart; // Gear start
