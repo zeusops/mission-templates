@@ -1377,6 +1377,7 @@ switch (_this) do {
     };
 
     case "INIT": {
+        "SPAWN" spawn ZO_fnc_TTT;
         [] spawn fn_playerGearLock;
         onEachFrame {[] spawn fn_playerHandleCoverMap;};
 
