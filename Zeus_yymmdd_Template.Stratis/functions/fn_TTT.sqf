@@ -461,7 +461,7 @@ fn_playerHandleCoverMap = {
     _size = (getMarkerSize "coverMapAreaCenter");
 
     fn_inCoverMap = {
-    diag_log "DEBUG fn_inCoverMap";
+        // diag_log "DEBUG fn_inCoverMap";
         (((_this select 0) >= ((_center select 0) - (_size select 0))) &&
         ((_this select 0) <= ((_center select 0) + (_size select 0))) &&
         ((_this select 1) >= ((_center select 1) - (_size select 1))) &&
