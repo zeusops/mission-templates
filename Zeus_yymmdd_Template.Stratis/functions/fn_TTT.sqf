@@ -1390,3 +1390,10 @@ switch (_this) do {
         };
     };
 };
+
+// TODO:
+//   - remove debugs
+//   - fix marker removal
+//   - revert fixed roles
+//   - fix spectator
+//   - heal everybody after the round
