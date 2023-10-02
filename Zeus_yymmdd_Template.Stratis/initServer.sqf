@@ -20,7 +20,6 @@ missionNameSpace setVariable ["Tag_isContagionMode", true, true];
 //        DO NOT EDIT BELOW THIS LINE         //
 ////////////////////////////////////////////////
 
-missionNameSpace setVariable ["initDone", false, true];
 ["Initialize"] call zeusops_fnc_dynamicGroups;
 TF_give_microdagr_to_soldier = false;
 _handle = execVM format["factions\%1.sqf", _faction];
@@ -72,8 +71,5 @@ missionNameSpace setVariable ["TTT_timeLeft", _timeBeforeOvertime, true];
 missionNameSpace setVariable ["TTT_gameOngoing", false, true];
 missionNameSpace setVariable ["TTT_overtime", false, true];
 
-[] spawn ZO_fnc_drawEditorObjects;
 [] spawn ZO_fnc_coverMap;
 [] spawn ZO_fnc_showFPS;
-[] spawn ZO_fnc_respawnHandle;
-missionNameSpace setVariable ["initDone", true, true];
