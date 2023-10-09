@@ -17,6 +17,7 @@ respawnButton = 0;
 respawnDelay = 5;
 respawnDialog = 0;
 respawnOnStart = -1;
+respawnTemplates[] = {"Spectator"};
 disabledAI = 1;
 briefing = 0;
 debriefing = 0;
