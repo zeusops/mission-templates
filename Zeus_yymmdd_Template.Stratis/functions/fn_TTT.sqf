@@ -277,7 +277,7 @@ fn_handleGame = {
 
 fn_lootSpawner = {
     diag_log "DEBUG fn_lootSpawner";
-    _objects = nearestObjects [(getMarkerPos "coverMapAreaCenter"), ["Static"], (getMarkerSize "coverMapAreaCenter")];
+    _objects = nearestObjects [(getMarkerPos "coverMapAreaCenter"), ["Static"], (getMarkerSize "coverMapAreaCenter") select 0];
     _buildings = [];
     _lootPositions = [];
 
