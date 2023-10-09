@@ -1008,7 +1008,7 @@ fn_playerUnitTracker = {
                 // Spawn or update markers
                 onEachFrame {
                     {
-                        _markerName = (format ["%1_W", _x]);
+                        _markerName = (format ["%1_W", name _x]);
                         if (getMarkerColor _markerName == "") then {
                             // Create marker
                             _mk = createMarkerLocal [_markerName, (getPosVisual _x)];
@@ -1029,7 +1029,7 @@ fn_playerUnitTracker = {
                 // Delete markers
                 onEachFrame {[] spawn fn_playerHandleCoverMap;};
                 {
-                    deleteMarkerLocal (format ["%1_W", _x]);
+                    deleteMarkerLocal (format ["%1_W", name _x]);
                 } foreach allPlayers;
             };
         };
@@ -1039,7 +1039,7 @@ fn_playerUnitTracker = {
             [] spawn {
                 // Spawn or update markers
                 onEachFrame {
-                    _markerName = (format ["%1_I", player]);
+                    _markerName = (format ["%1_I", name player]);
                     if (getMarkerColor _markerName == "") then {
                         // Create marker
                         _mk = createMarkerLocal [_markerName, (getPosVisual player)];
@@ -1061,7 +1061,7 @@ fn_playerUnitTracker = {
 
                 // Delete markers
                 onEachFrame {[] spawn fn_playerHandleCoverMap;};
-                deleteMarkerLocal (format ["%1_I", player]);
+                deleteMarkerLocal (format ["%1_I", name player]);
             };
         };
 
@@ -1070,7 +1070,7 @@ fn_playerUnitTracker = {
             [] spawn {
                 // Spawn or update markers
                 onEachFrame {
-                    _markerName = (format ["%1_D", player]);
+                    _markerName = (format ["%1_D", name player]);
                     if (getMarkerColor _markerName == "") then {
                         // Create marker
                         _mk = createMarkerLocal [_markerName, (getPosVisual player)];
@@ -1092,7 +1092,7 @@ fn_playerUnitTracker = {
 
                 // Delete markers
                 onEachFrame {[] spawn fn_playerHandleCoverMap;};
-                deleteMarkerLocal (format ["%1_D", player]);
+                deleteMarkerLocal (format ["%1_D", name player]);
             };
         };
 
@@ -1103,7 +1103,7 @@ fn_playerUnitTracker = {
                 onEachFrame {
                     _traitors = missionNamespace getVariable "TTT_traitors";
                     {
-                        _markerName = (format ["%1_T", _x]);
+                        _markerName = (format ["%1_T", name _x]);
                         if (getMarkerColor _markerName == "") then {
                             // Create marker
                             _mk = createMarkerLocal [_markerName, (getPosVisual _x)];
@@ -1146,7 +1146,7 @@ fn_playerUnitTracker = {
                 // Delete markers
                 onEachFrame {[] spawn fn_playerHandleCoverMap;};
                 {
-                    deleteMarkerLocal (format ["%1_T", _x]);
+                    deleteMarkerLocal (format ["%1_T", name _x]);
                 } foreach allPlayers;
             };
         };
@@ -1159,7 +1159,7 @@ fn_playerUnitTracker = {
                     _traitors = missionNamespace getVariable "TTT_traitors";
                     _detective = missionNamespace getVariable "TTT_detective";
                     {
-                        _markerName = (format ["%1_IO", _x]);
+                        _markerName = (format ["%1_IO", name _x]);
                         if (getMarkerColor _markerName == "") then {
                             // Create marker
                             _mk = createMarkerLocal [_markerName, (getPosVisual _x)];
@@ -1197,7 +1197,7 @@ fn_playerUnitTracker = {
                         };
                     } foreach _innocents;
                     {
-                        _markerName = (format ["%1_TO", _x]);
+                        _markerName = (format ["%1_TO", name _x]);
                         if (getMarkerColor _markerName == "") then {
                             // Create marker
                             _mk = createMarkerLocal [_markerName, (getPosVisual _x)];
@@ -1235,7 +1235,7 @@ fn_playerUnitTracker = {
                         };
                     } foreach _traitors;
                     if (_detective != objNull) then {
-                        _markerName = (format ["%1_DO", _detective]);
+                        _markerName = (format ["%1_DO", name _detective]);
                         if (getMarkerColor _markerName == "") then {
                             // Create marker
                             _mk = createMarkerLocal [_markerName, (getPosVisual _detective)];
@@ -1281,13 +1281,13 @@ fn_playerUnitTracker = {
                 // Delete markers
                 onEachFrame {[] spawn fn_playerHandleCoverMap;};
                 {
-                    deleteMarkerLocal (format ["%1_IO", _x]);
+                    deleteMarkerLocal (format ["%1_IO", name _x]);
                 } foreach allPlayers;
                 {
-                    deleteMarkerLocal (format ["%1_TO", _x]);
+                    deleteMarkerLocal (format ["%1_TO", name _x]);
                 } foreach allPlayers;
                 {
-                    deleteMarkerLocal (format ["%1_DO", _x]);
+                    deleteMarkerLocal (format ["%1_DO", name _x]);
                 } foreach allPlayers;
             };
         };
@@ -1390,5 +1390,4 @@ switch (_this) do {
 
 // TODO:
 //   - remove debugs
-//   - fix marker removal
 //   - heal everybody after the round
