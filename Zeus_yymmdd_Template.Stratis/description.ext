@@ -2,7 +2,7 @@
 //             EDITABLE VARIABLES             //
 ////////////////////////////////////////////////
 
-onLoadMission = "Zeus Operations";
+onLoadMission = "Zeusops";
 loadScreen = "files\asd.jpg";
 onLoadName = "ANNIVERSARY";
 author = "Art by Asimov, Games by Angel and JIBY!";
@@ -81,7 +81,7 @@ class cfgFunctions {
 			class unitTracker;
 			class tag;
 			class fuelConsumption;
-			class TTT;  //Angel 2023-08-10 Load TTT 
+			class TTT;  //Angel 2023-08-10 Load TTT
 		};
 	};
 };
