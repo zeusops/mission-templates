@@ -27,8 +27,19 @@ class EditorData
 		aside[] = {0.9881735,-7.450581e-09,-0.15334028};
 	};
 };
-sourceName = "Zeus_231000";
-addons[] = {"A3_Modules_F_Curator_Curator","A3_Characters_F","A3_Data_F_Curator_Virtual","A3_Modules_F_StrategicMap","A3_Structures_F_Mil_Helipads","zeusops_addon","Werthles_WHK","A3_Structures_F_Bootcamp_Civ_Camping","A3_Ui_F"};
+sourceName = "Zeus_yymmdd_tag8";
+addons[] = {
+	"A3_Modules_F_Curator_Curator",
+	"A3_Characters_F",
+	"A3_Data_F_Curator_Virtual",
+	"A3_Modules_F_StrategicMap",
+	"A3_Structures_F_Mil_Helipads",
+	"zeusops_addon",
+	"Werthles_WHK",
+	"A3_Structures_F_Bootcamp_Civ_Camping",
+	"CUP_Buildings_Config",
+	"A3_Ui_F"
+};
 class AddonsMetaData
 {
 	class List
@@ -75,11 +86,6 @@ class AddonsMetaData
 			name = "zeusops_addon";
 			author = "Zeus Operations";
 		};
-		class Item6
-		{
-			className = "Werthles_WHK";
-			name = "Werthles_WHK";
-		};
 		class Item7
 		{
 			className = "A3_Structures_F_Bootcamp";
@@ -88,6 +94,11 @@ class AddonsMetaData
 			url = "https://www.arma3.com";
 		};
 		class Item8
+		{
+			className = "CUP_Buildings_Config";
+			name = "CUP_Buildings_Config";
+		};
+		class Item6
 		{
 			className = "A3_Ui_F";
 			name = "Arma 3 - User Interface";
