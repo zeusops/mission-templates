@@ -12,4 +12,6 @@ if [ -z "${cmd:-}" ]; then
   >&2 echo makepbo not found
   exit 1
 fi
-$cmd -N Zeus_yymmdd_Template.Stratis Zeus_yymmdd_Template-$(git describe).$map
+outfile="Zeus_yymmdd_Template-$(git describe).$map"
+$cmd -N Zeus_yymmdd_Template.Stratis "$outfile"
+cp "$outfile.pbo" ~/link/arma/mpmissions
