@@ -6712,177 +6712,6 @@ class Mission
 			type = "HeadlessClient_F";
 			atlOffset = 2.0600119;
 		};
-		class Item17
-		{
-			dataType = "Logic";
-			class PositionInfo
-			{
-				position[] = {3908.1433,16.663877,3169.627};
-				angles[] = {6.245703,0.0,0.019996032};
-			};
-			id = 98;
-			type = "Werthles_moduleWHM";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property = "Werthles_moduleWHM_Ignores";
-					expression = "_this setVariable ['Ignores',_value,true];";
-					class Value
-					{
-						class data
-						{
-							singleType = "STRING";
-							value = "UAV";
-						};
-					};
-				};
-				class Attribute1
-				{
-					property = "Werthles_moduleWHM_Debug";
-					expression = "_this setVariable ['Debug',_value,true];";
-					class Value
-					{
-						class data
-						{
-							singleType = "BOOL";
-							value = 0;
-						};
-					};
-				};
-				class Attribute2
-				{
-					property = "Werthles_moduleWHM_UseServer";
-					expression = "_this setVariable ['UseServer',_value,true];";
-					class Value
-					{
-						class data
-						{
-							singleType = "BOOL";
-							value = 0;
-						};
-					};
-				};
-				class Attribute3
-				{
-					property = "Werthles_moduleWHM_Wait";
-					expression = "_this setVariable ['Wait',_value,true];";
-					class Value
-					{
-						class data
-						{
-							singleType = "SCALAR";
-							value = 30.0;
-						};
-					};
-				};
-				class Attribute4
-				{
-					property = "Werthles_moduleWHM_NoDebug";
-					expression = "_this setVariable ['NoDebug',_value,true];";
-					class Value
-					{
-						class data
-						{
-							singleType = "BOOL";
-							value = 1;
-						};
-					};
-				};
-				class Attribute5
-				{
-					property = "Werthles_moduleWHM_Advanced";
-					expression = "_this setVariable ['Advanced',_value,true];";
-					class Value
-					{
-						class data
-						{
-							singleType = "BOOL";
-							value = 1;
-						};
-					};
-				};
-				class Attribute6
-				{
-					property = "Werthles_moduleWHM_Units";
-					expression = "_this setVariable ['Units',_value,true];";
-					class Value
-					{
-						class data
-						{
-							singleType = "STRING";
-							value = "1";
-						};
-					};
-				};
-				class Attribute7
-				{
-					property = "Werthles_moduleWHM_Pause";
-					expression = "_this setVariable ['Pause',_value,true];";
-					class Value
-					{
-						class data
-						{
-							singleType = "SCALAR";
-							value = 3.0;
-						};
-					};
-				};
-				class Attribute8
-				{
-					property = "Werthles_moduleWHM_Delay";
-					expression = "_this setVariable ['Delay',_value,true];";
-					class Value
-					{
-						class data
-						{
-							singleType = "SCALAR";
-							value = 30.0;
-						};
-					};
-				};
-				class Attribute9
-				{
-					property = "Werthles_moduleWHM_DebugOnly";
-					expression = "_this setVariable ['DebugOnly',_value,true];";
-					class Value
-					{
-						class data
-						{
-							singleType = "BOOL";
-							value = 0;
-						};
-					};
-				};
-				class Attribute10
-				{
-					property = "Werthles_moduleWHM_Repeating";
-					expression = "_this setVariable ['Repeating',_value,true];";
-					class Value
-					{
-						class data
-						{
-							singleType = "BOOL";
-							value = 1;
-						};
-					};
-				};
-				class Attribute11
-				{
-					property = "Werthles_moduleWHM_Report";
-					expression = "_this setVariable ['Report',_value,true];";
-					class Value
-					{
-						class data
-						{
-							singleType = "BOOL";
-							value = 1;
-						};
-					};
-				};
-				nAttributes = 12;
-			};
-		};
 		class Item18
 		{
 			dataType = "Object";
@@ -6920,6 +6749,53 @@ class Mission
 			};
 		};
 		class Item19
+		{
+			dataType = "Object";
+			class PositionInfo
+			{
+				position[] = {4216.005,21.855658,4146.84};
+			};
+			side = "Empty";
+			class Attributes
+			{
+				disableSimulation = 1;
+				dynamicSimulation = 1;
+			};
+			id = 100;
+			type = "Land_Podesta_10";
+			atlOffset = 4.9362755;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property = "allowDamage";
+					expression = "_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType = "BOOL";
+							value = 0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property = "hideObject";
+					expression = "if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType = "BOOL";
+							value = 1;
+						};
+					};
+				};
+				nAttributes = 2;
+			};
+		};
+		class Item17
 		{
 			dataType = "Marker";
 			position[] = {4200.742,16.962122,4158.6514};
