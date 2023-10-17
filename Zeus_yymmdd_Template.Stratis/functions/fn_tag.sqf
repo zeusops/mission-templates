@@ -168,6 +168,10 @@ fn_endGame = {
     ] remoteExec ["hint", [0,-2] select isDedicated, true];
     missionNameSpace setVariable ["Tag_gameOngoing", false, true];
     // TODO: untag all players, reset uniform colours
+    {
+        [] remoteExec ["fn_untag_self", _x];
+    } foreach allPlayers;
+
 };
 
 fn_checkEndGame = {
