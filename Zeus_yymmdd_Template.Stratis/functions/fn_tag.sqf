@@ -9,13 +9,13 @@
 
 fn_tag_other = {
     _taggedPlayer = _this;
-    // TODO: call fn_* directly instead of calling ZO_fnc_tag
-    "tag_self" remoteExec ["ZO_fnc_tag", [_taggedPlayer]];
+    // TODO: call fn_* directly instead of calling fn_tag
+    "tag_self" remoteExec ["fn_tag", [_taggedPlayer]];
 };
 
 fn_untag_other = {
     _untaggedPlayer = _this;
-    "untag_self" remoteExec ["ZO_fnc_tag", [_untaggedPlayer]];
+    "untag_self" remoteExec ["fn_tag", [_untaggedPlayer]];
 };
 
 fn_tag_self = {
@@ -191,38 +191,40 @@ fn_checkEndGame = {
 //               FUNCTION LOOP                //
 ////////////////////////////////////////////////
 
-switch (_this) do {
-    case "START": {
-        [] call {
-            // Exit if game is already ongoing or init has not been called
-            if (missionNameSpace getVariable ["Tag_gameOngoing", false]) exitWith {
-                hint "Tag game is already ongoing";
+fn_tag = {
+    switch (_this) do {
+        case "START": {
+            [] call {
+                // Exit if game is already ongoing or init has not been called
+                if (missionNameSpace getVariable ["Tag_gameOngoing", false]) exitWith {
+                    hint "Tag game is already ongoing";
+                };
+                missionNameSpace setVariable ["Tag_gameOngoing", true, true];
+                [] call fn_pickTagger;
+                [] spawn fn_checkEndGame;
             };
-            missionNameSpace setVariable ["Tag_gameOngoing", true, true];
-            [] call fn_pickTagger;
-            [] spawn fn_checkEndGame;
         };
+
+        case "tag_other": {
+            _player = _this select 1;
+            _player call fn_tag_other;
+        };
+
+        case "untag_other": {
+            _player = _this select 1;
+            _player call fn_untag_other;
+        };
+
+        // Locally called by player that gets tagged
+        case "tag_self": {
+            [] call fn_tag_self;
+        };
+
+        // Locally called by player that gets untagged
+        case "untag_self": {
+            [] call fn_untag_self;
+
+        };
+
     };
-
-    case "tag_other": {
-        _player = _this select 1;
-        _player call fn_tag_other;
-    };
-
-    case "untag_other": {
-        _player = _this select 1;
-        _player call fn_untag_other;
-    };
-
-    // Locally called by player that gets tagged
-    case "tag_self": {
-        [] call fn_tag_self;
-    };
-
-    // Locally called by player that gets untagged
-    case "untag_self": {
-        [] call fn_untag_self;
-
-    };
-
 };
