@@ -167,6 +167,7 @@ fn_gameTextEnding = {
         _time = _time - 1;
         sleep 1;
     };
+    hint "";
 };
 
 fn_gameText = {
