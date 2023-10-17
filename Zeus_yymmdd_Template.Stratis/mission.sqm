@@ -35,7 +35,6 @@ addons[] = {
 	"A3_Modules_F_StrategicMap",
 	"A3_Structures_F_Mil_Helipads",
 	"zeusops_addon",
-	"Werthles_WHK",
 	"A3_Structures_F_Bootcamp_Civ_Camping",
 	"CUP_Buildings_Config",
 	"A3_Ui_F"
