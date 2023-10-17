@@ -972,8 +972,9 @@ fn_playerGearStart = {
     player addItemToBackpack "Medikit";
 
     player setdamage 0;
-    // TODO: check for ace before running
-    [player] call ace_medical_treatment_fnc_fullHealLocal;
+    if (isClass(configFile >> "CfgPatches" >> "ace_medical_treatment")) then {
+        [player] call ace_medical_treatment_fnc_fullHealLocal;
+    };
 };
 
 fn_playerUnitTracker = {
