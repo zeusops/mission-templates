@@ -28,7 +28,7 @@ fn_tag_self = {
     player setVariable ["isTagger", true, false];
 
 
-    _all_untagged = missionNamespace getVariable ["Tag_playersUnmarked", []] - [name player];
+    _all_untagged = (missionNamespace getVariable ["Tag_playersUnmarked", []]) - [name player];
 
     missionNamespace setVariable ["Tag_playersUnmarked", _all_untagged, true];
 
