@@ -164,8 +164,7 @@ fn_endGame = {
     // acknowledge game over
     _winner = (missionNamespace getVariable ["Tag_playersUnmarked", ["missingno"]]) select 0;
     [
-        // FIXME: Doesn't get the name correctly ("Error: No vehicle")
-        parseText (format["<t font='PuristaBold' size='1.6' align='left'>Game Over! %1 is the winner</t>", name _winner])
+        parseText (format["<t font='PuristaBold' size='1.6' align='left'>Game Over! %1 is the winner</t>", _winner])
     ] remoteExec ["hint", [0,-2] select isDedicated, true];
     missionNameSpace setVariable ["Tag_gameOngoing", false, true];
     // TODO: untag all players, reset uniform colours
