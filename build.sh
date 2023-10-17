@@ -14,4 +14,4 @@ if [ -z "${cmd:-}" ]; then
 fi
 outfile="Zeus_yymmdd_Template-$(git describe).$map"
 $cmd -N Zeus_yymmdd_Template.Stratis "$outfile"
-cp "$outfile.pbo" ~/link/arma/mpmissions
+scp "$outfile.pbo" root@zeusops.com:~arma/link/mpmissions
