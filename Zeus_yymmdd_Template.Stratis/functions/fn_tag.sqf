@@ -203,6 +203,11 @@ fn_tag = {
                     diag_log "Tag game is already ongoing";
                 };
                 missionNameSpace setVariable ["Tag_gameOngoing", true, true];
+                if (missionNamespace getVariable ["Tag_isContagionMode", false]) then {
+                    "Contagion mode enabled" remoteExec ["hint", [0,-2] select isDedicated, true];
+                } else {
+                    "Contagion mode disabled" remoteExec ["hint", [0,-2] select isDedicated, true];
+                };
                 [] call fn_pickTagger;
                 [] spawn fn_checkEndGame;
             };
