@@ -74,3 +74,4 @@ missionNameSpace setVariable ["TTT_overtime", false, true];
 [] spawn ZO_fnc_coverMap;
 [] spawn ZO_fnc_showFPS;
 [] spawn ZO_fnc_tag;
+[] spawn ZO_fnc_TTT;

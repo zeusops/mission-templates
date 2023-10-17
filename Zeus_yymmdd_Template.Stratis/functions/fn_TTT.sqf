@@ -239,13 +239,13 @@ fn_handleGame = {
         if (_innocents findIf {alive _x} == -1 && !alive _detective) then {
             [] spawn fn_gameTextEnding;
             [] remoteExec ["fn_endGameTextT", allPlayers];
-            "STOP" call ZO_fnc_TTT;
+            "STOP" call fn_ttt;
         } else {
             // end if all traitors dead
             if (_traitors findIf {alive _x} == -1) then {
                 [] spawn fn_gameTextEnding;
                 [] remoteExec ["fn_endGameTextI", allPlayers];
-                "STOP" call ZO_fnc_TTT;
+                "STOP" call fn_ttt;
             };
         };
 
@@ -1277,91 +1277,90 @@ fn_setTexture = {
 //               FUNCTION LOOP                //
 ////////////////////////////////////////////////
 
-switch (_this) do {
-    // Start game
-    case "START": {
-        [] spawn {
-            // Exit if game is already ongoing or init has not been called
-            if ((missionNamespace getVariable "TTT_gameOngoing")) exitWith {
-                hint "TTT game is already ongoing";
-            };
-            missionNamespace setVariable ["TTT_gameOngoing", true, true];
-            missionNamespace setVariable ["TTT_startingDone", false];
-            missionNamespace setVariable ["TTT_preparingDone", false];
-
-            [] spawn fn_gameTextStarting;
-            waitUntil {missionNamespace getVariable ["TTT_startingDone", false]};
-            [] remoteExec ["fn_playerGearStart", allPlayers];
-            { deleteVehicle _x; } forEach allDead;
-            [] spawn fn_lootSpawner;
-            [] call fn_makeTeams;
-            [] remoteExec ["fn_playerSpawn", allPlayers];
-            [] spawn fn_gameTextPreparing;
-            waitUntil {missionNamespace getVariable ["TTT_preparingDone", false]};
-            [] spawn fn_handleGame;
-            [] spawn fn_gameText;
-        };
-    };
-
-    // End game
-    case "STOP": {
-        [] call {
-            missionNamespace setVariable ["TTT_gameOngoing", false, true];
-            missionNamespace setVariable ["TTT_overtime", false, true];
-            missionNamespace setVariable ["TTT_timeLeft", missionNamespace getVariable "TTT_timeLimit", true];
-
-            // Delete loot
-            {
-                clearWeaponCargoGlobal _x;
-                clearMagazineCargoGlobal _x;
-                clearItemCargoGlobal _x;
-                clearBackpackCargoGlobal _x;
-                deleteVehicle _x;
-            } foreach (missionNamespace getVariable "TTT_lootDrops");
-            { deleteVehicle _x; } forEach nearestObjects [[4200,4150],["WeaponHolder","GroundWeaponHolder"],160];
-            missionNamespace setVariable ["TTT_lootDrops", [], true];
-
-            // Respawn dead players
-            sleep 5;
-            0.1 remoteExec ["setPlayerRespawnTime", allPlayers];
-            sleep 0.5;
-            { deleteVehicle _x; } forEach allDead;
-            _alivePlayers = [];
-            {
-                if (alive _x) then {
-                    _alivePlayers pushback _x;
+fn_ttt = {
+    switch (_this) do {
+        // Start game
+        case "START": {
+            [] spawn {
+                // Exit if game is already ongoing or init has not been called
+                if ((missionNamespace getVariable "TTT_gameOngoing")) exitWith {
+                    hint "TTT game is already ongoing";
                 };
-            } foreach allPlayers;
-            "SPAWN" remoteExec ["ZO_fnc_TTT", _alivePlayers];
-            missionNamespace setvariable ["respawnWave", false, true];
+                missionNamespace setVariable ["TTT_gameOngoing", true, true];
+                missionNamespace setVariable ["TTT_startingDone", false];
+                missionNamespace setVariable ["TTT_preparingDone", false];
+
+                [] spawn fn_gameTextStarting;
+                waitUntil {missionNamespace getVariable ["TTT_startingDone", false]};
+                [] remoteExec ["fn_playerGearStart", allPlayers];
+                { deleteVehicle _x; } forEach allDead;
+                [] spawn fn_lootSpawner;
+                [] call fn_makeTeams;
+                [] remoteExec ["fn_playerSpawn", allPlayers];
+                [] spawn fn_gameTextPreparing;
+                waitUntil {missionNamespace getVariable ["TTT_preparingDone", false]};
+                [] spawn fn_handleGame;
+                [] spawn fn_gameText;
+            };
         };
-    };
 
-    // Spawn player and set default stuff
-    case "SPAWN": {
-        [player] join grpNull; // Leave group
-        player allowDamage false;
-        player enableStamina false;
-        player setPosASL (missionNamespace getVariable "RESPAWN_POSITION"); // Move to spawn
-        "WAITING" spawn fn_playerUnitTracker; // Reinitialize unitTracker
-        [] spawn fn_playerHandleRespawn; // Handle respawn
-        [] spawn fn_playerGearStart; // Gear start
-    };
+        // End game
+        case "STOP": {
+            [] call {
+                missionNamespace setVariable ["TTT_gameOngoing", false, true];
+                missionNamespace setVariable ["TTT_overtime", false, true];
+                missionNamespace setVariable ["TTT_timeLeft", missionNamespace getVariable "TTT_timeLimit", true];
 
-    case "INIT": {
-        "SPAWN" spawn ZO_fnc_TTT;
-        [] spawn fn_playerGearLock;
-        onEachFrame {[] spawn fn_playerHandleCoverMap;};
+                // Delete loot
+                {
+                    clearWeaponCargoGlobal _x;
+                    clearMagazineCargoGlobal _x;
+                    clearItemCargoGlobal _x;
+                    clearBackpackCargoGlobal _x;
+                    deleteVehicle _x;
+                } foreach (missionNamespace getVariable "TTT_lootDrops");
+                { deleteVehicle _x; } forEach nearestObjects [[4200,4150],["WeaponHolder","GroundWeaponHolder"],160];
+                missionNamespace setVariable ["TTT_lootDrops", [], true];
 
-        waitUntil {!alive player};
+                // Respawn dead players
+                sleep 5;
+                0.1 remoteExec ["setPlayerRespawnTime", allPlayers];
+                sleep 0.5;
+                { deleteVehicle _x; } forEach allDead;
+                _alivePlayers = [];
+                {
+                    if (alive _x) then {
+                        _alivePlayers pushback _x;
+                    };
+                } foreach allPlayers;
+                "SPAWN" remoteExec ["fn_ttt", _alivePlayers];
+                missionNamespace setvariable ["respawnWave", false, true];
+            };
+        };
 
-        if (!(missionNamespace getVariable "TTT_gameOngoing")) then {
-            // respawn
-            setPlayerRespawnTime 0.1;
-            sleep 1;
+        // Spawn player and set default stuff
+        case "SPAWN": {
+            [player] join grpNull; // Leave group
+            player allowDamage false;
+            player enableStamina false;
+            player setPosASL (missionNamespace getVariable "RESPAWN_POSITION"); // Move to spawn
+            "WAITING" spawn fn_playerUnitTracker; // Reinitialize unitTracker
+            [] spawn fn_playerHandleRespawn; // Handle respawn
+            [] spawn fn_playerGearStart; // Gear start
+        };
+
+        case "INIT": {
+            "SPAWN" spawn fn_ttt;
+            [] spawn fn_playerGearLock;
+            onEachFrame {[] spawn fn_playerHandleCoverMap;};
+
+            waitUntil {!alive player};
+
+            if (!(missionNamespace getVariable "TTT_gameOngoing")) then {
+                // respawn
+                setPlayerRespawnTime 0.1;
+                sleep 1;
+            };
         };
     };
 };
-
-// TODO:
-//   - remove debugs
