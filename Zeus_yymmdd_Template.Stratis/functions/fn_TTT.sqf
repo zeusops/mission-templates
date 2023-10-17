@@ -238,13 +238,11 @@ fn_handleGame = {
 
         // end if all innocents dead
         if (_innocents findIf {alive _x} == -1 && !alive _detective) then {
-            [] spawn fn_gameTextEnding;
             [] remoteExec ["fn_endGameTextT", allPlayers];
             "STOP" call fn_ttt;
         } else {
             // end if all traitors dead
             if (_traitors findIf {alive _x} == -1) then {
-                [] spawn fn_gameTextEnding;
                 [] remoteExec ["fn_endGameTextI", allPlayers];
                 "STOP" call fn_ttt;
             };
@@ -1307,7 +1305,8 @@ fn_ttt = {
 
         // End game
         case "STOP": {
-            [] call {
+            [] spawn {
+                [] spawn fn_gameTextEnding;
                 missionNamespace setVariable ["TTT_gameOngoing", false, true];
                 missionNamespace setVariable ["TTT_overtime", false, true];
                 missionNamespace setVariable ["TTT_timeLeft", missionNamespace getVariable "TTT_timeLimit", true];
