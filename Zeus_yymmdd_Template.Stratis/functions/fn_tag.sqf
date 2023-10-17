@@ -195,6 +195,7 @@ fn_tag = {
                 // Exit if game is already ongoing or init has not been called
                 if (missionNameSpace getVariable ["Tag_gameOngoing", false]) exitWith {
                     hint "Tag game is already ongoing";
+                    diag_log "Tag game is already ongoing";
                 };
                 missionNameSpace setVariable ["Tag_gameOngoing", true, true];
                 [] call fn_pickTagger;
