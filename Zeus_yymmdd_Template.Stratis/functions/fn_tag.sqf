@@ -159,6 +159,7 @@ fn_pickTagger = {
     // Select tagger
     _playersUnmarkedCount = count _playersUnmarked;
     _playerTagger = (_playersUnmarked deleteAt (round random (_playersUnmarkedCount - 1)));
+    diag_log format["Tagger: %1", _playerTagger];
 
     missionNameSpace setVariable ["Tag_playersUnmarked", _playersUnmarked, true];
 
