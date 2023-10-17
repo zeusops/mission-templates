@@ -16,7 +16,7 @@ fn_tag_other = {
 
 fn_untag_other = {
     _untaggedPlayer = _this;
-    "untag_self" remoteExec ["fn_tag", [_untaggedPlayer]];
+    [] remoteExec ["fn_untag_self", _untaggedPlayer];
 };
 
 fn_tag_self = {
