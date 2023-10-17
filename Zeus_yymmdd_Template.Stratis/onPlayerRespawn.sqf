@@ -2,4 +2,4 @@ _position = missionNameSpace getVariable "RESPAWN_POSITION";
 player setPosASL _position;
 
 //Angel - 2023-08-10 Add TTT spawn INIT
-"SPAWN" call ZO_fnc_TTT;
+// "SPAWN" call ZO_fnc_TTT;
