@@ -162,16 +162,20 @@ fn_pickTagger = {
 
 fn_endGame = {
     // acknowledge game over
-    _winner = (missionNamespace getVariable ["Tag_playersUnmarked", ["missingno"]]) select 0;
-    [
-        parseText (format["<t font='PuristaBold' size='1.6' align='left'>Game Over! %1 is the winner</t>", _winner])
-    ] remoteExec ["hint", [0,-2] select isDedicated, true];
+    if (missionNamespace getVariable ["Tag_isContagionMode", false]) then {
+        _winner = ((missionNamespace getVariable ["Tag_playersUnmarked", []]) + ["missingno"]) select 0;
+        [
+            parseText (format["<t font='PuristaBold' size='1.6' align='left'>Game Over! %1 is the winner</t>", _winner])
+        ] remoteExec ["hint", [0,-2] select isDedicated, true];
+    } else {
+        [
+            parseText "<t font='PuristaBold' size='1.6' align='left'>Game Over!</t>"
+        ] remoteExec ["hint", [0,-2] select isDedicated, true];
+    };
     missionNameSpace setVariable ["Tag_gameOngoing", false, true];
-    // TODO: untag all players, reset uniform colours
     {
         [] remoteExec ["fn_untag_self", _x];
     } foreach allPlayers;
-
 };
 
 fn_checkEndGame = {
