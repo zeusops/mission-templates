@@ -1340,26 +1340,30 @@ fn_ttt = {
 
         // Spawn player and set default stuff
         case "SPAWN": {
-            [player] join grpNull; // Leave group
-            player allowDamage false;
-            player enableStamina false;
-            player setPosASL (missionNamespace getVariable "RESPAWN_POSITION"); // Move to spawn
-            "WAITING" spawn fn_playerUnitTracker; // Reinitialize unitTracker
-            [] spawn fn_playerHandleRespawn; // Handle respawn
-            [] spawn fn_playerGearStart; // Gear start
+            [] spawn {
+                [player] join grpNull; // Leave group
+                player allowDamage false;
+                player enableStamina false;
+                player setPosASL (missionNamespace getVariable "RESPAWN_POSITION"); // Move to spawn
+                "WAITING" spawn fn_playerUnitTracker; // Reinitialize unitTracker
+                [] spawn fn_playerHandleRespawn; // Handle respawn
+                [] spawn fn_playerGearStart; // Gear start
+            }
         };
 
         case "INIT": {
-            "SPAWN" spawn fn_ttt;
-            [] spawn fn_playerGearLock;
-            onEachFrame {[] spawn fn_playerHandleCoverMap;};
+            [] spawn {
+                "SPAWN" spawn fn_ttt;
+                [] spawn fn_playerGearLock;
+                onEachFrame {[] spawn fn_playerHandleCoverMap;};
 
-            waitUntil {!alive player};
+                waitUntil {!alive player};
 
-            if (!(missionNamespace getVariable "TTT_gameOngoing")) then {
-                // respawn
-                setPlayerRespawnTime 0.1;
-                sleep 1;
+                if (!(missionNamespace getVariable "TTT_gameOngoing")) then {
+                    // respawn
+                    setPlayerRespawnTime 0.1;
+                    sleep 1;
+                };
             };
         };
     };
