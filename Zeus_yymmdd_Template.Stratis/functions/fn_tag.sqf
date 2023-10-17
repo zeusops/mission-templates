@@ -10,7 +10,8 @@
 fn_tag_other = {
     _taggedPlayer = _this;
     // TODO: call fn_* directly instead of calling fn_tag
-    "tag_self" remoteExec ["fn_tag", [_taggedPlayer]];
+    diag_log format["_taggedPlayer %1", _taggedPlayer];
+    "tag_self" remoteExec ["fn_tag", _taggedPlayer];
 };
 
 fn_untag_other = {
