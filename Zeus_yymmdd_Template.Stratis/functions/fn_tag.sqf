@@ -39,11 +39,6 @@ fn_tag_self = {
 };
 
 fn_untag_self = {
-    // TODO: move the hint elsewhere
-    if(missionNameSpace getVariable "Tag_isContagionMode") exitWith {
-        hint "Contagion Mode";
-    };
-    hint "Not in Contagion Mode";
     // Save uniform and uniform items
     _uniform = uniform player;
     _uniformItems = [];
@@ -148,14 +143,11 @@ fn_showUntagged = {
 //Angel tag 2023-09-05
 fn_pickTagger = {
     // Fetch alive players
-    _mode = missionNamespace getVariable ["Tag_isContagionMode", false];
-    missionNamespace setVariable ["Tag_isContagionMode", false, true];
     _playersUnmarked = [];
     {
         if (alive _x) then { _playersUnmarked pushback name _x; };
         _x call fn_untag_other;
     } foreach allPlayers;
-    missionNamespace setVariable ["Tag_isContagionMode", _mode, true];
 
     // Select tagger
     _playersUnmarkedCount = count _playersUnmarked;
