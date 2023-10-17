@@ -179,6 +179,7 @@ fn_endGame = {
 };
 
 fn_checkEndGame = {
+    if (!(missionNamespace getVariable ["Tag_isContagionMode", false])) exitWith {};
     while {missionNameSpace getVariable ["Tag_gameOngoing", false]} do {
         sleep 1;
         _all_untagged = missionNamespace getVariable ["Tag_playersUnmarked", []];
