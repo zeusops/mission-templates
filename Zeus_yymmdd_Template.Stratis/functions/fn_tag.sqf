@@ -142,20 +142,21 @@ fn_showUntagged = {
 //Angel tag 2023-09-05
 fn_pickTagger = {
     // Fetch alive players
-    _playersUnmarked = [];
+    _unmarkedNames = [];
+    _unmarkedObjects = [];
     {
-        if (alive _x) then { _playersUnmarked pushback name _x; };
+        if (alive _x) then {
+            _unmarkedNames pushback name _x;
+            _unmarkedObjects pushback _x;
+        };
         _x call fn_untag_other;
     } foreach allPlayers;
 
+    missionNameSpace setVariable ["Tag_playersUnmarked", _unmarkedNames, true];
+
     // Select tagger
-    _playersUnmarkedCount = count _playersUnmarked;
-    _playerTagger = (_playersUnmarked deleteAt (round random (_playersUnmarkedCount - 1)));
+    _playerTagger = selectRandom _unmarkedObjects;
     diag_log format["Tagger: %1", _playerTagger];
-
-    missionNameSpace setVariable ["Tag_playersUnmarked", _playersUnmarked, true];
-
-    // TODO: why doesn't this run correctly?
     _playerTagger call fn_tag_other;
 };
 
