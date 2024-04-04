@@ -1,0 +1,13 @@
+missionNameSpace setVariable ["gearUniform",            "U_B_CombatUniform_mcam", true];
+missionNameSpace setVariable ["gearVest",               "V_PlateCarrier2_rgr", true];
+missionNameSpace setVariable ["gearBackpack",           "B_AssaultPack_mcamo", true];
+missionNameSpace setVariable ["gearHeadgear",           "H_HelmetB", true];
+missionNameSpace setVariable ["gearRadio",              "TFAR_anprc152", true];
+missionNameSpace setVariable ["gearBackpackLeader",     "B_RadioBag_01_mtp_F", true];
+missionNameSpace setVariable ["gearNightvision",        "", true];
+missionNameSpace setVariable ["gearWeapon1Use",         "", true];
+missionNameSpace setVariable ["gearWeaponMain",         ["arifle_MX_F", "30Rnd_65x39_caseless_mag_Tracer", ["optic_hamr", "acc_pointer_ir"]], true];
+missionNameSpace setVariable ["gearWeaponAR",           ["arifle_MX_SW_F", "100Rnd_65x39_caseless_mag_Tracer", ["optic_hamr", "acc_pointer_ir"]], true];
+missionNameSpace setVariable ["gearWeaponGrenadier",    ["arifle_MX_GL_F", "30Rnd_65x39_caseless_mag_Tracer", ["optic_hamr", "acc_pointer_ir"], "1Rnd_HE_Grenade_shell"], true];
+missionNameSpace setVariable ["gearWeaponMarksman",     ["arifle_MXM_F", "30Rnd_65x39_caseless_mag_Tracer", ["optic_lrps"]], true];
+missionNameSpace setVariable ["gearWeaponLauncher",     ["launch_MRAWS_green_F", "MRAWS_HEAT_F", [""]], true];
