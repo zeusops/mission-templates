@@ -1,7 +1,7 @@
-missionNameSpace setVariable ["gearUniform",            "usm_bdu_bnu_ubntgrstp", true];
+missionNameSpace setVariable ["gearUniform",            "UK3CB_LSM_B_U_CombatUniform_07", true];
 missionNameSpace setVariable ["gearVest",               "V_PlateCarrier1_blk", true];
 missionNameSpace setVariable ["gearBackpack",           "B_TacticalPack_blk", true];
-missionNameSpace setVariable ["gearHeadgear",           "usm_helmet_pasgt_ce_gry", true];
+missionNameSpace setVariable ["gearHeadgear",           "H_PASGT_basic_white_F", true];
 missionNameSpace setVariable ["gearRadio",              "TFAR_anprc152", true];
 missionNameSpace setVariable ["gearBackpackLeader",     "TFAR_rt1523g_black", true];
 missionNameSpace setVariable ["gearNightvision",        "NVGoggles_OPFOR", true];
