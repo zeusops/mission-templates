@@ -5,13 +5,13 @@
 // Make sure the ammo fits the weapon.
 // Give best allowed vest, backpack, and helmet that players are allowed (e.g. armored vest instead of chest rig).
 // Give tracer/mixed ammo if possible.
-// Each item needs to be within quotes ""
-// If there is multiple items, meaning attachments and mags, all of the are insdie [] as well
-// Each attachment needs to be withing quotes, and then after each attatchment there needs to be a comma after the quotes
+// Each item needs to be within double quotes: ""
+// If there are multiple items, meaning attachments and mags, all of the are inside [] as well
+// Each attachment needs to be within quotes, and then after each attachment there needs to be a comma after the quotes
 // You can have maximum of 4 attachments, but you can have zero as well. In that case just have [""] in where the attachment should be
 // Example; ["weapon", "mag", [""]];
 // Each line needs to end in a ;
-// Basic info for a weapon line: ["weapon_name", "magazine_name", ["attachment1","attachment2","attachmen3","attachment4"], "secondary_ammunition_if_any"];
+// Basic info for a weapon line: ["weapon_name", "magazine_name", ["attachment1","attachment2","attachment3","attachment4"], "secondary_ammunition_if_any"];
 _uniform = "rhs_uniform_cu_ocp";
 _vest = "rhsusf_spcs_ocp_rifleman_alt";
 _backpack = "B_Kitbag_tan";
