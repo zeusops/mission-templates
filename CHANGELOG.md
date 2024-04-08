@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.51.0] - 2024-04-08
+
+## Changed
+
+- Updated faction templates to match the new version of Project BLUFOR.
+
 ## [1.50.0] - 2022-11-03
 ### Removed
 - Removed Drongo's Air modules
