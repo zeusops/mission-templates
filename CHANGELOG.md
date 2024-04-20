@@ -1,8 +1,14 @@
 # Changelog
 
+## [1.51.1] - 2024-04-20
+
+### Fixed
+
+- Fixed minor typos in German faction config
+
 ## [1.51.0] - 2024-04-08
 
-## Changed
+### Changed
 
 - Updated faction templates to match the new version of Project BLUFOR.
 
