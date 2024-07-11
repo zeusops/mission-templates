@@ -1,0 +1,14 @@
+missionNameSpace setVariable ["gearUniform",            "U_B_CBRN_Suit_01_Wdl_F", true];
+missionNameSpace setVariable ["gearVest",               "V_thor_r2_rgr", true];
+missionNameSpace setVariable ["gearBackpack",           "PB_ASSAULT_MED_Green", true];
+missionNameSpace setVariable ["gearHeadgear",           "rhsgref_helmet_pasgt_erdl", true];
+missionNameSpace setVariable ["gearRadio",              "TFAR_anprc152", true];
+missionNameSpace setVariable ["gearBackpackLeader",     "TFAR_rt1523g_black", true];
+missionNameSpace setVariable ["gearNightvision",        "", true];
+missionNameSpace setVariable ["gearGasMask",            "G_CBRN_B", true];
+missionNameSpace setVariable ["gearWeapon1Use",         "", true];
+missionNameSpace setVariable ["gearWeaponMain",         ["UK3CB_G36_TAC_K", "UK3CB_G36_30rnd_556x45_RT", ["ptv_compm4s"]], true];
+missionNameSpace setVariable ["gearWeaponAR",           ["UK3CB_G36_LSW", "UK3CB_G35_100rnd_556x45_RT", [""]], true];
+missionNameSpace setVariable ["gearWeaponGrenadier",    ["UK3CB_AG36_V", "UK3CB_G35_100rnd_556x45_RT", ["ptv_compm4s"], "rhs_VOG25"], true];
+missionNameSpace setVariable ["gearWeaponMarksman",     ["UK3CB_PSG1A1_RIS", "UK3CB_G3_20rnd_762x51_RT", ["ptv_1a2","optic_SOS"]], true];
+missionNameSpace setVariable ["gearWeaponLauncher",     ["rhs_weap_m136_hp", "", [""]], true];
