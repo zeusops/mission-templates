@@ -63,7 +63,6 @@ missionNameSpace setVariable ["initDone", true, true];
 // Zones can optionally be activated via a variable (see disable_zone_addAction.sqf):
 // [getMarkerPos "Zone_1", 1.5, 10, 1, 5, "cbrn_zone_1_active"] call cbrn_fnc_createZone;
 
-[getMarkerPos "Zone_1", 1.5, 10, 1] call cbrn_fnc_createZone;
-[getMarkerPos "Zone_2", 1.5, 10, 1] call cbrn_fnc_createZone;
-[getMarkerPos "Zone_3", 1.5, 10, 1] call cbrn_fnc_createZone;
-[getMarkerPos "Zone_4", 1.5, 10, 1] call cbrn_fnc_createZone;
+[getMarkerPos "Zone_4", 2.5, 3000, 1000] call cbrn_fnc_createZone;
+[getMarkerPos "Zone_4", 3.5, 1000, 1000] call cbrn_fnc_createZone;
+[getMarkerPos "Zone_4", 4.5, 500, 500] call cbrn_fnc_createZone;
