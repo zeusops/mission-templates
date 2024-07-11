@@ -10,14 +10,9 @@ if (alive _player && {!(_zones isEqualTo [])}) then {
     private _threatLevel = 0;
     private _falloffArea = 0;
     private _dist = 0;
-    private _height = 0;
-    private _active = true;
     {
-        _height = _x getVariable ["cbrn_height", 10];
         _threatLevel = _x getVariable ["cbrn_threatLevel", 0];
-        _variable_name = _x getVariable ["cbrn_activationVariable", ""];
-        _active = missionNamespace getVariable [_variable_name, true];
-        if (_active && getPosATL player select 2 < _height && _max < _threatLevel) then {
+        if (_max < _threatLevel) then {
             _size = _x getVariable ["cbrn_size", 0];
             _dist = _player distance2D _x;
             if( _dist > _size) then {
@@ -84,7 +79,9 @@ if (_player getVariable ["cbrn_using_threat_meter", false]) then {
 };
 
 private _hasChemDetector = "ChemicalDetector_01_watch_F" in (assignedItems _player);
-if (visibleWatch && {_hasChemDetector}) then {
+private _hasGeigerCounter = [_player, cbrn_threatGeiger] call ace_common_fnc_hasItem;
+
+if (_hasChemDetector && {visibleWatch}) then {
     private _ui = uiNamespace getVariable ["RscWeaponChemicalDetector", displayNull];
     if !(isNull _ui) then {
         private _obj = _ui displayCtrl 101;
@@ -92,9 +89,22 @@ if (visibleWatch && {_hasChemDetector}) then {
     };
 };
 
-if !(_hasChemDetector isEqualTo (_player getVariable ["cbrn_detector_beeps", false]))then {
+if (_hasChemDetector isNotEqualTo (_player getVariable ["cbrn_detector_beeps", false]))then {
     _player setVariable ["cbrn_detector_beeps", _hasChemDetector];
     if (cbrn_beep && {cbrn_beepPfh < 0}) then {
         cbrn_beepPfh = [cbrn_fnc_detectorBeepPFH, 0.05, [cba_missiontime]] call CBA_fnc_addPerFrameHandler;
     };
+};
+
+if (_hasGeigerCounter isNotEqualTo (_player getVariable ["cbrn_detector_geiger", false])) then {
+    _player setVariable ["cbrn_detector_geiger", _hasGeigerCounter];
+    if (cbrn_geiger && {cbrn_geigerPfh < 0}) then {
+        cbrn_geigerPfh = [cbrn_fnc_detectorGeigerPFH, 2, [cba_missiontime]] call CBA_fnc_addPerFrameHandler;
+    };
+};
+
+
+if (!(_player getVariable ["cbrn_autoDamage", false]) && {cbrn_healingRate > 0}) then {
+    private _curDamage = _player getVariable ["cbrn_damage", 0];
+    _player setVariable ["cbrn_damage", (_curDamage - (cbrn_healingRate * _delta)) max 0];
 };
