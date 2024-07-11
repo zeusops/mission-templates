@@ -1,12 +1,12 @@
 cbrn_maxDamage = 100; // how much damage before death, 50% starts internal contamination
 cbrn_backpacks = [
+    "B_CombinationUnitRespirator_01_F",
+    "tfar_bussole",
     "B_SCBA_01_F",
-    "rhs_rk_sht_30_emr",
-    "UK3CB_TKA_O_B_RIF_Khk_Radio",
-    "OLIVE_B_RadioBag_01",
-    "clf_Olive_prc117g_co",
-    "unv_olive_big_rt1523g",
-    "rhs_rd54_emr1",
+    "rhs_r148",
+    "rhs_medic_bag",
+    "PB_ASSAULT_MED_Green",
+    "TFAR_rt1523g_black",
     "rhs_rd54_vest_emr1",
     "rhs_rk_sht_30_emr",
     "rhs_rk_sht_30_emr_engineer_empty",
@@ -24,9 +24,39 @@ cbrn_suits = [
     "U_CBRN_B_blue",
     "UK3CB_ADC_C_Pants_U_20",
     "U_CBRN_C_blue",
-    "U_CBRN_B_blue"
+    "U_CBRN_B_black",
+    "U_CBRN_B_green",
+    "U_CBRN_A_woodland",
+    "U_CBRN_A_multicam",
+    "U_CBRN_C_orange",
+    "U_CBRN_C_red",
+    "U_CBRN_C_white",
+    "U_CBRN_C_yellow",
+    "C_CBRN_DLC_bluegreen",
+    "U_CBRN_DLC_cyan",
+    "U_CBRN_DLC_orange",
+    "U_CBRN_DLC_yellow",
+    "U_B_PilotCoveralls"
 ];
-cbrn_masks = ["G_CBRN_A"];
+cbrn_masks = [
+    "G_AirPurifyingRespirator_02_black_F",
+    "G_AirPurifyingRespirator_02_olive_F",
+    "G_AirPurifyingRespirator_02_sand_F",
+    "G_AirPurifyingRespirator_01_F",
+    "G_RegulatorMask_F",
+    "G_CBRN_A",
+    "G_CBRN_A_multicam",
+    "G_BRN_A_woodland",
+    "G_CBRN_B",
+    "G_CBRN_B_black",
+    "G_CBRN_B_blue",
+    "G_CBRN_B_green",
+    "G_CBRN_C_blue",
+    "G_CBRN_C_orange",
+    "G_CBRN_C_red",
+    "G_CBRN_C_white",
+    "G_CBRN_C_yellow"
+];
 cbrn_threatMeteritem = "ACE_microDAGR";
 cbrn_maxOxygenTime = 60 * 30;
 
