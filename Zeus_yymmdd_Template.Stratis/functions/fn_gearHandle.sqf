@@ -416,6 +416,7 @@ fn_gearStart = {
 	player linkItem "ItemCompass";
 	player linkItem "ItemWatch";
 	player addWeapon "Binocular";
+	player linkItem (missionNameSpace getVariable "gearGasMask");
 	if (missionNameSpace getVariable "gearGiveNightvision") then {
 		player linkItem (missionNameSpace getVariable "gearNightvision");
 	};
