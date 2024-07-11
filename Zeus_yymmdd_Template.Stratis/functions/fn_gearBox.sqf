@@ -13,7 +13,6 @@ fn_addAllActions = {
 	[_this, "AT RIFLEMAN"]  call fn_addLoadoutAction;
 	[_this, "AUTORIFLEMAN"] call fn_addLoadoutAction;
 	[_this, "ENGINEER"]     call fn_addLoadoutAction;
-	[_this, "GRENADIER"]    call fn_addLoadoutAction;
 	[_this, "MARKSMAN"]     call fn_addLoadoutAction;
 	[_this, "MEDIC"]        call fn_addLoadoutAction;
 	[_this, "RIFLEMAN"]     call fn_addLoadoutAction;
