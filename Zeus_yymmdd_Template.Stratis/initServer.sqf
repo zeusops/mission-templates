@@ -67,3 +67,38 @@ missionNameSpace setVariable ["initDone", true, true];
 [getMarkerPos "Zone_4", 3.5, 1000, 1000] call cbrn_fnc_createZone;
 [getMarkerPos "Zone_4", 4.5, 500, 500] call cbrn_fnc_createZone;
 cbrn_allowPassiveDamage = 0;
+
+{_x addGoggles "G_AirPurifyingRespirator_02_black_F"} forEach units east;
+addMissionEventHandler ["EntityCreated",{
+  params ["_entity"];
+  if !(_entity isKindOf "CAManBase") exitWith{};
+  if (side _entity == east) then {
+	_entity spawn {
+		_this addGoggles "G_AirPurifyingRespirator_02_black_F";
+	};
+	};
+}];
+
+{_x addUniform "U_C_CBRN_Suit_01_White_F"} forEach units east;
+addMissionEventHandler ["EntityCreated",{
+  params ["_entity"];
+  if !(_entity isKindOf "CAManBase") exitWith{};
+  if (side _entity == east) then {
+	_entity spawn {
+		_this addUniform "U_C_CBRN_Suit_01_White_F";
+	};
+	};
+}];
+
+
+
+{_x addHeadgear "UK3CB_CSAT_U_O_H_6b47_Bare_BLK"} forEach units east;
+addMissionEventHandler ["EntityCreated",{
+  params ["_entity"];
+  if !(_entity isKindOf "CAManBase") exitWith{};
+  if (side _entity == east) then {
+	_entity spawn {
+		_this addHeadgear "UK3CB_CSAT_U_O_H_6b47_Bare_BLK";
+	};
+	};
+}];
