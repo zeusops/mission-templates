@@ -5,8 +5,8 @@
 _faction = "NATO_CBRN"; // All factions are in the factions folder, use custom to edit your own.
 _unitTrackerColor = "ColorBlufor"; // All colors: https://community.bistudio.com/wiki/Arma_3:_CfgMarkerColors
 _nightvision = false; // Set to true if you want players to spawn with nightvision
-_fullArsenal = true;  // Set to false if you've manually set up a limited arsenal in the editor
 _tank_refill_count = 1;  // Set the number of refills available on a single station. -1 = unlimited
+_fullArsenal = false;  // Set to false if you've manually set up a limited arsenal in the editor
 
 ////////////////////////////////////////////////
 //        DO NOT EDIT BELOW THIS LINE         //
@@ -14,7 +14,7 @@ _tank_refill_count = 1;  // Set the number of refills available on a single stat
 
 missionNameSpace setVariable ["initDone", false, true];
 ["Initialize"] call zeusops_fnc_dynamicGroups;
-TF_give_microdagr_to_soldier = false;
+TF_give_microdagr_to_soldier = true;
 _handle = execVM format["factions\%1.sqf", _faction];
 missionNameSpace setVariable ["gearGiveNightvision", _nightvision, true];
 missionNameSpace setVariable ["unitTrackerColor", _unitTrackerColor, true];
