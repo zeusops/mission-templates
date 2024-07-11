@@ -5,8 +5,8 @@
 _faction = "NATO_CBRN"; // All factions are in the factions folder, use custom to edit your own.
 _unitTrackerColor = "ColorBlufor"; // All colors: https://community.bistudio.com/wiki/Arma_3:_CfgMarkerColors
 _nightvision = false; // Set to true if you want players to spawn with nightvision
-_tank_refill_count = 1;  // Set the number of refills available on a single station. -1 = unlimited
 _fullArsenal = false;  // Set to false if you've manually set up a limited arsenal in the editor
+_tank_refill_count = 2;  // Set the number of refills available on a single station. -1 = unlimited
 
 ////////////////////////////////////////////////
 //        DO NOT EDIT BELOW THIS LINE         //
@@ -66,3 +66,4 @@ missionNameSpace setVariable ["initDone", true, true];
 [getMarkerPos "Zone_4", 2.5, 3000, 1000] call cbrn_fnc_createZone;
 [getMarkerPos "Zone_4", 3.5, 1000, 1000] call cbrn_fnc_createZone;
 [getMarkerPos "Zone_4", 4.5, 500, 500] call cbrn_fnc_createZone;
+cbrn_allowPassiveDamage = 0;
