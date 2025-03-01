@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.51.2] - 2025-03-01
+
+### Fixed
+
+- Fixed minor typos in UK faction config
+
 ## [1.51.1] - 2024-04-20
 
 ### Fixed
